@@ -16,16 +16,7 @@ boot/element.run
 boot/segment.run
 code_lists/teleord.txt
 code_lists/teleord.xml
-doc/XML-Edifact-1.html
-doc/XML-Edifact-2.html
-doc/XML-Edifact-3.html
-doc/XML-Edifact-4.html
-doc/XML-Edifact-5.html
-doc/XML-Edifact-6.html
-doc/XML-Edifact-7.html
-doc/XML-Edifact.html
 doc/XML-Edifact.sgml
-doc/XML-Edifact.txt
 examples/edifact03.dtd
 examples/editeur.edi
 examples/elfe2.edi

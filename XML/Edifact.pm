@@ -3,9 +3,6 @@
 # 
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
-#
-# This is a 0.3x version: Anything is still in flux.
-# DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
 package XML::Edifact;
 
@@ -18,7 +15,7 @@ use Carp;
 
 use vars qw($VERSION $debug);
 
-$VERSION='0.40';
+$VERSION='0.41';
 $debug=1;					# debug=1 is fine
 
 # ------------------------------------------------------------------------------
