@@ -1,19 +1,50 @@
+<?xml version="1.0"?>
+
+<?xml:namespace ns='./edicooked03.rdf'		prefix='edicooked' ?>
+<?xml:namespace ns='./edicooked03_trsd.rdf'	prefix='trsd' ?>
+<?xml:namespace ns='./edicooked03_trcd.rdf'	prefix='trcd' ?>
+<?xml:namespace ns='./edicooked03_tred.rdf'	prefix='tred' ?>
+<?xml:namespace ns='./edicooked03_uncl.rdf'	prefix='uncl' ?>
+<?xml:namespace ns='./edicooked03_anxs.rdf'	prefix='anxs' ?>
+<?xml:namespace ns='./edicooked03_anxc.rdf'	prefix='anxc' ?>
+<?xml:namespace ns='./edicooked03_anxe.rdf'	prefix='anxe' ?>
+<?xml:namespace ns='./edicooked03_unsl.rdf'	prefix='unsl' ?>
+<?xml:namespace ns='./edicooked03_unknown.rdf'	prefix='unknown' ?>
+
+<!DOCTYPE edicooked:message SYSTEM "./edicooked03.dtd">
+
 <!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
 
-	<?xml version="1.0"?>
-	<!DOCTYPE edicooked SYSTEM "edicooked02.dtd">
+<edicooked:message
+	xmlns:edicooked='./edicooked03.rdf' 
+	xmlns:trsd='./edicooked03_trsd.rdf'
+	xmlns:trcd='./edicooked03_trcd.rdf'
+	xmlns:tred='./edicooked03_tred.rdf'
+	xmlns:uncl='./edicooked03_uncl.rdf'
+	xmlns:anxs='./edicooked03_anxe.rdf'
+	xmlns:anxc='./edicooked03_anxc.rdf'
+	xmlns:anxe='./edicooked03_anxe.rdf'
+	xmlns:unsl='./edicooked03_unsl.rdf'
+	xmlns:unknown='./edicooked03_unknown.rdf'
+	>
+<!-- SEGMENT NAD+BY+21448::86++Missing Link:Versandbuchhandlung+Westerstrasse. 114-116+Bremen++28199+DE -->
 
-<edicooked>
-<!-- *** NAD+BY+21448::86++Missing Link:Versandbuchhandlung+Westerstrasse. 114-116+Bremen++28199+DE -->
-<name.and.address>
-  <party.qualifier is="BY">Buyer</party.qualifier>
-  <party.id.identification>21448</party.id.identification>
-  <code.list.responsible.agency.coded is="86">Assigned by party originating the message</code.list.responsible.agency.coded>
-  <party.name.literal>Missing Link</party.name.literal>
-  <party.name.literal>Versandbuchhandlung</party.name.literal>
-  <street.and.number.p.o.box>Westerstrasse. 114-116</street.and.number.p.o.box>
-  <city.name>Bremen</city.name>
-  <postcode.identification>28199</postcode.identification>
-  <country.coded>DE</country.coded>
-</name.and.address>
-</edicooked>
+  <trsd:name.and.address>
+      <tred:party.qualifier uncl:code="3035:BY">Buyer</tred:party.qualifier>
+    <trcd:party.identification.details>
+      <tred:party.id.identification>21448</tred:party.id.identification>
+      <tred:code.list.responsible.agency.coded uncl:code="3055:86">Assigned by party originating the message</tred:code.list.responsible.agency.coded>
+    </trcd:party.identification.details>
+    <trcd:party.name>
+      <tred:party.name>Missing Link</tred:party.name>
+      <tred:party.name>Versandbuchhandlung</tred:party.name>
+    </trcd:party.name>
+    <trcd:street>
+      <tred:street.and.number.p.o.box>Westerstrasse. 114-116</tred:street.and.number.p.o.box>
+    </trcd:street>
+      <tred:city.name>Bremen</tred:city.name>
+      <tred:postcode.identification>28199</tred:postcode.identification>
+      <tred:country.coded>DE</tred:country.coded>
+  </trsd:name.and.address>
+
+</edicooked:message>

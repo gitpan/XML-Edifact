@@ -1,0 +1,63 @@
+<HTML>
+<HEAD>
+<TITLE>       XML::Edifact - an approach towards XML/EDI as a prototype in perl: Installation</TITLE>
+</HEAD>
+<BODY>
+<A HREF="XML-Edifact-2.html">Previous</A>
+<A HREF="XML-Edifact-4.html">Next</A>
+<A HREF="XML-Edifact.html#toc3">Table of Contents</A>
+<HR>
+<H2><A NAME="s3">3. Installation</A></H2>
+
+<P>I've included my modified documents, so others can be able to rebuild
+the DBM files. You may need a Unix like system because of newline
+conventions. This current 0.30 version is not intended to become
+"installed", just run everything from this path.</P>
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+        $ ./bin/make_data.sh
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>This will take a while (48 seconds on my Sun 3/60 :-) and you
+hopefully have a working database. Any <CODE>foo.ext changed</CODE>
+messages are a bad thing, and is probately based on a failure
+with packing/unpacking of this distribution.</P>
+<P>You can now test XML::Edifact it with:</P>
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+        $ perl bin/edi2xml.pl examples/nad_buyer.edi
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>You can try other example files, and if you have own EDI files
+try them: I really want to know how your EDI messages look like,
+if they break anything, what about your code list extension, ...</P>
+<P>Testing different real examples should show some bugs, I hav'nt
+thought about.  Think about the <CODE>O'Reilly</CODE> invoice or the
+<CODE>Dubbel:Test</CODE> and you should catch the clue. I've tried to implement
+the <CODE>UNA</CODE> right, but this may need some additional debugging.
+Take a look at the difference between the edi.tst files from Frankfurt
+and the Springer message. The last one is using newline as a 9th
+character in UNA, so its nearly human readable.</P>
+<P>To run a complete test, type</P>
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+        $ perl bin/make_spool.pl
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>This will transform my EDI examples into XML and place them together
+with a DTD in the ./spool directory. You already have those files,
+they are compared with them in the example directory and, if you
+see any <CODE>foo.bar changed</CODE> message, something went wrong.</P>
+<P>Lets talk about the perl way of regression test in the 0.4 version.</P>
+<HR>
+<A HREF="XML-Edifact-2.html">Previous</A>
+<A HREF="XML-Edifact-4.html">Next</A>
+<A HREF="XML-Edifact.html#toc3">Table of Contents</A>
+</BODY>
+</HTML>

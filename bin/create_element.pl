@@ -5,7 +5,7 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.2 version: Anything is still in flux.
+# This is a 0.30 version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
 =head1 NAME
@@ -26,11 +26,12 @@ use XML::Edifact;
 use SDBM_File;
 use Fcntl;
 
-tie(%ELEMT, 'SDBM_File', 'data/element.tie', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.tie:".$!;
+tie(%ELEMT, 'SDBM_File', 'data/element.dat', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.dat:".$!;
+tie(%ELEMR, 'SDBM_File', 'data/element.rev', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.rev:".$!;
 open (OUTFILE, ">data/element.txt") || die "can not open element.txt for writing";
 
 printf STDERR "reading tred.96b\n";
-open (INFILE, "un_edifact_d96b/tred.96b") || die "can not open uncl-1.96b for reading";
+open (INFILE, "un_edifact_d96b/tred.96b") || die "can not open tred for reading";
 while (<INFILE>) {
     chop;	# strip record separator
     if (!($. % 64)) {
@@ -43,9 +44,10 @@ while (<INFILE>) {
 
 	$des = &XML::Edifact::recode_mark($des);
 
-	printf OUTFILE "%s\t%s\t%s\n", $cod, $des;
+	printf OUTFILE "%s\t%s\n", $cod, "tred:".$des;
 
-	$ELEMT{$cod}=$des;
+	$ELEMT{$cod}="tred:".$des;
+	$ELEMR{"tred:".$des}=$cod;
     }
 }
 close(INFILE);

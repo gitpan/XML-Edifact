@@ -5,8 +5,9 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.2 version: Anything is still in flux.
+# This is a 0.30 version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
+#------------------------------------------------------------------------------#
 
 =head1 NAME
 
@@ -18,69 +19,107 @@ create_segment - read trsd to create segment data
 
 =head1 DESCRIPTION
 
-Read TRSD to create segment.txt and segment.dat for further processing
+Parse un_edifact/trsd to create segment.{txt,dat.*,rev.*}
+for further processing in XML::Edifact.pm.
+
+The hash is filled in the following form:
+
+  SEGMT{$segment_tag}=
+  	"$list_of_codes\t$mand_cond_flags\t".\
+  	"$name_space:$cooked_name\t$canon_name";
+
+Codes are seperated by blank, and a "MCCCCCCCC" in NAD is not a
+roman number, but related to the codes and has to tell if a
+composite or element is mandantory or conditional.
+
+The name is stored twice, once translated ready to use, and once
+in the orginal form. A revers index is also build as:
+
+  SEGMR{"$name_space:$cooked_name"}=$segment_tag;
+
+This hash is also available as a tab seperated text file, called
+segment.txt. A segment.xml can serve as a xml representation of
+the trsd contents.
 
 =cut
 
+#------------------------------------------------------------------------------#
+
 use SDBM_File;
 use Fcntl;
+use XML::Edifact;
+use strict;
 
-tie(%SEGMT, 'SDBM_File', 'data/segment.tie', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.tie:".$!;
-tie(%SEGMN, 'SDBM_File', 'data/segment.num', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.num:".$!;
+use vars qw(%SEGMT %SEGMR);
+use vars qw($segment_tag $list_of_codes $mand_cond_flags);
+use vars qw($name_space $cooked_name $canon_name);
+use vars qw($s $f3 $f5 $f7 $f9);
+
+#------------------------------------------------------------------------------#
+tie(%SEGMT, 'SDBM_File', 'data/segment.dat', O_RDWR|O_CREAT, 0644)	|| die "can not tie composite.tie:".$!;
+tie(%SEGMR, 'SDBM_File', 'data/segment.rev', O_RDWR|O_CREAT, 0644)	|| die "can not tie composite.tie:".$!;
 
 open (INFILE, "un_edifact_d96b/trsd.96b") || die "can not open trsd.96b for reading";
-open (OUTFILE, ">data/segment.txt") || die "can not open segment.txt for writing";
+open (TXTFILE, ">data/segment.txt") || die "can not open segment.txt for writing";
+open (XMLFILE, ">data/segment.xml") || die "can not open segment.xml for writing";
 
-printf STDERR "reading trsd.96b\n";
+print STDERR "reading trsd.96b\n";
+print XMLFILE $XML::Edifact::SEGMENT_SPECIFICATION_HEADER;
 
 while (<INFILE>) {
-    chop;	# strip record separator
-    if (!($. % 64)) {
+    chop;					# strip record separator
+    if (!($. % 64)) {				# please hold the line
 	printf STDERR '.';
     }
+    						# ugly gawk shows here ,-)
     $f3 = substr($_,6,4);
     $f5 = substr($_,12,46);
     $f7 = substr($_,59,1);
     $f9 = substr($_,62,7);
 
-    $ok = 0;
-
     if ($_ =~ '^   [+*#|X -][+*#|X -] [A-Z][A-Z][A-Z]   ') {
-	$tag = $f3;
-	$s = " \$", $tag =~ s/$s//;
-	$cod = '';
-	$des = $f5;
-	$s = '^ *', $des =~ s/$s//;
-	$s = " *\$", $des =~ s/$s//;
-	$fnr = 0;
-	$man = '';
-	$typ = '';
-	$ok = 1;
+        flush_segment();
+	$segment_tag = $f3;
+	$s = " \$", $segment_tag =~ s/$s//;
+	$canon_name = $f5;
+	$s = '^ *', $canon_name =~ s/$s//;
+	$s = " *\$", $canon_name =~ s/$s//;
+	$name_space="trsd";
+	$cooked_name=XML::Edifact::recode_mark($canon_name);
     }
 
     if ($_ =~ '^[0-9][0-9][0-9] [+*#|X -] ') {
-	$cod = $f3;
-	$des = $f5;
-	$s = '^ *', $des =~ s/$s//;
-	$s = " *\$", $des =~ s/$s//;
-	$fnr++;
-	$man = $f7;
-	$typ = $f9;
-	$ok = 1;
-    }
-
-    if ($ok) {
-	printf OUTFILE "%s\t%s\t%s\t%s\t%s\t%s\n", $tag, $fnr, $cod, $man, $typ, $des;
-	$SEGMT{$tag."\t".$fnr}=$cod."\t".$man."\t".$typ."\t".$des;
-	$SEGMN{$tag}=$fnr;
+	$list_of_codes .= $f3." ";
+	$mand_cond_flags .= $f7;
     }
 }
 
+flush_segment();
+
 close(INFILE);
-close(OUTFILE);
+close(TXTFILE);
+close(XMLFILE);
 
 untie %SEGMT;
-untie %SEGMN;
+untie %SEGMR;
 print STDERR "\n";
 
+#------------------------------------------------------------------------------#
+sub flush_segment() {
+    if ($segment_tag ne "") {
+    	chop $list_of_codes			 unless $list_of_codes eq "";
+
+	$SEGMT{$segment_tag}="$list_of_codes\t$mand_cond_flags\t$name_space:$cooked_name\t$canon_name";
+	$SEGMR{"$name_space:$cooked_name"}=$segment_tag;
+	print TXTFILE "$segment_tag\t$list_of_codes\t$mand_cond_flags\t$name_space:$cooked_name\t$canon_name\n";
+
+	$segment_tag="";
+	$list_of_codes="";
+	$mand_cond_flags="";
+	$name_space="";
+	$cooked_name="";
+	$canon_name="";
+    }
+}
+#------------------------------------------------------------------------------#
 0;

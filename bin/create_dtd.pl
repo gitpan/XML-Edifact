@@ -5,113 +5,120 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.2 version: Anything is still in flux.
+# This is a 0.30 version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
 use XML::Edifact;
 use strict;
 
-use vars qw($segm $segmt $segmn @segmv $segments);
-use vars qw($comp $compt $compn @compv $elements);
-use vars qw($code $codet $coden @codev);
-use vars qw($debug $i $j $mark $elem %allelem);
+use vars qw($segm $segmt @segmv);
+use vars qw($comp $compt @compv);
+use vars qw($elem $elemt @elemv);
+use vars qw($code %saw @codes @translated);
+use vars qw($s);
+
+use vars qw($debug);
 
 $debug=2;
 
 # -----------------------------------------------------------------------------
 
-print <<HERE_IS_HEADER;
-<!-- XML DTD for cooked EDI to reflect raw UN/EDIFACT -->
-<!-- edicooked02.dtd (c) '98 Kraehe\@Bakunin.North.De -->
-
-<!-- I should warn you that badly written validating XML
-     parsers may have problems by running out of memory.
-
-     Its quite large, I know, but it's not yet complete!
-
-     My first attempt on an automatic generated edicooked02.dtd
-     failed with massive "content model is ambiguous" errors.
-     So I deceided to use a mixed content model to simplify work
-     for XML parsers and also for me.
-
-     Goal of Edicooked02.dtd is that any valid EDI message can
-     be translated into a valid Edicooked message. The revers
-     is NOT true, however! Edicooked does'nt constrain anything
-     about segment groups. XML messages are of Edicooked type
-     and not of EDI-Invoice to point the difference.
-  -->
-
-HERE_IS_HEADER
+print $XML::Edifact::DOCTYPE_HEADER;
  
 &XML::Edifact::open_dbm("data");
-&XML::Edifact::open_num("data");
-
-$segments = "";
-
-foreach $segm (sort(keys %XML::Edifact::SEGMN)) {
-	$segmn=$XML::Edifact::SEGMN{$segm};
-	$segmt=$XML::Edifact::SEGMT{$segm."\t0"};
-	@segmv=split('\t', $segmt, 4);
-	$mark =&XML::Edifact::recode_mark($segmv[3]);
-
-	printf "\n<!-- Segment: %s %s -->\n", $segm, $mark	if ($debug >1);
-
-	$segments .= $mark."|\n\t";
-
-	printf "<!ELEMENT %s (", $mark;
-	$elements = "";
-
-	for ($i=1; $i<=$segmn; $i++) {
-		$segmt=$XML::Edifact::SEGMT{$segm."\t".$i};
-		@segmv=split('\t', $segmt, 4);
-		if ($segmv[0] =~ /^[CS]/) {
-			$comp = $segmv[0];
-			$compn=$XML::Edifact::COMPN{$comp};
-			
-			for ($j=1; $j<=$compn; $j++) {
-				$compt=$XML::Edifact::COMPT{$comp."\t".$j};
-				@compv=split('\t', $compt, 4);
-				$elem = $XML::Edifact::ELEMT{$compv[0]};
-				&run_elem($elem,$compv[0]);
-			}
-		} else {
-			$elem =$XML::Edifact::ELEMT{$segmv[0]};
-			&run_elem($elem,$segmv[0]);
-		}
-	}
-	chop $elements;
-	chop $elements;
-	printf "%s", $elements;
-	printf "\n\t)* >\n";
-}
-
-chop $segments;
-chop $segments;
-chop $segments;
-printf "<!ELEMENT edicooked (\n\t%s)* >\n", $segments;
-
-foreach $code (sort(keys %allelem)) {
-	printf "<!-- %s --> ", $code			if ($debug >1);
-	if ($XML::Edifact::CODEN{$code} eq "") {
-		printf "<!ELEMENT %s (#PCDATA) >\n", $allelem{$code};
-	} else {
-		printf "<!ELEMENT %s (#PCDATA)* >\n", $allelem{$code};
-		printf "              "			if ($debug >1);
-		printf "<!ATTLIST %s is CDATA #REQUIRED >\n", $allelem{$code};
-	}
-}
-
-&XML::Edifact::close_dbm;
-&XML::Edifact::close_num;
 
 # -----------------------------------------------------------------------------
 
-sub run_elem {
-	my ($elem, $code) = @_;
-
-	$elements .= ("\n\t ".$elem." |") unless ($elements =~ / $elem /);
-	$allelem{$code}=$elem;
+@codes       = keys %XML::Edifact::SEGMT;
+%saw         = ();
+@translated  = ();
+@saw{@codes} = ();
+@codes = sort keys %saw;
+foreach $code (@codes) {
+	$segmt=$XML::Edifact::SEGMT{$code};
+	@segmv=split('\t', $segmt, 4);
+	push @translated, $segmv[2];
 }
+
+printf "<!ELEMENT edicooked:message (\n\t  %s\n\t)* >\n",
+	join("\n\t| ", @translated);
+printf "<!ATTLIST edicooked:message\n", $codes[0];
+printf "\t%s CDATA #IMPLIED\n", "xmlns:edicooked";
+printf "\t%s CDATA #IMPLIED\n", "xmlns:trsd";
+printf "\t%s CDATA #IMPLIED\n", "xmlns:trcd";
+printf "\t%s CDATA #IMPLIED\n", "xmlns:tred";
+printf "\t%s CDATA #IMPLIED\n", "xmlns:uncl";
+printf "\t%s CDATA #IMPLIED\n", "xmlns:anxs";
+printf "\t%s CDATA #IMPLIED\n", "xmlns:anxc";
+printf "\t%s CDATA #IMPLIED\n", "xmlns:anxe";
+printf "\t%s CDATA #IMPLIED\n", "xmlns:unsl";
+printf "\t%s CDATA #IMPLIED >\n\n", "xmlns:unknown";
+
+foreach $segm (sort(keys %XML::Edifact::SEGMT)) {
+	$segmt=$XML::Edifact::SEGMT{$segm};
+	@segmv=split('\t', $segmt, 4);
+
+	printf "\n<!-- Segment: %s %s -->\n", $segm, $segmv[3]	if ($debug >1);
+
+	@codes       = split / /,  " ".$segmv[0];
+	%saw         = ();
+	@translated  = ();
+	@saw{@codes} = ();
+	@codes = sort keys %saw;
+
+	foreach $code (@codes) {
+		if ($code =~ /^[CS]/) {
+			$compt=$XML::Edifact::COMPT{$code};
+			@compv=split('\t', $compt, 4);
+			push @translated, $compv[2];
+		} else {
+			$elemt=$XML::Edifact::ELEMT{$code};
+			@elemv=split('\t', $elemt, 4);
+			push @translated, $elemv[0];
+		}
+	}
+
+	shift @translated;
+	printf "<!ELEMENT %s (\n\t  %s\n\t)* >\n", $segmv[2], 
+		join("\n\t| ", @translated);
+}
+
+foreach $comp (sort(keys %XML::Edifact::COMPT)) {
+	$compt=$XML::Edifact::COMPT{$comp};
+	@compv=split('\t', $compt, 4);
+
+	printf "\n<!-- Composite: %s %s -->\n", $comp, $compv[3]	if ($debug >1);
+
+	@codes       = split / /,  " ".$compv[0];
+	%saw         = ();
+	@translated  = ();
+	@saw{@codes} = ();
+	@codes = sort keys %saw;
+
+	foreach $code (@codes) {
+		$elemt=$XML::Edifact::ELEMT{$code};
+		@elemv=split('\t', $elemt, 4);
+		push @translated, $elemv[0];
+	}
+
+	shift @translated;
+	printf "<!ELEMENT %s (\n\t  %s\n\t)* >\n", $compv[2], 
+		join("\n\t| ", @translated);
+}
+
+foreach $elem (sort(keys %XML::Edifact::ELEMT)) {
+	$elemt=$XML::Edifact::ELEMT{$elem};
+	@elemv=split('\t', $elemt, 4);
+	printf "<!ELEMENT %s (#PCDATA) >\n", $elemv[0];
+	if ($XML::Edifact::CODET{$elem."\t"} ne "") {
+		@codes = split('\t', $XML::Edifact::CODET{$elem."\t"});
+		printf "<!ATTLIST $elemv[0] %s:code CDATA #REQUIRED >\n", $codes[0];
+	}
+}
+
+# -----------------------------------------------------------------------------
+
+&XML::Edifact::close_dbm;
 
 # -----------------------------------------------------------------------------
 0;

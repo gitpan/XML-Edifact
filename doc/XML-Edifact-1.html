@@ -1,0 +1,42 @@
+<HTML>
+<HEAD>
+<TITLE>       XML::Edifact - an approach towards XML/EDI as a prototype in perl: Introduction</TITLE>
+</HEAD>
+<BODY>
+Previous
+<A HREF="XML-Edifact-2.html">Next</A>
+<A HREF="XML-Edifact.html#toc1">Table of Contents</A>
+<HR>
+<H2><A NAME="s1">1. Introduction</A></H2>
+
+<P><CODE>EDIFACT</CODE> often called " nightmare of paper less office " once you
+show a programmer the standard draft. Those 2700 pages of horror full
+advisory board English has cursed many programmers with headaches.</P>
+<P>EDIFACT is trying the impossible: a single form for the real world.</P>
+<P>Orders, invoices, fright papers, ..., always look different, if they
+come from different companies. EDIFACT tries to fulfill all needs of
+commercial messages regardless of branch and origin. Of course those
+99% real world is neither simple nor complete.  Nevertheless its
+important for the top companies and their suppliers, you know those
+who can pay a mainframe and a pack of gurus, and in use since 1995.</P>
+<P><CODE>XML/EDI</CODE> is trying to provide a simpler (KISS) format that can be
+translated from and into EDI, to allow smaller companies to avoid
+slaughtering forests and retyping stupid lines into a computer
+keyboard printed by other computers.</P>
+<P>This is <CODE>NOT</CODE> XML/EDI, its certainly not KISS. The <CODE>edicooked.dtd</CODE>
+reflects the original words of the EDIFACT standard as close as possible
+on a segment, composite and element level.</P>
+<P>This DTD simplifies EDI in so much as it doesnt distinct between e.g.
+INVOICE or PRICAT but only defines a generic message type called
+edicooked:message. The benefit is of course that its possible to
+convert any EDI message into edicooked. The drawback is that the dtd
+is realy relaxed. Validation of EDIFACT message design can therefore
+not be done by a validating XML parser. Message designers will still
+need knowledge about EDIFACT message design and EDIFACT tools.</P>
+<P>But once the message is designed its simpler to read it with XML.</P>
+<HR>
+Previous
+<A HREF="XML-Edifact-2.html">Next</A>
+<A HREF="XML-Edifact.html#toc1">Table of Contents</A>
+</BODY>
+</HTML>

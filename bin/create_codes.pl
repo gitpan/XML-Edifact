@@ -5,7 +5,7 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.2 version: Anything is still in flux.
+# This is a 0.30 version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
 =head1 NAME
@@ -24,36 +24,36 @@ Read UNCL to create codes.txt and codes.dat for further processing
 
 use SDBM_File;
 use Fcntl;
+use XML::Edifact;
 
-tie(%CODET, 'SDBM_File', 'data/codes.tie', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.tie:".$!;
-tie(%CODEN, 'SDBM_File', 'data/codes.num', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.num:".$!;
+tie(%CODET, 'SDBM_File', 'data/codes.dat', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.tie:".$!;
 
 open (OUTFILE, ">data/codes.txt") || die "can not open codes.txt for writing";
 
 open (INFILE, "un_edifact_d96b/uncl-1.96b") || die "can not open uncl-1.96b for reading";
 printf STDERR "reading uncl-1.96b\n";
-while (<INFILE>) { read_code(); };
+while (<INFILE>) { read_code("uncl"); };
 close(INFILE);
 print STDERR "\n";
 
 open (INFILE, "un_edifact_d96b/uncl-2.96b") || die "can not open uncl-2.96b for reading";
 printf STDERR "reading uncl-2.96b\n";
-while (<INFILE>) { read_code(); };
+while (<INFILE>) { read_code("uncl"); };
 close(INFILE);
 print STDERR "\n";
 
 open (INFILE, "un_edifact_d96b/unsl.96b") || die "can not open unsl.96b for reading";
 printf STDERR "reading unsl.96b\n";
-while (<INFILE>) { read_code(); };
+while (<INFILE>) { read_code("unsl"); };
 close(INFILE);
 print STDERR "\n";
 
 close(OUTFILE);
 
 untie %CODET;
-untie %CODEN;
 
 sub read_code {
+    my ($codelist) = @_;
     chop;	# strip record separator
     if (!($. % 64)) {
 	printf STDERR '.';
@@ -82,14 +82,13 @@ sub read_code {
     }
 
     if ($ok) {
-	printf OUTFILE "%s\t%s\t%s\n", $cod, $fld, $des;
+	printf OUTFILE "%s\t%s\t%s\t%s\n", $cod, $fld, $codelist, $des;
 
-	$CODET{$cod."\t".$fld}=$des;
+	$CODET{$cod."\t".$fld}=$codelist."\t".$des;
 
 	$codn=0 if ($oldcod ne $cod);
 	$oldcod=$cod;
 	$codn++;
-	$CODEN{$cod}=$codn;
     }
 }
 

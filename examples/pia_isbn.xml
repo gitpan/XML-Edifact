@@ -1,13 +1,40 @@
+<?xml version="1.0"?>
+
+<?xml:namespace ns='./edicooked03.rdf'		prefix='edicooked' ?>
+<?xml:namespace ns='./edicooked03_trsd.rdf'	prefix='trsd' ?>
+<?xml:namespace ns='./edicooked03_trcd.rdf'	prefix='trcd' ?>
+<?xml:namespace ns='./edicooked03_tred.rdf'	prefix='tred' ?>
+<?xml:namespace ns='./edicooked03_uncl.rdf'	prefix='uncl' ?>
+<?xml:namespace ns='./edicooked03_anxs.rdf'	prefix='anxs' ?>
+<?xml:namespace ns='./edicooked03_anxc.rdf'	prefix='anxc' ?>
+<?xml:namespace ns='./edicooked03_anxe.rdf'	prefix='anxe' ?>
+<?xml:namespace ns='./edicooked03_unsl.rdf'	prefix='unsl' ?>
+<?xml:namespace ns='./edicooked03_unknown.rdf'	prefix='unknown' ?>
+
+<!DOCTYPE edicooked:message SYSTEM "./edicooked03.dtd">
+
 <!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
 
-	<?xml version="1.0"?>
-	<!DOCTYPE edicooked SYSTEM "edicooked02.dtd">
+<edicooked:message
+	xmlns:edicooked='./edicooked03.rdf' 
+	xmlns:trsd='./edicooked03_trsd.rdf'
+	xmlns:trcd='./edicooked03_trcd.rdf'
+	xmlns:tred='./edicooked03_tred.rdf'
+	xmlns:uncl='./edicooked03_uncl.rdf'
+	xmlns:anxs='./edicooked03_anxe.rdf'
+	xmlns:anxc='./edicooked03_anxc.rdf'
+	xmlns:anxe='./edicooked03_anxe.rdf'
+	xmlns:unsl='./edicooked03_unsl.rdf'
+	xmlns:unknown='./edicooked03_unknown.rdf'
+	>
+<!-- SEGMENT PIA+5+354010044X:IB -->
 
-<edicooked>
-<!-- *** PIA+5+354010044X:IB -->
-<additional.product.id>
-  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
-  <item.number>354010044X</item.number>
-  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
-</additional.product.id>
-</edicooked>
+  <trsd:additional.product.id>
+      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+    <trcd:item.number.identification>
+      <tred:item.number>354010044X</tred:item.number>
+      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+    </trcd:item.number.identification>
+  </trsd:additional.product.id>
+
+</edicooked:message>

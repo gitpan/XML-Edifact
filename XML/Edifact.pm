@@ -4,25 +4,123 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.2 version: Anything is still in flux.
+# This is a 0.30 version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
 package XML::Edifact;
 
 use strict;
-use vars qw($VERSION $debug);
+use vars qw($VERSION $debug $local_url);
+
+$VERSION='0.30';
+$local_url='.';					# edit your local url here
+$debug=1;					# debug=1 is fine
+
+# edit the HERE documents for those variables for your systems preferences.
+# Ive included both kinds of namespace definitions. You may have to drop one
+# if your system is aware about xml namespaces.
+
+use vars qw(
+	$MESSAGE_HEADER
+	$DOCTYPE_HEADER
+	$SEGMENT_SPECIFICATION_HEADER
+	$COMPOSITE_SPECIFICATION_HEADER
+	);
+
+# ------------------------------------------------------------------------------
+$MESSAGE_HEADER=<<HERE_MESSAGE_HEADER;
+<?xml version="1.0"?>
+
+<?xml:namespace ns='$local_url/edicooked03.rdf'		prefix='edicooked' ?>
+<?xml:namespace ns='$local_url/edicooked03_trsd.rdf'	prefix='trsd' ?>
+<?xml:namespace ns='$local_url/edicooked03_trcd.rdf'	prefix='trcd' ?>
+<?xml:namespace ns='$local_url/edicooked03_tred.rdf'	prefix='tred' ?>
+<?xml:namespace ns='$local_url/edicooked03_uncl.rdf'	prefix='uncl' ?>
+<?xml:namespace ns='$local_url/edicooked03_anxs.rdf'	prefix='anxs' ?>
+<?xml:namespace ns='$local_url/edicooked03_anxc.rdf'	prefix='anxc' ?>
+<?xml:namespace ns='$local_url/edicooked03_anxe.rdf'	prefix='anxe' ?>
+<?xml:namespace ns='$local_url/edicooked03_unsl.rdf'	prefix='unsl' ?>
+<?xml:namespace ns='$local_url/edicooked03_unknown.rdf'	prefix='unknown' ?>
+
+<!DOCTYPE edicooked:message SYSTEM "$local_url/edicooked03.dtd">
+
+<!-- XML message produced by edi2xml.pl (c) Kraehe\@Bakunin.North.De -->
+
+<edicooked:message
+	xmlns:edicooked='$local_url/edicooked03.rdf' 
+	xmlns:trsd='$local_url/edicooked03_trsd.rdf'
+	xmlns:trcd='$local_url/edicooked03_trcd.rdf'
+	xmlns:tred='$local_url/edicooked03_tred.rdf'
+	xmlns:uncl='$local_url/edicooked03_uncl.rdf'
+	xmlns:anxs='$local_url/edicooked03_anxe.rdf'
+	xmlns:anxc='$local_url/edicooked03_anxc.rdf'
+	xmlns:anxe='$local_url/edicooked03_anxe.rdf'
+	xmlns:unsl='$local_url/edicooked03_unsl.rdf'
+	xmlns:unknown='$local_url/edicooked03_unknown.rdf'
+	>
+HERE_MESSAGE_HEADER
+# ------------------------------------------------------------------------------
+$DOCTYPE_HEADER=<<HERE_DOCTYPE_HEADER;
+<!-- XML DTD for cooked EDI to reflect raw UN/EDIFACT -->
+<!-- edicooked03.dtd (c) '98 Kraehe\@Bakunin.North.De -->
+
+<!-- I should warn you that badly written validating XML
+     parsers may have problems by running out of memory.
+
+     Its quite large, I know, but it's not yet complete!
+
+     My first attempt on an automatic generated edicooked03.dtd
+     failed with massive "content model is ambiguous" errors.
+     So I deceided to use a mixed content model to simplify work
+     for XML parsers and also for me.
+
+     Goal of Edicooked03.dtd is that any wellformed EDI message
+     can be translated into a valid Edicooked message.
+
+     The revers is NOT true, however!
+
+     Edicooked does'nt constrain anything about segment groups, and not
+     even about the sequence of elements within a segment or composite.
+
+     XML DTDs do not provide the fine granularity for defining
+     valid UN/EDIFACT. Use an external checker - write one based
+     on top of DOM, and you are granted a virtual Beck's beer.
+  -->
+
+HERE_DOCTYPE_HEADER
+# ------------------------------------------------------------------------------
+$SEGMENT_SPECIFICATION_HEADER=<<HERE_SEGMENT_SPECIFICATION_HEADER;
+<?xml version="1.0"?>
+<?xml:namespace ns='$local_url/edicooked03.dtd'	prefix='edicooked' ?>
+<!DOCTYPE edicooked:segment_specification SYSTEM "edicooked03.dtd">
+<!-- XML::Edifact segment.xml (c) Kraehe\@Bakunin.North.De -->
+
+<edicooked:segment_specifications
+	xmlns:edicooked='$local_url/edicooked03.dtd'
+	>
+HERE_SEGMENT_SPECIFICATION_HEADER
+# ------------------------------------------------------------------------------
+$COMPOSITE_SPECIFICATION_HEADER=<<HERE_COMPOSITE_SPECIFICATION_HEADER;
+<?xml version="1.0"?>
+<?xml:namespace ns='$local_url/edicooked03.dtd'	prefix='edicooked' ?>
+<!DOCTYPE edicooked:composite_specification SYSTEM "edicooked03.dtd">
+<!-- XML::Edifact composite.xml (c) Kraehe\@Bakunin.North.De -->
+
+<edicooked:composite_specifications
+	xmlns:edicooked='$local_url/edicooked03.dtd'
+	>
+HERE_COMPOSITE_SPECIFICATION_HEADER
+# ------------------------------------------------------------------------------
+
 use vars qw(%SEGMT %COMPT %CODET %ELEMT);
-use vars qw(%SEGMN %COMPN %CODEN);
+use vars qw(%SEGMR %COMPR %CODER %ELEMR);
+
 use vars qw($raw_message $advice $advice_component_seperator);
 use vars qw($advice_element_seperator $advice_decimal_notation);
 use vars qw($advice_release_indicator $advice_segment_terminator);
-use vars qw(%markstack $markstackp %markopt %markval);
 
 use SDBM_File;
 use Fcntl;
-
-$VERSION='0.02';
-$debug=1;
 
 print "<!-- Hello from XML::EDIFACT -->\n"		if ($debug>1);
 
@@ -31,39 +129,27 @@ print "<!-- Hello from XML::EDIFACT -->\n"		if ($debug>1);
 sub open_dbm {
     my ($directory,$fcntl) = @_;
 
-    $fcntl = O_RDWR					 unless $fcntl eq "";
+    $fcntl = O_RDWR					unless $fcntl eq "";
 
     printf "<!-- *** open_dbm -->\n"			if ($debug>1);
 
-    tie(%SEGMT, 'SDBM_File', $directory.'/segment.tie',   $fcntl, 0640)	|| die "can not tie composite.tie:".$!;
-    tie(%COMPT, 'SDBM_File', $directory.'/composite.tie', $fcntl, 0640)	|| die "can not tie composite.tie:".$!;
-    tie(%CODET, 'SDBM_File', $directory.'/codes.tie',     $fcntl, 0640)	|| die "can not tie composite.tie:".$!;
-    tie(%ELEMT, 'SDBM_File', $directory.'/element.tie',   $fcntl, 0640)	|| die "can not tie composite.tie:".$!;
+    tie(%SEGMT, 'SDBM_File', $directory.'/segment.dat',   $fcntl, 0644)	|| die "can not tie segment.dat:".$!;
+    tie(%SEGMR, 'SDBM_File', $directory.'/segment.rev',   $fcntl, 0644)	|| die "can not tie segment.dat:".$!;
+    tie(%COMPT, 'SDBM_File', $directory.'/composite.dat', $fcntl, 0644)	|| die "can not tie composite.dat:".$!;
+    tie(%COMPR, 'SDBM_File', $directory.'/composite.rev', $fcntl, 0644)	|| die "can not tie composite.dat:".$!;
+    tie(%ELEMT, 'SDBM_File', $directory.'/element.dat',   $fcntl, 0644)	|| die "can not tie element.dat:".$!;
+    tie(%ELEMR, 'SDBM_File', $directory.'/element.rev',   $fcntl, 0644)	|| die "can not tie element.dat:".$!;
+    tie(%CODET, 'SDBM_File', $directory.'/codes.dat',     $fcntl, 0644)	|| die "can not tie codes.dat:".$!;
 }
 
 sub close_dbm {
     untie(%SEGMT);
+    untie(%SEGMR);
     untie(%COMPT);
-    untie(%CODET);
+    untie(%COMPR);
     untie(%ELEMT);
-}
-
-sub open_num {
-    my ($directory,$fcntl) = @_;
-
-    $fcntl = O_RDWR					unless $fcntl eq "";
-
-    printf "<!-- *** open_num -->\n"			if ($debug>1);
-
-    tie(%SEGMN, 'SDBM_File', $directory.'/segment.num',   $fcntl, 0640)	|| die "can not tie composite.tie:".$!;
-    tie(%COMPN, 'SDBM_File', $directory.'/composite.num', $fcntl, 0640)	|| die "can not tie composite.tie:".$!;
-    tie(%CODEN, 'SDBM_File', $directory.'/codes.num',     $fcntl, 0640)	|| die "can not tie composite.tie:".$!;
-}
-
-sub close_num {
-    untie(%SEGMN);
-    untie(%COMPN);
-    untie(%CODEN);
+    untie(%ELEMR);
+    untie(%CODET);
 }
 
 # -----------------------------------------------------------------------------
@@ -106,14 +192,9 @@ sub read_message() {
 }
 
 sub process_message() {
-	print <<HERE_DTD_HEADER;
-<!-- XML message produced by edi2xml.pl (c) Kraehe\@Bakunin.North.De -->
 
-	<?xml version="1.0"?>
-	<!DOCTYPE edicooked SYSTEM "edicooked02.dtd">
+	print $MESSAGE_HEADER;
 
-<edicooked>
-HERE_DTD_HEADER
 	my($cooked_message,@Segments,$segment,$s);
 
 	$cooked_message  = $raw_message;
@@ -128,223 +209,124 @@ HERE_DTD_HEADER
 		$segment =~ s/\001/$s/g;
 		&resolve_segment($segment);
 	}
-	print "</edicooked>\n";
+	print "</edicooked:message>\n";
 }
 
 # -----------------------------------------------------------------------------
 
 sub resolve_segment {
 	my($raw_segment) = @_;
-	my($cooked_segment,@Elements,$element,$s,$i);
+	my($cooked_segment,@Elements,@Codes,$element,$s,$i);
 	my($sg,@sgv);
-	my($segment_name);
 	my($comment);
 
-	if ($debug) {
-		$comment = $raw_segment;
-		$comment =~ s/--/__/g;
-		printf "<!-- *** %s -->\n", $comment;
-	}
+	$s="^[ \\n\\r\\t]\$";
+	if ($raw_segment !~ /$s/ ) {
 
-	$cooked_segment = $raw_segment;
-	$s = "\\".$advice_release_indicator."\\".$advice_element_seperator;
-	$cooked_segment =~ s/$s/\001/g;
+		if ($debug) {
+			$comment = $raw_segment;
+			$comment =~ s/--/__/g;
+			printf "<!-- SEGMENT %s -->\n\n", $comment;
+		}
 
-	$s = "\\".$advice_element_seperator;
-	@Elements = split /$s/, $cooked_segment;
+		$cooked_segment = $raw_segment;
+		$s = "\\".$advice_release_indicator."\\".$advice_element_seperator;
+		$cooked_segment =~ s/$s/\001/g;
 
-	$sg = $SEGMT{$Elements[0]."\t0"};
-	@sgv = split("\t", $sg, 4);
-	$segment_name = $sgv[3];
+		$s = "\\".$advice_element_seperator;
+		@Elements = split /$s/, $cooked_segment;
+		@sgv = split("\t", $SEGMT{$Elements[0]}, 4);
+		@Codes    = split / /,  " ".$sgv[0];
 
-	printf "<!-- *** name %s -->\n", $segment_name	if ($debug>2);
+		printf "<!-- *** name %s %s -->\n", $Elements[0], $sgv[3]	if ($debug>2);
+		if (($sgv[2] ne '') && ($#Codes>=$#Elements)) {
+			printf "  <%s>\n", $sgv[2];
 
-	&open_mark($segment_name);
+			for ($i = 1; $i <= $#Elements; $i++) {
+				$element  = $Elements[$i];
+				$element =~ s/\001/$advice_element_seperator/g;
 
-	for ($i = 1; $i <= $#Elements; $i++) {
-		$element  = $Elements[$i];
-		$element =~ s/\001/$advice_element_seperator/g;
-
-		if ($Elements[$i] ne '') {
-			&resolve_element(
-				$segment_name, $Elements[0],
-				$i, $Elements[$i]);
+				if ($Elements[$i] ne '') {
+					# resolve_element
+					printf "<!-- *** %s='%s' -->\n", $Codes[$i],$Elements[$i] if ($debug>1);
+					resolve_element($Codes[$i], $Elements[$i]);
+				}
+			}
+			printf "  </%s>\n\n", $sgv[2];
+		} else {
+			printf "  <edicooked:raw_segment data=\"%s\"/>\n", $raw_segment;
 		}
 	}
-	&close_mark($segment_name);
 }
 
 # -----------------------------------------------------------------------------
 
 sub resolve_element {
-	my($name, $id, $pos, $raw_element) = @_;
-	my($cooked_element,@Components,$component,$s,$i);
-	my($sg,@sgv);
+	my($code, $raw_element) = @_;
+	my($cooked_element,@Components,@Codes,$component,$s,$i);
 	my($cm,@cmv);
+	my($ok);
 
-	printf "<!-- *** resolve element %s, %s, %s, %s -->\n", $name, $id, $pos, $raw_element if ($debug>1);
+	$ok=0;
 
-	$sg = $SEGMT{$id."\t".$pos};
-	if ($sg ne '') {
-		$cooked_element = $raw_element;
-		$s = "\\".$advice_release_indicator."\\".$advice_component_seperator;
-		$cooked_element =~ s/$s/\001/g;
+	printf "<!-- *** resolve element %s %s -->\n", $code, $raw_element if ($debug>1);
 
-		@sgv = split("\t", $sg, 4);
+	$cooked_element = $raw_element;
+	$s = "\\".$advice_release_indicator."\\".$advice_component_seperator;
+	$cooked_element =~ s/$s/\001/g;
 
-		if ($sgv[0] =~ '^[CS]') {
-#			&open_mark($sgv[3]);
-			$s = "\\".$advice_component_seperator;
-			@Components = split(/$s/, $cooked_element, 9999);
-			foreach $i (0 .. $#Components) {
-				$component = $Components[$i];
-				if ($component ne '') {
-					$s = $advice_component_seperator;
-					$component =~ s/\001/$s/g;
-					print "<!-- lookup ".$sgv[0]."\t".($i+1)."\n"	if ($debug > 1);
-					$cm = $COMPT{$sgv[0]."\t".($i+1)};
-					print "<!-- is ".$cm."\n" 			if ($debug > 1);
-					@cmv = split("\t", $cm, 4);
-					&resolve_code($cmv[3], $cmv[0], $component);
-				}
+	if (($code =~ /^[CS]/) && (($cm = $COMPT{$code}) ne '')) {
+
+		@cmv = split("\t", $cm, 4);
+
+		printf "    <%s>\n", $cmv[2]			if ($cmv[2]);
+
+		$s = "\\".$advice_component_seperator;
+		@Components = split /$s/, $cooked_element;
+		@Codes = split / /, $cmv[0];
+
+		foreach $i (0 .. $#Components) {
+			$component = $Components[$i];
+			if ($component ne '') {
+				$s = $advice_component_seperator;
+				$component =~ s/\001/$s/g;
+				&resolve_code($Codes[$i], $component);
 			}
+		}
 
-#			&close_mark($sgv[3]);
-		}
-		else {
-			$s = $advice_component_seperator;
-			$cooked_element =~ s/\001/$s/g;
-			&resolve_code($sgv[3], $sgv[0], $cooked_element);
-		}
+		printf "    </%s>\n", $cmv[2]			if ($cmv[2]);
+		$ok=1;
 	}
-	else {
-		printf "<!-- *** %s\t%s\t%s -->\n", $id, $pos, $raw_element;
+	if (($code =~ "^[0-9]") && ($cm = $ELEMT{$code})) {
+		$s = $advice_component_seperator;
+		$cooked_element =~ s/\001/$s/g;
+		&resolve_code($code, $cooked_element);
+		$ok=1;
 	}
+	printf "  <edicooked:raw_element data=\"%s\"/>\n", $raw_element unless $ok;
 }
 
 # -----------------------------------------------------------------------------
 
 sub resolve_code {
-	my($mark, $id, $val) = @_;
-	my($cd,$canonelem);
+	my($code, $val) = @_;
+	my($cd,$mark,@cdv);
 
-	$mark=$ELEMT{$id};
-	printf "<!-- *** resolve code %s, %s, %s -->\n", $mark, $id, $val if ($debug>1);
+	$mark=$ELEMT{$code};
+	printf "<!-- *** resolve code %s %s -->\n", $code, $val if ($debug>1);
 
-	&open_mark($mark);
-	if ($CODET{$id."\t"} ne "") {
-		$cd = $CODET{$id."\t".$val};
-		&add_code($mark, $val);
+	if ($CODET{$code."\t"} ne "") {
+		$cd = $CODET{$code."\t".$val};
 		if ($cd ne '') {
-			&add_val($mark, $cd);
+			@cdv=split /\t/, $cd;
+			printf "      <%s %s:code=\"%s:%s\">%s</%s>\n", $mark, $cdv[0], $code, $val, $cdv[1], $mark;
 		}
 		else {
-			&add_val($mark, $val);
+			printf "      <%s unknown:code=\"%s:%s\">%s</%s>\n", $mark, $code, $val, $val, $mark;
 		}
 	}
 	else {
-		&add_val($mark, $val);
-	}
-	&close_mark($mark);
-}
-
-# -----------------------------------------------------------------------------
-
-sub open_mark {
-	my($mark) = @_;
-
-	$mark=&recode_mark($mark);
-	printf "<!-- *** open mark %d, %s -->\n", $markstackp, $mark if ($debug>2);
-
-	$markstack{++$markstackp} = $mark;
-	$markopt{$markstackp} = '';
-	$markval{$markstackp} = '';
-}
-
-sub close_mark {
-	my($mark) = @_;
-	my($v,$vt,$s);
-
-	$mark=&recode_mark($mark);
-	printf "<!-- *** close mark %d, %s -->\n", $markstackp-1, $mark if ($debug>2);
-	
-	$v = '';
-	if ($markval{$markstackp} ne '') {
-		if ($markval{$markstackp} !~ "[</\n]") {
-			if ($markopt{$markstackp} ne '') {
-				$vt = " is=\"" . $markopt{$markstackp} . "\"";
-			}
-			else {
-				$vt = '';
-			}
-			if (($markval{$markstackp} ne '') && ($markval{$markstackp} ne $markopt{$markstackp})) {
-				$v = sprintf('<%s%s>%s</%s>', $markstack{$markstackp}, $vt, $markval{$markstackp}, $markstack{$markstackp});
-			}
-			else {
-				$v = sprintf('<%s%s/>', $markstack{$markstackp}, $vt, $markval{$markstackp});
-			}
-		}
-		elsif ($markval{$markstackp} ne '') {
-			if ($markopt{$markstackp} ne '') {
-				$vt = " is=\"" . $markopt{$markstackp} . "\"";
-			}
-			else {
-				$vt = '';
-			}
-			$v = sprintf("<%s%s>\n%s\n</%s>", 
-				$markstack{$markstackp}, 
-				$vt, 
-				$markval{$markstackp}, 
-				$markstack{$markstackp});
-		}
-		if ($v ne '') {
-			if ($markstackp != 1) {
-				$s = '^', $v =~ s/$s/  /;
-				$s = "\n", $v =~ s/$s/\n  /g;
-				&add_val($markstack{$markstackp - 1}, $v);
-			}
-			else {
-				printf "%s\n", $v;
-			}
-		}
-	}
-	$markopt{$markstackp} = '';
-	$markval{$markstackp} = '';
-	$markstack{$markstackp--} = '';
-}
-
-sub add_code {
-	my($mark, $code) = @_;
-	my($k);
-
-	$mark=&recode_mark($mark);
-	printf "<!-- *** add code %s, %s -->\n", $mark, $code if ($debug>3);
-	
-	for ($k = 1; $k <= $markstackp; $k++) {
-		if ($markstack{$k} eq $mark) {
-			$markopt{$k} = $markopt{$k} ? $markopt{$k} . ':' : '' . $code;
-			last;
-		}
-	}
-}
-
-sub add_val {
-	my($mark, $val) = @_;
-	my($k);
-
-	$mark=&recode_mark($mark);
-	printf "<!-- *** add val %s, %s -->\n", $mark, $val if ($debug>3);
-	
-	for ($k = 1; $k <= $markstackp; $k++) {
-		if ($markstack{$k} eq $mark) {
-			if ($markval{$k} ne '') {
-				$markval{$k} = $markval{$k} . "\n" . $val;
-			}
-			else {
-				$markval{$k} = $val;
-			}
-			last;
-		}
+		printf "      <%s>%s</%s>\n", $mark, $val, $mark;
 	}
 }
 
@@ -355,7 +337,7 @@ __END__
 
 =head1 NAME
 
-XML::Edifact - Perl module for handling XML/Edifact messages.
+XML::Edifact - Perl module to handle XML::Edifact messages.
 
 =head1 SYNOPSIS
 
@@ -371,7 +353,7 @@ use XML::Edifact;
 =head1 DESCRIPTION
 
 XML-Edifact started as Onyx-EDI which was a gawk script.
-XML::Edifact-0.02 still shows its bad anchesor called a2p
+XML::Edifact-0.30 still shows its bad anchesor called a2p
 in some parts.
 
 The current module is just able to open and close the SDBM

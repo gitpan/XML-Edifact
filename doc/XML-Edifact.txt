@@ -1,4 +1,4 @@
-  XML::Edifact - an approach towards XML/EDI as a prototype in perl
+  XML::Edifact - an approach towards XXMMLL//EEDDII as a prototype in perl
   release 0.30 - normalisation and namespaces
   Michael Koehne, ( kraehe@bakunin.north.de )
   v0.30 prerelease
@@ -12,34 +12,34 @@
 
   Table of Contents:
 
-  1.	Introduction
+  1.      Introduction
 
-  2.	Release Notes:
+  2.      Release Notes:
 
-  2.1.	About the beauty of plain text
+  2.1.    About the beauty of plain text
 
-  2.2.	Its a hard work to cook a second version.
+  2.2.    Its a hard work to cook a second version.
 
-  2.3.	About normalisation and namespaces
+  2.3.    About normalisation and namespaces
 
-  3.	Installation
+  3.      Installation
 
-  4.	Known Bugs
+  4.      Known Bugs
 
-  4.1.	Double namespace declarations
+  4.1.    Double namespace declarations
 
-  4.2.	Stating level in Syntax identifier.
+  4.2.    Stating level in Syntax identifier.
 
-  5.	Roadmap
+  5.      Roadmap
 
-  6.	Legal stuff
+  6.      Legal stuff
 
-  7.	Download
+  7.      Download
   ______________________________________________________________________
 
-  1.  Introduction
+  11..  IInnttrroodduuccttiioonn
 
-  EDIFACT often called " nightmare of paper less office " once you show
+  EEDDIIFFAACCTT often called " nightmare of paper less office " once you show
   a programmer the standard draft. Those 2700 pages of horror full
   advisory board English has cursed many programmers with headaches.
 
@@ -52,12 +52,12 @@
   important for the top companies and their suppliers, you know those
   who can pay a mainframe and a pack of gurus, and in use since 1995.
 
-  XML/EDI is trying to provide a simpler (KISS) format that can be
+  XXMMLL//EEDDII is trying to provide a simpler (KISS) format that can be
   translated from and into EDI, to allow smaller companies to avoid
   slaughtering forests and retyping stupid lines into a computer
   keyboard printed by other computers.
 
-  This is NOT XML/EDI, its certainly not KISS. The edicooked.dtd
+  This is NNOOTT XML/EDI, its certainly not KISS. The eeddiiccooookkeedd..ddttdd
   reflects the original words of the EDIFACT standard as close as
   possible on a segment, composite and element level.
 
@@ -71,9 +71,9 @@
 
   But once the message is designed its simpler to read it with XML.
 
-  2.  Release Notes:
+  22..  RReelleeaassee NNootteess::
 
-  2.1.	About the beauty of plain text
+  22..11..  AAbboouutt tthhee bbeeaauuttyy ooff ppllaaiinn tteexxtt
 
   Standards should be based on standards. EDIFACT is based on ASCII and
   documentation is available from WWW.Premenos.Com as plain text.  Well
@@ -88,7 +88,7 @@
   those documents I need to parse by the scripts. Download the 0.1 for a
   complete set, or surf at Premenos.
 
-  2.2.	Its a hard work to cook a second version.
+  22..22..  IIttss aa hhaarrdd wwoorrkk ttoo ccooookk aa sseeccoonndd vveerrssiioonn..
 
   As usual. Second versions claim to be better documented and tested,
   but the truth - they contain more features. So talk about features:
@@ -116,7 +116,7 @@
   my script is now producing XML and not SGML, and the name should point
   where in cpan hirachy this package belongs.
 
-  2.3.	About normalisation and namespaces
+  22..33..  AAbboouutt nnoorrmmaalliissaattiioonn aanndd nnaammeessppaacceess
 
   You may notice the major change in the DBM design. While the old DBM
   files had been modeled closely to the batch directory. This version
@@ -139,63 +139,63 @@
   XML::Edifact solution should contain. This 0.3.0 does nothing more
   than the 0.2, but with namespaces and a new DBM design.
 
-  3.  Installation
+  33..  IInnssttaallllaattiioonn
 
   I've included my modified documents, so others can be able to rebuild
   the DBM files. You may need a Unix like system because of newline
   conventions. This current 0.30 version is not intended to become
   "installed", just run everything from this path.
 
-	       $ ./bin/make_data.sh
+               $ ./bin/make_data.sh
 
   This will take a while (48 seconds on my Sun 3/60 :-) and you
-  hopefully have a working database. Any foo.ext changed messages are a
+  hopefully have a working database. Any ffoooo..eexxtt cchhaannggeedd messages are a
   bad thing, and is probately based on a failure with packing/unpacking
   of this distribution.
 
   You can now test XML::Edifact it with:
 
-	       $ perl bin/edi2xml.pl examples/nad_buyer.edi
+               $ perl bin/edi2xml.pl examples/nad_buyer.edi
 
   You can try other example files, and if you have own EDI files try
   them: I really want to know how your EDI messages look like, if they
   break anything, what about your code list extension, ...
 
   Testing different real examples should show some bugs, I hav'nt
-  thought about.  Think about the O'Reilly invoice or the Dubbel:Test
-  and you should catch the clue. I've tried to implement the UNA right,
-  but this may need some additional debugging.	Take a look at the
+  thought about.  Think about the OO''RReeiillllyy invoice or the DDuubbbbeell::TTeesstt
+  and you should catch the clue. I've tried to implement the UUNNAA right,
+  but this may need some additional debugging.  Take a look at the
   difference between the edi.tst files from Frankfurt and the Springer
   message. The last one is using newline as a 9th character in UNA, so
   its nearly human readable.
 
   To run a complete test, type
 
-	       $ perl bin/make_spool.pl
+               $ perl bin/make_spool.pl
 
   This will transform my EDI examples into XML and place them together
   with a DTD in the ./spool directory. You already have those files,
   they are compared with them in the example directory and, if you see
-  any foo.bar changed message, something went wrong.
+  any ffoooo..bbaarr cchhaannggeedd message, something went wrong.
 
   Lets talk about the perl way of regression test in the 0.4 version.
 
-  4.  Known Bugs
+  44..  KKnnoowwnn BBuuggss
 
-  4.1.	Double namespace declarations
+  44..11..  DDoouubbllee nnaammeessppaaccee ddeeccllaarraattiioonnss
 
   Namespace declaration was redefined in January 1999. XML::Edifact
-  produces both the old and the new declarations. You may have to edit
-  XML::Edifact search for HERE_ and adopt the headers to your browsers
+  produces bbootthh the old and the new declarations. You may have to edit
+  XML::Edifact search for HHEERREE__ and adopt the headers to your browsers
   preferences. XML::Edifact 0.4 will drop the old declartions!
 
-  4.2.	Stating level in Syntax identifier.
+  44..22..  SSttaattiinngg lleevveell iinn SSyynnttaaxx iiddeennttiiffiieerr..
 
   This has to be parsed. The stating level in EDIFACT speak is called
   charset encoding normaly, and its of course important if you thing
   about non US/UK products. See un_edifact/unsl.
 
-  5.  Roadmap
+  55..  RRooaaddmmaapp
 
   I'm using even and odd numbering to distinct from stable and
   experimental version. Well this 0.2 was not as stable as an even
@@ -205,65 +205,65 @@
   Be warned: Anythink here is pure vaporware. I'm writing XML::Edifact
   in my spare time, and I hope to complete one version per month.
 
-     0.3x
-	This version is under development: It should integrate better
-	into the XML::Parser environment, and use some XML::Parser to
-	translate XML::Edifact-0.3x messages back into UN/EDIFACT.
+     00..33xx
+        This version is under development: It should integrate better
+        into the XML::Parser environment, and use some XML::Parser to
+        translate XML::Edifact-0.3x messages back into UN/EDIFACT.
 
-     0.4x
-	This version will focus on portability. While Perl ensures
-	portability across the unix'es, MacOS and Win32 will cause some
-	problems. The 0.4 version will also be the first one intended to
-	become installed. As installation also means configuration of
-	non Perlish paths e.g. for webserver, mime.types, mailcap, dtds
-	and databases, XML::Config.pm will be discussed in the perlxml
-	list.
+     00..44xx
+        This version will focus on portability. While Perl ensures
+        portability across the unix'es, MacOS and Win32 will cause some
+        problems. The 0.4 version will also be the first one intended to
+        become installed. As installation also means configuration of
+        non Perlish paths e.g. for webserver, mime.types, mailcap, dtds
+        and databases, XML::Config.pm will be discussed in the perlxml
+        list.
 
-     0.5x
-	The next important step will be a reverse engineering of the
-	document type definition of the original EDI standard draft.
-	This version will provide segment groups for defined document
-	types like orders and invoices. Most important will be the
-	introduction of a XML format for defining code list extensions.
-	This format will probately some RDF.
+     00..55xx
+        The next important step will be a reverse engineering of the
+        document type definition of the original EDI standard draft.
+        This version will provide segment groups for defined document
+        types like orders and invoices. Most important will be the
+        introduction of a XML format for defining code list extensions.
+        This format will probately some RDF.
 
-     0.6x
-	Stabilisation by disscussion and consens about the XML DTDs
-	introduced with 0.5.
+     00..66xx
+        Stabilisation by disscussion and consens about the XML DTDs
+        introduced with 0.5.
 
-     0.7x
-	EdiCooked is far from being KISS. This release will try on a
-	smarter DTD called EdiLean. EdiLean will focus on PRICAT,
-	ORDERS, ORDRSP, ORDCHG and INVOICE. If a consens about a KISS
-	XML/EDI already exist, EdiLean will try to implement it.
+     00..77xx
+        EdiCooked is far from being KISS. This release will try on a
+        smarter DTD called EdiLean. EdiLean will focus on PRICAT,
+        ORDERS, ORDRSP, ORDCHG and INVOICE. If a consens about a KISS
+        XML/EDI already exist, EdiLean will try to implement it.
 
-     0.8x
-	Stabilisation by disscussion and consens about the XML DTDs
-	introduced with 0.7.
+     00..88xx
+        Stabilisation by disscussion and consens about the XML DTDs
+        introduced with 0.7.
 
-     0.9x
-	Its important for me that authentication and authorisation will
-	be provided before I call it final 1.0. Some Edifact messages
-	contain medical informations (MED*), other contain personal
-	informations (JOB*). Most messages contain viable information
-	for running a bussiness. Only cryptography on a document level
-	would preserve authentication and authorisation once a message
-	stored on a disk.
+     00..99xx
+        Its important for me that authentication and authorisation will
+        be provided bbeeffoorree I call it final 1.0. Some Edifact messages
+        contain medical informations (MED*), other contain personal
+        informations (JOB*). Most messages contain viable information
+        for running a bussiness. Only cryptography on a document level
+        would preserve authentication and authorisation once a message
+        stored on a disk.
 
-	Alf O. Watt ( alfwatt@pacbell.net ) proposed a simple solution
-	using namespaces and processing instructions at the perlxml
-	mailing list in December 1998. The beauty of this aproach is,
-	that the secure document is still wellformed and valid of the
-	same document type.
+        Alf O. Watt ( alfwatt@pacbell.net ) proposed a simple solution
+        using namespaces and processing instructions at the perlxml
+        mailing list in December 1998. The beauty of this aproach is,
+        that the secure document is still wellformed and valid of the
+        same document type.
 
-     1.0
-	I hope that any consens have been found on that road, so the
-	DTDs wont change in further releases. Those may focus on using
-	XML::Edifact in real life applications. I can think about an SQL
-	interface, a Cobol interface, a message designer, a DOM/CORBA
-	wrapper, and much more.
+     11..00
+        I hope that any consens have been found on that road, so the
+        DTDs wont change in further releases. Those may focus on uussiinngg
+        XML::Edifact in real life applications. I can think about an SQL
+        interface, a Cobol interface, a message designer, a DOM/CORBA
+        wrapper, and much more.
 
-  6.  Legal stuff
+  66..  LLeeggaall ssttuuffff
 
   Programs provided with this copy called XML-Edifact-0.30.tgz can be
   used, distributed and modified under terms of the GNU General Public
@@ -285,22 +285,22 @@
   me as a consultant within Europe, if you think that the author of a
   tool will probately the best one for teaching your programmers.
 
-  7.  Download
+  77..  DDoowwnnllooaadd
 
   I just got a message from PAUSE that I can upload it to :
 
-	       $CPAN/authors/id/K/KR/KRAEHE
+               $CPAN/authors/id/K/KR/KRAEHE
 
   So you can find the actual version with :
 
-	       $ perl -MCPAN -e shell
-	       cpan> m XML::Edifact
+               $ perl -MCPAN -e shell
+               cpan> m XML::Edifact
 
   You may also get it from my homepage. Try something like:
 
-	       http://human.is-bremen.de/~kraehe/pub/XML-Edifact-?.?.tgz
+               http://human.is-bremen.de/~kraehe/pub/XML-Edifact-?.?.tgz
 
   Be warned its a about 300 kilobyte, as it includes some of the
-  Premenos files also. The main script is only about 400 lines, so first
-  dont panik.
+  Premenos files also. The main script is only about 400 lines, so ffiirrsstt
+  ddoonntt ppaanniikk.
 

@@ -5,7 +5,7 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.2 version: Anything is still in flux.
+# This is a 0.30 version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
 =head1 NAME
@@ -34,17 +34,20 @@ Most of the work wont be neccessary, if they've written XML.
 use SDBM_File;
 use XML::Edifact;
 use Fcntl;
+use strict;
 
-tie(%SEGMT, 'SDBM_File', 'data/segment.tie', O_RDWR, 0640)	|| die "can not tie composite.tie:".$!;
-tie(%SEGMN, 'SDBM_File', 'data/segment.num', O_RDWR, 0640)	|| die "can not tie composite.num:".$!;
-tie(%COMPT, 'SDBM_File', 'data/composite.tie', O_RDWR, 0640)	|| die "can not tie composite.tie:".$!;
-tie(%COMPN, 'SDBM_File', 'data/composite.num', O_RDWR, 0640)	|| die "can not tie composite.num:".$!;
-tie(%ELEMT, 'SDBM_File', 'data/element.tie', O_RDWR, 0640)	|| die "can not tie element.tie:".$!;
+use vars qw($segment_tag $segment_list_of_codes $segment_mand_cond_flags);
+use vars qw($segment_cooked_name $segment_canon_name);
+use vars qw($composite_tag $composite_list_of_codes $composite_mand_cond_flags);
+use vars qw($composite_cooked_name $composite_canon_name);
+use vars qw($element_tag $element_cooked_name $element_canon_name);
 
-open (INFILE, "un_edifact_d96b/annex_b.96b") || die "can not open annex_b.96b for reading";
-open (SEGFILE, ">data/segment.add") || die "can not open segment.txt for writing";
-open (COMFILE, ">data/composite.add") || die "can not open segment.txt for writing";
-open (ELEFILE, ">data/element.add") || die "can not open segment.txt for writing";
+XML::Edifact::open_dbm( "data", O_RDWR );
+
+open (INFILE, "un_edifact_d96b/annex_b.96b")	|| die "can not open annex_b.96b for reading";
+open (SEGFILE, ">data/segment.add")		|| die "can not open segment.add for writing";
+open (COMFILE, ">data/composite.add")		|| die "can not open composite.add for writing";
+open (ELEFILE, ">data/element.add")		|| die "can not open element.add for writing";
 
 printf STDERR "reading Annex B\n";
 
@@ -54,58 +57,68 @@ while (<INFILE>) {
 	printf STDERR '.';
     }
     if (/^Segment: ..., /) {
-	$tag=substr($_,9,3);
-	$fnr=0;
-	$cod="";
-	$des=substr($_,14);
-	$man="";
-	$typ="";
-	$comptag="";
-	printf SEGFILE "%s\t%s\t%s\t%s\t%s\t%s\n", $tag, $fnr, $cod, $man, $typ, $des;
-	$SEGMT{$tag."\t".$fnr}=$cod."\t".$man."\t".$typ."\t".$des;
-	$SEGMN{$tag}=$fnr;
+	$segment_tag                = substr($_,9,3);
+	$segment_canon_name         = substr($_,14);
+	$segment_cooked_name        = XML::Edifact::recode_mark($segment_canon_name);
+	$segment_list_of_codes      = "";
+	$segment_mand_cond_flags    = "";
     }
-    if (/^ [S0-9][0-9][0-9][0-9] /) {
-	$cod=substr($_,1,4);
-	$typ=substr($_,8,7);
-	$man=substr($_,16,1);
-	$des=substr($_,20);
-        if ($comptag eq "") {
-	    $fnr++;
-	    printf SEGFILE "%s\t%s\t%s\t%s\t%s\t%s\n", $tag, $fnr, $cod, $man, $typ, $des;
-	    $SEGMT{$tag."\t".$fnr}=$cod."\t".$man."\t".$typ."\t".$des;
-	    $SEGMN{$tag}=$fnr;
-	    $comptag=$cod;
-	    $compdes=$des;
-	    $cnr=1;
-    	} else {
-    	    if ($cnr==1) {
-	        printf COMFILE "%s\t%s\t%s\t%s\t%s\t%s\n", $comptag, 0, "", "", "", $compdes;
-		$COMPT{$comptag."\t0"}="\t\t\t".$compdes;
-		$COMPN{$comptag}=0;
-	    }
-	    printf COMFILE "%s\t%s\t%s\t%s\t%s\t%s\n", $comptag, $cnr, $cod, $man, $typ, $des;
-	    $COMPT{$comptag."\t".$cnr}=$cod."\t".$man."\t".$typ."\t".$des;
- 	    $COMPN{$comptag}=$cnr;
-	    $cnr++;
+    if (/^ S[0-9][0-9][0-9] /) {
+	$composite_tag              = substr($_,1,4);
+	$composite_canon_name       = substr($_,20);
+	$composite_cooked_name      = XML::Edifact::recode_mark($composite_canon_name);
+	$composite_list_of_codes    = "";
+	$composite_mand_cond_flags  = "";
+	$segment_list_of_codes     .= substr($_,1,4)." ";
+	$segment_mand_cond_flags   .= substr($_,16,1);
         }
-        if (($cod =~ /^[0-9]/) && ($ELEMT{$cod} eq "")) {
-	    $des = &XML::Edifact::recode_mark($des);
-	    printf ELEFILE "%s\t%s\n", $cod, $des;
-	    $ELEMT{$cod}=$des;
+    if (/^ [0-9][0-9][0-9][0-9] /) {
+	$element_tag                = substr($_,1,4);
+	$element_canon_name         = substr($_,20);
+	$element_cooked_name        = XML::Edifact::recode_mark($element_canon_name);
+	if ($composite_tag) {
+		$composite_list_of_codes   .= substr($_,1,4)." ";
+		$composite_mand_cond_flags .= substr($_,16,1);
+	} else {
+		$segment_list_of_codes     .= substr($_,1,4)." ";
+		$segment_mand_cond_flags   .= substr($_,16,1);
+	}
+	$XML::Edifact::ELEMT{$element_tag}="anxe:".$element_cooked_name;
+	$XML::Edifact::ELEMR{"anxe:".$element_cooked_name}=$element_tag;
+	printf ELEFILE "%s\tanxe:%s\n", $element_tag, $element_cooked_name;
+    }
+  
+    if (/^[ =_-]+$/) {
+	if ($composite_tag) {
+    	    chop $composite_list_of_codes unless $composite_list_of_codes eq "";
+
+	    $XML::Edifact::COMPT{$composite_tag}="$composite_list_of_codes\t$composite_mand_cond_flags\tanxc:$composite_cooked_name\t$composite_canon_name";
+	    $XML::Edifact::COMPR{"anxc:$composite_cooked_name"}=$composite_tag;
+	    print COMFILE "$composite_tag\t$composite_list_of_codes\t$composite_mand_cond_flags\tanxc:$composite_cooked_name\t$composite_canon_name\n";
+
+	    $composite_tag="";
+	    $composite_canon_name="";
+	    $composite_cooked_name="";
+	    $composite_list_of_codes="";
+	    $composite_mand_cond_flags="";
+	}
+	if ($segment_tag) {
+    	    chop $segment_list_of_codes unless $segment_list_of_codes eq "";
+
+	    $XML::Edifact::SEGMT{$segment_tag}="$segment_list_of_codes\t$segment_mand_cond_flags\tanxs:$segment_cooked_name\t$segment_canon_name";
+	    $XML::Edifact::SEGMR{"anxs:$segment_cooked_name"}=$segment_tag;
+	    print SEGFILE "$segment_tag\t$segment_list_of_codes\t$segment_mand_cond_flags\tanxs:$segment_cooked_name\t$segment_canon_name\n";
+
+    	    $segment_list_of_codes .= " ";
 	}
     }
-    $comptag="" if (/^[ =_-]+$/);
 }
 
 close(INFILE);
 close(SEGFILE);
 close(COMFILE);
+
+XML::Edifact::close_dbm();
+
 print STDERR "\n";
-
-untie(%COMPT);
-untie(%COMPN);
-untie(%SEGMT);
-untie(%SEGMN);
-
 0;

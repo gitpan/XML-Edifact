@@ -1,0 +1,74 @@
+<HTML>
+<HEAD>
+<TITLE>       XML::Edifact - an approach towards XML/EDI as a prototype in perl: Release Notes:</TITLE>
+</HEAD>
+<BODY>
+<A HREF="XML-Edifact-1.html">Previous</A>
+<A HREF="XML-Edifact-3.html">Next</A>
+<A HREF="XML-Edifact.html#toc2">Table of Contents</A>
+<HR>
+<H2><A NAME="s2">2. Release Notes:</A></H2>
+
+<H2><A NAME="ss2.1">2.1 About the beauty of plain text</A></H2>
+
+<P>Standards should be based on standards. EDIFACT is based on ASCII and
+documentation is available from WWW.Premenos.Com as plain text.
+Well the original contains some PCDOS characters. I took the freedom, to
+replace them with ASCII in this distribution to improve readability.
+I don't talk about human readability here. A friend at SAP joked that
+plain paper is the only platform independent format in that case. But
+I disliked to retype them. And plain text is more flexible, as I'm a
+programmer.</P>
+<P>Unlike the 0.1 distribution, following distributions will only contain
+those documents I need to parse by the scripts. Download the 0.1
+for a complete set, or surf at Premenos.</P>
+
+<H2><A NAME="ss2.2">2.2 Its a hard work to cook a second version.</A></H2>
+
+<P>As usual. Second versions claim to be better documented and tested, but
+the truth - they contain more features. So talk about features:</P>
+<P>First of all: Its looking like a module. "use strict" and the package
+concept is a usefull thing. But it'll take a lot of RTFM for me to
+understand the perl way of doing it. The XML/Edifact.pm doesnt export
+anything, and its not even neccessary to "perl Makefile.PL; make install".</P>
+<P>A 0.2 version is not intendet to become installed, its a test case.</P>
+<P>So talk about the test case: Run ./bin/make_test.sh from here, and
+anything should be fine. Still it need some RTFM for me to understand
+the perl way of regession test. But the ./bin/make_test.sh is the
+one this version offers ,-)</P>
+<P>I'm now using a tied hash for speeding startup. I've deceided to use SDBM
+as this DBM comes with any perl, and a small DBM is better in this case.</P>
+<P>I've provided a document type definition. And its now possible to use
+a validating parser like SP from James Clark. You may also notice the
+renaming from Edi2SGML to XML::Edifact. This namechange reflects that
+my script is now producing XML and not SGML, and the name should point
+where in cpan hirachy this package belongs.</P>
+
+<H2><A NAME="ss2.3">2.3 About normalisation and namespaces</A></H2>
+
+<P>You may notice the major change in the DBM design. While the old
+DBM files had been modeled closely to the batch directory. This
+version has been partly normalised to improve coding. Its also
+denormalised for some perlish reasons. To unload this DBM into
+a relational database would be possible with varchars, but the
+meaning of the 2nd element in segments and composite could only
+be expressed with some wired object relational ones like Postgres.</P>
+<P>Also the DTD changed for namespace reason. The 0.2 need to add
+the word literal, where element names clashed segment names of
+the standard. And it droped the composite informations.
+Now trsd:party.name means the segment, while tred:party.name points
+to the element.  This allows to parse the XML message to produce
+a EDI message without an backtracking parser.</P>
+<P>A last note about change of 0.2 to 0.30. Treat this number as
+0.3.0 translated to perl canon. The 0.3 is not finished, coming
+versions claiming to be any 0.3? will be step stones to what I
+think the 30% XML::Edifact solution should contain. This 0.3.0
+does nothing more than the 0.2, but with namespaces and a new
+DBM design.</P>
+
+<HR>
+<A HREF="XML-Edifact-1.html">Previous</A>
+<A HREF="XML-Edifact-3.html">Next</A>
+<A HREF="XML-Edifact.html#toc2">Table of Contents</A>
+</BODY>
+</HTML>
