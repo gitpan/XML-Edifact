@@ -4,16 +4,18 @@
 <title>
     <tt/XML::Edifact/ - an approach towards <tt>XML/EDI</> as a prototype in perl
 <subtitle>
-    release 0.43 - grammar and spelling
+    release 0.45 - UNOC
 <author>
     Michael Koehne,
 ( <htmlurl url="mailto:kraehe@copyleft.de" name="kraehe@copyleft.de"> )
 <date>
-    Tue Jun 20 03:17:42 CEST 2000
+    Tue Jun 12 15:40:06 CEST 2001
 <abstract>
     XML::Edifact is a set of perl scripts, for translating EDIFACT into XML.
-    This 0.43 version is part of the portability track. Main improvement
-    is grammar and spelling of the documentation - thanks to Julian Olson.
+    Version 0.45 improved UNOC handling. Perl 5.6.1 droped the 'tr' function
+    to convert between ISO-8859-1 and UTF8, and introduced a new way. Thanks
+    to Jarkko Hietaniemi for his regexp to produce a version compatible from
+    Perl 5.6.0 up.
 </abstract>
 <!-- Table of contents -->
 <toc>
@@ -181,6 +183,14 @@
   the Stating Level. Now UNOC (Latin1) is translated to UTF8.
 <p>
   Version 0.43 improved in grammar and spelling - thanks to Julian Olson.
+<p>
+  Version 0.44 improved in memory consumption - thanks to Carlos De Matos,
+  who confrontet me with DELJIT messages of megabyte size.
+<p>
+  Version 0.45 improved UNOC handling. Perl 5.6.1 droped the 'tr' function
+  to convert between ISO-8859-1 and UTF8, and introduced a new way. Thanks
+  to Jarkko Hietaniemi for his regexp to produce a version compatible from
+  Perl 5.6.0 up.
 
 <sect>
     Installation
@@ -243,7 +253,7 @@
   last one uses newline as a 9th character in UNA, so it's nearly
   human-readable.
 <p>
-  One last word - I hope this complex installlation will work on most
+  One last word - I hope this complex installation will work on most
   Unix look-alikes, but I'm quite sure that it'll break on Windows and
   Mac. If you have such a system, and have problems during installation,
   drop me a mail. You are granted my help, as I need your help to
@@ -286,6 +296,10 @@
    Both 0.4x track and 0.5x track are active currently. The 0.35
    was quite stable, and there is a need for portability, while the
    version under development is far from being usable.
+<p>
+   I had to realise that the roadmap is far to large, so I had to
+   drop the steps 0.7x to 0.9x. The functionality will become
+   unbundled into other CPAN modules if necessary.
 <descrip>
 <tag/0.4x/
    This version focuses on portability, of the EdiCooked style.
@@ -300,37 +314,10 @@
    This is the unstable version track.
 <p>
    XML::Edifact now provides PerlSAX objects as drivers and
-   handlers to UN/EDIFACT, making usage more flexible. Current
-   step is the reverse engineering of a document type definition
-   for the original EDI standard draft.
+   handlers to UN/EDIFACT, making usage more flexible.
 <tag/0.6x/
    Stabilisation by discussion and consensus about features
-   introduced with 0.5. Portability across networks using SAX
-   may be one concern.
-<tag/0.7x/
-   EdiCooked is far from being KISS. This release will try a
-   smarter DTD called EdiLean. EdiLean will focus on PRICAT, QUOTES,
-   ORDERS, ORDRSP, ORDCHG and INVOICE. If a consensus about a KISS
-   XML/EDI already exists, EdiLean will try to implement it.
-<tag/0.8x/
-   Stabilisation by disscussion and consensus about the XML DTDs
-   introduced with 0.7.
-<tag/0.9x/
-   It's important for me that authentication and authorisation
-   be provided <tt/before/ I call it final 1.0. Some Edifact
-   messages contain medical information (MED*), others contain
-   personal information (JOB*). Most messages contain valuable
-   information for running a business. Only cryptography on a
-   document level would preserve authentication and
-   authorisation once a message is stored on a disk.
-<p>
-   Alf O. Watt
-   ( <htmlurl url="mailto:alfwatt@pacbell.net" name="alfwatt@pacbell.net"> )
-   proposed a simple solution using namespaces and processing
-   instructions to the perlxml mailing list in December 1998. The beauty
-   of this aproach is that the secure document is still well-formed and
-   valid, and of the same document type. It could even be translated back
-   to UN/EDIFACT to obtain a message with encrypted segments.
+   introduced with 0.5.
 <tag/1.0/
    I hope that a consensus has been found in this direction, so
    the DTDs won't change in further releases. Those versions may

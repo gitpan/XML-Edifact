@@ -18,7 +18,7 @@ use Carp;
 
 use vars qw($VERSION $debug);
 
-$VERSION='0.43';
+$VERSION='0.45';
 $debug=1;					# debug=1 is fine
 
 # ------------------------------------------------------------------------------
@@ -135,6 +135,8 @@ use vars qw($cooked_message_substitute $cooked_segment_substitute);
 use vars qw($component_split $element_split);
 
 sub make_xml_message {
+	my ($iofile,$handler) = @_;
+
 	@xml_msg = ();
 	push @xml_msg, $MESSAGE_HEADER;
 	$xml_msg[0] =~ s!\n!!g		unless $indent_join;
@@ -164,15 +166,32 @@ sub make_xml_message {
 		$stating="C";
 	}
 
+	if ($iofile) {
+		$iofile->print( (join $indent_join,@xml_msg).$indent_join );
+		@xml_msg = ();
+	}
+
 	foreach $segment (@Segments) {
-		$segment =~ tr/\0-\xff//CU if $stating == "C";
+		$segment =~ 
+                        s/([\x80-\xFF])/chr(0xC0|ord($1)>>6).chr(0x80|ord($1)&0x3F)/eg
+                    if $stating eq "C";
 		$segment =~ s/\001/$advice_segment_terminator/g;
 		resolve_segment($segment);
+	        if ($iofile) {
+			resolve_tabs() if $indent_tab;
+			$iofile->print( (join $indent_join,@xml_msg).$indent_join );
+			@xml_msg = ();
+		}
 	}
 	push @xml_msg , "</$MESSAGE_NAMESPACE:message>";
 
-	resolve_tabs() if $indent_tab;
-	$xml_message = (join $indent_join,@xml_msg).$indent_join;
+	if ($iofile) {
+		$iofile->print( (join $indent_join,@xml_msg).$indent_join );
+		@xml_msg = ();
+	} else {
+		resolve_tabs() if $indent_tab;
+		$xml_message = (join $indent_join,@xml_msg).$indent_join;
+	}
 }
 
 # -----------------------------------------------------------------------------
@@ -346,15 +365,23 @@ sub resolve_tabs {
 
 # -----------------------------------------------------------------------------
 
+use vars qw(@edi_segment @edi_group $edi_valid $edi_level $edi_si $edi_gi);
+use vars qw($xml_file $edi_file);
+
 sub read_xml_message {
 	my($filename) = @_;
 	my($size);
 
+	$xml_file = $filename;
+	$xml_message = undef;
+
 	$size=(stat($filename))[7]		|| die "cant stat ".$filename;
-	die $filename." is to short ".$size." for EDI" 	if ($size <= 9);
-	open(F,$filename)			|| die "cant open ".$filename;
-	read(F,$xml_message,$size,0)		|| die "cant read message from ".$filename;
-	close(F);
+	if ($size < 65*1024) {
+	    die $filename." is to short ".$size." for EDI" 	if ($size <= 9);
+	    open(F,$filename)			|| die "cant open ".$filename;
+	    read(F,$xml_message,$size,0)		|| die "cant read message from ".$filename;
+	    close(F);
+	}
 
 	$advice_component_seperator = ":" unless $advice_component_seperator;
 	$advice_element_seperator   = "+" unless $advice_element_seperator;
@@ -363,9 +390,11 @@ sub read_xml_message {
 	$advice_segment_terminator  = "'" unless $advice_segment_terminator;
 }
 
-use vars qw(@edi_segment @edi_group $edi_valid $edi_level $edi_si $edi_gi);
-
 sub make_edi_message {
+	my ($iofile,$handler) = @_;
+
+        $edi_file = $iofile;
+
 	my $xml_parser;
 
 	$edi_message = "UNA";
@@ -375,13 +404,21 @@ sub make_edi_message {
 	$edi_message .= $advice_release_indicator;
 	$edi_message .= " ";
 	$edi_message .= $advice_segment_terminator;
+	$edi_file->print($edi_message) if $edi_file;
 
 	$edi_level    = 0;
 
 	$xml_parser   = new XML::Parser(Handlers => {	Start => \&handle_start,
 							End   => \&handle_end,
 							Char  => \&handle_char});
-	$xml_parser -> parse($xml_message);
+	if ($xml_message) {
+	    $xml_parser -> parse($xml_message);
+	} elsif ($xml_file) {
+	    $xml_parser -> parsefile($xml_file);
+	}
+
+	$edi_message = "" if $edi_file;
+	$edi_file = undef;
 
 	return $edi_message;
 }
@@ -408,8 +445,10 @@ sub handle_start {
 		if ($element =~ /^[^:]*:raw_segment/) {
 			foreach $opt (keys (%options)) {
 				if ($opt eq "data") {
+					$edi_message = "" if $edi_file;
 					$edi_message .= $options{$opt};
 					$edi_message .= $advice_segment_terminator;
+					$edi_file->print($edi_message) if $edi_file;
 				}
 			}
 			@edi_segment = ();
@@ -531,8 +570,10 @@ sub handle_end {
 	if ($edi_valid) {
 	    if ($edi_level == 1) {
 	    	if ($#edi_segment>0) {
+			$edi_message = "" if $edi_file;
 			$edi_message .= join $advice_element_seperator, @edi_segment;
 			$edi_message .= $advice_segment_terminator;
+		        $edi_file->print($edi_message) if $edi_file;
 		}
 	    }
 	    if ($edi_level == 2) {
@@ -563,7 +604,7 @@ sub handle_char {
 			printf STDERR "-%s\n", $element;
 		}
 
-		$element =~ tr/\0-\x{ff}//UC;
+		$element =~ s/([\xC0-\xDF])([\x80-\xBF])/chr(ord($1)<<6&0xC0|ord($2)&0x3F)/eg;
 		$element =~ s/[\n\r\t ]*$//;
 		$element =~ s/^[\n\r\t ]*//;
 
@@ -582,28 +623,54 @@ XML::Edifact - Perl module to handle XML::Edifact messages.
 
 =head1 SYNOPSIS
 
-use XML::Edifact;
+    use XML::Edifact;
+    use IO::File;
 
-    &XML::Edifact::open_dbm();
-    &XML::Edifact::read_edi_message($ARGV[0]);
-print   &XML::Edifact::make_xml_message();
-    &XML::Edifact::close_dbm();
+    # open the database
+    XML::Edifact::open_dbm();
+
+    # read edi message
+    XML::Edifact::read_edi_message("some.edi");
+
+    # print xml to standout
+    print &XML::Edifact::make_xml_message();
+
+    # print xml to somefile
+    $xml=new IO::File(">some.xml");
+    XML::Edifact::make_xml_message($xml);
+    $xml->close();
+
+    # close database
+    XML::Edifact::close_dbm();
 0;
 
 ---------------------------------------------------------------
 
-use XML::Edifact;
+    use XML::Edifact;
+    use IO::File;
 
-    &XML::Edifact::open_dbm();
-    &XML::Edifact::read_xml_message($ARGV[0]);
-print   &XML::Edifact::make_edi_message();
-    &XML::Edifact::close_dbm();
+    # open the database
+    XML::Edifact::open_dbm();
+
+    # read xml message
+    XML::Edifact::read_xml_message($ARGV[0]);
+
+    # print edi to standout
+    XML::Edifact::make_edi_message();
+
+    # print edi to somefile
+    $edi=new IO::File(">some.edi");
+    XML::Edifact::make_edi_message($edi);
+    $edi->close();
+
+    # close database
+    XML::Edifact::close_dbm();
 0;
 
 =head1 DESCRIPTION
 
 XML-Edifact started as Onyx-EDI which was a gawk script.
-XML::Edifact-0.3x still shows its bad ancestry (a2p)
+XML::Edifact-0.4x still shows its bad ancestry (a2p)
 in some places.
 
 The current module is able to generate some SDBM files for
@@ -616,12 +683,11 @@ buffer global to the package, and will print this message
 as XML on STDOUT. The second usage will do the opposite.
 
 Those two files will be installed as edi2xml and xml2edi
-in your local bin directory.
+in your local bin directory. Use those two scripts and dont
+touch the internal affairs of the module. An object-oriented
+module is planned for the next release! 
 
-New to XML::Edifact 0.34 are namespace migration and intend
-handling - take a look at the test.pl for how to use them.
-BUT WAIT - An object-oriented syntax is planned for the next
-release! And I'm calling this release an interim, because I'm
+I'm calling this 0.4x track an interim, because I'm
 just saving a stable state (I hope) before I start to muddle
 all things around while going on an object(ive) raid.
 

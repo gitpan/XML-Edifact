@@ -1,12 +1,13 @@
   XML::Edifact - an approach towards XML/EDI as a prototype in perl
-  release 0.43 - grammar and spelling
+  release 0.45 - UNOC
   Michael Koehne, ( kraehe@copyleft.de )
-  Tue Jun 20 03:17:42 CEST 2000
+  Tue Jun 12 15:40:06 CEST 2001
 
   XML::Edifact is a set of perl scripts, for translating EDIFACT into
-  XML.	This 0.43 version is part of the portability track. Main
-  improvement is grammar and spelling of the documentation - thanks to
-  Julian Olson.
+  XML.	Version 0.45 improved UNOC handling. Perl 5.6.1 droped the 'tr'
+  function to convert between ISO-8859-1 and UTF8, and introduced a new
+  way. Thanks to Jarkko Hietaniemi for his regexp to produce a version
+  compatible from Perl 5.6.0 up.
   ______________________________________________________________________
 
   Table of Contents
@@ -45,7 +46,7 @@
   Orders, invoices, freight papers, etc., always look different, if they
   come from different companies. EDIFACT tries to fulfill all needs of
   commercial messages, regardless of type and origin. Of course the real
-  world is neither simple nor complete.	Nevertheless, it's important
+  world is neither simple nor complete.  Nevertheless, it's important
   for the top companies and their suppliers -  you know, those who have
   been in business for years and can pay for a mainframe and a pack of
   gurus.
@@ -128,7 +129,6 @@
   in segments and composite could only be expressed with some weird
   object relational databases like PostgreSQL.
 
-
   Also the DTD was changed for namespace reasons. The 0.2 needed to add
   the word literal, where element names clashed with segment names of
   the standard. And it dropped the composite information.  Now
@@ -198,6 +198,14 @@
   Version 0.43 improved in grammar and spelling - thanks to Julian
   Olson.
 
+  Version 0.44 improved in memory consumption - thanks to Carlos De
+  Matos, who confrontet me with DELJIT messages of megabyte size.
+
+  Version 0.45 improved UNOC handling. Perl 5.6.1 droped the 'tr'
+  function to convert between ISO-8859-1 and UTF8, and introduced a new
+  way. Thanks to Jarkko Hietaniemi for his regexp to produce a version
+  compatible from Perl 5.6.0 up.
+
 
   3.  Installation
 
@@ -257,7 +265,6 @@
   your EDI messages look like, do they break anything, what about your
   code list extension, ... ?
 
-
   Testing different real examples should show some bugs I havn't thought
   of. Think about the O'Reilly invoice or the Dubbel:Test and you should
   get the idea. I've tried to implement the UNA correctly, but this may
@@ -266,7 +273,7 @@
   one uses newline as a 9th character in UNA, so it's nearly human-
   readable.
 
-  One last word - I hope this complex installlation will work on most
+  One last word - I hope this complex installation will work on most
   Unix look-alikes, but I'm quite sure that it'll break on Windows and
   Mac. If you have such a system, and have problems during installation,
   drop me a mail. You are granted my help, as I need your help to make
@@ -280,7 +287,7 @@
   produced both the old and the new declarations. XML::Edifact 0.31
   dropped the deprecated declarations! If you have an old browser, you
   may have to download XML::Edifact 0.30 and edit the current
-  XML::Edifact.	Search for HERE_ and adapt the headers to your browsers
+  XML::Edifact.  Search for HERE_ and adapt the headers to your browsers
   preferences.
 
   4.2.	Stating level in Syntax identifier.
@@ -311,9 +318,12 @@
   quite stable, and there is a need for portability, while the version
   under development is far from being usable.
 
+  I had to realise that the roadmap is far to large, so I had to drop
+  the steps 0.7x to 0.9x. The functionality will become unbundled into
+  other CPAN modules if necessary.
+
      0.4x
 	This version focuses on portability, of the EdiCooked style.
-
 	While Perl ensures portability across the unix'es, MacOS and
 	Win32 will cause some problems. The 0.4 version will also be the
 	first one intended to be installed. As installation also means
@@ -325,40 +335,11 @@
 	This is the unstable version track.
 
 	XML::Edifact now provides PerlSAX objects as drivers and
-	handlers to UN/EDIFACT, making usage more flexible. Current step
-	is the reverse engineering of a document type definition for the
-	original EDI standard draft.
+	handlers to UN/EDIFACT, making usage more flexible.
 
      0.6x
 	Stabilisation by discussion and consensus about features
-	introduced with 0.5. Portability across networks using SAX may
-	be one concern.
-
-     0.7x
-	EdiCooked is far from being KISS. This release will try a
-	smarter DTD called EdiLean. EdiLean will focus on PRICAT,
-	QUOTES, ORDERS, ORDRSP, ORDCHG and INVOICE. If a consensus about
-	a KISS XML/EDI already exists, EdiLean will try to implement it.
-
-     0.8x
-	Stabilisation by disscussion and consensus about the XML DTDs
-	introduced with 0.7.
-
-     0.9x
-	It's important for me that authentication and authorisation be
-	provided before I call it final 1.0. Some Edifact messages
-	contain medical information (MED*), others contain personal
-	information (JOB*). Most messages contain valuable information
-	for running a business. Only cryptography on a document level
-	would preserve authentication and authorisation once a message
-	is stored on a disk.
-
-	Alf O. Watt ( alfwatt@pacbell.net ) proposed a simple solution
-	using namespaces and processing instructions to the perlxml
-	mailing list in December 1998. The beauty of this aproach is
-	that the secure document is still well-formed and valid, and of
-	the same document type. It could even be translated back to
-	UN/EDIFACT to obtain a message with encrypted segments.
+	introduced with 0.5.
 
      1.0
 	I hope that a consensus has been found in this direction, so the
@@ -390,6 +371,7 @@
   therefore not covered by GPL, but likely copyrighted by the United
   Nations. The same applies to the text tables produced during
   Bootstrap.PL.
+
   Besides the GPLed Edition, a Custom Edition exists, if you dislike
   GPL. Drop me an eMail and ask for price and conditions.
 
@@ -407,9 +389,9 @@
 
 
 
-	   $ perl -MCPAN -e shell
-	   cpan> install XML::Parser
-	   cpan> install XML::Edifact
+      $ perl -MCPAN -e shell
+      cpan> install XML::Parser
+      cpan> install XML::Edifact
 
 
 

@@ -12,6 +12,7 @@ use XML::Edifact;
 use XML::Edifact::Config;
 use Digest::MD5;
 use File::Spec;
+use IO::File;
 $loaded = 1;
 print "ok 1\n";
 
@@ -68,11 +69,9 @@ foreach $edi (
 	}
 	XML::Edifact::read_edi_message(File::Spec->catfile("examples",$edi.".edi"));
 
-	open(OUTFILE,">".File::Spec->catfile("html","EX",$edi.".xml"));
-	select(OUTFILE);
-	print	XML::Edifact::make_xml_message();
-	select(STDOUT);
-	close(OUTFILE);
+	my $out = new IO::File(">".File::Spec->catfile("html","EX",$edi.".xml"));
+	XML::Edifact::make_xml_message($out);
+	$out->close();
 
 	open(OUTFILE,"<".File::Spec->catfile("html","EX",$edi.".xml"));
 	$md5=Digest::MD5->new->addfile(*OUTFILE)->hexdigest;
@@ -87,6 +86,7 @@ foreach $edi (
 	# do not cheat
 	$XML::Edifact::edi_message='';
 
+	XML::Edifact::read_xml_message(File::Spec->catfile("html","EX",$edi.".xml"));
 	open(OUTFILE,">".File::Spec->catfile("html","EX",$edi.".edi"));
 	select(OUTFILE);
 	print	XML::Edifact::make_edi_message();

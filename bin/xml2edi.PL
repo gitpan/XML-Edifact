@@ -14,6 +14,7 @@ my $script = <<'SCRIPT';
 # -----------------------------------------------------------------------------
 
 use XML::Edifact;
+use IO::File;
 
 XML::Edifact::open_dbm();
 
@@ -34,7 +35,9 @@ while ($ARGV[0] =~ /^-/) {
 
 XML::Edifact::read_xml_message($ARGV[0]);
 
-print XML::Edifact::make_edi_message();
+my $xml=new IO::File(">-");
+XML::Edifact::make_edi_message($xml);
+$xml->close();
 
 XML::Edifact::close_dbm();
 0;
