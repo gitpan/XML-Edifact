@@ -54,8 +54,8 @@ use vars qw($s $f3 $f5 $f7 $f9);
 #------------------------------------------------------------------------------#
 
 open (INFILE, "un_edifact_d96b/trsd.96b") || die "can not open trsd.96b for reading";
-open (TXTFILE, ">html/segment.txt") || die "can not open segment.txt for writing";
-# open (XMLFILE, ">html/segment.xml") || die "can not open segment.xml for writing";
+open (TXTFILE, ">".File::Spec->catdir("html","LIB","xml-edifact-03","segment.txt") ) || die "can not open segment.txt for writing";
+# open (XMLFILE, ">".File::Spec->catdir("html","LIB","xml-edifact-03","segment.xml") ) || die "can not open segment.xml for writing";
 
 print STDERR "reading trsd.96b\n";
 # print XMLFILE $XML::Edifact::SEGMENT_SPECIFICATION_HEADER;

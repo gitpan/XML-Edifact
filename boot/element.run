@@ -25,7 +25,7 @@ Read TRED to create element.txt and element.dat for further processing
 use strict;
 use vars qw($cod $des);
 
-open (OUTFILE, ">html/element.txt") || die "can not open element.txt for writing";
+open (OUTFILE, ">".File::Spec->catdir("html","LIB","xml-edifact-03","element.txt") ) || die "can not open element.txt for writing";
 
 printf STDERR "reading tred.96b\n";
 open (INFILE, "un_edifact_d96b/tred.96b") || die "can not open tred for reading";

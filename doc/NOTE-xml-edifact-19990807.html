@@ -1,6 +1,15 @@
+<!-- X-URL: http://www.xml-edifact.org/TR/ -->
+<BASE HREF="http://www.xml-edifact.org/TR/">
+
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.0 Transitional//EN"
+            "http://www.w3.org/TR/REC-html40/loose.dtd">
+<HTML>
+<HEAD>
 <title>
-	W3C NOTE-xml-edifact-19990807
+	W3C NOTE-xml-edifact-19990823
 </title>
+</HEAD>
+<BODY TEXT="#000000" BGCOLOR="#FFFFFF">
 
 <center><h1> XML-Edifact </h1> </center>
 <p>
@@ -8,20 +17,26 @@
 	Interchange For Administration, Commerce and Transport (EDIFACT)
 </p>
 
-<dl> <dt> This version: </dt>
+<dl
+<dt> This version: </dt>
+<dd><a href="http://www.xml-edifact.org/TR/NOTE-xml-edifact-19990823.html">
+	http://www.xml-edifact.org/TR/NOTE-xml-edifact-19990823.html
+</a></dd>
+<dt> Previous version: </dt>
 <dd><a href="http://www.xml-edifact.org/TR/NOTE-xml-edifact-19990807.html">
 	http://www.xml-edifact.org/TR/NOTE-xml-edifact-19990807.html
 </a></dd>
 <dt> Latest Version: </dt>
 <dd><a href="http://www.xml-edifact.org/TR/NOTE-xml-edifact.html">
 	http://www.xml-edifact.org/TR/NOTE-xml-edifact.html
-</a></dd></dl>
+</a></dd>
+</dl>
 
 <h2>
 	Status of this document
 </h2>
 <h3>
-	NOTE to the W3C 07 August 1999
+	NOTE to the W3C 23 August 1999
 </h3><p>
 	This document is a NOTE made available to the World Wide Web
 	Consortium for discussion only. This indicates no endorsement of its
@@ -80,7 +95,7 @@
 	UN/EDIFACT - United Nations / Electronic Data Interchange For Administration, Commerce and Transport
 </dt><dd>
 	As an approach to reduce paper waste, the United Nation started to
-	define a common format for EDI. Hundreds of lobbyist have
+	define a common semantic for EDI. Hundreds of lobbyist have
 	influenced this standard to cope about 99% of business
 	messages. The canon reference is http://www.unece.org/trade/
 </dd><dt>
@@ -374,7 +389,7 @@ and also
 	Looking to a code list for translating an element is usual and
 	definitely the reason of the small size of UN/EDIFACT messages.
 	But its also the greatest mess as codelist extension are quite
-	common and seldom inter operable. Also a German UN/EDIFACT may
+	common and seldom interoperable. Also a German UN/EDIFACT may
 	give "Betriebssystem" for the same code, so the attribute and
 	the namespace of the attribute is of a greater importance than
 	the translation. If a code can not be translated by <b>uncl</b>,
@@ -414,7 +429,7 @@ and also
 	TeleOrdering UK is one of the main Value Added Network for book
 	order routing. The following example message was striped
 	down from a message they send to me for pointing at some problems
-	in XML::Edifact version 0.3 code. The original message contained
+	in XML::Edifact version 0.30 code. The original message contained
 	27 orders and was enriched by IMD+F+BPU segments to precise
 	the order routing of single line items. I have deleted those
 	IMD segments, and also the remaining 26 messages to save bandwidth
@@ -758,7 +773,9 @@ and also
 	prototype to a stable 1.0 versions. Several steps have to be
 	done, so take a look at the road map in the XML::Edifact
 	documentation. Other papers will address specific points.
-	I like to invite any to participate in XML-Edifact.
 </p><p>
+	I like to invite any to participate in XML-Edifact.
 	www.xml-edifact.org will collect those papers.
+	Please feel free to contact me by eMail - <a href="mailto:Kraehe@Bakunin.North.De">Michael Koehne</a>
 </p>
+</BODY>

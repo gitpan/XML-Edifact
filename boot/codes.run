@@ -22,7 +22,7 @@ Read UNCL to create codes.txt and codes.dat for further processing
 
 =cut
 
-open (OUTFILE, ">html/codes.txt") || die "can not open codes.txt for writing";
+open (OUTFILE, ">".File::Spec->catdir("html","LIB","xml-edifact-03","codes.txt") ) || die "can not open codes.txt for writing";
 
 open (INFILE, "un_edifact_d96b/uncl-1.96b") || die "can not open uncl-1.96b for reading";
 printf STDERR "reading uncl-1.96b\n";

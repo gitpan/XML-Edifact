@@ -4,19 +4,16 @@
 <title>
 	<tt/XML::Edifact/ - an approach towards <tt>XML/EDI</> as a prototype in perl
 <subtitle>
-	release 0.33 - normalisation, namespaces, xml2edi
+	release 0.34 - normalisation, namespaces, xml2edi
 <author>
 	Michael Koehne,
 ( <htmlurl url="mailto:kraehe@bakunin.north.de" name="kraehe@bakunin.north.de"> )
 <date>
-	v0.33 release
+	v0.34 release
 <abstract>
 	XML::Edifact is a set of perl scripts, hopefully becoming a
-	module, for translating EDIFACT into XML. This 0.33 version
-	contains a document type definition for the produced XML.
-	Its intended as a working horse, and I hope that some
-	diesel or expat, will be able to translate my XML-Edifact to
-	XML/EDI and vice versa, once we have a standard.
+	module, for translating EDIFACT into XML. This 0.34 version
+	contains new SDBM tables for code list extension.
 
 </abstract>
 <!-- Table of contents -->
@@ -145,8 +142,11 @@
   optimising the SDBM by further denormalisation improved performance
   of <tt/edi2xml/ by factor 12. I hope nobody did use the SDBM internals
   so far. The last major improvement is, that I'm getting familar with
-  ExtUtils::MakeMaker, File::Spec and friends. This 0.33 version is the
-  first that does install - at least on my Linux box :-)
+  ExtUtils::MakeMaker, File::Spec and friends. Version 0.33 is the
+  first that did install - at least on my Linux box :-)
+<p>
+  Version 0.34 introduced coding of UN/EDIFACT code list extensions
+  by XML-Edifact namespace migration.
 <p>
   A last note about change of 0.2 to 0.30. Treat this number as
   0.3.0 translated to perl canon. The 0.3 is not finished, coming
@@ -208,9 +208,9 @@
   thought about.  Think about the <tt/O'Reilly/ invoice or the
   <tt/Dubbel:Test/ and you should catch the clue. I've tried to implement
   the <tt/UNA/ right, but this may need some additional debugging.
-  Take a look at the difference between the edi.tst files from Frankfurt
-  and the Springer message. The last one is using newline as a 9th
-  character in UNA, so its nearly human readable.
+  Take a look at the difference between the editeur.edi file from
+  Frankfurt and the Springer message. The last one is using newline
+  as a 9th character in UNA, so its nearly human readable.
 <p>
   A last word - I hope this complex installlation will work on most
   Unix look likes, but I'm quite sure that it'll break on Windows and
@@ -251,7 +251,7 @@
 	Roadmap
 <p>
    I'm using even and odd numbering to distinct from stable and
-   experimental version. Well this 0.2 was not as stable as an
+   experimental version. Well 0.2 was not as stable as an
    even number suggests. And I hope this 0.3x is stable enough
    as as often a third version, will be the first usefull one.
 <p>
@@ -366,8 +366,8 @@
    or ftp directly at:
 
 <tscreen><verb>
-	ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Parser.*.tar.gz
-	ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Edifact.*.tar.gz
+	ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Parser-*.tar.gz
+	ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Edifact-*.tar.gz
 </verb></tscreen>
 
    The canon source of the XML::Edifact project is now:

@@ -1,13 +1,11 @@
   XML::Edifact - an approach towards XXMMLL//EEDDII as a prototype in perl
-  release 0.33 - normalisation, namespaces, xml2edi
+  release 0.34 - normalisation, namespaces, xml2edi
   Michael Koehne, ( kraehe@bakunin.north.de )
-  v0.33 release
+  v0.34 release
 
   XML::Edifact is a set of perl scripts, hopefully becoming a module,
-  for translating EDIFACT into XML. This 0.33 version contains a docu-
-  ment type definition for the produced XML.  Its intended as a working
-  horse, and I hope that some diesel or expat, will be able to translate
-  my XML-Edifact to XML/EDI and vice versa, once we have a standard.
+  for translating EDIFACT into XML. This 0.34 version contains new SDBM
+  tables for code list extension.
   ______________________________________________________________________
 
   Table of Contents:
@@ -64,6 +62,7 @@
   This is NNOOTT XML/EDI, its certainly not KISS. The eeddiiffaacctt0033..ddttdd
   reflects the original words of the EDIFACT standard as close as
   possible on a segment, composite and element level.
+
   This DTD simplifies EDI in so much as it doesnt distinct between e.g.
   INVOICE or PRICAT but only defines a generic message type called
   edifact:message. The benefit is of course that its possible to convert
@@ -163,8 +162,11 @@
   optimising the SDBM by further denormalisation improved performance of
   eeddii22xxmmll by factor 12. I hope nobody did use the SDBM internals so far.
   The last major improvement is, that I'm getting familar with
-  ExtUtils::MakeMaker, File::Spec and friends. This 0.33 version is the
-  first that does install - at least on my Linux box :-)
+  ExtUtils::MakeMaker, File::Spec and friends. Version 0.33 is the first
+  that did install - at least on my Linux box :-)
+
+  Version 0.34 introduced coding of UN/EDIFACT code list extensions by
+  XML-Edifact namespace migration.
 
   A last note about change of 0.2 to 0.30. Treat this number as 0.3.0
   translated to perl canon. The 0.3 is not finished, coming versions
@@ -220,9 +222,9 @@
   thought about.  Think about the OO''RReeiillllyy invoice or the DDuubbbbeell::TTeesstt
   and you should catch the clue. I've tried to implement the UUNNAA right,
   but this may need some additional debugging.  Take a look at the
-  difference between the edi.tst files from Frankfurt and the Springer
-  message. The last one is using newline as a 9th character in UNA, so
-  its nearly human readable.
+  difference between the editeur.edi file from Frankfurt and the
+  Springer message. The last one is using newline as a 9th character in
+  UNA, so its nearly human readable.
 
   A last word - I hope this complex installlation will work on most Unix
   look likes, but I'm quite sure that it'll break on Windows and Mac. If
@@ -246,6 +248,7 @@
   This has to be parsed. The stating level in EDIFACT speak is called
   charset encoding in XML speak, and its of course important if you
   thing about non US/UK products. See un_edifact/unsl.
+
   44..33..  EExxpplliicciitt IInnddiiccaattiioonn ooff NNeessttiinngg
 
   This has not been coded yet, as no example messsages are available to
@@ -263,9 +266,9 @@
   55..  RRooaaddmmaapp
 
   I'm using even and odd numbering to distinct from stable and
-  experimental version. Well this 0.2 was not as stable as an even
-  number suggests. And I hope this 0.3x is stable enough as as often a
-  third version, will be the first usefull one.
+  experimental version. Well 0.2 was not as stable as an even number
+  suggests. And I hope this 0.3x is stable enough as as often a third
+  version, will be the first usefull one.
 
   Be warned: Anythink here is pure vaporware. I'm writing XML::Edifact
   in my spare time, and I hope to complete one version per month.
@@ -306,7 +309,6 @@
         smarter DTD called EdiLean. EdiLean will focus on PRICAT,
         ORDERS, ORDRSP, ORDCHG and INVOICE. If a consens about a KISS
         XML/EDI already exist, EdiLean will try to implement it.
-
      00..88xx
         Stabilisation by disscussion and consens about the XML DTDs
         introduced with 0.7.
@@ -377,8 +379,8 @@
 
   or ftp directly at:
 
-               ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Parser.*.tar.gz
-               ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Edifact.*.tar.gz
+               ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Parser-*.tar.gz
+               ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Edifact-*.tar.gz
 
   The canon source of the XML::Edifact project is now:
 

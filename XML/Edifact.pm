@@ -18,102 +18,92 @@ use Carp;
 
 use vars qw($VERSION $debug);
 
-$VERSION='0.33';
+$VERSION='0.34';
 $debug=1;					# debug=1 is fine
 
 # ------------------------------------------------------------------------------
 # edit the HERE documents for those variables for your systems preferences.
-# Ive included both kinds of namespace definitions. You may have to drop one
-# if your system is aware about xml namespaces.
 
-sub eval_xml_edifact_headers {
 use vars qw(
+	$MESSAGE_NAMESPACE
 	$MESSAGE_HEADER
 	$DOCTYPE_HEADER
 	$SEGMENT_SPECIFICATION_HEADER
 	$COMPOSITE_SPECIFICATION_HEADER
 	);
 
-$MESSAGE_HEADER=<<HERE_MESSAGE_HEADER;
-<?xml version="1.0"?>
-<!DOCTYPE edifact:message SYSTEM "$XML::Edifact::Config::URL/edifact03.dtd">
-<!-- XML message produced by edi2xml.pl (c) Kraehe\@Bakunin.North.De -->
-<edifact:message
-	xmlns:edifact='$XML::Edifact::Config::URL/edifact03.rdf'
-	xmlns:trsd='$XML::Edifact::Config::URL/edifact03_trsd.rdf'
-	xmlns:trcd='$XML::Edifact::Config::URL/edifact03_trcd.rdf'
-	xmlns:tred='$XML::Edifact::Config::URL/edifact03_tred.rdf'
-	xmlns:uncl='$XML::Edifact::Config::URL/edifact03_uncl.rdf'
-	xmlns:anxs='$XML::Edifact::Config::URL/edifact03_anxe.rdf'
-	xmlns:anxc='$XML::Edifact::Config::URL/edifact03_anxc.rdf'
-	xmlns:anxe='$XML::Edifact::Config::URL/edifact03_anxe.rdf'
-	xmlns:unsl='$XML::Edifact::Config::URL/edifact03_unsl.rdf'
-	xmlns:unknown='$XML::Edifact::Config::URL/edifact03_unknown.rdf'
-	>
+sub eval_xml_edifact_headers {
+	$MESSAGE_NAMESPACE = "edifact" unless $MESSAGE_NAMESPACE;
+
+	$MESSAGE_HEADER=<<HERE_MESSAGE_HEADER;
+		<?xml version="1.0"?>
+		<!DOCTYPE $MESSAGE_NAMESPACE:message
+		  SYSTEM "$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd">
+		<!-- XML message produced by edi2xml.pl (c) Kraehe\@Bakunin.North.De -->
+		<$MESSAGE_NAMESPACE:message
+		  xmlns:$MESSAGE_NAMESPACE='$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.rdf'
+		  xmlns:trsd='$XML::Edifact::Config::URL/LIB/xml-edifact-03/trsd.rdf'
+		  xmlns:trcd='$XML::Edifact::Config::URL/LIB/xml-edifact-03/trcd.rdf'
+		  xmlns:tred='$XML::Edifact::Config::URL/LIB/xml-edifact-03/tred.rdf'
+		  xmlns:uncl='$XML::Edifact::Config::URL/LIB/xml-edifact-03/uncl.rdf'
+		  xmlns:anxs='$XML::Edifact::Config::URL/LIB/xml-edifact-03/anxe.rdf'
+		  xmlns:anxc='$XML::Edifact::Config::URL/LIB/xml-edifact-03/anxc.rdf'
+		  xmlns:anxe='$XML::Edifact::Config::URL/LIB/xml-edifact-03/anxe.rdf'
+		  xmlns:unsl='$XML::Edifact::Config::URL/LIB/xml-edifact-03/unsl.rdf'
+		  xmlns:unknown='$XML::Edifact::Config::URL/LIB/xml-edifact-03/unknown.rdf' >
 HERE_MESSAGE_HEADER
+	$MESSAGE_HEADER =~ s/^\t\t//;
+	$MESSAGE_HEADER =~ s/\n\t\t/\n/g;
+
 # ------------------------------------------------------------------------------
-$DOCTYPE_HEADER=<<HERE_DOCTYPE_HEADER;
-<!-- XML DTD for cooked EDI to reflect raw UN/EDIFACT -->
-<!-- edifact03.dtd (c) '98 Kraehe\@Bakunin.North.De -->
 
-<!-- I should warn you that badly written validating XML
-     parsers may have problems by running out of memory.
-
-     Its quite large, I know, but it's not yet complete!
-
-     My first attempt on an automatic generated edifact03.dtd
-     failed with massive "content model is ambiguous" errors.
-     So I deceided to use a mixed content model to simplify work
-     for XML parsers and also for me.
-
-     Goal of Edicooked03.dtd is that any wellformed EDI message
-     can be translated into a valid Edicooked message.
-
-     The revers is NOT true, however!
-
-     Edicooked does'nt constrain anything about segment groups, and not
-     even about the sequence of elements within a segment or composite.
-
-     XML DTDs do not provide the fine granularity for defining
-     valid UN/EDIFACT. Use an external checker - write one based
-     on top of DOM, and you are granted a virtual Beck's beer.
-  -->
-
+	$DOCTYPE_HEADER=<<HERE_DOCTYPE_HEADER;
+		<!-- XML DTD for XML-Edifact to reflect raw UN/EDIFACT -->
+		<!-- LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd (c) '98 Kraehe\@Bakunin.North.De -->
 HERE_DOCTYPE_HEADER
-# ------------------------------------------------------------------------------
-$SEGMENT_SPECIFICATION_HEADER=<<HERE_SEGMENT_SPECIFICATION_HEADER;
-<?xml version="1.0"?>
-<?xml:namespace ns='$XML::Edifact::Config::URL/edifact03.dtd'	prefix='edifact' ?>
-<!DOCTYPE edifact:segment_specification SYSTEM "edifact03.dtd">
-<!-- XML::Edifact segment.xml (c) Kraehe\@Bakunin.North.De -->
+	$DOCTYPE_HEADER =~ s/^\t\t//;
+	$DOCTYPE_HEADER =~ s/\n\t\t/\n/g;
 
-<edifact:segment_specifications
-	xmlns:edifact='$XML::Edifact::Config::URL/edifact03.dtd'
-	>
+# ------------------------------------------------------------------------------
+
+	$SEGMENT_SPECIFICATION_HEADER=<<HERE_SEGMENT_SPECIFICATION_HEADER;
+		<?xml version="1.0"?>
+		<!DOCTYPE $MESSAGE_NAMESPACE:segment_specification SYSTEM "$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd">
+		<!-- XML::Edifact segment.xml (c) Kraehe\@Bakunin.North.De -->
+
+		<$MESSAGE_NAMESPACE:segment_specifications
+			xmlns:$MESSAGE_NAMESPACE='$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.rdf'
+			>
 HERE_SEGMENT_SPECIFICATION_HEADER
-# ------------------------------------------------------------------------------
-$COMPOSITE_SPECIFICATION_HEADER=<<HERE_COMPOSITE_SPECIFICATION_HEADER;
-<?xml version="1.0"?>
-<?xml:namespace ns='$XML::Edifact::Config::URL/edifact03.dtd'	prefix='edifact' ?>
-<!DOCTYPE edifact:composite_specification SYSTEM "edifact03.dtd">
-<!-- XML::Edifact composite.xml (c) Kraehe\@Bakunin.North.De -->
+	$SEGMENT_SPECIFICATION_HEADER =~ s/^\t\t//;
+	$SEGMENT_SPECIFICATION_HEADER =~ s/\n\t\t/\n/g;
 
-<edifact:composite_specifications
-	xmlns:edifact='$XML::Edifact::Config::URL/edifact03.dtd'
-	>
+# ------------------------------------------------------------------------------
+	$COMPOSITE_SPECIFICATION_HEADER=<<HERE_COMPOSITE_SPECIFICATION_HEADER;
+		<?xml version="1.0"?>
+		<!DOCTYPE $MESSAGE_NAMESPACE:composite_specifications SYSTEM "$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd">
+		<!-- XML::Edifact composite.xml (c) Kraehe\@Bakunin.North.De -->
+
+		<$MESSAGE_NAMESPACE:composite_specifications
+			xmlns:$MESSAGE_NAMESPACE='$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.rdf'
+			>
 HERE_COMPOSITE_SPECIFICATION_HEADER
+	$COMPOSITE_SPECIFICATION_HEADER =~ s/^\t\t//;
+	$COMPOSITE_SPECIFICATION_HEADER =~ s/\n\t\t/\n/g;
 }
+
 # end of sub eval_xml_edifact_headers
 # ------------------------------------------------------------------------------
 
 use vars qw(%SEGMT %COMPT %CODET %ELEMT);
-use vars qw(%SEGMR);
+use vars qw(%SEGMR %EXTEND);
 
 use vars qw($edi_message $xml_message @xml_msg);
 use vars qw($advice $advice_component_seperator);
 use vars qw($advice_element_seperator $advice_decimal_notation);
 use vars qw($advice_release_indicator $advice_segment_terminator);
 use vars qw($indent_join $indent_tab);
+use vars qw($patch_segment $patch_composite $last_segment $last_composite);
 
 # ------------------------------------------------------------------------------
 
@@ -170,7 +160,7 @@ sub read_edi_message {
 	close(F);
 
 	$advice=substr($edi_message,0,9);
-	die $filename." is not an EDI message"	if ($advice !~ "^UN[AB]");
+	die $filename." is not an EDI message"	if ($advice !~ "^UN[A-Z]");
 
 	$advice = "UNA:+.? '" unless ($advice =~ "^UNA");
 
@@ -208,7 +198,7 @@ sub make_xml_message {
 		$segment =~ s/\001/$advice_segment_terminator/g;
 		resolve_segment($segment);
 	}
-	push @xml_msg , "</edifact:message>";
+	push @xml_msg , "</$MESSAGE_NAMESPACE:message>";
 
 	resolve_tabs() if $indent_tab;
 	$xml_message = (join $indent_join,@xml_msg).$indent_join;
@@ -241,6 +231,8 @@ sub resolve_segment {
 		push @xml_msg, '<!-- *** name '.$Elements[0].' '.$sgv[3].' -->'	if ($debug>2);
 		if (($sgv[2] ne '') && ($#Codes>=$#Elements)) {
 			push @xml_msg, '<'.$sgv[2].'>';
+			$last_segment = $#xml_msg;
+			undef $last_composite;
 
 			foreach $i (1 .. $#Elements) {
 				$element  = $Elements[$i];
@@ -252,7 +244,12 @@ sub resolve_segment {
 					resolve_element($Codes[$i], $Elements[$i]);
 				}
 			}
-			push @xml_msg, '</'.$sgv[2].'>';
+			if ($patch_segment) {
+				push @xml_msg, '</'.$patch_segment.'>';
+				undef $patch_segment;
+			} else {
+				push @xml_msg, '</'.$sgv[2].'>';
+			}
 		} else {
 			push @xml_msg, '<edifact:raw_segment data="'.$raw_segment.'"/>';
 		}
@@ -278,7 +275,10 @@ sub resolve_element {
 
 		@cmv = split("\t", $cm, 4);
 
-		push @xml_msg, '<'.$cmv[2].'>'			if ($cmv[2]);
+		if ($cmv[2]) {
+			push @xml_msg, '<'.$cmv[2].'>';
+			$last_composite = $#xml_msg;
+		}
 
 		@Components = split /$component_split/, $cooked_element;
 		@Codes = split / /, $cmv[0];
@@ -291,7 +291,14 @@ sub resolve_element {
 			}
 		}
 
-		push @xml_msg, '</'.$cmv[2].'>'			if ($cmv[2]);
+		if ($cmv[2]) {
+			if ($patch_composite) {
+				push @xml_msg, '</'.$patch_composite.'>';
+				undef $patch_composite;
+			} else {
+				push @xml_msg, '</'.$cmv[2].'>';
+			}
+		}
 		$ok=1;
 	}
 	if (($code =~ "^[0-9]") && ($cm = $ELEMT{$code})) {
@@ -323,11 +330,24 @@ sub resolve_code {
 
 	if ($coded) {
 		$cd = $CODET{$code."\t".$val};
-		if ($cd ne '') {
+		if ($cd = $CODET{$code."\t".$val}) {
 			@cdv=split /\t/, $cd;
 			push @xml_msg, '<'.$mark.' '.$cdv[0].':code="'.$code.':'.encode_xml($val).'">'.encode_xml($cdv[1]).'</'.$mark.'>';
-		}
-		else {
+		} elsif ($cd = $EXTEND{"code:".$code.":".$val}) {
+			@cdv=split /\t/, $cd;
+			$mark =~ s/^[^:]+:/$MESSAGE_NAMESPACE:/;
+			push @xml_msg, '<'.$mark.' '.$cdv[0].':code="'.$code.':'.encode_xml($val).'">'.encode_xml($cdv[1]).'</'.$mark.'>';
+			$xml_msg[$last_segment] =~ s/^<[^:]+:/<$MESSAGE_NAMESPACE:/;
+			$patch_segment = $xml_msg[$last_segment];
+			$patch_segment =~ s/^<//;
+			$patch_segment =~ s/[ >].*$//;
+			if ($last_composite) {
+				$xml_msg[$last_composite] =~ s/^<[^:]+:/<$MESSAGE_NAMESPACE:/;
+				$patch_composite = $xml_msg[$last_composite];
+				$patch_composite =~ s/^<//;
+				$patch_composite =~ s/[ >].*$//;
+			}
+		} else {
 			$enc = encode_xml($val);
 			push @xml_msg, '<'.$mark.    ' unknown:code="'.$code.':'.$enc.'">'.$enc.   '</'.$mark.'>';
 		}
@@ -398,7 +418,7 @@ sub handle_start {
 	my $expat   = shift @_;
 	my $element = shift @_;
 	my %options = @_;
-	my ($opt,$val,$i);
+	my ($opt,$val,$i,$j);
 	my (@sgv,@cmv,@sgc,@cmc,$junk,$trans,$coded);
 
 	if ($debug>1) {
@@ -410,6 +430,7 @@ sub handle_start {
 
 	if ($edi_level == 0) {
 		die "this is not XML::Edifact" if ($element !~ /^[^:]*:message/);
+		$edi_valid   = 1;
 	}
 	if ($edi_level == 1) {
 		if ($element =~ /^[^:]*:raw_segment/) {
@@ -425,13 +446,18 @@ sub handle_start {
 			$edi_gi      = 0;
 			$edi_valid   = 1;
 		} else {
-			@edi_segment = ($SEGMR{$element});
+			$edi_valid   = $SEGMR{$element};
+			$edi_valid   = $EXTEND{"sgmt:".$element} unless ($edi_valid || ($XML::Edifact::MESSAGE_NAMESPACE eq "edifact"));
+			if ($edi_valid) {
+				@edi_segment = ($edi_valid);
+				$edi_valid   = 1;
+			}
 			$edi_si      = 0;
 			@edi_group   = ();
 			$edi_gi      = 0;
-			$edi_valid   = ($edi_segment[0] ne "");
 		}
 	}
+	# to constrain edi_valid from edi_level 2 up adds robustness
 	if ($edi_valid) {
 	    if ($edi_level == 2) {
 		$edi_si++;
@@ -450,17 +476,27 @@ sub handle_start {
 			last SKIP_SEGMT if ($trans eq $element);
 		}
 
-		if ($i <= $#sgc) {
-			$edi_si = $i;
-		} else {
-			$edi_valid = 0;
+		if ($i > $#sgc) {
+			if ($XML::Edifact::MESSAGE_NAMESPACE ne "edifact") {
+				$edi_valid = $EXTEND{"elmt:".$edi_segment[0].":".$element};
+				$edi_valid = $EXTEND{"comp:".$edi_segment[0].":".$element} unless $edi_valid;
+				if ($edi_valid) {
+				    ($i,$j) = split / /, $edi_valid;
+				    $edi_valid = 1;
+				}
+			} else {
+				$edi_valid = 0;
+			}
 		}
 
-		foreach $opt (keys (%options)) {
-			if ($opt =~ "^[^:]*:code") {
-				$val = $options{$opt};
-				$val =~ s/^[^:]*://;
-				$edi_group[$edi_gi] = $val;
+		if ($i <= $#sgc) {
+			$edi_si = $i;
+			foreach $opt (keys (%options)) {
+				if ($opt =~ "^[^:]*:code") {
+					$val = $options{$opt};
+					$val =~ s/^[^:]*://;
+					$edi_group[$edi_gi] = $val;
+				}
 			}
 		}
 	    }
@@ -476,20 +512,37 @@ sub handle_start {
 		}
 
 		if ($i <= $#cmc) {
-			$edi_gi = $i;
 		} else {
 			$edi_valid = 0;
 		}
+		if ($i > $#cmc) {
+			if ($XML::Edifact::MESSAGE_NAMESPACE ne "edifact") {
+				$edi_valid = $EXTEND{"elmt:".$edi_segment[0].":".$element};
+				if ($edi_valid) {
+				    ($j,$i) = split / /, $edi_valid;
+				    $edi_valid = 1;
+				}
+			} else {
+				$edi_valid = 0;
+			}
+		}
 
-		foreach $opt (keys (%options)) {
-			if ($opt =~ "^[^:]*:code") {
-				$val = $options{$opt};
-				$val =~ s/^[^:]*://;
-				$edi_group[$edi_gi] = $val;
+		if ($i <= $#cmc) {
+			$edi_gi = $i;
+
+			foreach $opt (keys (%options)) {
+				if ($opt =~ "^[^:]*:code") {
+					$val = $options{$opt};
+					$val =~ s/^[^:]*://;
+					$edi_group[$edi_gi] = $val;
+				}
 			}
 		}
 	    }
-	}
+	} 
+
+	carp "invalid xml-edifact at $edi_level level $element" unless $edi_valid;
+
 	$edi_level++;
 }
 
@@ -527,8 +580,6 @@ sub handle_end {
 	    if ($edi_level == 3) {
 		$edi_gi++;
 	    }
-	} else {
-	    carp "invalid xml-edifact at $edi_level level $element";
 	}
 }
 
@@ -560,7 +611,7 @@ XML::Edifact - Perl module to handle XML::Edifact messages.
 
 use	XML::Edifact;
 
-	&XML::Edifact::open_dbm("data");
+	&XML::Edifact::open_dbm();
 	&XML::Edifact::read_edi_message($ARGV[0]);
 print	&XML::Edifact::make_xml_message();
 	&XML::Edifact::close_dbm();
@@ -570,7 +621,7 @@ print	&XML::Edifact::make_xml_message();
 
 use	XML::Edifact;
 
-	&XML::Edifact::open_dbm("data");
+	&XML::Edifact::open_dbm();
 	&XML::Edifact::read_xml_message($ARGV[0]);
 print	&XML::Edifact::make_edi_message();
 	&XML::Edifact::close_dbm();
@@ -582,18 +633,24 @@ XML-Edifact started as Onyx-EDI which was a gawk script.
 XML::Edifact-0.3x still shows its bad anchesor called a2p
 in some parts.
 
-The current module is just able to open and close the SDBM
-files found in the directory pointed by open_dbm. Read a
-EDIFACT message into a buffer global to the package, and
-to print this message as XML on STDOUT.
+The current module is able to generate some SDBM files for
+the directory pointed by open_dbm by parsing the original
+United Nations EDIFACT documents during Bootstrap.PL. Those
+files will be stored during make install.
 
-The best think you can currently do with it:
-  Run the regession test found under Installation in
-  the README file, using you own files.
+The first typical usage will read a EDIFACT message into a
+buffer global to the package, and to print this message
+as XML on STDOUT. The second usage will do the vice versa.
 
-The second best: Just view the files in ./examples with
-your favourite pager. Anything that can be found after
-regression test, can also be found in this directory.
+Those two files will be installed as edi2xml and xml2edi
+in your local bin directory.
+
+New to XML::Edifact 0.34 are namespace migration and intend
+handling - take a look at the test.pl of how to use them.
+BUT HALT - A object oriented syntax is planned for the next
+release! And I'm calling this release an interim because, I'm
+just saving a stable state (i hope) before I start to muddle
+all things around while going on object(ive r)aid.
 
 If you have other EDIFACT files, I would like to include
 them into the next version. I'm also open to any comments,

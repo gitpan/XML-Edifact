@@ -50,8 +50,8 @@ use vars qw($name_space $cooked_name $canon_name);
 use vars qw($s $f3 $f5 $f7 $f9);
 
 open (INFILE, "un_edifact_d96b/trcd.96b") || die "can not open trcd.96b for reading";
-open (TXTFILE, ">html/composite.txt") || die "can not open composite.txt for writing";
-# open (XMLFILE, ">html/composite.xml") || die "can not open composite.xml for writing";
+open (TXTFILE, ">".File::Spec->catdir("html","LIB","xml-edifact-03","composite.txt") ) || die "can not open composite.txt for writing";
+# open (XMLFILE, ">".File::Spec->catdir("html","LIB","xml-edifact-03","composite.xml") ) || die "can not open composite.xml for writing";
 
 printf STDERR "reading trcd.96b\n";
 # print XMLFILE $XML::Edifact::COMPOSITE_SPECIFICATION_HEADER;

@@ -2,7 +2,12 @@ use ExtUtils::MakeMaker;
 use File::Spec;
 use Config;
 
-# this is new to 0.33 - please report any problems!
+eval {
+	require XML::Edifact::Config;
+
+	$URL = $XML::Edifact::Config::URL;
+	$DIR = $XML::Edifact::Config::DIR;
+};
 
 print <<'!1!';
 
@@ -28,8 +33,11 @@ Anyway, do not provide a trailing slash, File::Spec will do that!
 
 !1!
 
-$URL = prompt "URL for public documents","http://localhost/xml-edifact";
-$DIR = prompt "Directory on this system","/usr/local/apache/htdocs/xml-edifact";
+$URL = "http://localhost/xml-edifact"         unless $URL;
+$DIR = "/usr/local/apache/htdocs/xml-edifact" unless $DIR;
+
+$URL = prompt "URL for public documents",$URL;
+$DIR = prompt "Directory on this system",$DIR;
 
 if (! -d $DIR) {
 	mkdir "$DIR",0777 or die "mkdir:".$!;
@@ -72,8 +80,8 @@ WriteMakefile(
 );
 
 sub MY::postamble {
-	return('install:: '.$main::DIR."/edifact03.dtd\n".
-	       $main::DIR.'/edifact03.dtd : html/edifact03.dtd'."\n".
-	       "\t".'cp doc/*.html '.$main::DIR."\n".
-	       "\t".'cp html/* '.$main::DIR."\n");
+	return('install:: '.$main::DIR."/.exists\n".
+	       $main::DIR."/.exists : html/.exists\n".
+	       "\t".'$(MOD_INSTALL) html '.$main::DIR."\n".
+	       "\t".'touch '.$main::DIR."/.exists\n");
 }

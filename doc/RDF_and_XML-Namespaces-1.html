@@ -1,200 +1,29 @@
 <HTML>
 <HEAD>
-<TITLE>       RDF to describe XML::Edifact Namespaces: History of XML::Edifact</TITLE>
+<TITLE>       RDF to describe XML::Edifact Namespaces: Subject - Predicate - Object</TITLE>
 </HEAD>
 <BODY>
 Previous
 <A HREF="RDF_and_XML-Namespaces-2.html">Next</A>
 <A HREF="RDF_and_XML-Namespaces.html#toc1">Table of Contents</A>
 <HR>
-<H2><A NAME="s1">1. History of XML::Edifact</A></H2>
+<H2><A NAME="s1">1. Subject - Predicate - Object</A></H2>
 
-<P>My first contact with UN/EDIFACT was based on a source code
-exchange with USR-Tuebingen. I've showed them how to use a
-Linux box to access the Verzeichniss Lieferbarer Buecher
-CDROM from other Unix sites. They gave me a tool called
-<CODE>ediview</CODE>, an interactive UN/EDIFACT browser written
-in C and used for the Frankfurt EDITEUR project. The parser
-was table driven, and to my horror they told me that they've
-retyped the printed EDITEUR draft for those tables.</P>
-<P>My first attempt to reengineer this C source started with :</P>
+<P>The Resource Description Framework is based on the SPO paradigm.
+The SPO paradigm is drawn from the knowledge representation
+community and well suited to express complex coherencies in
+a formal way. Three typical sentences can be made with SPO.</P>
 <P>
 <BLOCKQUOTE><CODE>
 <PRE>
-        sed -e 's/??/^A/g' \
-            -e 's/?+/^B/g' \
-            -e 's/?'&quot;'&quot;'/^C/g' |
-        tr &quot;^A^B^C+'&quot; &quot;?+'\t\n&quot;
+        [Subject] has [Predicate] [Object]
+or      [Object] is [Predicate] of [Subject]
+or      [Predicate] of [Subject] is [Object]
 </PRE>
 </CODE></BLOCKQUOTE>
 </P>
-<P>This gave me some tabular view on UN/EDIFACT messages intended
-to be loaded into a Postgres database, or viewed with less.</P>
-<P>Soon thereafter I found the UN/EDIFACT batch directory at
-Premenos and wrote a 200 lines GAWK script to translate
-EDIFACT messages into a human readable form looking like:</P>
-<P>
-<BLOCKQUOTE><CODE>
-<PRE>
-        LINE ITEM NUMBER               : 1
-        Product identification         : 0471949000 ISBN
-        Name                           : Cherry
-        Vorname                        : Gordon E
-        Titel                          : Birmingham
-        Untertitel                     : a study in geography, hislanning
-        Ort                            : Chichester
-        Verlag                         : Wiley(John)(W Sussex)
-        Erscheinungsjahr               : 1994
-        Seiten                         : 254p
-        Ausstattung                    : ?  ill ; 24cm. - Bibl.?  P.237-244.
-        Subject (topical)              : 39100200? Urban studies
-        Ordered quantity               : 1
-        Suggested retail price         : YYY 37.5 Catalogue
-        Reference qualifier            : QNB 00023302 9
-        Reference date/time            : 19960208 CCYYMMDD
-        Line item reference number     : 8217
-        Reference qualifier            : BFN S.KON.39
-</PRE>
-</CODE></BLOCKQUOTE>
-</P>
-<P>You may note the mixture of German and English translations, as
-the EDITEUR codelist extension I had, had been the German ones
-typed by USR.</P>
-<P>The EDITEUR project stopped. IBU and others continued to use their
-home grown format, together with horror full MS-DOS applications, 
-for book order routing.</P>
-<P>I've started to think about SGML for a report system, when I found
-Martin Bryan's homepage about XML/EDI. The first Edi2SGML was written
-within a night shift, and I was able to process EDIFACT messages using
-<CODE>nsgmls</CODE> or <CODE>Jade</CODE>. Edi2SGML was written in Perl and produced:</P>
-<P>
-<BLOCKQUOTE><CODE>
-<PRE>
-&lt;!-- *** LIN+1 --&gt;
-&lt;line.item&gt;
-  &lt;line.item.number&gt;1&lt;/line.item.number&gt;
-&lt;/line.item&gt;
-&lt;!-- *** PIA+5+0471949000:IB --&gt;
-&lt;additional.product.id&gt;
-  &lt;product.id.function.qualifier coded=&quot;5&quot;&gt;Product identification&lt;/product.id.function.qualifier&gt;
-  &lt;item.number.identification&gt;
-    &lt;item.number&gt;0471949000&lt;/item.number&gt;
-    &lt;item.number.type coded=&quot;IB&quot;&gt;ISBN (International Standard Book Number)&lt;/item.number.type&gt;
-  &lt;/item.number.identification&gt;
-&lt;/additional.product.id&gt;
-&lt;!-- *** IMD+F+010+:::Cherry --&gt;
-&lt;item.description&gt;
-  &lt;item.description.type coded=&quot;F&quot;&gt;Free-form&lt;/item.description.type&gt;
-  &lt;item.characteristic coded=&quot;010&quot;&gt;Author Name&lt;item.characteristic&gt;
-Cherry
-&lt;/item.description&gt;
-</PRE>
-</CODE></BLOCKQUOTE>
-</P>
-<P>This SGML and the later XML from XML::Edifact-0.2 had a real problem
-with name clashes between segment, composite and element definitions
-in the original UN/EDIFACT batch directory, causing trouble when it
-came to validating the SGML/XML. As an example, take a look at the
-composite definition file <CODE>trcd</CODE> :</P>
-<P>
-<BLOCKQUOTE><CODE>
-<PRE>
-      C080  PARTY NAME
+<P>For further information refer to http://www.w3.org/TR/REC-rdf-syntax.</P>
 
-      Desc: Identification of a transaction party by name, one to five
-            lines. Party name may be formatted.
-
-010   3036   Party name                                    M  an..35
-020   3036   Party name                                    C  an..35
-030   3036   Party name                                    C  an..35
-040   3036   Party name                                    C  an..35
-050   3036   Party name                                    C  an..35
-060   3045   Party name format, coded                      C  an..3
-</PRE>
-</CODE></BLOCKQUOTE>
-</P>
-<P>Here we have a composite called <CODE>PARTY NAME</CODE> and elements also
-called <CODE>Party name</CODE>. The first idea of using case sensitivity
-of XML to distinct between them, lost its glance when it came to
-the PNA segment, which is also called <CODE>PARTY NAME</CODE>. But XML
-offers namespaces for situations like this, so a possible XML::Edifact
-translation of the above EDITEUR book order line item is :</P>
-<P>
-<BLOCKQUOTE><CODE>
-<PRE>
-&lt;?xml version=&quot;1.0&quot;?&gt;
-&lt;!DOCTYPE editeur:message SYSTEM &quot;./editeur.dtd&quot;&gt;
-&lt;!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De --&gt;
-
-&lt;editeur:message
-        xmlns:editeur='./editeur.rdf'
-        xmlns:edifact='./edifact.rdf' 
-        xmlns:trsd='./edifact_trsd.rdf'
-        xmlns:trcd='./edifact_trcd.rdf'
-        xmlns:tred='./edifact_tred.rdf'
-        xmlns:uncl='./edifact_uncl.rdf'
-        xmlns:anxs='./edifact_anxe.rdf'
-        xmlns:anxc='./edifact_anxc.rdf'
-        xmlns:anxe='./edifact_anxe.rdf'
-        xmlns:unsl='./edifact_unsl.rdf'
-        &gt;
-
-&lt;!-- SEGMENT UNB+UNOC:2+STUB+BLA+960209:0843+72 --&gt;
-
-  &lt;anxs:interchange.header&gt;
-    &lt;anxc:syntax.identifier&gt;
-      &lt;anxe:syntax.identifier unsl:code=&quot;0001:UNOC&quot;&gt;UN/ECE level C&lt;/anxe:syntax.identifier&gt;
-      &lt;anxe:syntax.version.number&gt;2&lt;/anxe:syntax.version.number&gt;
-    &lt;/anxc:syntax.identifier&gt;
-    &lt;anxc:interchange.sender&gt;
-      &lt;anxe:sender.identification&gt;STUB&lt;/anxe:sender.identification&gt;
-    &lt;/anxc:interchange.sender&gt;
-    &lt;anxc:interchange.recipient&gt;
-      &lt;anxe:recipient.identification&gt;BLA&lt;/anxe:recipient.identification&gt;
-    &lt;/anxc:interchange.recipient&gt;
-    &lt;anxc:date.time.of.preparation&gt;
-      &lt;anxe:date&gt;960209&lt;/anxe:date&gt;
-      &lt;anxe:time&gt;0843&lt;/anxe:time&gt;
-    &lt;/anxc:date.time.of.preparation&gt;
-      &lt;anxe:interchange.control.reference&gt;72&lt;/anxe:interchange.control.reference&gt;
-  &lt;/anxs:interchange.header&gt;
-
-&lt;!-- ... lot's of segments deleted ... --&gt;
-
-&lt;!-- SEGMENT LIN+1 --&gt;
-
-  &lt;trsd:line.item&gt;
-      &lt;tred:line.item.number&gt;1&lt;/tred:line.item.number&gt;
-  &lt;/trsd:line.item&gt;
-
-&lt;!-- SEGMENT PIA+5+0471949000:IB --&gt;
-
-  &lt;trsd:additional.product.id&gt;
-      &lt;tred:product.id.function.qualifier uncl:code=&quot;4347:5&quot;&gt;Product identification&lt;/tred:product.id.function.qualifier&gt;
-    &lt;trcd:item.number.identification&gt;
-      &lt;tred:item.number&gt;0471949000&lt;/tred:item.number&gt;
-      &lt;tred:item.number.type.coded uncl:code=&quot;7143:IB&quot;&gt;ISBN (International Standard Book Number)&lt;/tred:item.number.type.coded&gt;
-    &lt;/trcd:item.number.identification&gt;
-  &lt;/trsd:additional.product.id&gt;
-
-&lt;!-- SEGMENT IMD+F+010+:::Cherry --&gt;
-
-  &lt;editeur:item.description&gt;
-      &lt;tred:item.description.type.coded uncl:code=&quot;7077:F&quot;&gt;Free-form&lt;/tred:item.description.type.coded&gt;
-      &lt;editeur:item.characteristic.coded editeur:code=&quot;7081:010&quot;&gt;Author Name&lt;/editeur:item.characteristic.coded&gt;
-    &lt;trcd:item.description&gt;
-      &lt;tred:item.description&gt;Cherry&lt;/tred:item.description&gt;
-    &lt;/trcd:item.description&gt;
-  &lt;/editeur:item.description&gt;
-</PRE>
-</CODE></BLOCKQUOTE>
-</P>
-<P>Using namespaces not only allows to define a working DTD for
-plain EDIFACT, it also offers a nice way to translate
-code list extensions as in the above EDITEUR example.</P>
-<P>In the above example each xmlns is referencing a RDF file as
-its URI. Those files do not yet exist, but are proposed to
-the XML::Edifact-0.5 version.</P>
 <HR>
 Previous
 <A HREF="RDF_and_XML-Namespaces-2.html">Next</A>

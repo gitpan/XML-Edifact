@@ -40,9 +40,9 @@ use vars qw($composite_cooked_name $composite_canon_name);
 use vars qw($element_tag $element_cooked_name $element_canon_name);
 
 open (INFILE, "un_edifact_d96b/annex_b.96b")	|| die "can not open annex_b.96b for reading";
-open (SEGFILE, ">html/segment.add")		|| die "can not open segment.add for writing";
-open (COMFILE, ">html/composite.add")		|| die "can not open composite.add for writing";
-open (ELEFILE, ">html/element.add")		|| die "can not open element.add for writing";
+open (SEGFILE, ">".File::Spec->catdir("html","LIB","xml-edifact-03","segment.add") )		|| die "can not open segment.add for writing";
+open (COMFILE, ">".File::Spec->catdir("html","LIB","xml-edifact-03","composite.add") )		|| die "can not open composite.add for writing";
+open (ELEFILE, ">".File::Spec->catdir("html","LIB","xml-edifact-03","element.add") )		|| die "can not open element.add for writing";
 
 printf STDERR "reading Annex B\n";
 

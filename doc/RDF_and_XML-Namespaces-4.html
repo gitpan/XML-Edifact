@@ -1,35 +1,54 @@
 <HTML>
 <HEAD>
-<TITLE>       RDF to describe XML::Edifact Namespaces: RDF to describe EDITEUR code list extension</TITLE>
+<TITLE>       RDF to describe XML::Edifact Namespaces: Lean XML/EDI and RDF</TITLE>
 </HEAD>
 <BODY>
 <A HREF="RDF_and_XML-Namespaces-3.html">Previous</A>
-<A HREF="RDF_and_XML-Namespaces-5.html">Next</A>
+Next
 <A HREF="RDF_and_XML-Namespaces.html#toc4">Table of Contents</A>
 <HR>
-<H2><A NAME="s4">4. RDF to describe EDITEUR code list extension</A></H2>
+<H2><A NAME="s4">4. Lean XML/EDI and RDF</A></H2>
 
-<P>To step back to the SPO paradigm, using EDITEUR as example.</P>
-<P>
+<P>If its possible to agree on <CODE>Predicates</CODE> and <CODE>Schema</CODE> for
+XML::Edifact and to code it, it should be possible to inherit
+from this schema to map a lean XML/EDI to XML::Edifact and therefor
+to UN/EDIFACT.</P>
+<P>Think about following vapor ware message:
 <BLOCKQUOTE><CODE>
 <PRE>
-base of editeur:message is edifact:message
-extension of editeur:message is editeur:item.characteristic.coded 
-replacement of tred:item.characteristic.coded is editeur:item.characteristic.coded 
-codelist of editeur:item.characteristic.coded is editeur:7081
-translation of editeur:7081:010 is Author Name
-similar of editeur:7081:010 is uncl:7081:76
+        &lt;newbooks:orders&gt;
+           &lt;party
+                qualifier=&quot;supplier&quot;
+                id=&quot;0123456789&quot;
+                name=&quot;Missing Link&quot;
+                /&gt;
+           &lt;party
+                qualifier=&quot;customer&quot;
+                id=&quot;9876543210&quot;
+                name=&quot;Michael Koehne&quot;
+                /&gt;
+           &lt;reference
+                date=&quot;Wed Jun 23 18:47:27  1999&quot;
+                number=&quot;234&quot;
+                /&gt;
+           &lt;item
+                number=&quot;1&quot;
+                isbn=&quot;0-12-345678-9&quot;
+                author=&quot;anon&quot;
+                title=&quot;the book never written&quot;
+                publisher=&quot;nowhere press&quot;
+                /&gt;
+        &lt;/newbooks:bookorder&gt;
 </PRE>
 </CODE></BLOCKQUOTE>
 </P>
-<P>So RDF would allow translations between UN/EDIFACT and EDITEUR
-as it would allow a native use of EDITEUR messages. As similar
-SPO sentences can also be made about the ETIS extension, I hope
-RDF is well suited to describe UN/EDIFACT and its extension.</P>
-
+<P>Compared to the lengthly messages XML::Edifact produces, this
+lean format may be better suited for transfer on the Internet.
+If newbooks now provides a RDF for his lean XML/EDI mapping
+between newbooks:orders and edifact:orders can be done.</P>
 <HR>
 <A HREF="RDF_and_XML-Namespaces-3.html">Previous</A>
-<A HREF="RDF_and_XML-Namespaces-5.html">Next</A>
+Next
 <A HREF="RDF_and_XML-Namespaces.html#toc4">Table of Contents</A>
 </BODY>
 </HTML>

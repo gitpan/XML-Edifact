@@ -21,7 +21,7 @@ use vars qw($debug);
 $debug=2;
 
 # -----------------------------------------------------------------------------
-open OUT,">html/edifact03.dtd";
+open OUT,">".File::Spec->catdir("html","LIB","xml-edifact-03","edifact.dtd");
 select(OUT);
 print $XML::Edifact::DOCTYPE_HEADER;
  
