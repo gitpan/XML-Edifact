@@ -1,57 +1,56 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
-<TITLE>       XML::Edifact - an approach towards XML/EDI as a prototype in perl: Roadmap</TITLE>
+ <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.9">
+ <TITLE>       XML::Edifact - an approach towards XML/EDI as a prototype in perl: Roadmap</TITLE>
+ <LINK HREF="XML-Edifact-6.html" REL=next>
+ <LINK HREF="XML-Edifact-4.html" REL=previous>
+ <LINK HREF="XML-Edifact.html#toc5" REL=contents>
 </HEAD>
 <BODY>
-<A HREF="XML-Edifact-4.html">Previous</A>
 <A HREF="XML-Edifact-6.html">Next</A>
-<A HREF="XML-Edifact.html#toc5">Table of Contents</A>
+<A HREF="XML-Edifact-4.html">Previous</A>
+<A HREF="XML-Edifact.html#toc5">Contents</A>
 <HR>
 <H2><A NAME="s5">5. Roadmap</A></H2>
 
 <P>I'm using even and odd numbering to distinct from stable and
 experimental version. Well 0.2 was not as stable as an
 even number suggests. And I hope this 0.3x is stable enough
-as as often a third version, will be the first usefull one.</P>
-<P>Be warned: Anythink here is pure vaporware. I'm writing XML::Edifact
-in my spare time, and I hope to complete one version per month.
+as as often a third version, will be the first usefull one.
+<P>Both 0.4x track and 0.5x track are active currently. The 0.35
+was quite stable, and there is a need for portability, while the
+version under development is far from beeing usable.
 <DL>
-<DT><B>0.3x</B><DD><P>This version is under development: It should integrate better
-into the XML::Parser environment, and use some XML::Parser to
-translate XML::Edifact-0.3x messages back into UN/EDIFACT.
-Only even numbers 0.3<F>02468</F> can be cound on CPAN. Odd versions
-are published by eMail only. As a warning different 0.31 exist.
-Some eMail's I got, caused imediate code changes and a reply
-to test them. If you receive a 0.<F>3-9</F><F>13579</F> file by eMail:
-Do not distribute it widely, those versions are internal only.</P>
-<DT><B>0.4x</B><DD><P>This version will focus on portability. While Perl ensures
+<DT><B>0.4x</B><DD><P>This version focus on portability, of the EdiCooked style.
+<P>While Perl ensures
 portability across the unix'es, MacOS and Win32 will cause
 some problems. The 0.4 version will also be the first one
 intended to become installed. As installation also means
 configuration of non Perlish paths e.g. for webserver,
 mime.types, mailcap, dtds and databases, XML::Config.pm
-will be discussed in the perlxml list.</P>
-<DT><B>0.5x</B><DD><P>The next important step will be a reverse engineering of the
-document type definition of the original EDI standard draft.
-This version will provide segment groups for defined document
-types like orders and invoices. Most important will be the
-introduction of a XML format for defining code list extensions.
-This format will probately some RDF.</P>
-<DT><B>0.6x</B><DD><P>Stabilisation by disscussion and consens about the XML DTDs
-introduced with 0.5.</P>
+will be discussed in the perlxml list.
+<DT><B>0.5x</B><DD><P>This is the unstable version track.
+<P>XML::Edifact now provides
+PerlSAX objects as drivers and handlers to UN/EDIFACT, making
+usage more flexible. Current step is the reverse engineering
+of a document type definition for the original EDI standard draft.
+<DT><B>0.6x</B><DD><P>Stabilisation by disscussion and consens about features
+introduced with 0.5. Portability across networks using SAX
+may be one concern.
 <DT><B>0.7x</B><DD><P>EdiCooked is far from being KISS. This release will try on a
-smarter DTD called EdiLean. EdiLean will focus on PRICAT,
+smarter DTD called EdiLean. EdiLean will focus on PRICAT, QUOTES,
 ORDERS, ORDRSP, ORDCHG and INVOICE. If a consens about a KISS
-XML/EDI already exist, EdiLean will try to implement it.</P>
+XML/EDI already exist, EdiLean will try to implement it.
 <DT><B>0.8x</B><DD><P>Stabilisation by disscussion and consens about the XML DTDs
-introduced with 0.7.</P>
+introduced with 0.7.
 <DT><B>0.9x</B><DD><P>Its important for me that authentication and authorisation
 will be provided <CODE>before</CODE> I call it final 1.0. Some
 Edifact messages contain medical informations (MED*), other
 contain personal informations (JOB*). Most messages contain
 viable information for running a bussiness. Only cryptography
 on a document level would preserve authentication and authorisation
-once a message stored on a disk.</P>
+once a message stored on a disk.
 <P>Alf O. Watt
 ( 
 <A HREF="mailto:alfwatt@pacbell.net">alfwatt@pacbell.net</A> )
@@ -59,21 +58,20 @@ proposed a simple solution using namespaces and processing
 instructions at the perlxml mailing list in December 1998. The beauty
 of this aproach is, that the secure document is still wellformed and
 valid of the same document type. It could even translated back to
-UN/EDIFACT to obtain a message with crypted segments.</P>
+UN/EDIFACT to obtain a message with crypted segments.
 <DT><B>1.0</B><DD><P>I hope that any consens have been found on that road, so the DTDs
 wont change in further releases. Those versions may focus on
 <CODE>using</CODE> XML::Edifact in real life applications. I can think
 about an SQL interface, a Cobol interface, a message designer,
-a DOM/CORBA wrapper, and much more.</P>
+a DOM/CORBA wrapper, and much more.
 <P>Once I think to have XML::Edifact complete, I have to think about
 speed. Perl is a perfect language for prototyping, but profiling
 and using a low level language like C for hot spots, will be
-necessary to handle large batches.</P>
+necessary to handle large batches.
 </DL>
-</P>
 <HR>
-<A HREF="XML-Edifact-4.html">Previous</A>
 <A HREF="XML-Edifact-6.html">Next</A>
-<A HREF="XML-Edifact.html#toc5">Table of Contents</A>
+<A HREF="XML-Edifact-4.html">Previous</A>
+<A HREF="XML-Edifact.html#toc5">Contents</A>
 </BODY>
 </HTML>

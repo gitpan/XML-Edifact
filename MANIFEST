@@ -16,15 +16,6 @@ boot/element.run
 boot/segment.run
 code_lists/teleord.txt
 code_lists/teleord.xml
-doc/index.html
-doc/NOTE-xml-edifact-19990807.html
-doc/RDF_and_XML-Namespaces-1.html
-doc/RDF_and_XML-Namespaces-2.html
-doc/RDF_and_XML-Namespaces-3.html
-doc/RDF_and_XML-Namespaces-4.html
-doc/RDF_and_XML-Namespaces.html
-doc/RDF_and_XML-Namespaces.sgml
-doc/RDF_and_XML-Namespaces.txt
 doc/XML-Edifact-1.html
 doc/XML-Edifact-2.html
 doc/XML-Edifact-3.html

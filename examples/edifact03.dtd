@@ -1,5 +1,5 @@
 <!-- XML DTD for cooked EDI to reflect raw UN/EDIFACT -->
-<!-- edifact03.dtd (c) '98 Kraehe@Bakunin.North.De -->
+<!-- edifact03.dtd (c) '98 Kraehe@Copyleft.de -->
 
 <!-- I should warn you that badly written validating XML
      parsers may have problems by running out of memory.

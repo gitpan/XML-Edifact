@@ -1,48 +1,42 @@
-  XML::Edifact - an approach towards XXMMLL//EEDDII as a prototype in perl
-  release 0.35 - normalisation, namespaces, xml2edi
-  Michael Koehne, ( kraehe@bakunin.north.de )
-  v0.35 release
+  XML::Edifact - an approach towards XML/EDI as a prototype in
+  perl
+  release 0.40 - stabilisation of edicooked syntax
+  Michael Koehne, ( kraehe@copyleft.de )
+  v0.40 release
 
   XML::Edifact is a set of perl scripts, hopefully becoming a module,
-  for translating EDIFACT into XML. This 0.35 version is mainly a bug
-  fix, thanks to Detlef Lammermann from Dr.  Materna GmbH, who found
-  that ??' was missinterpreted.
+  for translating EDIFACT into XML. This 0.40 version open the portabil-
+  ity track. Starting with a minor bugfix ( thanks to Werner F.C. Bruns
+  ) and questions for a W32 port on a DIN meeting in Frankfurt.
   ______________________________________________________________________
 
-  Table of Contents:
+  Table of Contents
 
-  1.      Introduction
 
-  2.      Release Notes:
+  1. Introduction
+  2. Release Notes:
+     2.1 Edi2SGML-0.1: About the beauty of plain text
+     2.2 XML-Edifact-0.2: Its a hard work to cook a second version.
+     2.3 XML-Edifact-0.3x: About normalisation, namespaces and xml2edi
+     2.4 Version 0.40 will open the portability track.
 
-  2.1.    Edi2SGML-0.1: About the beauty of plain text
+  3. Installation
+  4. Known Bugs
+     4.1 Double namespace declarations
+     4.2 Stating level in Syntax identifier.
+     4.3 Explicit Indication of Nesting
+     4.4 XML::Edifact is slow!
 
-  2.2.    XML-Edifact-0.2: Its a hard work to cook a second version.
+  5. Roadmap
+  6. Legal stuff
+  7. Download
 
-  2.3.    XML-Edifact-0.3x: About normalisation, namespaces and xml2edi
 
-  3.      Installation
-
-  4.      Known Bugs
-
-  4.1.    Double namespace declarations
-
-  4.2.    Stating level in Syntax identifier.
-
-  4.3.    Explicit Indication of Nesting
-
-  4.4.    XML::Edifact is slow!
-
-  5.      Roadmap
-
-  6.      Legal stuff
-
-  7.      Download
   ______________________________________________________________________
 
   11..  IInnttrroodduuccttiioonn
 
-  EEDDIIFFAACCTT often called " nightmare of paper less office " once you show
+  EDIFACT often called " nightmare of paper less office " once you show
   a programmer the standard draft. Those 2700 pages of horror full
   advisory board English has cursed many programmers with headaches.
 
@@ -55,12 +49,12 @@
   important for the top companies and their suppliers, you know those
   who can pay a mainframe and a pack of gurus, and in use for years.
 
-  XXMMLL//EEDDII is will provide a simpler (KISS) format that can be translated
+  XML/EDI is will provide a simpler (KISS) format that can be translated
   from and into EDIFACT, to allow smaller companies to avoid
   slaughtering forests and retyping stupid lines into a computer
   keyboard printed by other computers.
 
-  This is NNOOTT XML/EDI, its certainly not KISS. The eeddiiffaacctt0033..ddttdd
+  This is NOT XML/EDI, its certainly not KISS. The edifact03.dtd
   reflects the original words of the EDIFACT standard as close as
   possible on a segment, composite and element level.
 
@@ -90,6 +84,9 @@
   Unlike the 0.1 distribution, following distributions will only contain
   those documents I need to parse by the scripts. Download the 0.1 for a
   complete set, or surf at Premenos.
+
+  Note: Premenos was the old url - better start surfing now at
+  www.unece.org
 
   22..22..  XXMMLL--EEddiiffaacctt--00..22:: IIttss aa hhaarrdd wwoorrkk ttoo ccooookk aa sseeccoonndd vveerrssiioonn..
 
@@ -161,7 +158,7 @@
   Two other improvements are for major notice. The brand new Perl5
   version 005.60 contains a profiler, and hunting the hot spots and
   optimising the SDBM by further denormalisation improved performance of
-  eeddii22xxmmll by factor 12. I hope nobody did use the SDBM internals so far.
+  edi2xml by factor 12. I hope nobody did use the SDBM internals so far.
   The last major improvement is, that I'm getting familar with
   ExtUtils::MakeMaker, File::Spec and friends. Version 0.33 is the first
   that did install - at least on my Linux box :-)
@@ -170,19 +167,27 @@
   XML-Edifact namespace migration.
 
   Version 0.34 fixed a bug concerning the release indicatior. As a minor
-  improvement the edi2xml and xml2edi scripts now have ppoodd
+  improvement the edi2xml and xml2edi scripts now have pod
   documentation.
 
-  A last note about change of 0.2 to 0.30. Treat this number as 0.3.0
-  translated to perl canon. The 0.3 is not finished, coming versions
-  claiming to be any 0.3x will be step stones to what I think the 30%
-  XML::Edifact solution should contain.
+  Version 0.35 was a bug fix, thanks to Detlef Lammermann from Dr.
+  Materna GmbH, who found that ??' was missinterpreted.
+
+  22..44..  VVeerrssiioonn 00..4400 wwiillll ooppeenn tthhee ppoorrttaabbiilliittyy ttrraacckk..
+
+
+  Intension is a version running under as many operating systems as
+  possible. Bug fixes may still merge in this version, but new features
+  are implemented into the 0.50 track.
+
 
   33..  IInnssttaallllaattiioonn
 
   I've included my modified documents, so others can be able to rebuild
   the DBM files. You may need a Unix like system because of newline
   conventions.
+
+
 
           $ perl Makefile.PL
 
@@ -195,7 +200,9 @@
 
           $ make
 
-  ppeerrll ppeerrll MMaakkeeffiillee..PPLL will first ask two questions. The reason is that
+
+
+  perl perl Makefile.PL will first ask two questions. The reason is that
   XML::Edifact wants to install his document type definition on a web
   server to allow validation XML parser to grep the DTD.
 
@@ -208,24 +215,32 @@
   This database covers the 96b version of the UN/EDIFACT batch directory
   and will become installed as XML::Edifact::d96b later.
 
+
+
                $ make test
+
+
 
   The regression test will translate any .edi file found in the examples
   directory to xml and translate the xml back to EDIFACT.  The result
   should not change.
 
+
+
                $ make install
 
+
+
   This will install the XML::Edifact module the D96B batch directory,
-  various files for the URL and two scripts: eeddii22xxmmll and xxmmll22eeddii
+  various files for the URL and two scripts: edi2xml and xml2edi
 
   You can now try own UN/EDIFACT files. I really want to know how your
   EDI messages look like, do they break anything, what about your code
   list extension, ...
 
   Testing different real examples should show some bugs, I hav'nt
-  thought about.  Think about the OO''RReeiillllyy invoice or the DDuubbbbeell::TTeesstt
-  and you should catch the clue. I've tried to implement the UUNNAA right,
+  thought about.  Think about the O'Reilly invoice or the Dubbel:Test
+  and you should catch the clue. I've tried to implement the UNA right,
   but this may need some additional debugging.  Take a look at the
   difference between the editeur.edi file from Frankfurt and the
   Springer message. The last one is using newline as a 9th character in
@@ -242,10 +257,10 @@
   44..11..  DDoouubbllee nnaammeessppaaccee ddeeccllaarraattiioonnss
 
   Namespace declaration was redefined in January 1999. XML::Edifact 0.30
-  produced bbootthh the old and the new declarations. XML::Edifact 0.31
+  produced both the old and the new declarations. XML::Edifact 0.31
   droped the depreciated declartions! If you have an old browser, you
   may have to download XML::Edifact 0.30 and to edit the actual
-  XML::Edifact.  Search for HHEERREE__ and adopt the headers to your browsers
+  XML::Edifact.  Search for HERE_ and adopt the headers to your browsers
   preferences.
 
   44..22..  SSttaattiinngg lleevveell iinn SSyynnttaaxx iiddeennttiiffiieerr..
@@ -261,12 +276,7 @@
 
   44..44..  XXMMLL::::EEddiiffaacctt iiss ssllooww!!
 
-  The example real life message teleord.edi still needs about 36 seconds
-  on a Sun3/60 running NetBSD. Even as newer computers are faster,
-  XML::Edifact would nnoott be able to handle the daily batches of large
-  UN/EDIFACT routers like TeleOdering UK.  The solution of this problem
-  will become delayed till version 1.2, when parts of the module will be
-  recoded in C.
+  The 0.50 will be times faster ;-)
 
   55..  RRooaaddmmaapp
 
@@ -275,45 +285,38 @@
   suggests. And I hope this 0.3x is stable enough as as often a third
   version, will be the first usefull one.
 
-  Be warned: Anythink here is pure vaporware. I'm writing XML::Edifact
-  in my spare time, and I hope to complete one version per month.
-
-     00..33xx
-        This version is under development: It should integrate better
-        into the XML::Parser environment, and use some XML::Parser to
-        translate XML::Edifact-0.3x messages back into UN/EDIFACT.  Only
-        even numbers 0.302468 can be cound on CPAN. Odd versions are
-        published by eMail only. As a warning different 0.31 exist.
-        Some eMail's I got, caused imediate code changes and a reply to
-        test them. If you receive a 0.3-913579 file by eMail: Do not
-        distribute it widely, those versions are internal only.
+  Both 0.4x track and 0.5x track are active currently. The 0.35 was
+  quite stable, and there is a need for portability, while the version
+  under development is far from beeing usable.
 
      00..44xx
-        This version will focus on portability. While Perl ensures
-        portability across the unix'es, MacOS and Win32 will cause some
-        problems. The 0.4 version will also be the first one intended to
-        become installed. As installation also means configuration of
-        non Perlish paths e.g. for webserver, mime.types, mailcap, dtds
-        and databases, XML::Config.pm will be discussed in the perlxml
-        list.
+        This version focus on portability, of the EdiCooked style.
+
+        While Perl ensures portability across the unix'es, MacOS and
+        Win32 will cause some problems. The 0.4 version will also be the
+        first one intended to become installed. As installation also
+        means configuration of non Perlish paths e.g. for webserver,
+        mime.types, mailcap, dtds and databases, XML::Config.pm will be
+        discussed in the perlxml list.
 
      00..55xx
-        The next important step will be a reverse engineering of the
-        document type definition of the original EDI standard draft.
-        This version will provide segment groups for defined document
-        types like orders and invoices. Most important will be the
-        introduction of a XML format for defining code list extensions.
-        This format will probately some RDF.
+        This is the unstable version track.
+
+        XML::Edifact now provides PerlSAX objects as drivers and
+        handlers to UN/EDIFACT, making usage more flexible. Current step
+        is the reverse engineering of a document type definition for the
+        original EDI standard draft.
 
      00..66xx
-        Stabilisation by disscussion and consens about the XML DTDs
-        introduced with 0.5.
+        Stabilisation by disscussion and consens about features
+        introduced with 0.5. Portability across networks using SAX may
+        be one concern.
 
      00..77xx
         EdiCooked is far from being KISS. This release will try on a
         smarter DTD called EdiLean. EdiLean will focus on PRICAT,
-        ORDERS, ORDRSP, ORDCHG and INVOICE. If a consens about a KISS
-        XML/EDI already exist, EdiLean will try to implement it.
+        QUOTES, ORDERS, ORDRSP, ORDCHG and INVOICE. If a consens about a
+        KISS XML/EDI already exist, EdiLean will try to implement it.
 
      00..88xx
         Stabilisation by disscussion and consens about the XML DTDs
@@ -321,7 +324,7 @@
 
      00..99xx
         Its important for me that authentication and authorisation will
-        be provided bbeeffoorree I call it final 1.0. Some Edifact messages
+        be provided before I call it final 1.0. Some Edifact messages
         contain medical informations (MED*), other contain personal
         informations (JOB*). Most messages contain viable information
         for running a bussiness. Only cryptography on a document level
@@ -338,7 +341,7 @@
      11..00
         I hope that any consens have been found on that road, so the
         DTDs wont change in further releases. Those versions may focus
-        on uussiinngg XML::Edifact in real life applications. I can think
+        on using XML::Edifact in real life applications. I can think
         about an SQL interface, a Cobol interface, a message designer, a
         DOM/CORBA wrapper, and much more.
 
@@ -367,31 +370,48 @@
   Bootstrap.PL.
 
   Besides the GPLed Edition a Custom Edition, exist if you dislike GPL.
-  Drop me an eMail and ask for price and conditions.  You can hire me as
-  a consultant within Europe, if you think that the author of a tool
-  will probately the best one for teaching your programmers.
+  Drop me an eMail and ask for price and conditions.
 
   77..  DDoowwnnllooaadd
 
   I just got a message from PAUSE that I can upload it to :
 
+
+
                $CPAN/authors/id/K/KR/KRAEHE
 
+
+
   XML::Edifact requires XML::Parser, so to download and install type:
+
+
 
                $ perl -MCPAN -e shell
                cpan> install XML::Parser
                cpan> install XML::Edifact
 
+
+
   or ftp directly at:
+
+
 
                ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Parser-*.tar.gz
                ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Edifact-*.tar.gz
 
+
+
   The canon source of the XML::Edifact project is now:
+
+
 
                http://www.xml-edifact.org/
 
-  This site contain varius example files, research papers and a complete
-  UN/EDIFACT batch directory.
+
+
+  This site contain varius example files, research papers, a complete
+  set of UN/EDIFACT batch directorys and most important actual versions
+  from the unstable track.
+
+
 

@@ -1,45 +1,45 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 3.2 Final//EN">
 <HTML>
 <HEAD>
-<TITLE>       XML::Edifact - an approach towards XML/EDI as a prototype in perl: Known Bugs</TITLE>
+ <META NAME="GENERATOR" CONTENT="SGML-Tools 1.0.9">
+ <TITLE>       XML::Edifact - an approach towards XML/EDI as a prototype in perl: Known Bugs</TITLE>
+ <LINK HREF="XML-Edifact-5.html" REL=next>
+ <LINK HREF="XML-Edifact-3.html" REL=previous>
+ <LINK HREF="XML-Edifact.html#toc4" REL=contents>
 </HEAD>
 <BODY>
-<A HREF="XML-Edifact-3.html">Previous</A>
 <A HREF="XML-Edifact-5.html">Next</A>
-<A HREF="XML-Edifact.html#toc4">Table of Contents</A>
+<A HREF="XML-Edifact-3.html">Previous</A>
+<A HREF="XML-Edifact.html#toc4">Contents</A>
 <HR>
 <H2><A NAME="s4">4. Known Bugs</A></H2>
 
-<H2><A NAME="ss4.1">4.1 Double namespace declarations</A></H2>
+<H2><A NAME="ss4.1">4.1 Double namespace declarations</A>
+</H2>
 
 <P>Namespace declaration was redefined in January 1999. XML::Edifact 0.30
 produced <CODE>both</CODE> the old and the new declarations. XML::Edifact 0.31
 droped the depreciated declartions! If you have an old browser, you may
 have to download XML::Edifact 0.30 and to edit the actual XML::Edifact.
-Search for <CODE>HERE_</CODE> and adopt the headers to your browsers preferences.</P>
-
-<H2><A NAME="ss4.2">4.2 Stating level in Syntax identifier.</A></H2>
+Search for <CODE>HERE_</CODE> and adopt the headers to your browsers preferences.
+<H2><A NAME="ss4.2">4.2 Stating level in Syntax identifier.</A>
+</H2>
 
 <P>This has to be parsed. The stating level in EDIFACT speak is
 called charset encoding in XML speak, and its of course important
-if you thing about non US/UK products. See un_edifact/unsl.</P>
-
-<H2><A NAME="ss4.3">4.3 Explicit Indication of Nesting</A></H2>
+if you thing about non US/UK products. See un_edifact/unsl.
+<H2><A NAME="ss4.3">4.3 Explicit Indication of Nesting</A>
+</H2>
 
 <P>This has not been coded yet, as no example messsages are available
-to me.</P>
+to me.
+<H2><A NAME="ss4.4">4.4 XML::Edifact is slow!</A>
+</H2>
 
-<H2><A NAME="ss4.4">4.4 XML::Edifact is slow!</A></H2>
-
-<P>The example real life message teleord.edi still needs about 36
-seconds on a Sun3/60 running NetBSD. Even as newer computers
-are faster, XML::Edifact would <CODE>not</CODE> be able to handle the
-daily batches of large UN/EDIFACT routers like TeleOdering UK.
-The solution of this problem will become delayed till version 1.2,
-when parts of the module will be recoded in C.</P>
-
+<P>The 0.50 will be times faster ;-)
 <HR>
-<A HREF="XML-Edifact-3.html">Previous</A>
 <A HREF="XML-Edifact-5.html">Next</A>
-<A HREF="XML-Edifact.html#toc4">Table of Contents</A>
+<A HREF="XML-Edifact-3.html">Previous</A>
+<A HREF="XML-Edifact.html#toc4">Contents</A>
 </BODY>
 </HTML>

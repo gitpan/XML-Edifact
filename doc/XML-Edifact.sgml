@@ -4,17 +4,18 @@
 <title>
 	<tt/XML::Edifact/ - an approach towards <tt>XML/EDI</> as a prototype in perl
 <subtitle>
-	release 0.35 - normalisation, namespaces, xml2edi
+	release 0.40 - stabilisation of edicooked syntax
 <author>
 	Michael Koehne,
-( <htmlurl url="mailto:kraehe@bakunin.north.de" name="kraehe@bakunin.north.de"> )
+( <htmlurl url="mailto:kraehe@copyleft.de" name="kraehe@copyleft.de"> )
 <date>
-	v0.35 release
+	v0.40 release
 <abstract>
 	XML::Edifact is a set of perl scripts, hopefully becoming a
-	module, for translating EDIFACT into XML. This 0.35 version
-	is mainly a bug fix, thanks to Detlef Lammermann from Dr.
-	Materna GmbH, who found that ??' was missinterpreted.
+	module, for translating EDIFACT into XML. This 0.40 version
+	open the portability track. Starting with a minor bugfix
+	( thanks to Werner F.C. Bruns ) and questions for a W32
+	port on a DIN meeting in Frankfurt.
 
 </abstract>
 <!-- Table of contents -->
@@ -72,6 +73,8 @@
    Unlike the 0.1 distribution, following distributions will only contain
    those documents I need to parse by the scripts. Download the 0.1
    for a complete set, or surf at Premenos.
+<p>
+   Note: Premenos was the old url - better start surfing now at www.unece.org
 <sect1>
   XML-Edifact-0.2: Its a hard work to cook a second version.
 <p>
@@ -152,10 +155,15 @@
   Version 0.34 fixed a bug concerning the release indicatior. As a minor
   improvement the edi2xml and xml2edi scripts now have <tt/pod/ documentation.
 <p>
-  A last note about change of 0.2 to 0.30. Treat this number as
-  0.3.0 translated to perl canon. The 0.3 is not finished, coming
-  versions claiming to be any 0.3x will be step stones to what I
-  think the 30% XML::Edifact solution should contain.
+  Version 0.35 was a bug fix, thanks to Detlef Lammermann from Dr.
+  Materna GmbH, who found that ??' was missinterpreted.
+<sect1>
+  Version 0.40 will open the portability track.
+<p>  
+  Intension is a version running under as many operating systems as
+  possible. Bug fixes may still merge in this version, but new features
+  are implemented into the 0.50 track.
+
 <sect>
 	Installation
 <p>
@@ -245,12 +253,7 @@
 <sect1>
 	XML::Edifact is slow!
 <p>
-  The example real life message teleord.edi still needs about 36
-  seconds on a Sun3/60 running NetBSD. Even as newer computers
-  are faster, XML::Edifact would <tt/not/ be able to handle the
-  daily batches of large UN/EDIFACT routers like TeleOdering UK.
-  The solution of this problem will become delayed till version 1.2,
-  when parts of the module will be recoded in C.
+  The 0.50 will be times faster ;-)
 <sect>
 	Roadmap
 <p>
@@ -259,20 +262,14 @@
    even number suggests. And I hope this 0.3x is stable enough
    as as often a third version, will be the first usefull one.
 <p>
-   Be warned: Anythink here is pure vaporware. I'm writing XML::Edifact
-   in my spare time, and I hope to complete one version per month.
+   Both 0.4x track and 0.5x track are active currently. The 0.35
+   was quite stable, and there is a need for portability, while the
+   version under development is far from beeing usable.
 <descrip>
-<tag/0.3x/
-   This version is under development: It should integrate better
-   into the XML::Parser environment, and use some XML::Parser to
-   translate XML::Edifact-0.3x messages back into UN/EDIFACT.
-   Only even numbers 0.3[02468] can be cound on CPAN. Odd versions
-   are published by eMail only. As a warning different 0.31 exist.
-   Some eMail's I got, caused imediate code changes and a reply
-   to test them. If you receive a 0.[3-9][13579] file by eMail:
-   Do not distribute it widely, those versions are internal only.
 <tag/0.4x/
-   This version will focus on portability. While Perl ensures
+   This version focus on portability, of the EdiCooked style.
+<p>
+   While Perl ensures
    portability across the unix'es, MacOS and Win32 will cause
    some problems. The 0.4 version will also be the first one
    intended to become installed. As installation also means
@@ -280,18 +277,19 @@
    mime.types, mailcap, dtds and databases, XML::Config.pm
    will be discussed in the perlxml list.
 <tag/0.5x/
-   The next important step will be a reverse engineering of the
-   document type definition of the original EDI standard draft.
-   This version will provide segment groups for defined document
-   types like orders and invoices. Most important will be the
-   introduction of a XML format for defining code list extensions.
-   This format will probately some RDF.
+   This is the unstable version track.
+<p>
+   XML::Edifact now provides
+   PerlSAX objects as drivers and handlers to UN/EDIFACT, making
+   usage more flexible. Current step is the reverse engineering
+   of a document type definition for the original EDI standard draft.
 <tag/0.6x/
-   Stabilisation by disscussion and consens about the XML DTDs
-   introduced with 0.5.
+   Stabilisation by disscussion and consens about features
+   introduced with 0.5. Portability across networks using SAX
+   may be one concern.
 <tag/0.7x/
    EdiCooked is far from being KISS. This release will try on a
-   smarter DTD called EdiLean. EdiLean will focus on PRICAT,
+   smarter DTD called EdiLean. EdiLean will focus on PRICAT, QUOTES,
    ORDERS, ORDRSP, ORDCHG and INVOICE. If a consens about a KISS
    XML/EDI already exist, EdiLean will try to implement it.
 <tag/0.8x/
@@ -346,10 +344,7 @@
    during Bootstrap.PL.
 <p>
    Besides the GPLed Edition a Custom Edition, exist if you dislike
-   GPL. Drop me an eMail and ask for price and conditions.
-   You can hire me as a consultant within Europe, if you think that
-   the author of a tool will probately the best one for teaching
-   your programmers.
+   GPL. Drop me an eMail and ask for price and conditions. 
 <sect>
 	Download
 <p>
@@ -380,7 +375,8 @@
 	http://www.xml-edifact.org/
 </verb></tscreen>
 
-  This site contain varius example files, research papers and a complete
-  UN/EDIFACT batch directory.
+  This site contain varius example files, research papers, a complete set
+  of UN/EDIFACT batch directorys and most important actual versions from
+  the unstable track.
 
 </article>

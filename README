@@ -1,43 +1,36 @@
   XML::Edifact - an approach towards XML/EDI as a prototype in perl
-  release 0.35 - normalisation, namespaces, xml2edi
-  Michael Koehne, ( kraehe@bakunin.north.de )
-  v0.35 release
+  release 0.40 - stabilisation of edicooked syntax
+  Michael Koehne, ( kraehe@copyleft.de )
+  v0.40 release
 
   XML::Edifact is a set of perl scripts, hopefully becoming a module,
-  for translating EDIFACT into XML. This 0.35 version is mainly a bug
-  fix, thanks to Detlef Lammermann from Dr.  Materna GmbH, who found
-  that ??' was missinterpreted.
+  for translating EDIFACT into XML. This 0.40 version start the portabil-
+  ity track. Starting with a minor bugfix ( thanks to Werner F.C. Bruns)
+  and questions for a W32 port on a DIN meeting in Frankfurt.
   ______________________________________________________________________
 
-  Table of Contents:
+  Table of Contents
 
-  1.	Introduction
 
-  2.	Release Notes:
+  1. Introduction
+  2. Release Notes:
+     2.1 Edi2SGML-0.1: About the beauty of plain text
+     2.2 XML-Edifact-0.2: Its a hard work to cook a second version.
+     2.3 XML-Edifact-0.3x: About normalisation, namespaces and xml2edi
+     2.4 Version 0.40 will open the portability track.
 
-  2.1.	Edi2SGML-0.1: About the beauty of plain text
+  3. Installation
+  4. Known Bugs
+     4.1 Double namespace declarations
+     4.2 Stating level in Syntax identifier.
+     4.3 Explicit Indication of Nesting
+     4.4 XML::Edifact is slow!
 
-  2.2.	XML-Edifact-0.2: Its a hard work to cook a second version.
+  5. Roadmap
+  6. Legal stuff
+  7. Download
 
-  2.3.	XML-Edifact-0.3x: About normalisation, namespaces and xml2edi
 
-  3.	Installation
-
-  4.	Known Bugs
-
-  4.1.	Double namespace declarations
-
-  4.2.	Stating level in Syntax identifier.
-
-  4.3.	Explicit Indication of Nesting
-
-  4.4.	XML::Edifact is slow!
-
-  5.	Roadmap
-
-  6.	Legal stuff
-
-  7.	Download
   ______________________________________________________________________
 
   1.  Introduction
@@ -90,6 +83,9 @@
   Unlike the 0.1 distribution, following distributions will only contain
   those documents I need to parse by the scripts. Download the 0.1 for a
   complete set, or surf at Premenos.
+
+  Note: Premenos was the old url - better start surfing now at
+  www.unece.org
 
   2.2.	XML-Edifact-0.2: Its a hard work to cook a second version.
 
@@ -173,16 +169,24 @@
   improvement the edi2xml and xml2edi scripts now have pod
   documentation.
 
-  A last note about change of 0.2 to 0.30. Treat this number as 0.3.0
-  translated to perl canon. The 0.3 is not finished, coming versions
-  claiming to be any 0.3x will be step stones to what I think the 30%
-  XML::Edifact solution should contain.
+  Version 0.35 was a bug fix, thanks to Detlef Lammermann from Dr.
+  Materna GmbH, who found that ??' was missinterpreted.
+
+  2.4.	Version 0.40 will open the portability track.
+
+
+  Intension is a version running under as many operating systems as
+  possible. Bug fixes may still merge in this version, but new features
+  are implemented into the 0.50 track.
+
 
   3.  Installation
 
   I've included my modified documents, so others can be able to rebuild
   the DBM files. You may need a Unix like system because of newline
   conventions.
+
+
 
 	  $ perl Makefile.PL
 
@@ -194,6 +198,8 @@
 	  Writing Makefile for XML::Edifact
 
 	  $ make
+
+
 
   perl perl Makefile.PL will first ask two questions. The reason is that
   XML::Edifact wants to install his document type definition on a web
@@ -208,13 +214,21 @@
   This database covers the 96b version of the UN/EDIFACT batch directory
   and will become installed as XML::Edifact::d96b later.
 
+
+
 	       $ make test
+
+
 
   The regression test will translate any .edi file found in the examples
   directory to xml and translate the xml back to EDIFACT.  The result
   should not change.
 
+
+
 	       $ make install
+
+
 
   This will install the XML::Edifact module the D96B batch directory,
   various files for the URL and two scripts: edi2xml and xml2edi
@@ -261,12 +275,7 @@
 
   4.4.	XML::Edifact is slow!
 
-  The example real life message teleord.edi still needs about 36 seconds
-  on a Sun3/60 running NetBSD. Even as newer computers are faster,
-  XML::Edifact would not be able to handle the daily batches of large
-  UN/EDIFACT routers like TeleOdering UK.  The solution of this problem
-  will become delayed till version 1.2, when parts of the module will be
-  recoded in C.
+  The 0.50 will be times faster ;-)
 
   5.  Roadmap
 
@@ -275,45 +284,38 @@
   suggests. And I hope this 0.3x is stable enough as as often a third
   version, will be the first usefull one.
 
-  Be warned: Anythink here is pure vaporware. I'm writing XML::Edifact
-  in my spare time, and I hope to complete one version per month.
-
-     0.3x
-	This version is under development: It should integrate better
-	into the XML::Parser environment, and use some XML::Parser to
-	translate XML::Edifact-0.3x messages back into UN/EDIFACT.  Only
-	even numbers 0.302468 can be cound on CPAN. Odd versions are
-	published by eMail only. As a warning different 0.31 exist.
-	Some eMail's I got, caused imediate code changes and a reply to
-	test them. If you receive a 0.3-913579 file by eMail: Do not
-	distribute it widely, those versions are internal only.
+  Both 0.4x track and 0.5x track are active currently. The 0.35 was
+  quite stable, and there is a need for portability, while the version
+  under development is far from beeing usable.
 
      0.4x
-	This version will focus on portability. While Perl ensures
-	portability across the unix'es, MacOS and Win32 will cause some
-	problems. The 0.4 version will also be the first one intended to
-	become installed. As installation also means configuration of
-	non Perlish paths e.g. for webserver, mime.types, mailcap, dtds
-	and databases, XML::Config.pm will be discussed in the perlxml
-	list.
+	This version focus on portability, of the EdiCooked style.
+
+	While Perl ensures portability across the unix'es, MacOS and
+	Win32 will cause some problems. The 0.4 version will also be the
+	first one intended to become installed. As installation also
+	means configuration of non Perlish paths e.g. for webserver,
+	mime.types, mailcap, dtds and databases, XML::Config.pm will be
+	discussed in the perlxml list.
 
      0.5x
-	The next important step will be a reverse engineering of the
-	document type definition of the original EDI standard draft.
-	This version will provide segment groups for defined document
-	types like orders and invoices. Most important will be the
-	introduction of a XML format for defining code list extensions.
-	This format will probately some RDF.
+	This is the unstable version track.
+
+	XML::Edifact now provides PerlSAX objects as drivers and
+	handlers to UN/EDIFACT, making usage more flexible. Current step
+	is the reverse engineering of a document type definition for the
+	original EDI standard draft.
 
      0.6x
-	Stabilisation by disscussion and consens about the XML DTDs
-	introduced with 0.5.
+	Stabilisation by disscussion and consens about features
+	introduced with 0.5. Portability across networks using SAX may
+	be one concern.
 
      0.7x
 	EdiCooked is far from being KISS. This release will try on a
 	smarter DTD called EdiLean. EdiLean will focus on PRICAT,
-	ORDERS, ORDRSP, ORDCHG and INVOICE. If a consens about a KISS
-	XML/EDI already exist, EdiLean will try to implement it.
+	QUOTES, ORDERS, ORDRSP, ORDCHG and INVOICE. If a consens about a
+	KISS XML/EDI already exist, EdiLean will try to implement it.
 
      0.8x
 	Stabilisation by disscussion and consens about the XML DTDs
@@ -367,31 +369,48 @@
   Bootstrap.PL.
 
   Besides the GPLed Edition a Custom Edition, exist if you dislike GPL.
-  Drop me an eMail and ask for price and conditions.  You can hire me as
-  a consultant within Europe, if you think that the author of a tool
-  will probately the best one for teaching your programmers.
+  Drop me an eMail and ask for price and conditions.
 
   7.  Download
 
   I just got a message from PAUSE that I can upload it to :
 
+
+
 	       $CPAN/authors/id/K/KR/KRAEHE
 
+
+
   XML::Edifact requires XML::Parser, so to download and install type:
+
+
 
 	       $ perl -MCPAN -e shell
 	       cpan> install XML::Parser
 	       cpan> install XML::Edifact
 
+
+
   or ftp directly at:
+
+
 
 	       ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Parser-*.tar.gz
 	       ftp://ftp.cpan.org/pub/perl/CPAN/modules/by-module/XML/XML-Edifact-*.tar.gz
 
+
+
   The canon source of the XML::Edifact project is now:
+
+
 
 	       http://www.xml-edifact.org/
 
-  This site contain varius example files, research papers and a complete
-  UN/EDIFACT batch directory.
+
+
+  This site contain varius example files, research papers, a complete
+  set of UN/EDIFACT batch directorys and most important actual versions
+  from the unstable track.
+
+
 

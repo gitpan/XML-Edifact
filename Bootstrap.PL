@@ -1,5 +1,5 @@
 #!perl
-# Copyright (c) 1999 Michael Koehne <kraehe@bakunin.north.de>
+# Copyright (c) 1999 Michael Koehne <kraehe@copyleft.de>
 
 use XML::Edifact;
 use File::Spec;

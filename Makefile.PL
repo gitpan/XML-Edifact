@@ -64,7 +64,7 @@ print "\n";
 
 WriteMakefile(
     'NAME'	   => 'XML::Edifact',
-    'AUTHOR'       => 'kraehe@bakunin.north.de',
+    'AUTHOR'       => 'kraehe@copyleft.de',
     'ABSTRACT'     => 'an aproach towards XML/EDI as a prototype in perl',
     'VERSION_FROM' => 'XML/Edifact.pm',
     'PM'           => { 'XML/Edifact.pm'        => '$(INST_LIBDIR)/Edifact.pm',
@@ -77,6 +77,9 @@ WriteMakefile(
     'EXE_FILES'    => [ 'bin/edi2xml', 'bin/xml2edi' ],
     'MAN3PODS'     => { 'XML/Edifact.pm'        => '$(INST_MAN3DIR)/XML::Edifact.3' },
     'dist'         => { 'COMPRESS' => 'gzip -v -f -9', 'SUFFIX' => 'gz' },
+    'PREREQ_PM'    => { 'XML::Parser' => 2.27,
+    			'Digest::MD5' => 2.09
+			},
 );
 
 sub MY::postamble {

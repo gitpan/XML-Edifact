@@ -6,7 +6,7 @@ my $script = <<'SCRIPT';
 ~startperl~
 
 # 
-# Copyright (c) 1998 Michael Koehne <kraehe@bakunin.north.de>
+# Copyright (c) 1998 Michael Koehne <kraehe@copyleft.de>
 # 
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
@@ -109,7 +109,7 @@ F<http://www.xml-edifact.org/>.
 
 =head1 AUTHOR
 
-Kraehe@Bakunin.North.De - Michael Koehne - MK25-RIPE
+Kraehe@Copyleft.de - Michael Koehne - MK25-RIPE
 
 SCRIPT
 

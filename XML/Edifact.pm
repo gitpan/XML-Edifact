@@ -1,5 +1,5 @@
 # 
-# Copyright (c) 1998 Michael Koehne <kraehe@bakunin.north.de>
+# Copyright (c) 1998 Michael Koehne <kraehe@copyleft.de>
 # 
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
@@ -18,7 +18,7 @@ use Carp;
 
 use vars qw($VERSION $debug);
 
-$VERSION='0.35';
+$VERSION='0.40';
 $debug=1;					# debug=1 is fine
 
 # ------------------------------------------------------------------------------
@@ -39,14 +39,14 @@ sub eval_xml_edifact_headers {
 		<?xml version="1.0"?>
 		<!DOCTYPE $MESSAGE_NAMESPACE:message
 		  SYSTEM "$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd">
-		<!-- XML message produced by edi2xml.pl (c) Kraehe\@Bakunin.North.De -->
+		<!-- XML message produced by edi2xml.pl (c) Kraehe\@Copyleft.de -->
 		<$MESSAGE_NAMESPACE:message
 		  xmlns:$MESSAGE_NAMESPACE='$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.rdf'
 		  xmlns:trsd='$XML::Edifact::Config::URL/LIB/xml-edifact-03/trsd.rdf'
 		  xmlns:trcd='$XML::Edifact::Config::URL/LIB/xml-edifact-03/trcd.rdf'
 		  xmlns:tred='$XML::Edifact::Config::URL/LIB/xml-edifact-03/tred.rdf'
 		  xmlns:uncl='$XML::Edifact::Config::URL/LIB/xml-edifact-03/uncl.rdf'
-		  xmlns:anxs='$XML::Edifact::Config::URL/LIB/xml-edifact-03/anxe.rdf'
+		  xmlns:anxs='$XML::Edifact::Config::URL/LIB/xml-edifact-03/anxs.rdf'
 		  xmlns:anxc='$XML::Edifact::Config::URL/LIB/xml-edifact-03/anxc.rdf'
 		  xmlns:anxe='$XML::Edifact::Config::URL/LIB/xml-edifact-03/anxe.rdf'
 		  xmlns:unsl='$XML::Edifact::Config::URL/LIB/xml-edifact-03/unsl.rdf'
@@ -59,7 +59,7 @@ HERE_MESSAGE_HEADER
 
 	$DOCTYPE_HEADER=<<HERE_DOCTYPE_HEADER;
 		<!-- XML DTD for XML-Edifact to reflect raw UN/EDIFACT -->
-		<!-- LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd (c) '98 Kraehe\@Bakunin.North.De -->
+		<!-- LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd (c) '98 Kraehe\@Copyleft.de -->
 HERE_DOCTYPE_HEADER
 	$DOCTYPE_HEADER =~ s/^\t\t//;
 	$DOCTYPE_HEADER =~ s/\n\t\t/\n/g;
@@ -69,7 +69,7 @@ HERE_DOCTYPE_HEADER
 	$SEGMENT_SPECIFICATION_HEADER=<<HERE_SEGMENT_SPECIFICATION_HEADER;
 		<?xml version="1.0"?>
 		<!DOCTYPE $MESSAGE_NAMESPACE:segment_specification SYSTEM "$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd">
-		<!-- XML::Edifact segment.xml (c) Kraehe\@Bakunin.North.De -->
+		<!-- XML::Edifact segment.xml (c) Kraehe\@Copyleft.de -->
 
 		<$MESSAGE_NAMESPACE:segment_specifications
 			xmlns:$MESSAGE_NAMESPACE='$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.rdf'
@@ -82,7 +82,7 @@ HERE_SEGMENT_SPECIFICATION_HEADER
 	$COMPOSITE_SPECIFICATION_HEADER=<<HERE_COMPOSITE_SPECIFICATION_HEADER;
 		<?xml version="1.0"?>
 		<!DOCTYPE $MESSAGE_NAMESPACE:composite_specifications SYSTEM "$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd">
-		<!-- XML::Edifact composite.xml (c) Kraehe\@Bakunin.North.De -->
+		<!-- XML::Edifact composite.xml (c) Kraehe\@Copyleft.de -->
 
 		<$MESSAGE_NAMESPACE:composite_specifications
 			xmlns:$MESSAGE_NAMESPACE='$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.rdf'
@@ -662,7 +662,7 @@ as told "anything is still in flux" !
 
 =head1 AUTHOR
 
-Michael Koehne, Kraehe@Bakunin.North.De
+Michael Koehne, Kraehe@Copyleft.de
 
 =head1 SEE ALSO
 
