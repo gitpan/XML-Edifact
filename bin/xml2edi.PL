@@ -45,7 +45,7 @@ xml2edi - translate XML messages back to UN/EDIFACT
 
 =head1 SYNOPSIS
 
-xml2edi [B<-i>] [B<-i> extension] filename.xml > filename.edi
+xml2edi [B<-i>] [B<-x> extension] filename.xml > filename.edi
 
 =head1 DESCRIPTION
 

@@ -1,12 +1,14 @@
   XML::Edifact - an approach towards XML/EDI as a prototype in perl
-  release 0.40 - stabilisation of edicooked syntax
+
+  release 0.42 - Latin1 to UTF8 translation
   Michael Koehne, ( kraehe@copyleft.de )
-  v0.40 release
+  Sat May 13 23:50:42 CEST 2000
 
   XML::Edifact is a set of perl scripts, hopefully becoming a module,
-  for translating EDIFACT into XML. This 0.40 version start the portabil-
-  ity track. Starting with a minor bugfix ( thanks to Werner F.C. Bruns)
-  and questions for a W32 port on a DIN meeting in Frankfurt.
+  for translating EDIFACT into XML. This 0.42 version is part of the
+  portability track. Its known to build and pass its regression test
+  under Windows NT. This version requires Perl 5.6 to implement UTF8
+  handling.
   ______________________________________________________________________
 
   Table of Contents
@@ -17,15 +19,13 @@
      2.1 Edi2SGML-0.1: About the beauty of plain text
      2.2 XML-Edifact-0.2: Its a hard work to cook a second version.
      2.3 XML-Edifact-0.3x: About normalisation, namespaces and xml2edi
-     2.4 Version 0.40 will open the portability track.
-
+     2.4 XML-Edifact-0.4x: the portability track.
   3. Installation
   4. Known Bugs
      4.1 Double namespace declarations
      4.2 Stating level in Syntax identifier.
      4.3 Explicit Indication of Nesting
      4.4 XML::Edifact is slow!
-
   5. Roadmap
   6. Legal stuff
   7. Download
@@ -172,12 +172,25 @@
   Version 0.35 was a bug fix, thanks to Detlef Lammermann from Dr.
   Materna GmbH, who found that ??' was missinterpreted.
 
-  2.4.	Version 0.40 will open the portability track.
+  2.4.	XML-Edifact-0.4x: the portability track.
 
 
   Intension is a version running under as many operating systems as
   possible. Bug fixes may still merge in this version, but new features
   are implemented into the 0.50 track.
+
+  Version 0.40 starting with a minor bugfix ( thanks to Werner F.C.
+  Bruns ) and questions for a W32 port on a DIN meeting in Frankfurt.
+  John Cope did make the first PPM/PPD that was known on run on W32. But
+  as I dont have any W32 system, I was unable to test it.
+
+  Version 0.41 was the first version known to build and to pass its
+  regression test under Windows NT, thanks to Arend R. Braun. The only
+  change was in Makefile.PL.
+
+  Version 0.42 does require Perl 5.6, and does implement interpretation
+  of the Stating Level. Now UNOC (Latin1) is translated to UTF8.
+
 
 
   3.  Installation
@@ -188,16 +201,17 @@
 
 
 
-	  $ perl Makefile.PL
+	       $ perl Makefile.PL
 
-	  I know I should check for those 99 possible places, but I prefer to ask :-)
+	       I know I should check for those 99 possible places,
+	       but I prefer to ask :-)
 
-	  URL for public documents [http://localhost/xml-edifact]
-	  Directory on this system [/usr/local/apache/htdocs/xml-edifact]
+	       URL for public documents [http://www.xml-edifact.org]
+	       Directory on this system [/tmp/xml-edifact]
 
-	  Writing Makefile for XML::Edifact
+	       Writing Makefile for XML::Edifact
 
-	  $ make
+	       $ make
 
 
 
@@ -205,10 +219,10 @@
   XML::Edifact wants to install his document type definition on a web
   server to allow validation XML parser to grep the DTD.
 
-  If you dont have a web server, anwer "." as the URL and "/tmp/xml-
-  edifact" as a directoryname. You may change those decissions later by
-  reperling the Makefile.PL, or by editing the XML::Edifact::Config
-  module in your SITE_PERL.
+  Do not change this setting the first time, as changes cause
+  XML::Edifact to fail its regression test.  You may change those
+  decissions later by reperling the Makefile.PL, or by editing the
+  XML::Edifact::Config module in your SITE_PERL.
 
   Make will take a while and you hopefully have a working database.
   This database covers the 96b version of the UN/EDIFACT batch directory
@@ -264,9 +278,11 @@
 
   4.2.	Stating level in Syntax identifier.
 
-  This has to be parsed. The stating level in EDIFACT speak is called
-  charset encoding in XML speak, and its of course important if you
-  thing about non US/UK products. See un_edifact/unsl.
+  The stating level in EDIFACT speak is called charset encoding in XML
+  speak, and its of course important if you thing about non US/UK
+  products.  Currently only UNOA, UNOB and UNOC are translated
+  correctly. Other character encodings than Latin1, are not yet
+  supported.
 
   4.3.	Explicit Indication of Nesting
 
@@ -370,6 +386,7 @@
 
   Besides the GPLed Edition a Custom Edition, exist if you dislike GPL.
   Drop me an eMail and ask for price and conditions.
+
 
   7.  Download
 

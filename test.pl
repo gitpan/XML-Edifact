@@ -6,7 +6,7 @@
 # Change 1..1 below to 1..last_test_to_print .
 # (It may become useful if the test is moved to ./t subdirectory.)
 
-BEGIN { $| = 1; print "1..21\n"; print "loading ... "; }
+BEGIN { $| = 1; print "1..23\n"; print "loading ... "; }
 END {print "not ok 1\n" unless $loaded;}
 use XML::Edifact;
 use XML::Edifact::Config;
@@ -33,29 +33,31 @@ print "ok 2\n";
 $ok=3;
 
 %checksums = (
-	'linux.xml'	=> '874f449e78c55a3efc2d574154627351',
+	'linux.xml'	=> '85b01af6cb425eced583fdf6236b5631',
 	'linux.edi'	=> '73a0100f6ee3500499ea8b278a0ffaa2',
-	'nad_buyer.xml'	=> '586b63c8b69b3d8db42a1b973a56b1da',
+	'nad_buyer.xml'	=> '567fcf5e5c9a5dcdc96c614be0d4e175',
 	'nad_buyer.edi'	=> '4a4c127542fa23a8e95b2a8d8b74d796',
-	'pia_isbn.xml'	=> 'dd1568bfa236160db9c314c1a9994692',
+	'pia_isbn.xml'	=> 'c117168b72fde7b1f1b09f62d5c17118',
 	'pia_isbn.edi'	=> '3ca92278edd89355391dedfe20fe7dd0',
-	'editeur.xml'	=> '8f3e3d0abd2a74718bc2cac3a348f08f',
+	'editeur.xml'	=> '46e61ed8c514e9aab3a3077906665d6f',
 	'editeur.edi'	=> '769294d7655df1ae781bdd6e44e11d28',
-	'elfe2.xml'	=> 'ed7fb2464a4894586d4465902955c03f',
+	'elfe2.xml'	=> '1a80df87e6fd5421b3d6f6e87d0031cc',
 	'elfe2.edi'	=> '55c0133abcd7f7e629c88704b9f87466',
-	'eva2.xml'	=> '1b5d70e004a50480c2387945ec11ad54',
+	'eva2.xml'	=> 'e7ed77df3fe6d501998f6bb3f319ecb0',
 	'eva2.edi'	=> '357628b2813b3676a8c1468faab058a7',
-	'springer.xml'	=> '3af3198516036147748e1f0e7b639126',
+	'springer.xml'	=> 'f2bd9c6366632c1af0d2c0819c0abeff',
 	'springer.edi'	=> '71f84cd62f9833c69d72c5a53c28aacc',
-	'teleord.xml'	=> 'd8eeb8600dd5362637c6825d7a297fef',
+	'teleord.xml'	=> '490a9abf6213c5125a078f32d0e11a5c',
 	'teleord.edi'	=> 'aae467e7810d9aabc0bd3174f22d9831',
-	'lineitem.xml'	=> 'e2d33f6413d1c3dd3b17cc2fd91dcd93',
-	'lineitem.edi'	=> 'f13cdc7d5258bb4eac728f30b389eb32'
+	'lineitem.xml'	=> '746d6019b6b76afd7cfde1a89555e98b',
+	'lineitem.edi'	=> 'f13cdc7d5258bb4eac728f30b389eb32',
+	'umlaute.xml'	=> 'd61488a1ec16278238a8bca53316aaca',
+	'umlaute.edi'	=> '24414252d67de3529ed895b586356b84'
 	);
 
 foreach $edi (
 	'linux', 'nad_buyer', 'pia_isbn', 'editeur',
-	'elfe2', 'eva2', 'springer', 'teleord', 'lineitem'
+	'elfe2', 'eva2', 'springer', 'teleord', 'lineitem', 'umlaute'
 	) {
 	printf "%-16s ... ", $edi. ".xml";
 

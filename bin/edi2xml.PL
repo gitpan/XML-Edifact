@@ -47,7 +47,7 @@ edi2xml - translate UN/EDIFACT messages to XML
 
 =head1 SYNOPSIS
 
-edi2xml [B<-i>] [B<-i> extension] filename.edi > filename.xml
+edi2xml [B<-i>] [B<-x> extension] filename.edi > filename.xml
 
 =head1 DESCRIPTION
 

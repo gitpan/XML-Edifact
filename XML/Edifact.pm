@@ -6,6 +6,9 @@
 
 package XML::Edifact;
 
+use 5.006;
+no warnings 'utf8' ;
+
 use strict;
 use XML::Edifact::Config;
 use SDBM_File;
@@ -15,7 +18,7 @@ use Carp;
 
 use vars qw($VERSION $debug);
 
-$VERSION='0.41';
+$VERSION='0.42';
 $debug=1;					# debug=1 is fine
 
 # ------------------------------------------------------------------------------
@@ -24,9 +27,6 @@ $debug=1;					# debug=1 is fine
 use vars qw(
 	$MESSAGE_NAMESPACE
 	$MESSAGE_HEADER
-	$DOCTYPE_HEADER
-	$SEGMENT_SPECIFICATION_HEADER
-	$COMPOSITE_SPECIFICATION_HEADER
 	);
 
 sub eval_xml_edifact_headers {
@@ -34,8 +34,6 @@ sub eval_xml_edifact_headers {
 
 	$MESSAGE_HEADER=<<HERE_MESSAGE_HEADER;
 		<?xml version="1.0"?>
-		<!DOCTYPE $MESSAGE_NAMESPACE:message
-		  SYSTEM "$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd">
 		<!-- XML message produced by edi2xml.pl (c) Kraehe\@Copyleft.de -->
 		<$MESSAGE_NAMESPACE:message
 		  xmlns:$MESSAGE_NAMESPACE='$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.rdf'
@@ -51,42 +49,6 @@ sub eval_xml_edifact_headers {
 HERE_MESSAGE_HEADER
 	$MESSAGE_HEADER =~ s/^\t\t//;
 	$MESSAGE_HEADER =~ s/\n\t\t/\n/g;
-
-# ------------------------------------------------------------------------------
-
-	$DOCTYPE_HEADER=<<HERE_DOCTYPE_HEADER;
-		<!-- XML DTD for XML-Edifact to reflect raw UN/EDIFACT -->
-		<!-- LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd (c) '98 Kraehe\@Copyleft.de -->
-HERE_DOCTYPE_HEADER
-	$DOCTYPE_HEADER =~ s/^\t\t//;
-	$DOCTYPE_HEADER =~ s/\n\t\t/\n/g;
-
-# ------------------------------------------------------------------------------
-
-	$SEGMENT_SPECIFICATION_HEADER=<<HERE_SEGMENT_SPECIFICATION_HEADER;
-		<?xml version="1.0"?>
-		<!DOCTYPE $MESSAGE_NAMESPACE:segment_specification SYSTEM "$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd">
-		<!-- XML::Edifact segment.xml (c) Kraehe\@Copyleft.de -->
-
-		<$MESSAGE_NAMESPACE:segment_specifications
-			xmlns:$MESSAGE_NAMESPACE='$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.rdf'
-			>
-HERE_SEGMENT_SPECIFICATION_HEADER
-	$SEGMENT_SPECIFICATION_HEADER =~ s/^\t\t//;
-	$SEGMENT_SPECIFICATION_HEADER =~ s/\n\t\t/\n/g;
-
-# ------------------------------------------------------------------------------
-	$COMPOSITE_SPECIFICATION_HEADER=<<HERE_COMPOSITE_SPECIFICATION_HEADER;
-		<?xml version="1.0"?>
-		<!DOCTYPE $MESSAGE_NAMESPACE:composite_specifications SYSTEM "$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.dtd">
-		<!-- XML::Edifact composite.xml (c) Kraehe\@Copyleft.de -->
-
-		<$MESSAGE_NAMESPACE:composite_specifications
-			xmlns:$MESSAGE_NAMESPACE='$XML::Edifact::Config::URL/LIB/xml-edifact-03/$MESSAGE_NAMESPACE.rdf'
-			>
-HERE_COMPOSITE_SPECIFICATION_HEADER
-	$COMPOSITE_SPECIFICATION_HEADER =~ s/^\t\t//;
-	$COMPOSITE_SPECIFICATION_HEADER =~ s/\n\t\t/\n/g;
 }
 
 # end of sub eval_xml_edifact_headers
@@ -178,7 +140,7 @@ sub make_xml_message {
 	$xml_msg[0] =~ s!\n!!g		unless $indent_join;
 	$xml_msg[0] =~ s!\t! !g		unless $indent_tab;
 
-	my($cooked_message,@Segments,$segment,$s);
+	my($cooked_message,@Segments,$segment,$s,$stating);
 
 	$cooked_release_substitute = "\\".$advice_release_indicator."\\".$advice_release_indicator;
 	$cooked_message_substitute = "\\".$advice_release_indicator."\\".$advice_segment_terminator;
@@ -194,7 +156,16 @@ sub make_xml_message {
 	@Segments = split /$advice_segment_terminator/, $cooked_message;
 	shift @Segments if ($Segments[0] =~ "^UNA");
 
+	if ($Segments[0] =~ "^UNB.UNO") {
+		$stating=substr $Segments[0], 7, 1;
+		die "only UNOA to UNOC stating yet implemented"
+			unless "ABC" =~ /$stating/;
+	} else {
+		$stating="C";
+	}
+
 	foreach $segment (@Segments) {
+		$segment =~ tr/\0-\xff//CU if $stating == "C";
 		$segment =~ s/\001/$advice_segment_terminator/g;
 		resolve_segment($segment);
 	}
@@ -587,11 +558,12 @@ sub handle_end {
 sub handle_char {
 	my ($expat, $element) = @_;
 
-
 	if ($element !~ /^[\n\r\t ]*$/) {
 		if ($debug>1) {
 			printf STDERR "-%s\n", $element;
 		}
+
+		$element =~ tr/\0-\x{ff}//UC;
 		$element =~ s/[\n\r\t ]*$//;
 		$element =~ s/^[\n\r\t ]*//;
 

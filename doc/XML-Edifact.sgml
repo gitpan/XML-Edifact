@@ -4,18 +4,18 @@
 <title>
 	<tt/XML::Edifact/ - an approach towards <tt>XML/EDI</> as a prototype in perl
 <subtitle>
-	release 0.40 - stabilisation of edicooked syntax
+	release 0.42 - Latin1 to UTF8 translation
 <author>
 	Michael Koehne,
 ( <htmlurl url="mailto:kraehe@copyleft.de" name="kraehe@copyleft.de"> )
 <date>
-	v0.40 release
+    Sat May 13 23:50:42 CEST 2000
 <abstract>
 	XML::Edifact is a set of perl scripts, hopefully becoming a
-	module, for translating EDIFACT into XML. This 0.40 version
-	open the portability track. Starting with a minor bugfix
-	( thanks to Werner F.C. Bruns ) and questions for a W32
-	port on a DIN meeting in Frankfurt.
+	module, for translating EDIFACT into XML. This 0.42 version
+	is part of the portability track. Its known to build and pass
+	its regression test under Windows NT. This version requires
+	Perl 5.6 to implement UTF8 handling.
 
 </abstract>
 <!-- Table of contents -->
@@ -158,11 +158,23 @@
   Version 0.35 was a bug fix, thanks to Detlef Lammermann from Dr.
   Materna GmbH, who found that ??' was missinterpreted.
 <sect1>
-  Version 0.40 will open the portability track.
+  XML-Edifact-0.4x: the portability track.
 <p>  
   Intension is a version running under as many operating systems as
   possible. Bug fixes may still merge in this version, but new features
   are implemented into the 0.50 track.
+<p>
+  Version 0.40 starting with a minor bugfix ( thanks to Werner F.C. Bruns )
+  and questions for a W32 port on a DIN meeting in Frankfurt. John Cope
+  did make the first PPM/PPD that was known on run on W32. But as I dont
+  have any W32 system, I was unable to test it.
+<p>
+  Version 0.41 was the first version known to build and to pass its
+  regression test under Windows NT, thanks to Arend R. Braun. The
+  only change was in Makefile.PL.
+<p>
+  Version 0.42 does require Perl 5.6, and does implement interpretation
+  of the Stating Level. Now UNOC (Latin1) is translated to UTF8.
 
 <sect>
 	Installation
@@ -174,10 +186,11 @@
 <tscreen><verb>
 	$ perl Makefile.PL
 
-	I know I should check for those 99 possible places, but I prefer to ask :-)
+	I know I should check for those 99 possible places,
+	but I prefer to ask :-)
 
-	URL for public documents [http://localhost/xml-edifact] 
-	Directory on this system [/usr/local/apache/htdocs/xml-edifact] 
+	URL for public documents [http://www.xml-edifact.org]
+	Directory on this system [/tmp/xml-edifact]
 
 	Writing Makefile for XML::Edifact
 
@@ -188,10 +201,10 @@
    is that XML::Edifact wants to install his document type definition
    on a web server to allow validation XML parser to grep the DTD.
 <p>
-   If you dont have a web server, anwer "." as the URL and
-   "/tmp/xml-edifact" as a directoryname. You may change those
-   decissions later by reperling the Makefile.PL, or by editing
-   the XML::Edifact::Config module in your SITE_PERL.
+   Do not change this setting the first time, as changes cause
+   XML::Edifact to fail its regression test.  You may change those
+   decissions later by reperling the Makefile.PL, or by editing the
+   XML::Edifact::Config module in your SITE_PERL.
 <p>
    Make will take a while and you hopefully have a working database.
    This database covers the 96b version of the UN/EDIFACT batch
@@ -242,9 +255,10 @@
 <sect1>
 	Stating level in Syntax identifier.
 <p>
-  This has to be parsed. The stating level in EDIFACT speak is
-  called charset encoding in XML speak, and its of course important
-  if you thing about non US/UK products. See un_edifact/unsl.
+  The stating level in EDIFACT speak is called charset encoding in XML
+  speak, and its of course important if you thing about non US/UK products.
+  Currently only UNOA, UNOB and UNOC are translated correctly. Other character
+  encodings than Latin1, are not yet supported.
 <sect1>
 	Explicit Indication of Nesting
 <p>
