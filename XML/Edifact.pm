@@ -19,7 +19,7 @@ use Carp;
 
 use vars qw($VERSION $debug);
 
-$VERSION='0.46';
+$VERSION='0.47';
 $debug=1;					# debug=1 is fine
 
 # ------------------------------------------------------------------------------
@@ -64,6 +64,7 @@ use vars qw($advice_element_seperator $advice_decimal_notation);
 use vars qw($advice_release_indicator $advice_segment_terminator);
 use vars qw($indent_join $indent_tab);
 use vars qw($patch_segment $patch_composite $last_segment $last_composite);
+use vars qw($coded_entry);
 
 # ------------------------------------------------------------------------------
 
@@ -136,7 +137,7 @@ use vars qw($cooked_message_substitute $cooked_segment_substitute);
 use vars qw($component_split $element_split);
 
 sub make_xml_message {
-	my ($iofile,$handler) = @_;
+	my ($iofile) = @_;
 
 	@xml_msg = ();
 	push @xml_msg, $MESSAGE_HEADER;
@@ -392,7 +393,7 @@ sub read_xml_message {
 }
 
 sub make_edi_message {
-	my ($iofile,$handler) = @_;
+	my ($iofile) = @_;
 
         $edi_file = $iofile;
 
@@ -437,6 +438,8 @@ sub handle_start {
 			printf STDERR "A%s=%s\n", $opt, $options{$opt};
 		}
 	}
+
+	$coded_entry = 0;
 
 	if ($edi_level == 0) {
 		die "this is not XML::Edifact" if ($element !~ /^[^:]*:message/);
@@ -508,6 +511,7 @@ sub handle_start {
 					$val = $options{$opt};
 					$val =~ s/^[^:]*://;
 					$edi_group[$edi_gi] = $val;
+					$coded_entry = 1;
 				}
 			}
 		}
@@ -547,6 +551,7 @@ sub handle_start {
 					$val = $options{$opt};
 					$val =~ s/^[^:]*://;
 					$edi_group[$edi_gi] = $val;
+					$coded_entry = 1;
 				}
 			}
 		}
@@ -580,6 +585,8 @@ sub handle_end {
 	    if ($edi_level == 2) {
 		for ($i = 0; $i<= $#edi_group; $i++) {
 			$cooked = $edi_group[$i];
+			$cooked =~ s/^[\n\r\t ]*//;
+			$cooked =~ s/[\n\r\t ]*$//;
 
 			foreach $si ($advice_release_indicator, $advice_component_seperator, $advice_element_seperator, $advice_segment_terminator) {
 				$s1 = "\\".$si;
@@ -606,10 +613,8 @@ sub handle_char {
 		}
 
 		$element =~ s/([\xC0-\xDF])([\x80-\xBF])/chr(ord($1)<<6&0xC0|ord($2)&0x3F)/eg;
-		$element =~ s/[\n\r\t ]*$//;
-		$element =~ s/^[\n\r\t ]*//;
 
-		$edi_group[$edi_gi] = $element if $edi_group[$edi_gi] eq "";
+		$edi_group[$edi_gi] .= $element unless ($coded_entry);
 	}
 }
 
