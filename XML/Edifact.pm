@@ -7,7 +7,8 @@
 package XML::Edifact;
 
 use 5.006;
-no warnings 'utf8' ;
+no warnings 'utf8';
+use bytes;
 
 use strict;
 use XML::Edifact::Config;
@@ -18,7 +19,7 @@ use Carp;
 
 use vars qw($VERSION $debug);
 
-$VERSION='0.45';
+$VERSION='0.46';
 $debug=1;					# debug=1 is fine
 
 # ------------------------------------------------------------------------------

@@ -1,13 +1,11 @@
   XML::Edifact - an approach towards XML/EDI as a prototype in perl
-  release 0.45 - UNOC
+  release 0.46 - UNOC MAINT
   Michael Koehne, ( kraehe@copyleft.de )
-  Tue Jun 12 15:40:06 CEST 2001
+  Wed Apr 24 21:42:29 CEST 2002
 
-  XML::Edifact is a set of perl scripts, for translating EDIFACT into
-  XML.	Version 0.45 improved UNOC handling. Perl 5.6.1 droped the 'tr'
-  function to convert between ISO-8859-1 and UTF8, and introduced a new
-  way. Thanks to Jarkko Hietaniemi for his regexp to produce a version
-  compatible from Perl 5.6.0 up.
+  XML::Edifact is a set of perl scripts, for translating EDIFACT into XML.
+  Version 0.45 improved UNOC handling. This is a maintenance relase because
+  UTF8 in Perl is broken again.
   ______________________________________________________________________
 
   Table of Contents

@@ -4,18 +4,16 @@
 <title>
     <tt/XML::Edifact/ - an approach towards <tt>XML/EDI</> as a prototype in perl
 <subtitle>
-    release 0.45 - UNOC
+    release 0.46 - UNOC MAINT
 <author>
     Michael Koehne,
 ( <htmlurl url="mailto:kraehe@copyleft.de" name="kraehe@copyleft.de"> )
 <date>
-    Tue Jun 12 15:40:06 CEST 2001
+    Wed Apr 24 21:42:29 CEST 2002
 <abstract>
     XML::Edifact is a set of perl scripts, for translating EDIFACT into XML.
-    Version 0.45 improved UNOC handling. Perl 5.6.1 droped the 'tr' function
-    to convert between ISO-8859-1 and UTF8, and introduced a new way. Thanks
-    to Jarkko Hietaniemi for his regexp to produce a version compatible from
-    Perl 5.6.0 up.
+    Version 0.45 improved UNOC handling. This is a maintenance relase because
+    UTF8 in Perl is broken again.
 </abstract>
 <!-- Table of contents -->
 <toc>
