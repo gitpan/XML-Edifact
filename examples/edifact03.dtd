@@ -2659,6 +2659,10 @@
 <!ELEMENT anxe:free.form.text (#PCDATA) >
 <!ELEMENT anxe:section.identification (#PCDATA) >
 <!ATTLIST anxe:section.identification unsl:code CDATA #REQUIRED >
+<!ELEMENT action.coded (#PCDATA) >
+<!ATTLIST action.coded unsl:code CDATA #REQUIRED >
+<!ELEMENT syntax.error.coded (#PCDATA) >
+<!ATTLIST syntax.error.coded unsl:code CDATA #REQUIRED >
 <!ELEMENT tred:document.message.name (#PCDATA) >
 <!ELEMENT tred:document.message.name.coded (#PCDATA) >
 <!ATTLIST tred:document.message.name.coded uncl:code CDATA #REQUIRED >
@@ -2733,6 +2737,8 @@
 <!ELEMENT tred:type.of.period.coded (#PCDATA) >
 <!ATTLIST tred:type.of.period.coded uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:number.of.periods (#PCDATA) >
+<!ELEMENT charge.period.type.coded (#PCDATA) >
+<!ATTLIST charge.period.type.coded uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:date.time.period.format.qualifier (#PCDATA) >
 <!ATTLIST tred:date.time.period.format.qualifier uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:date.time.period (#PCDATA) >
@@ -2821,6 +2827,8 @@
 <!ELEMENT tred:language.coded (#PCDATA) >
 <!ELEMENT tred:language.qualifier (#PCDATA) >
 <!ATTLIST tred:language.qualifier uncl:code CDATA #REQUIRED >
+<!ELEMENT originator.type.coded (#PCDATA) >
+<!ATTLIST originator.type.coded uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:address.status.coded (#PCDATA) >
 <!ATTLIST tred:address.status.coded uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:address.format.coded (#PCDATA) >
@@ -2992,6 +3000,10 @@
 <!ATTLIST tred:percentage.qualifier uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:percentage.basis.coded (#PCDATA) >
 <!ATTLIST tred:percentage.basis.coded uncl:code CDATA #REQUIRED >
+<!ELEMENT charge.unit.coded (#PCDATA) >
+<!ATTLIST charge.unit.coded uncl:code CDATA #REQUIRED >
+<!ELEMENT service.to.be.paid.coded (#PCDATA) >
+<!ATTLIST service.to.be.paid.coded uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:duty.tax.fee.rate.basis.identification (#PCDATA) >
 <!ATTLIST tred:duty.tax.fee.rate.basis.identification uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:supplementary.rate.tariff.basis.identification (#PCDATA) >
@@ -3029,6 +3041,8 @@
 <!ELEMENT tred:percentage (#PCDATA) >
 <!ELEMENT tred:sub.line.indicator.coded (#PCDATA) >
 <!ATTLIST tred:sub.line.indicator.coded uncl:code CDATA #REQUIRED >
+<!ELEMENT rate.plan.coded (#PCDATA) >
+<!ATTLIST rate.plan.coded uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:height.dimension (#PCDATA) >
 <!ELEMENT tred:quantity (#PCDATA) >
 <!ELEMENT tred:quantity.qualifier (#PCDATA) >
@@ -3140,6 +3154,8 @@
 <!ELEMENT tred:characteristic.value.coded (#PCDATA) >
 <!ELEMENT tred:undg.number (#PCDATA) >
 <!ELEMENT tred:customer.authorization.number (#PCDATA) >
+<!ELEMENT product.details.qualifier (#PCDATA) >
+<!ATTLIST product.details.qualifier uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:item.number (#PCDATA) >
 <!ELEMENT tred:item.number.type.coded (#PCDATA) >
 <!ATTLIST tred:item.number.type.coded uncl:code CDATA #REQUIRED >
@@ -3320,6 +3336,10 @@
 <!ATTLIST tred:qualification.area.coded uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:qualification.qualifier (#PCDATA) >
 <!ATTLIST tred:qualification.qualifier uncl:code CDATA #REQUIRED >
+<!ELEMENT facility.type.coded (#PCDATA) >
+<!ATTLIST facility.type.coded uncl:code CDATA #REQUIRED >
+<!ELEMENT reservation.control.number.qualifier (#PCDATA) >
+<!ATTLIST reservation.control.number.qualifier uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:relationship.qualifier (#PCDATA) >
 <!ATTLIST tred:relationship.qualifier uncl:code CDATA #REQUIRED >
 <!ELEMENT tred:relationship (#PCDATA) >

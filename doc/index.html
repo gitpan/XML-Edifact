@@ -1,0 +1,46 @@
+<h1>XML-Edifact</h1>
+<h2>Research Papers</h2>
+<ul>
+<li><a href="XML-Edifact.html">release Notes</a>
+<li><a href="RDF_and_XML-Namespaces.html">RDF and XML-Edifact namespaces</a>
+<li><a href="NOTE-xml-edifact-19990807.html">Note to the W3C</a>
+</ul>
+<h2>XML-Edifact - Document Type Definition</h2>
+<ul>
+<li><a href="edifact03.dtd">	edifact03.dtd				</a>
+</ul>
+<h2>Example Files</h2>
+The first 3 messages are from the book publishing order chain.
+EDItUER are old orders designed by the Library in Frankfurt,
+Springer provided an invoice. And TeleOrdering as one of the
+major Value Added Network in this bussiness send me a rather
+large message also about ORDERs but using less code list extensions
+than the academic EDItUER example. All of those messages will
+fail with a validating parser, because of "unknown:code".
+<ul>
+<li>[ <a href="editeur.edi">EDI</a> ]
+    [ <a href="editeur.xml">XML</a> ] EDItEUR
+<li>[ <a href="springer.edi">EDI</a> ]
+    [ <a href="springer.xml">XML</a> ] Springer Verlag
+<li>[ <a href="teleord.edi">EDI</a> ]
+    [ <a href="teleord.xml">XML</a> ] TeleOrdering
+</ul>
+The next two messages came from ETIS, and even if they dont
+look so - they are normal phon bills.
+<ul>
+<li>[ <a href="elfe2.edi">EDI</a> ]
+    [ <a href="elfe2.xml">XML</a> ] ELFE
+<li>[ <a href="eva2.edi">EDI</a> ]
+    [ <a href="eva2.xml">XML</a> ] EVA
+</ul>
+The last messages are experiments. XML::Edifact is able to
+translate any well formed UN/EDIFACT into XML. Those messages
+here are just message fragments.
+<ul>
+<li>[ <a href="linux.edi">EDI</a> ]
+    [ <a href="linux.xml">XML</a> ] Linux
+<li>[ <a href="nad_buyer.edi">EDI</a> ]
+    [ <a href="nad_buyer.xml">XML</a> ] Buyer
+<li>[ <a href="pia_isbn.edi">EDI</a> ]
+    [ <a href="pia_isbn.xml">XML</a> ] ISBN
+</ul>

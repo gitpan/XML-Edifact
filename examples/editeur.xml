@@ -1,10 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE edifact:message SYSTEM "./edifact03.dtd">
-
 <!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
-
 <edifact:message
-	xmlns:edifact='./edifact03.rdf' 
+	xmlns:edifact='./edifact03.rdf'
 	xmlns:trsd='./edifact03_trsd.rdf'
 	xmlns:trcd='./edifact03_trcd.rdf'
 	xmlns:tred='./edifact03_tred.rdf'
@@ -15,2145 +13,1703 @@
 	xmlns:unsl='./edifact03_unsl.rdf'
 	xmlns:unknown='./edifact03_unknown.rdf'
 	>
+
 <!-- SEGMENT UNB+UNOC:2+STUB+BLA+960209:0843+72 -->
-
-  <anxs:interchange.header>
-    <anxc:syntax.identifier>
-      <anxe:syntax.identifier unsl:code="0001:UNOC">UN/ECE level C</anxe:syntax.identifier>
-      <anxe:syntax.version.number>2</anxe:syntax.version.number>
-    </anxc:syntax.identifier>
-    <anxc:interchange.sender>
-      <anxe:sender.identification>STUB</anxe:sender.identification>
-    </anxc:interchange.sender>
-    <anxc:interchange.recipient>
-      <anxe:recipient.identification>BLA</anxe:recipient.identification>
-    </anxc:interchange.recipient>
-    <anxc:date.time.of.preparation>
-      <anxe:date>960209</anxe:date>
-      <anxe:time>0843</anxe:time>
-    </anxc:date.time.of.preparation>
-      <anxe:interchange.control.reference>72</anxe:interchange.control.reference>
-  </anxs:interchange.header>
-
+<anxs:interchange.header>
+  <anxc:syntax.identifier>
+    <anxe:syntax.identifier unsl:code="0001:UNOC">UN/ECE level C</anxe:syntax.identifier>
+    <anxe:syntax.version.number>2</anxe:syntax.version.number>
+  </anxc:syntax.identifier>
+  <anxc:interchange.sender>
+    <anxe:sender.identification>STUB</anxe:sender.identification>
+  </anxc:interchange.sender>
+  <anxc:interchange.recipient>
+    <anxe:recipient.identification>BLA</anxe:recipient.identification>
+  </anxc:interchange.recipient>
+  <anxc:date.time.of.preparation>
+    <anxe:date>960209</anxe:date>
+    <anxe:time>0843</anxe:time>
+  </anxc:date.time.of.preparation>
+  <anxe:interchange.control.reference>72</anxe:interchange.control.reference>
+</anxs:interchange.header>
 <!-- SEGMENT UNH+0000090001+ORDERS:D:93A:UN:EAN007 -->
-
-  <anxs:message.header>
-      <anxe:message.reference.number>0000090001</anxe:message.reference.number>
-    <anxc:message.identifier>
-      <anxe:message.type unsl:code="0065:ORDERS">Purchase order message</anxe:message.type>
-      <anxe:message.version.number>D</anxe:message.version.number>
-      <anxe:message.release.number>93A</anxe:message.release.number>
-      <anxe:controlling.agency unsl:code="0051:UN">UN/ECE/TRADE/WP.4</anxe:controlling.agency>
-      <anxe:association.assigned.code unknown:code="0057:EAN007">EAN007</anxe:association.assigned.code>
-    </anxc:message.identifier>
-  </anxs:message.header>
-
+<anxs:message.header>
+  <anxe:message.reference.number>0000090001</anxe:message.reference.number>
+  <anxc:message.identifier>
+    <anxe:message.type unsl:code="0065:ORDERS">Purchase order message</anxe:message.type>
+    <anxe:message.version.number>D</anxe:message.version.number>
+    <anxe:message.release.number>93A</anxe:message.release.number>
+    <anxe:controlling.agency unsl:code="0051:UN">UN/ECE/TRADE/WP.4</anxe:controlling.agency>
+    <anxe:association.assigned.code unknown:code="0057:EAN007">EAN007</anxe:association.assigned.code>
+  </anxc:message.identifier>
+</anxs:message.header>
 <!-- SEGMENT BGM+220+B00404 -->
-
-  <trsd:beginning.of.message>
-    <trcd:document.message.name>
-      <tred:document.message.name.coded uncl:code="1001:220">Order</tred:document.message.name.coded>
-    </trcd:document.message.name>
-    <trcd:document.message.identification>
-      <tred:document.message.number>B00404</tred:document.message.number>
-    </trcd:document.message.identification>
-  </trsd:beginning.of.message>
-
+<trsd:beginning.of.message>
+  <trcd:document.message.name>
+    <tred:document.message.name.coded uncl:code="1001:220">Order</tred:document.message.name.coded>
+  </trcd:document.message.name>
+  <trcd:document.message.identification>
+    <tred:document.message.number>B00404</tred:document.message.number>
+  </trcd:document.message.identification>
+</trsd:beginning.of.message>
 <!-- SEGMENT DTM+137:19960209:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:137">Document/message date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960209</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:137">Document/message date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960209</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT NAD+BY+++STADT- UND UNIVERSITAETSBIBLIOTHEK:FRANKFURT+BOCKENHEIMER LANDSTR. 134-138+FRANKFURT+++DE -->
-
-  <trsd:name.and.address>
-      <tred:party.qualifier uncl:code="3035:BY">Buyer</tred:party.qualifier>
-    <trcd:party.name>
-      <tred:party.name>STADT- UND UNIVERSITAETSBIBLIOTHEK</tred:party.name>
-      <tred:party.name>FRANKFURT</tred:party.name>
-    </trcd:party.name>
-    <trcd:street>
-      <tred:street.and.number.p.o.box>BOCKENHEIMER LANDSTR. 134-138</tred:street.and.number.p.o.box>
-    </trcd:street>
-      <tred:city.name>FRANKFURT</tred:city.name>
-      <tred:country.coded>DE</tred:country.coded>
-  </trsd:name.and.address>
-
+<trsd:name.and.address>
+  <tred:party.qualifier uncl:code="3035:BY">Buyer</tred:party.qualifier>
+  <trcd:party.name>
+    <tred:party.name>STADT- UND UNIVERSITAETSBIBLIOTHEK</tred:party.name>
+    <tred:party.name>FRANKFURT</tred:party.name>
+  </trcd:party.name>
+  <trcd:street>
+    <tred:street.and.number.p.o.box>BOCKENHEIMER LANDSTR. 134-138</tred:street.and.number.p.o.box>
+  </trcd:street>
+  <tred:city.name>FRANKFURT</tred:city.name>
+  <tred:country.coded>DE</tred:country.coded>
+</trsd:name.and.address>
 <!-- SEGMENT RFF+API:DE114110388 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:API">API</tred:reference.qualifier>
-      <tred:reference.number>DE114110388</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:API">API</tred:reference.qualifier>
+    <tred:reference.number>DE114110388</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+IT:STUB -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:IT">Internal customer number</tred:reference.qualifier>
-      <tred:reference.number>STUB</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:IT">Internal customer number</tred:reference.qualifier>
+    <tred:reference.number>STUB</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT NAD+SU+++B.H.BLACKWELL -->
-
-  <trsd:name.and.address>
-      <tred:party.qualifier uncl:code="3035:SU">Supplier</tred:party.qualifier>
-    <trcd:party.name>
-      <tred:party.name>B.H.BLACKWELL</tred:party.name>
-    </trcd:party.name>
-  </trsd:name.and.address>
-
+<trsd:name.and.address>
+  <tred:party.qualifier uncl:code="3035:SU">Supplier</tred:party.qualifier>
+  <trcd:party.name>
+    <tred:party.name>B.H.BLACKWELL</tred:party.name>
+  </trcd:party.name>
+</trsd:name.and.address>
 <!-- SEGMENT CUX+2:GBP:9 -->
-
-  <trsd:currencies>
-    <trcd:currency.details>
-      <tred:currency.details.qualifier uncl:code="6347:2">Reference currency</tred:currency.details.qualifier>
-      <tred:currency.coded>GBP</tred:currency.coded>
-      <tred:currency.qualifier uncl:code="6343:9">Order currency</tred:currency.qualifier>
-    </trcd:currency.details>
-  </trsd:currencies>
-
+<trsd:currencies>
+  <trcd:currency.details>
+    <tred:currency.details.qualifier uncl:code="6347:2">Reference currency</tred:currency.details.qualifier>
+    <tred:currency.coded>GBP</tred:currency.coded>
+    <tred:currency.qualifier uncl:code="6343:9">Order currency</tred:currency.qualifier>
+  </trcd:currency.details>
+</trsd:currencies>
 <!-- SEGMENT LIN+1 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>1</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>1</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0471949086:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0471949086</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0471949086</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRQ+YYY:37.5:CA:SRP -->
-
-  <edifact:raw_segment data="PRQ+YYY:37.5:CA:SRP"/>
+<edifact:raw_segment data="PRQ+YYY:37.5:CA:SRP"/>
 <!-- SEGMENT RFF+QNB:00023302:10 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>10</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>10</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8216 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8216</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8216</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.41 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.41</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.41</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+2 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>2</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>2</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0471949000:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0471949000</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0471949000</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT IMD+F+010+:::Cherry -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Cherry</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Cherry</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+011+:::Gordon E -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Gordon E</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Gordon E</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+050+:::Birmingham -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Birmingham</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Birmingham</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+060+:::a study in geography, hislanning -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:060">060</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>a study in geography, hislanning</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:060">060</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>a study in geography, hislanning</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+110+:::Chichester -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Chichester</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Chichester</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+120+:::Wiley(John)(W Sussex) -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Wiley(John)(W Sussex)</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Wiley(John)(W Sussex)</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+170+:::1994 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>1994</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>1994</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+180+:::254p -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>254p</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>254p</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+181+:::?: ill ; 24cm. - Bibl.?: P.237-244. -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>: ill ; 24cm. - Bibl.: P.237-244.</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>: ill ; 24cm. - Bibl.: P.237-244.</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+270+:::39100200?:Urban studies -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>39100200:Urban studies</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>39100200:Urban studies</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:37.5:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>37.5</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>37.5</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:9 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>9</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>9</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8217 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8217</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8217</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.39 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.39</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.39</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+3 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>3</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>3</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0471957542:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0471957542</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0471957542</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:45:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>45</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>45</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:11 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>11</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>11</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8218 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8218</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8218</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.41 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.41</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.41</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+4 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>4</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>4</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0521435145:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0521435145</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0521435145</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:65:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>65</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>65</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:13 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>13</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>13</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8220 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8220</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8220</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.07 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.07</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.07</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+5 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>5</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>5</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0077090632:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0077090632</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0077090632</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT IMD+F+010+:::Wenlock -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Wenlock</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Wenlock</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+011+:::Alison -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Alison</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Alison</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+050+:::The AS/400 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>The AS/400</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>The AS/400</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+060+:::built for business -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:060">060</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>built for business</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:060">060</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>built for business</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+110+:::London -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>London</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>London</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+120+:::McGraw-Hill Book Co in Europe -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>McGraw-Hill Book Co in Europe</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>McGraw-Hill Book Co in Europe</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+170+:::1995 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>1995</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>1995</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+180+:::134p -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>134p</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>134p</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+181+:::; 25cm. - Index -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>; 25cm. - Index</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>; 25cm. - Index</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+190+:::The IBM McGraw-Hill series -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:190">190</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>The IBM McGraw-Hill series</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:190">190</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>The IBM McGraw-Hill series</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+270+:::61100200?:Computers -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>61100200:Computers</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>61100200:Computers</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+300+:::1st Series Id?:E1678043 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>1st Series Id:E1678043</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>1st Series Id:E1678043</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:24.95:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>24.95</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>24.95</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:1 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>1</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>1</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8221 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8221</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8221</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.41 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.41</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.41</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+6 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>6</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>6</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0521474620:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0521474620</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0521474620</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:65:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>65</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>65</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:14 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>14</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>14</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8222 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8222</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8222</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.41 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.41</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.41</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+7 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>7</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>7</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0133361993:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0133361993</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0133361993</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT IMD+F+010+:::Shepperd -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Shepperd</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Shepperd</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+011+:::Martin -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Martin</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Martin</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+050+:::Foundations of software measurement -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Foundations of software measurement</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Foundations of software measurement</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+110+:::Hemel Hempstead -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Hemel Hempstead</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Hemel Hempstead</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+120+:::Prentice-Hall Interl Inc -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Prentice-Hall Interl Inc</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Prentice-Hall Interl Inc</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+170+:::1995 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>1995</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>1995</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+180+:::234p -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>234p</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>234p</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+181+:::; 24cm. - Bibls. - Index -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>; 24cm. - Bibls. - Index</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>; 24cm. - Bibls. - Index</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+270+:::61305050?:Software engineering -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>61305050:Software engineering</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>61305050:Software engineering</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:19.95:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>19.95</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>19.95</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:3 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>3</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>3</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8224 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8224</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8224</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.13 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.13</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.13</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+8 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>8</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>8</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0198549512:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0198549512</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0198549512</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT IMD+F+010+:::Evans -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Evans</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Evans</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+011+:::Julian -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Julian</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Julian</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+050+:::A wood of our own -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>A wood of our own</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>A wood of our own</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+110+:::Oxford -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Oxford</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Oxford</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+120+:::Oxford University Press -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Oxford University Press</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Oxford University Press</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+170+:::1995 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>1995</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>1995</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+180+:::158p -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>158p</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>158p</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+181+:::?: ill ; 25cm -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>: ill ; 25cm</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>: ill ; 25cm</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+270+:::76020000?:Forestry -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>76020000:Forestry</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>76020000:Forestry</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+300+:::Note?:Julian Evans ; with illustrati:ions by John White and Stephen Evan -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Note:Julian Evans ; with illustrati</tred:item.description>
-      <tred:item.description>ions by John White and Stephen Evan</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Note:Julian Evans ; with illustrati</tred:item.description>
+    <tred:item.description>ions by John White and Stephen Evan</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+300+:::s -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>s</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>s</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:17.99:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>17.99</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>17.99</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:4 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>4</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>4</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8225 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8225</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8225</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.23 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.23</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.23</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+9 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>9</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>9</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0333628896:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0333628896</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0333628896</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT IMD+F+010+:::Barraclough -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Barraclough</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Barraclough</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+011+:::Solon L -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Solon L</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Solon L</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+050+:::Forests and livelihoods -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Forests and livelihoods</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Forests and livelihoods</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+060+:::the social dynamics of den in devel:oping countries -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:060">060</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>the social dynamics of den in devel</tred:item.description>
-      <tred:item.description>oping countries</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:060">060</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>the social dynamics of den in devel</tred:item.description>
+    <tred:item.description>oping countries</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+110+:::London -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>London</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>London</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+120+:::Macmillan Publishers -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Macmillan Publishers</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Macmillan Publishers</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+170+:::1995 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>1995</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>1995</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+180+:::259p -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>259p</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>259p</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+181+:::; 23cm. - Bibl.?: p.245-253. - Inde -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>; 23cm. - Bibl.: p.245-253. - Inde</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>; 23cm. - Bibl.: p.245-253. - Inde</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+270+:::76302500?:Tropical forests -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>76302500:Tropical forests</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>76302500:Tropical forests</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+300+:::Note?:by Solon L. Barraclough and Kr:rishna B. Ghimire -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Note:by Solon L. Barraclough and Kr</tred:item.description>
-      <tred:item.description>rishna B. Ghimire</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Note:by Solon L. Barraclough and Kr</tred:item.description>
+    <tred:item.description>rishna B. Ghimire</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:45:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>45</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>45</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:6 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>6</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>6</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8227 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8227</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8227</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.23 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.23</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.23</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+10 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>10</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>10</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0333645545:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0333645545</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0333645545</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT IMD+F+010+:::Tyrrell -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Tyrrell</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Tyrrell</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+011+:::A J -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>A J</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>A J</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+050+:::Eiffel object-oriented programming -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Eiffel object-oriented programming</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Eiffel object-oriented programming</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+110+:::London -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>London</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>London</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+120+:::Macmillan Publishers -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Macmillan Publishers</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Macmillan Publishers</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+170+:::1995 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>1995</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>1995</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+180+:::283p -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>283p</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>283p</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+181+:::; 24cm. - Bibl.?: p.281. - Index -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>; 24cm. - Bibl.: p.281. - Index</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>; 24cm. - Bibl.: p.281. - Index</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+190+:::Macmillan computer science series -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:190">190</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Macmillan computer science series</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:190">190</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Macmillan computer science series</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+270+:::61305015?:Object-oriented programmin:g -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>61305015:Object-oriented programmin</tred:item.description>
-      <tred:item.description>g</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>61305015:Object-oriented programmin</tred:item.description>
+    <tred:item.description>g</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+300+:::1st Series Id?:E1108662 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>1st Series Id:E1108662</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>1st Series Id:E1108662</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:16.99:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>16.99</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>16.99</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:7 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>7</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>7</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8228 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8228</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8228</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.13 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.13</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.13</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT UNS+S -->
-
-  <anxs:section.control>
-      <anxe:section.identification unsl:code="0081:S">Detail/summary section separation</anxe:section.identification>
-  </anxs:section.control>
-
+<anxs:section.control>
+  <anxe:section.identification unsl:code="0081:S">Detail/summary section separation</anxe:section.identification>
+</anxs:section.control>
 <!-- SEGMENT CNT+2:10 -->
-
-  <trsd:control.total>
-    <trcd:control>
-      <tred:control.qualifier uncl:code="6069:2">Number of line items in message</tred:control.qualifier>
-      <tred:control.value>10</tred:control.value>
-    </trcd:control>
-  </trsd:control.total>
-
+<trsd:control.total>
+  <trcd:control>
+    <tred:control.qualifier uncl:code="6069:2">Number of line items in message</tred:control.qualifier>
+    <tred:control.value>10</tred:control.value>
+  </trcd:control>
+</trsd:control.total>
 <!-- SEGMENT UNT+165+0000090001 -->
-
-  <anxs:message.trailer>
-      <anxe:number.of.segments.in.the.message>165</anxe:number.of.segments.in.the.message>
-      <anxe:message.reference.number>0000090001</anxe:message.reference.number>
-  </anxs:message.trailer>
-
+<anxs:message.trailer>
+  <anxe:number.of.segments.in.the.message>165</anxe:number.of.segments.in.the.message>
+  <anxe:message.reference.number>0000090001</anxe:message.reference.number>
+</anxs:message.trailer>
 <!-- SEGMENT UNH+0000170001+ORDERS:D:93A:UN:EAN007 -->
-
-  <anxs:message.header>
-      <anxe:message.reference.number>0000170001</anxe:message.reference.number>
-    <anxc:message.identifier>
-      <anxe:message.type unsl:code="0065:ORDERS">Purchase order message</anxe:message.type>
-      <anxe:message.version.number>D</anxe:message.version.number>
-      <anxe:message.release.number>93A</anxe:message.release.number>
-      <anxe:controlling.agency unsl:code="0051:UN">UN/ECE/TRADE/WP.4</anxe:controlling.agency>
-      <anxe:association.assigned.code unknown:code="0057:EAN007">EAN007</anxe:association.assigned.code>
-    </anxc:message.identifier>
-  </anxs:message.header>
-
+<anxs:message.header>
+  <anxe:message.reference.number>0000170001</anxe:message.reference.number>
+  <anxc:message.identifier>
+    <anxe:message.type unsl:code="0065:ORDERS">Purchase order message</anxe:message.type>
+    <anxe:message.version.number>D</anxe:message.version.number>
+    <anxe:message.release.number>93A</anxe:message.release.number>
+    <anxe:controlling.agency unsl:code="0051:UN">UN/ECE/TRADE/WP.4</anxe:controlling.agency>
+    <anxe:association.assigned.code unknown:code="0057:EAN007">EAN007</anxe:association.assigned.code>
+  </anxc:message.identifier>
+</anxs:message.header>
 <!-- SEGMENT BGM+224+B00405 -->
-
-  <trsd:beginning.of.message>
-    <trcd:document.message.name>
-      <tred:document.message.name.coded uncl:code="1001:224">Rush order</tred:document.message.name.coded>
-    </trcd:document.message.name>
-    <trcd:document.message.identification>
-      <tred:document.message.number>B00405</tred:document.message.number>
-    </trcd:document.message.identification>
-  </trsd:beginning.of.message>
-
+<trsd:beginning.of.message>
+  <trcd:document.message.name>
+    <tred:document.message.name.coded uncl:code="1001:224">Rush order</tred:document.message.name.coded>
+  </trcd:document.message.name>
+  <trcd:document.message.identification>
+    <tred:document.message.number>B00405</tred:document.message.number>
+  </trcd:document.message.identification>
+</trsd:beginning.of.message>
 <!-- SEGMENT DTM+137:19960209:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:137">Document/message date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960209</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:137">Document/message date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960209</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT NAD+BY+++STADT- UND UNIVERSITAETSBIBLIOTHEK:FRANKFURT+BOCKENHEIMER LANDSTR. 134-138+FRANKFURT+++DE -->
-
-  <trsd:name.and.address>
-      <tred:party.qualifier uncl:code="3035:BY">Buyer</tred:party.qualifier>
-    <trcd:party.name>
-      <tred:party.name>STADT- UND UNIVERSITAETSBIBLIOTHEK</tred:party.name>
-      <tred:party.name>FRANKFURT</tred:party.name>
-    </trcd:party.name>
-    <trcd:street>
-      <tred:street.and.number.p.o.box>BOCKENHEIMER LANDSTR. 134-138</tred:street.and.number.p.o.box>
-    </trcd:street>
-      <tred:city.name>FRANKFURT</tred:city.name>
-      <tred:country.coded>DE</tred:country.coded>
-  </trsd:name.and.address>
-
+<trsd:name.and.address>
+  <tred:party.qualifier uncl:code="3035:BY">Buyer</tred:party.qualifier>
+  <trcd:party.name>
+    <tred:party.name>STADT- UND UNIVERSITAETSBIBLIOTHEK</tred:party.name>
+    <tred:party.name>FRANKFURT</tred:party.name>
+  </trcd:party.name>
+  <trcd:street>
+    <tred:street.and.number.p.o.box>BOCKENHEIMER LANDSTR. 134-138</tred:street.and.number.p.o.box>
+  </trcd:street>
+  <tred:city.name>FRANKFURT</tred:city.name>
+  <tred:country.coded>DE</tred:country.coded>
+</trsd:name.and.address>
 <!-- SEGMENT RFF+API:DE114110388 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:API">API</tred:reference.qualifier>
-      <tred:reference.number>DE114110388</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:API">API</tred:reference.qualifier>
+    <tred:reference.number>DE114110388</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+IT:STUB -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:IT">Internal customer number</tred:reference.qualifier>
-      <tred:reference.number>STUB</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:IT">Internal customer number</tred:reference.qualifier>
+    <tred:reference.number>STUB</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT NAD+SU+++B.H.BLACKWELL -->
-
-  <trsd:name.and.address>
-      <tred:party.qualifier uncl:code="3035:SU">Supplier</tred:party.qualifier>
-    <trcd:party.name>
-      <tred:party.name>B.H.BLACKWELL</tred:party.name>
-    </trcd:party.name>
-  </trsd:name.and.address>
-
+<trsd:name.and.address>
+  <tred:party.qualifier uncl:code="3035:SU">Supplier</tred:party.qualifier>
+  <trcd:party.name>
+    <tred:party.name>B.H.BLACKWELL</tred:party.name>
+  </trcd:party.name>
+</trsd:name.and.address>
 <!-- SEGMENT CUX+2:GBP:9 -->
-
-  <trsd:currencies>
-    <trcd:currency.details>
-      <tred:currency.details.qualifier uncl:code="6347:2">Reference currency</tred:currency.details.qualifier>
-      <tred:currency.coded>GBP</tred:currency.coded>
-      <tred:currency.qualifier uncl:code="6343:9">Order currency</tred:currency.qualifier>
-    </trcd:currency.details>
-  </trsd:currencies>
-
+<trsd:currencies>
+  <trcd:currency.details>
+    <tred:currency.details.qualifier uncl:code="6347:2">Reference currency</tred:currency.details.qualifier>
+    <tred:currency.coded>GBP</tred:currency.coded>
+    <tred:currency.qualifier uncl:code="6343:9">Order currency</tred:currency.qualifier>
+  </trcd:currency.details>
+</trsd:currencies>
 <!-- SEGMENT LIN+1 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>1</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>1</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0471960047:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0471960047</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0471960047</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDILIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDILIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDILIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:40:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>40</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>40</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:12 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>12</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>12</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8219 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8219</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8219</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.E.631 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.E.631</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.E.631</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+2 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>2</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>2</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0126487200:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0126487200</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0126487200</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT IMD+F+050+:::The Multimedia dictionary -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>The Multimedia dictionary</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>The Multimedia dictionary</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+110+:::London -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>London</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>London</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+120+:::Academic Press -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Academic Press</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Academic Press</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+170+:::1995 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>1995</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>1995</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+180+:::351p -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>351p</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>351p</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+181+:::; ; 23cm -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>; ; 23cm</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>; ; 23cm</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+270+:::61756500?:Multi-media applications -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>61756500:Multi-media applications</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>61756500:Multi-media applications</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+300+:::Note?:edited by H. Sleurink -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Note:edited by H. Sleurink</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:300">300</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Note:edited by H. Sleurink</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDLIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDLIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDLIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:19.95:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>19.95</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>19.95</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:2 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>2</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>2</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8223 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8223</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8223</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.13 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.13</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.13</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT LIN+3 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>3</tred:line.item.number>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>3</tred:line.item.number>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+0333556453:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>0333556453</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>0333556453</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT IMD+F+010+:::Medema -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Medema</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:010">010</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Medema</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+011+:::Steven G -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Steven G</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:011">011</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Steven G</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+050+:::Ronald H. Coase -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Ronald H. Coase</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:050">050</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Ronald H. Coase</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+110+:::London -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>London</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:110">110</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>London</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+120+:::Macmillan Publishers -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Macmillan Publishers</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:120">120</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Macmillan Publishers</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+170+:::1994 -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>1994</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:170">170</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>1994</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+180+:::205p -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>205p</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:180">180</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>205p</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+181+:::; 23cm. - Bibl.?: p.192-203. - Inde -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>; 23cm. - Bibl.: p.192-203. - Inde</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:181">181</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>; 23cm. - Bibl.: p.192-203. - Inde</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+F+270+:::27651202?:Economic analysis/theory -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>27651202:Economic analysis/theory</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:270">270</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>27651202:Economic analysis/theory</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+21:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:21">Ordered quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ACB+3++TEST EDLIBE -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
-      <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
-    <trcd:text.literal>
-      <tred:free.text>TEST EDLIBE</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ACB">Additional information</tred:text.subject.qualifier>
+  <tred:text.function.coded uncl:code="4453:3">Text for immediate use</tred:text.function.coded>
+  <trcd:text.literal>
+    <tred:free.text>TEST EDLIBE</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT PRI+YYY:40:CA:SRP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>40</tred:price>
-      <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
-      <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>40</tred:price>
+    <tred:price.type.coded uncl:code="5375:CA">Catalogue</tred:price.type.coded>
+    <tred:price.type.qualifier uncl:code="5387:SRP">Suggested retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+QNB:00023302:5 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
-      <tred:reference.number>00023302</tred:reference.number>
-      <tred:line.number>5</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:QNB">QNB</tred:reference.qualifier>
+    <tred:reference.number>00023302</tred:reference.number>
+    <tred:line.number>5</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19960208:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19960208</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19960208</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+LI:8226 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>8226</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>8226</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+BFN:S.KON.07 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
-      <tred:reference.number>S.KON.07</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:BFN">BFN</tred:reference.qualifier>
+    <tred:reference.number>S.KON.07</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT UNS+S -->
-
-  <anxs:section.control>
-      <anxe:section.identification unsl:code="0081:S">Detail/summary section separation</anxe:section.identification>
-  </anxs:section.control>
-
+<anxs:section.control>
+  <anxe:section.identification unsl:code="0081:S">Detail/summary section separation</anxe:section.identification>
+</anxs:section.control>
 <!-- SEGMENT CNT+2:3 -->
-
-  <trsd:control.total>
-    <trcd:control>
-      <tred:control.qualifier uncl:code="6069:2">Number of line items in message</tred:control.qualifier>
-      <tred:control.value>3</tred:control.value>
-    </trcd:control>
-  </trsd:control.total>
-
+<trsd:control.total>
+  <trcd:control>
+    <tred:control.qualifier uncl:code="6069:2">Number of line items in message</tred:control.qualifier>
+    <tred:control.value>3</tred:control.value>
+  </trcd:control>
+</trsd:control.total>
 <!-- SEGMENT UNT+55+0000170001 -->
-
-  <anxs:message.trailer>
-      <anxe:number.of.segments.in.the.message>55</anxe:number.of.segments.in.the.message>
-      <anxe:message.reference.number>0000170001</anxe:message.reference.number>
-  </anxs:message.trailer>
-
+<anxs:message.trailer>
+  <anxe:number.of.segments.in.the.message>55</anxe:number.of.segments.in.the.message>
+  <anxe:message.reference.number>0000170001</anxe:message.reference.number>
+</anxs:message.trailer>
 <!-- SEGMENT UNZ+2+72 -->
-
-  <anxs:interchange.trailer>
-      <anxe:interchange.control.count>2</anxe:interchange.control.count>
-      <anxe:interchange.control.reference>72</anxe:interchange.control.reference>
-  </anxs:interchange.trailer>
-
+<anxs:interchange.trailer>
+  <anxe:interchange.control.count>2</anxe:interchange.control.count>
+  <anxe:interchange.control.reference>72</anxe:interchange.control.reference>
+</anxs:interchange.trailer>
 </edifact:message>

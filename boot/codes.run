@@ -22,13 +22,7 @@ Read UNCL to create codes.txt and codes.dat for further processing
 
 =cut
 
-use SDBM_File;
-use Fcntl;
-use XML::Edifact;
-
-tie(%CODET, 'SDBM_File', 'data/codes.dat', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.tie:".$!;
-
-open (OUTFILE, ">data/codes.txt") || die "can not open codes.txt for writing";
+open (OUTFILE, ">html/codes.txt") || die "can not open codes.txt for writing";
 
 open (INFILE, "un_edifact_d96b/uncl-1.96b") || die "can not open uncl-1.96b for reading";
 printf STDERR "reading uncl-1.96b\n";
@@ -42,6 +36,7 @@ while (<INFILE>) { read_code("uncl"); };
 close(INFILE);
 print STDERR "\n";
 
+#$verbose=1;
 open (INFILE, "un_edifact_d96b/unsl.96b") || die "can not open unsl.96b for reading";
 printf STDERR "reading unsl.96b\n";
 while (<INFILE>) { read_code("unsl"); };
@@ -50,13 +45,11 @@ print STDERR "\n";
 
 close(OUTFILE);
 
-untie %CODET;
-
 sub read_code {
     my ($codelist) = @_;
     chop;	# strip record separator
     if (!($. % 64)) {
-	printf STDERR '.';
+	printf STDERR '.' unless $verbose;
     }
 
     $ok = 0;
@@ -78,18 +71,21 @@ sub read_code {
 	$des = substr($_, 10);
 	$s = '^ *', $des =~ s/$s//;
 	$s = " *\$", $des =~ s/$s//;
-	$ok = 1;
+	$ok = 2;
     }
 
     if ($ok) {
 	printf OUTFILE "%s\t%s\t%s\t%s\n", $cod, $fld, $codelist, $des;
 
-	$CODET{$cod."\t".$fld}=$codelist."\t".$des;
+	$XML::Edifact::CODET{$cod."\t".$fld}=$codelist."\t".$des;
 
-	$codn=0 if ($oldcod ne $cod);
-	$oldcod=$cod;
-	$codn++;
+        if ($ok == 1) {
+            my ($elemt,$coded) = split / /, $XML::Edifact::ELEMT{$cod};
+            $elemt=XML::Edifact::recode_mark($des)	unless $elemt;
+	    $XML::Edifact::ELEMT{$cod}="$elemt coded"	unless $coded;
+	    print $cod,"\t",$XML::Edifact::ELEMT{$cod},"\n" if $verbose;
+        }
     }
 }
 
-0;
+1;

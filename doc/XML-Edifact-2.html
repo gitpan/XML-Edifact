@@ -9,7 +9,7 @@
 <HR>
 <H2><A NAME="s2">2. Release Notes:</A></H2>
 
-<H2><A NAME="ss2.1">2.1 About the beauty of plain text</A></H2>
+<H2><A NAME="ss2.1">2.1 Edi2SGML-0.1: About the beauty of plain text</A></H2>
 
 <P>Standards should be based on standards. EDIFACT is based on ASCII and
 documentation is available from WWW.Premenos.Com as plain text.
@@ -23,7 +23,7 @@ programmer.</P>
 those documents I need to parse by the scripts. Download the 0.1
 for a complete set, or surf at Premenos.</P>
 
-<H2><A NAME="ss2.2">2.2 Its a hard work to cook a second version.</A></H2>
+<H2><A NAME="ss2.2">2.2 XML-Edifact-0.2: Its a hard work to cook a second version.</A></H2>
 
 <P>As usual. Second versions claim to be better documented and tested, but
 the truth - they contain more features. So talk about features:</P>
@@ -44,7 +44,7 @@ renaming from Edi2SGML to XML::Edifact. This namechange reflects that
 my script is now producing XML and not SGML, and the name should point
 where in cpan hirachy this package belongs.</P>
 
-<H2><A NAME="ss2.3">2.3 About normalisation, namespaces and xml2edi</A></H2>
+<H2><A NAME="ss2.3">2.3 XML-Edifact-0.3x: About normalisation, namespaces and xml2edi</A></H2>
 
 <P>You may notice the major change in the DBM design. While the old
 DBM files had been modeled closely to the batch directory. This
@@ -52,7 +52,7 @@ version has been partly normalised to improve coding. Its also
 denormalised for some perlish reasons. Unloading of this DBM into
 a relational database would be possible with varchars, but the
 semantics of the 2nd element in segments and composite could only
-be expressed with some wired object relational databases like Postgres.</P>
+be expressed with some wired object relational databases like PostgreSQL.</P>
 <P>Also the DTD changed for namespace reason. The 0.2 need to add
 the word literal, where element names clashed segment names of
 the standard. And it droped the composite informations.
@@ -72,8 +72,19 @@ does not mean anything. Its only a shorthand for the provided URI
 in the xmlns attribute. So any distinct XML message can claim to
 be in the edifact: namespace, if the URI is distinct. So if other
 projects starts becoming implemented, they can claim to be in the
-edifact: namespace for the same right. Unfortunate other projects
-seam to be pure vaporware in juli 99.</P>
+edifact: namespace for the same right.</P>
+<P>Version 0.33 first of all solves a bug shown up with xml2edi and
+a TeleOrdering message translated by edi2xml. I just did forgot
+to encode less than and ampersand, if they occure as translation
+in a code list. So NAD+OB+0091987:160:16' will now translated
+using Dun &amp;amp; Bradstreet, which is right.</P>
+<P>Two other improvements are for major notice. The brand new Perl5
+version 005.60 contains a profiler, and hunting the hot spots and
+optimising the SDBM by further denormalisation improved performance
+of <CODE>edi2xml</CODE> by factor 12. I hope nobody did use the SDBM internals
+so far. The last major improvement is, that I'm getting familar with
+ExtUtils::MakeMaker, File::Spec and friends. This 0.33 version is the
+first that does install - at least on my Linux box :-)</P>
 <P>A last note about change of 0.2 to 0.30. Treat this number as
 0.3.0 translated to perl canon. The 0.3 is not finished, coming
 versions claiming to be any 0.3x will be step stones to what I

@@ -4,21 +4,21 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.32 version: Anything is still in flux.
+# This is a 0.3x version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
 package XML::Edifact;
 
 use strict;
+use XML::Edifact::Config;
 use SDBM_File;
 use Fcntl;
 use XML::Parser;
 use Carp;
 
-use vars qw($VERSION $debug $local_url);
+use vars qw($VERSION $debug);
 
-$VERSION='0.30';
-$local_url='.';					# edit your local url here
+$VERSION='0.33';
 $debug=1;					# debug=1 is fine
 
 # ------------------------------------------------------------------------------
@@ -26,6 +26,7 @@ $debug=1;					# debug=1 is fine
 # Ive included both kinds of namespace definitions. You may have to drop one
 # if your system is aware about xml namespaces.
 
+sub eval_xml_edifact_headers {
 use vars qw(
 	$MESSAGE_HEADER
 	$DOCTYPE_HEADER
@@ -35,21 +36,19 @@ use vars qw(
 
 $MESSAGE_HEADER=<<HERE_MESSAGE_HEADER;
 <?xml version="1.0"?>
-<!DOCTYPE edifact:message SYSTEM "$local_url/edifact03.dtd">
-
+<!DOCTYPE edifact:message SYSTEM "$XML::Edifact::Config::URL/edifact03.dtd">
 <!-- XML message produced by edi2xml.pl (c) Kraehe\@Bakunin.North.De -->
-
 <edifact:message
-	xmlns:edifact='$local_url/edifact03.rdf' 
-	xmlns:trsd='$local_url/edifact03_trsd.rdf'
-	xmlns:trcd='$local_url/edifact03_trcd.rdf'
-	xmlns:tred='$local_url/edifact03_tred.rdf'
-	xmlns:uncl='$local_url/edifact03_uncl.rdf'
-	xmlns:anxs='$local_url/edifact03_anxe.rdf'
-	xmlns:anxc='$local_url/edifact03_anxc.rdf'
-	xmlns:anxe='$local_url/edifact03_anxe.rdf'
-	xmlns:unsl='$local_url/edifact03_unsl.rdf'
-	xmlns:unknown='$local_url/edifact03_unknown.rdf'
+	xmlns:edifact='$XML::Edifact::Config::URL/edifact03.rdf'
+	xmlns:trsd='$XML::Edifact::Config::URL/edifact03_trsd.rdf'
+	xmlns:trcd='$XML::Edifact::Config::URL/edifact03_trcd.rdf'
+	xmlns:tred='$XML::Edifact::Config::URL/edifact03_tred.rdf'
+	xmlns:uncl='$XML::Edifact::Config::URL/edifact03_uncl.rdf'
+	xmlns:anxs='$XML::Edifact::Config::URL/edifact03_anxe.rdf'
+	xmlns:anxc='$XML::Edifact::Config::URL/edifact03_anxc.rdf'
+	xmlns:anxe='$XML::Edifact::Config::URL/edifact03_anxe.rdf'
+	xmlns:unsl='$XML::Edifact::Config::URL/edifact03_unsl.rdf'
+	xmlns:unknown='$XML::Edifact::Config::URL/edifact03_unknown.rdf'
 	>
 HERE_MESSAGE_HEADER
 # ------------------------------------------------------------------------------
@@ -84,51 +83,55 @@ HERE_DOCTYPE_HEADER
 # ------------------------------------------------------------------------------
 $SEGMENT_SPECIFICATION_HEADER=<<HERE_SEGMENT_SPECIFICATION_HEADER;
 <?xml version="1.0"?>
-<?xml:namespace ns='$local_url/edifact03.dtd'	prefix='edifact' ?>
+<?xml:namespace ns='$XML::Edifact::Config::URL/edifact03.dtd'	prefix='edifact' ?>
 <!DOCTYPE edifact:segment_specification SYSTEM "edifact03.dtd">
 <!-- XML::Edifact segment.xml (c) Kraehe\@Bakunin.North.De -->
 
 <edifact:segment_specifications
-	xmlns:edifact='$local_url/edifact03.dtd'
+	xmlns:edifact='$XML::Edifact::Config::URL/edifact03.dtd'
 	>
 HERE_SEGMENT_SPECIFICATION_HEADER
 # ------------------------------------------------------------------------------
 $COMPOSITE_SPECIFICATION_HEADER=<<HERE_COMPOSITE_SPECIFICATION_HEADER;
 <?xml version="1.0"?>
-<?xml:namespace ns='$local_url/edifact03.dtd'	prefix='edifact' ?>
+<?xml:namespace ns='$XML::Edifact::Config::URL/edifact03.dtd'	prefix='edifact' ?>
 <!DOCTYPE edifact:composite_specification SYSTEM "edifact03.dtd">
 <!-- XML::Edifact composite.xml (c) Kraehe\@Bakunin.North.De -->
 
 <edifact:composite_specifications
-	xmlns:edifact='$local_url/edifact03.dtd'
+	xmlns:edifact='$XML::Edifact::Config::URL/edifact03.dtd'
 	>
 HERE_COMPOSITE_SPECIFICATION_HEADER
+}
+# end of sub eval_xml_edifact_headers
 # ------------------------------------------------------------------------------
 
 use vars qw(%SEGMT %COMPT %CODET %ELEMT);
 use vars qw(%SEGMR);
 
-use vars qw($edi_message $xml_message);
+use vars qw($edi_message $xml_message @xml_msg);
 use vars qw($advice $advice_component_seperator);
 use vars qw($advice_element_seperator $advice_decimal_notation);
 use vars qw($advice_release_indicator $advice_segment_terminator);
-
-$xml_message .= "<!-- Hello from XML::EDIFACT -->\n"		if ($debug>1);
+use vars qw($indent_join $indent_tab);
 
 # ------------------------------------------------------------------------------
 
 sub open_dbm {
     my ($directory,$fcntl) = @_;
 
-    $fcntl = O_RDWR					unless $fcntl eq "";
-
-    $xml_message .= sprintf "<!-- *** open_dbm -->\n"			if ($debug>1);
+    $directory = $XML::Edifact::Config::DAT unless $directory;
+    $fcntl     = O_RDONLY                   unless $fcntl;
 
     tie(%SEGMT, 'SDBM_File', $directory.'/segment.dat',   $fcntl, 0644)	|| die "can not tie segment.dat:".$!;
     tie(%SEGMR, 'SDBM_File', $directory.'/segment.rev',   $fcntl, 0644)	|| die "can not tie segment.dat:".$!;
     tie(%COMPT, 'SDBM_File', $directory.'/composite.dat', $fcntl, 0644)	|| die "can not tie composite.dat:".$!;
     tie(%ELEMT, 'SDBM_File', $directory.'/element.dat',   $fcntl, 0644)	|| die "can not tie element.dat:".$!;
     tie(%CODET, 'SDBM_File', $directory.'/codes.dat',     $fcntl, 0644)	|| die "can not tie codes.dat:".$!;
+
+    $indent_join='';
+    $indent_tab='';
+    eval_xml_edifact_headers();
 }
 
 sub close_dbm {
@@ -156,11 +159,9 @@ sub recode_mark {
 
 # -----------------------------------------------------------------------------
 
-sub read_edi_message() {
+sub read_edi_message {
 	my($filename) = @_;
 	my($size);
-
-	$xml_message .= sprintf "<!-- *** reading message -->\n"		 if ($debug>1);
 
 	$size=(stat($filename))[7]		|| die "cant stat ".$filename;
 	die $filename." is to short ".$size." for EDI" 	if ($size <= 9);
@@ -180,27 +181,37 @@ sub read_edi_message() {
 	$advice_segment_terminator  =substr($advice,8,1);
 }
 
-sub make_xml_message() {
+use vars qw($cooked_element_substitute $cooked_message_substitute);
+use vars qw($cooked_segment_substitute $component_split $element_split);
 
-	$xml_message = $MESSAGE_HEADER;
+sub make_xml_message {
+	@xml_msg = ();
+	push @xml_msg, $MESSAGE_HEADER;
+	$xml_msg[0] =~ s!\n!!g		unless $indent_join;
+	$xml_msg[0] =~ s!\t! !g		unless $indent_tab;
 
 	my($cooked_message,@Segments,$segment,$s);
 
-	$cooked_message  = $edi_message;
-	$s = "\\".$advice_release_indicator."\\".$advice_segment_terminator;
-	$cooked_message =~ s/$s/\001/g;
+	$cooked_message_substitute = "\\".$advice_release_indicator."\\".$advice_segment_terminator;
+	$cooked_segment_substitute = "\\".$advice_release_indicator."\\".$advice_element_seperator;
+	$element_split             = "\\".$advice_element_seperator;
+	$cooked_element_substitute = "\\".$advice_release_indicator."\\".$advice_component_seperator;
+	$component_split           = "\\".$advice_component_seperator;
+
+	$cooked_message = $edi_message;
+	$cooked_message =~ s/$cooked_message_substitute/\001/g;
 
 	@Segments = split /$advice_segment_terminator/, $cooked_message;
 	shift @Segments if ($Segments[0] =~ "^UNA");
 
 	foreach $segment (@Segments) {
-		$s = "\\".$advice_segment_terminator;
-		$segment =~ s/\001/$s/g;
-		&resolve_segment($segment);
+		$segment =~ s/\001/$advice_segment_terminator/g;
+		resolve_segment($segment);
 	}
-	$xml_message .= "</edifact:message>\n";
+	push @xml_msg , "</edifact:message>";
 
-	return $xml_message;
+	resolve_tabs() if $indent_tab;
+	$xml_message = (join $indent_join,@xml_msg).$indent_join;
 }
 
 # -----------------------------------------------------------------------------
@@ -217,35 +228,33 @@ sub resolve_segment {
 		if ($debug) {
 			$comment = $raw_segment;
 			$comment =~ s/--/__/g;
-			$xml_message .= sprintf "<!-- SEGMENT %s -->\n\n", $comment;
+			push @xml_msg, '<!-- SEGMENT '.$comment.' -->';
 		}
 
 		$cooked_segment = $raw_segment;
-		$s = "\\".$advice_release_indicator."\\".$advice_element_seperator;
-		$cooked_segment =~ s/$s/\001/g;
+		$cooked_segment =~ s/$cooked_segment_substitute/\001/g;
 
-		$s = "\\".$advice_element_seperator;
-		@Elements = split /$s/, $cooked_segment;
-		@sgv = split("\t", $SEGMT{$Elements[0]}, 4);
+		@Elements = split /$element_split/, $cooked_segment;
+		@sgv      = split "\t", $SEGMT{$Elements[0]}, 4;
 		@Codes    = split / /,  " ".$sgv[0];
 
-		$xml_message .= sprintf "<!-- *** name %s %s -->\n", $Elements[0], $sgv[3]	if ($debug>2);
+		push @xml_msg, '<!-- *** name '.$Elements[0].' '.$sgv[3].' -->'	if ($debug>2);
 		if (($sgv[2] ne '') && ($#Codes>=$#Elements)) {
-			$xml_message .= sprintf "  <%s>\n", $sgv[2];
+			push @xml_msg, '<'.$sgv[2].'>';
 
-			for ($i = 1; $i <= $#Elements; $i++) {
+			foreach $i (1 .. $#Elements) {
 				$element  = $Elements[$i];
 				$element =~ s/\001/$advice_element_seperator/g;
 
 				if ($Elements[$i] ne '') {
 					# resolve_element
-					$xml_message .= sprintf "<!-- *** %s='%s' -->\n", $Codes[$i],$Elements[$i] if ($debug>1);
+					push @xml_msg, '<!-- *** '.$Codes[$i].'='.$Elements[$i].' -->' if ($debug>1);
 					resolve_element($Codes[$i], $Elements[$i]);
 				}
 			}
-			$xml_message .= sprintf "  </%s>\n\n", $sgv[2];
+			push @xml_msg, '</'.$sgv[2].'>';
 		} else {
-			$xml_message .= sprintf "  <edifact:raw_segment data=\"%s\"/>\n", $raw_segment;
+			push @xml_msg, '<edifact:raw_segment data="'.$raw_segment.'"/>';
 		}
 	}
 }
@@ -260,70 +269,92 @@ sub resolve_element {
 
 	$ok=0;
 
-	$xml_message .= sprintf "<!-- *** resolve element %s %s -->\n", $code, $raw_element if ($debug>1);
+	push @xml_msg, '<!-- *** resolve element '.$code.' '.$raw_element.' -->' if ($debug>1);
 
 	$cooked_element = $raw_element;
-	$s = "\\".$advice_release_indicator."\\".$advice_component_seperator;
-	$cooked_element =~ s/$s/\001/g;
+	$cooked_element =~ s/$cooked_element_substitute/\001/g;
 
-	if (($code =~ /^[CS]/) && (($cm = $COMPT{$code}) ne '')) {
+	if (($code =~ /^[CS]/) && ($cm = $COMPT{$code})) {
 
 		@cmv = split("\t", $cm, 4);
 
-		$xml_message .= sprintf "    <%s>\n", $cmv[2]			if ($cmv[2]);
+		push @xml_msg, '<'.$cmv[2].'>'			if ($cmv[2]);
 
-		$s = "\\".$advice_component_seperator;
-		@Components = split /$s/, $cooked_element;
+		@Components = split /$component_split/, $cooked_element;
 		@Codes = split / /, $cmv[0];
 
 		foreach $i (0 .. $#Components) {
 			$component = $Components[$i];
 			if ($component ne '') {
-				$s = $advice_component_seperator;
-				$component =~ s/\001/$s/g;
-				&resolve_code($Codes[$i], $component);
+				$component =~ s/\001/$advice_component_seperator/g;
+				resolve_code($Codes[$i], $component);
 			}
 		}
 
-		$xml_message .= sprintf "    </%s>\n", $cmv[2]			if ($cmv[2]);
+		push @xml_msg, '</'.$cmv[2].'>'			if ($cmv[2]);
 		$ok=1;
 	}
 	if (($code =~ "^[0-9]") && ($cm = $ELEMT{$code})) {
-		$s = $advice_component_seperator;
-		$cooked_element =~ s/\001/$s/g;
-		&resolve_code($code, $cooked_element);
+		$cooked_element =~ s/\001/$advice_component_seperator/g;
+		resolve_code($code, $cooked_element);
 		$ok=1;
 	}
-	$xml_message .= sprintf "  <edifact:raw_element data=\"%s\"/>\n", $raw_element unless $ok;
+	push @xml_msg, '<edifact:raw_element data="'.$raw_element.'"/>' unless $ok;
 }
 
 # -----------------------------------------------------------------------------
 
+sub encode_xml {
+	my ($val) = @_;
+
+	$val =~ s/&/\&amp;/g;
+	$val =~ s/</\&lt;/g;
+
+	return $val;
+}
+
 sub resolve_code {
-	my($code, $val) = @_;
-	my($cd,$mark,@cdv);
+	my ($code, $val) = @_;
+	my ($cd,@cdv,$enc);
 
-	$mark=$ELEMT{$code};
-	$xml_message .= sprintf "<!-- *** resolve code %s %s -->\n", $code, $val if ($debug>1);
+	my ($mark,$coded) = split / /, $ELEMT{$code};
 
-	if ($CODET{$code."\t"} ne "") {
+	push @xml_msg, '<!-- *** resolve code '.$code.' '.$val.' -->' if ($debug>1);
+
+	if ($coded) {
 		$cd = $CODET{$code."\t".$val};
 		if ($cd ne '') {
 			@cdv=split /\t/, $cd;
-			$xml_message .= sprintf "      <%s %s:code=\"%s:%s\">%s</%s>\n", $mark, $cdv[0], $code, $val, $cdv[1], $mark;
+			push @xml_msg, '<'.$mark.' '.$cdv[0].':code="'.$code.':'.encode_xml($val).'">'.encode_xml($cdv[1]).'</'.$mark.'>';
 		}
 		else {
-			$xml_message .= sprintf "      <%s unknown:code=\"%s:%s\">%s</%s>\n", $mark, $code, $val, $val, $mark;
+			$enc = encode_xml($val);
+			push @xml_msg, '<'.$mark.    ' unknown:code="'.$code.':'.$enc.'">'.$enc.   '</'.$mark.'>';
 		}
 	}
 	else {
-		$xml_message .= sprintf "      <%s>%s</%s>\n", $mark, $val, $mark;
+		push @xml_msg, '<'.$mark.'>'.encode_xml($val).'</'.$mark.'>';
 	}
 }
 
 # -----------------------------------------------------------------------------
 
-sub read_xml_message() {
+sub resolve_tabs {
+	my ($i,$v,$d);
+
+	$d = 0;
+	foreach $i (0 .. $#xml_msg) {
+		$v=$xml_msg[$i];
+		$v =~ s/^[ \t]+//;
+		$d--	if (($v =~ m!^</!) && ($d>0));
+		$xml_msg[$i] = $indent_tab x $d . $v;
+		$d++	if (($v =~ m!^<[a-z]!) && ($v !~ m!</!) && ($v !~ m!/>!));
+	}
+}
+
+# -----------------------------------------------------------------------------
+
+sub read_xml_message {
 	my($filename) = @_;
 	my($size);
 
@@ -342,7 +373,7 @@ sub read_xml_message() {
 
 use vars qw(@edi_segment @edi_group $edi_valid $edi_level $edi_si $edi_gi);
 
-sub make_edi_message() {
+sub make_edi_message {
 	my $xml_parser;
 
 	$edi_message = "UNA";
@@ -368,7 +399,7 @@ sub handle_start {
 	my $element = shift @_;
 	my %options = @_;
 	my ($opt,$val,$i);
-	my (@sgv,@cmv,@sgc,@cmc,$junk,$trans);
+	my (@sgv,@cmv,@sgc,@cmc,$junk,$trans,$coded);
 
 	if ($debug>1) {
 		printf STDERR "(%s\n", $element;
@@ -414,7 +445,7 @@ sub handle_start {
 			if ($sgc[$i] =~ /^[A-Z]/) {
 				($junk, $junk, $trans, $junk) = split /\t/, $COMPT{$sgc[$i]};
 			} else {
-				$trans =$ELEMT{$sgc[$i]};
+				($trans,$coded) =split / /, $ELEMT{$sgc[$i]}, 2;
 			}
 			last SKIP_SEGMT if ($trans eq $element);
 		}
@@ -440,7 +471,7 @@ sub handle_start {
 		@cmc = split / /,  $cmv[0];
 
 		SKIP_COMPT: for ($i = $edi_gi; $i <= $#cmc; $i++) {
-			$trans =$ELEMT{$cmc[$i]};
+			($trans,$coded) =split / /, $ELEMT{$cmc[$i]}, 2;
 			last SKIP_COMPT if ($trans eq $element);
 		}
 
@@ -497,7 +528,7 @@ sub handle_end {
 		$edi_gi++;
 	    }
 	} else {
-	    carp "invalid message";
+	    carp "invalid xml-edifact at $edi_level level $element";
 	}
 }
 
@@ -548,7 +579,7 @@ print	&XML::Edifact::make_edi_message();
 =head1 DESCRIPTION
 
 XML-Edifact started as Onyx-EDI which was a gawk script.
-XML::Edifact-0.30 still shows its bad anchesor called a2p
+XML::Edifact-0.3x still shows its bad anchesor called a2p
 in some parts.
 
 The current module is just able to open and close the SDBM

@@ -8,12 +8,11 @@
 # This is a 0.3* version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
-use XML::Edifact;
 use strict;
 
 use vars qw($segm $segmt @segmv);
 use vars qw($comp $compt @compv);
-use vars qw($elem $elemt @elemv);
+use vars qw($elem $elemt $coded);
 use vars qw($code %saw @codes @translated);
 use vars qw($s);
 
@@ -22,11 +21,10 @@ use vars qw($debug);
 $debug=2;
 
 # -----------------------------------------------------------------------------
-
+open OUT,">html/edifact03.dtd";
+select(OUT);
 print $XML::Edifact::DOCTYPE_HEADER;
  
-&XML::Edifact::open_dbm("data");
-
 # -----------------------------------------------------------------------------
 
 @codes       = keys %XML::Edifact::SEGMT;
@@ -72,9 +70,8 @@ foreach $segm (sort(keys %XML::Edifact::SEGMT)) {
 			@compv=split('\t', $compt, 4);
 			push @translated, $compv[2];
 		} else {
-			$elemt=$XML::Edifact::ELEMT{$code};
-			@elemv=split('\t', $elemt, 4);
-			push @translated, $elemv[0];
+			($elemt,$coded) = split / /, $XML::Edifact::ELEMT{$code};
+			push @translated, $elemt;
 		}
 	}
 
@@ -96,9 +93,8 @@ foreach $comp (sort(keys %XML::Edifact::COMPT)) {
 	@codes = sort keys %saw;
 
 	foreach $code (@codes) {
-		$elemt=$XML::Edifact::ELEMT{$code};
-		@elemv=split('\t', $elemt, 4);
-		push @translated, $elemv[0];
+		($elemt,$coded) = split / /, $XML::Edifact::ELEMT{$code};
+		push @translated, $elemt;
 	}
 
 	shift @translated;
@@ -107,18 +103,18 @@ foreach $comp (sort(keys %XML::Edifact::COMPT)) {
 }
 
 foreach $elem (sort(keys %XML::Edifact::ELEMT)) {
-	$elemt=$XML::Edifact::ELEMT{$elem};
-	@elemv=split('\t', $elemt, 4);
-	printf "<!ELEMENT %s (#PCDATA) >\n", $elemv[0];
+	($elemt,$coded) = split / /, $XML::Edifact::ELEMT{$elem};
+	printf "<!ELEMENT %s (#PCDATA) >\n", $elemt;
 	if ($XML::Edifact::CODET{$elem."\t"} ne "") {
 		@codes = split('\t', $XML::Edifact::CODET{$elem."\t"});
-		printf "<!ATTLIST $elemv[0] %s:code CDATA #REQUIRED >\n", $codes[0];
+		printf "<!ATTLIST $elemt %s:code CDATA #REQUIRED >\n", $codes[0];
 	}
 }
 
 # -----------------------------------------------------------------------------
 
-&XML::Edifact::close_dbm;
+select(STDOUT);
+close(OUT);
 
 # -----------------------------------------------------------------------------
-0;
+1;

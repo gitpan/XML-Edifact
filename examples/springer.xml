@@ -1,10 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE edifact:message SYSTEM "./edifact03.dtd">
-
 <!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
-
 <edifact:message
-	xmlns:edifact='./edifact03.rdf' 
+	xmlns:edifact='./edifact03.rdf'
 	xmlns:trsd='./edifact03_trsd.rdf'
 	xmlns:trcd='./edifact03_trcd.rdf'
 	xmlns:tred='./edifact03_tred.rdf'
@@ -15,378 +13,309 @@
 	xmlns:unsl='./edifact03_unsl.rdf'
 	xmlns:unknown='./edifact03_unknown.rdf'
 	>
+
 <!-- SEGMENT UNB+UNOC:2+Springer-ILN:91+Missing Link:91+980508:1336+4++++++1 -->
-
-  <anxs:interchange.header>
-    <anxc:syntax.identifier>
-      <anxe:syntax.identifier unsl:code="0001:UNOC">UN/ECE level C</anxe:syntax.identifier>
-      <anxe:syntax.version.number>2</anxe:syntax.version.number>
-    </anxc:syntax.identifier>
-    <anxc:interchange.sender>
-      <anxe:sender.identification>Springer-ILN</anxe:sender.identification>
-      <anxe:recipients.identification.qualifer unsl:code="0007:91">Assigned by seller or seller's agent</anxe:recipients.identification.qualifer>
-    </anxc:interchange.sender>
-    <anxc:interchange.recipient>
-      <anxe:recipient.identification>Missing Link</anxe:recipient.identification>
-      <anxe:recipients.identification.qualifer unsl:code="0007:91">Assigned by seller or seller's agent</anxe:recipients.identification.qualifer>
-    </anxc:interchange.recipient>
-    <anxc:date.time.of.preparation>
-      <anxe:date>980508</anxe:date>
-      <anxe:time>1336</anxe:time>
-    </anxc:date.time.of.preparation>
-      <anxe:interchange.control.reference>4</anxe:interchange.control.reference>
-      <anxe:test.indicator unsl:code="0035:1">Interchange is a test</anxe:test.indicator>
-  </anxs:interchange.header>
-
+<anxs:interchange.header>
+  <anxc:syntax.identifier>
+    <anxe:syntax.identifier unsl:code="0001:UNOC">UN/ECE level C</anxe:syntax.identifier>
+    <anxe:syntax.version.number>2</anxe:syntax.version.number>
+  </anxc:syntax.identifier>
+  <anxc:interchange.sender>
+    <anxe:sender.identification>Springer-ILN</anxe:sender.identification>
+    <anxe:recipients.identification.qualifer unsl:code="0007:91">Assigned by seller or seller's agent</anxe:recipients.identification.qualifer>
+  </anxc:interchange.sender>
+  <anxc:interchange.recipient>
+    <anxe:recipient.identification>Missing Link</anxe:recipient.identification>
+    <anxe:recipients.identification.qualifer unsl:code="0007:91">Assigned by seller or seller's agent</anxe:recipients.identification.qualifer>
+  </anxc:interchange.recipient>
+  <anxc:date.time.of.preparation>
+    <anxe:date>980508</anxe:date>
+    <anxe:time>1336</anxe:time>
+  </anxc:date.time.of.preparation>
+  <anxe:interchange.control.reference>4</anxe:interchange.control.reference>
+  <anxe:test.indicator unsl:code="0035:1">Interchange is a test</anxe:test.indicator>
+</anxs:interchange.header>
 <!-- SEGMENT UNH+0000020001+INVOIC:93A:D:UN:EAN007 -->
-
-  <anxs:message.header>
-      <anxe:message.reference.number>0000020001</anxe:message.reference.number>
-    <anxc:message.identifier>
-      <anxe:message.type unsl:code="0065:INVOIC">Invoice message</anxe:message.type>
-      <anxe:message.version.number>93A</anxe:message.version.number>
-      <anxe:message.release.number>D</anxe:message.release.number>
-      <anxe:controlling.agency unsl:code="0051:UN">UN/ECE/TRADE/WP.4</anxe:controlling.agency>
-      <anxe:association.assigned.code unknown:code="0057:EAN007">EAN007</anxe:association.assigned.code>
-    </anxc:message.identifier>
-  </anxs:message.header>
-
+<anxs:message.header>
+  <anxe:message.reference.number>0000020001</anxe:message.reference.number>
+  <anxc:message.identifier>
+    <anxe:message.type unsl:code="0065:INVOIC">Invoice message</anxe:message.type>
+    <anxe:message.version.number>93A</anxe:message.version.number>
+    <anxe:message.release.number>D</anxe:message.release.number>
+    <anxe:controlling.agency unsl:code="0051:UN">UN/ECE/TRADE/WP.4</anxe:controlling.agency>
+    <anxe:association.assigned.code unknown:code="0057:EAN007">EAN007</anxe:association.assigned.code>
+  </anxc:message.identifier>
+</anxs:message.header>
 <!-- SEGMENT BGM+380+5035+53 -->
-
-  <trsd:beginning.of.message>
-    <trcd:document.message.name>
-      <tred:document.message.name.coded uncl:code="1001:380">Commercial invoice</tred:document.message.name.coded>
-    </trcd:document.message.name>
-    <trcd:document.message.identification>
-      <tred:document.message.number>5035</tred:document.message.number>
-    </trcd:document.message.identification>
-      <tred:message.function.coded uncl:code="1225:53">Test</tred:message.function.coded>
-  </trsd:beginning.of.message>
-
+<trsd:beginning.of.message>
+  <trcd:document.message.name>
+    <tred:document.message.name.coded uncl:code="1001:380">Commercial invoice</tred:document.message.name.coded>
+  </trcd:document.message.name>
+  <trcd:document.message.identification>
+    <tred:document.message.number>5035</tred:document.message.number>
+  </trcd:document.message.identification>
+  <tred:message.function.coded uncl:code="1225:53">Test</tred:message.function.coded>
+</trsd:beginning.of.message>
 <!-- SEGMENT DTM+137:19980213:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:137">Document/message date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19980213</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:137">Document/message date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19980213</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT NAD+BY+21448::86++Missing Link:Versandbuchhandlung+Westerstrasse. 114-116+Bremen++28199+DE -->
-
-  <trsd:name.and.address>
-      <tred:party.qualifier uncl:code="3035:BY">Buyer</tred:party.qualifier>
-    <trcd:party.identification.details>
-      <tred:party.id.identification>21448</tred:party.id.identification>
-      <tred:code.list.responsible.agency.coded uncl:code="3055:86">Assigned by party originating the message</tred:code.list.responsible.agency.coded>
-    </trcd:party.identification.details>
-    <trcd:party.name>
-      <tred:party.name>Missing Link</tred:party.name>
-      <tred:party.name>Versandbuchhandlung</tred:party.name>
-    </trcd:party.name>
-    <trcd:street>
-      <tred:street.and.number.p.o.box>Westerstrasse. 114-116</tred:street.and.number.p.o.box>
-    </trcd:street>
-      <tred:city.name>Bremen</tred:city.name>
-      <tred:postcode.identification>28199</tred:postcode.identification>
-      <tred:country.coded>DE</tred:country.coded>
-  </trsd:name.and.address>
-
+<trsd:name.and.address>
+  <tred:party.qualifier uncl:code="3035:BY">Buyer</tred:party.qualifier>
+  <trcd:party.identification.details>
+    <tred:party.id.identification>21448</tred:party.id.identification>
+    <tred:code.list.responsible.agency.coded uncl:code="3055:86">Assigned by party originating the message</tred:code.list.responsible.agency.coded>
+  </trcd:party.identification.details>
+  <trcd:party.name>
+    <tred:party.name>Missing Link</tred:party.name>
+    <tred:party.name>Versandbuchhandlung</tred:party.name>
+  </trcd:party.name>
+  <trcd:street>
+    <tred:street.and.number.p.o.box>Westerstrasse. 114-116</tred:street.and.number.p.o.box>
+  </trcd:street>
+  <tred:city.name>Bremen</tred:city.name>
+  <tred:postcode.identification>28199</tred:postcode.identification>
+  <tred:country.coded>DE</tred:country.coded>
+</trsd:name.and.address>
 <!-- SEGMENT RFF+API:022913 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier unknown:code="1153:API">API</tred:reference.qualifier>
-      <tred:reference.number>022913</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier unknown:code="1153:API">API</tred:reference.qualifier>
+    <tred:reference.number>022913</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT NAD+SU+4399901492936::9++Springer-Verlag+Heidelberger Platz 3+Berlin++14197+DE -->
-
-  <trsd:name.and.address>
-      <tred:party.qualifier uncl:code="3035:SU">Supplier</tred:party.qualifier>
-    <trcd:party.identification.details>
-      <tred:party.id.identification>4399901492936</tred:party.id.identification>
-      <tred:code.list.responsible.agency.coded uncl:code="3055:9">EAN (International Article Numbering association)</tred:code.list.responsible.agency.coded>
-    </trcd:party.identification.details>
-    <trcd:party.name>
-      <tred:party.name>Springer-Verlag</tred:party.name>
-    </trcd:party.name>
-    <trcd:street>
-      <tred:street.and.number.p.o.box>Heidelberger Platz 3</tred:street.and.number.p.o.box>
-    </trcd:street>
-      <tred:city.name>Berlin</tred:city.name>
-      <tred:postcode.identification>14197</tred:postcode.identification>
-      <tred:country.coded>DE</tred:country.coded>
-  </trsd:name.and.address>
-
+<trsd:name.and.address>
+  <tred:party.qualifier uncl:code="3035:SU">Supplier</tred:party.qualifier>
+  <trcd:party.identification.details>
+    <tred:party.id.identification>4399901492936</tred:party.id.identification>
+    <tred:code.list.responsible.agency.coded uncl:code="3055:9">EAN (International Article Numbering association)</tred:code.list.responsible.agency.coded>
+  </trcd:party.identification.details>
+  <trcd:party.name>
+    <tred:party.name>Springer-Verlag</tred:party.name>
+  </trcd:party.name>
+  <trcd:street>
+    <tred:street.and.number.p.o.box>Heidelberger Platz 3</tred:street.and.number.p.o.box>
+  </trcd:street>
+  <tred:city.name>Berlin</tred:city.name>
+  <tred:postcode.identification>14197</tred:postcode.identification>
+  <tred:country.coded>DE</tred:country.coded>
+</trsd:name.and.address>
 <!-- SEGMENT RFF+VA:DE136665975 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:VA">VAT registration number</tred:reference.qualifier>
-      <tred:reference.number>DE136665975</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:VA">VAT registration number</tred:reference.qualifier>
+    <tred:reference.number>DE136665975</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT CUX+2:DEM:4 -->
-
-  <trsd:currencies>
-    <trcd:currency.details>
-      <tred:currency.details.qualifier uncl:code="6347:2">Reference currency</tred:currency.details.qualifier>
-      <tred:currency.coded>DEM</tred:currency.coded>
-      <tred:currency.qualifier uncl:code="6343:4">Invoicing currency</tred:currency.qualifier>
-    </trcd:currency.details>
-  </trsd:currencies>
-
+<trsd:currencies>
+  <trcd:currency.details>
+    <tred:currency.details.qualifier uncl:code="6347:2">Reference currency</tred:currency.details.qualifier>
+    <tred:currency.coded>DEM</tred:currency.coded>
+    <tred:currency.qualifier uncl:code="6343:4">Invoicing currency</tred:currency.qualifier>
+  </trcd:currency.details>
+</trsd:currencies>
 <!-- SEGMENT PAT+1++5:6 -->
-
-  <trsd:payment.terms.basis>
-      <tred:payment.terms.type.qualifier uncl:code="4279:1">Basic</tred:payment.terms.type.qualifier>
-    <trcd:terms.time.information>
-      <tred:payment.time.reference.coded uncl:code="2475:5">Date of invoice</tred:payment.time.reference.coded>
-      <tred:time.relation.coded uncl:code="2009:6">End of month containing the reference date</tred:time.relation.coded>
-    </trcd:terms.time.information>
-  </trsd:payment.terms.basis>
-
+<trsd:payment.terms.basis>
+  <tred:payment.terms.type.qualifier uncl:code="4279:1">Basic</tred:payment.terms.type.qualifier>
+  <trcd:terms.time.information>
+    <tred:payment.time.reference.coded uncl:code="2475:5">Date of invoice</tred:payment.time.reference.coded>
+    <tred:time.relation.coded uncl:code="2009:6">End of month containing the reference date</tred:time.relation.coded>
+  </trcd:terms.time.information>
+</trsd:payment.terms.basis>
 <!-- SEGMENT LIN+1++9783540100447:EN -->
-
-  <trsd:line.item>
-      <tred:line.item.number>1</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>9783540100447</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:EN">International Article Numbering Association (EAN)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>1</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>9783540100447</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:EN">International Article Numbering Association (EAN)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:line.item>
 <!-- SEGMENT PIA+5+354010044X:IB -->
-
-  <trsd:additional.product.id>
-      <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
-    <trcd:item.number.identification>
-      <tred:item.number>354010044X</tred:item.number>
-      <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
-    </trcd:item.number.identification>
-  </trsd:additional.product.id>
-
+<trsd:additional.product.id>
+  <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+  <trcd:item.number.identification>
+    <tred:item.number>354010044X</tred:item.number>
+    <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+  </trcd:item.number.identification>
+</trsd:additional.product.id>
 <!-- SEGMENT IMD+F+BST+:::Dubbel?:Test Handbook Engineering -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
-      <tred:item.characteristic.coded unknown:code="7081:BST">BST</tred:item.characteristic.coded>
-    <trcd:item.description>
-      <tred:item.description>Dubbel:Test Handbook Engineering</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+  <tred:item.characteristic.coded unknown:code="7081:BST">BST</tred:item.characteristic.coded>
+  <trcd:item.description>
+    <tred:item.description>Dubbel:Test Handbook Engineering</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+47:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:47">Invoiced quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:47">Invoiced quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT FTX+ZZZ++NF:SV1:91 -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ZZZ">Mutually defined</tred:text.subject.qualifier>
-    <trcd:text.reference>
-      <tred:free.text.identification>NF</tred:free.text.identification>
-      <tred:code.list.qualifier unknown:code="1131:SV1">SV1</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded uncl:code="3055:91">Assigned by seller or seller's agent</tred:code.list.responsible.agency.coded>
-    </trcd:text.reference>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ZZZ">Mutually defined</tred:text.subject.qualifier>
+  <trcd:text.reference>
+    <tred:free.text.identification>NF</tred:free.text.identification>
+    <tred:code.list.qualifier unknown:code="1131:SV1">SV1</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded uncl:code="3055:91">Assigned by seller or seller's agent</tred:code.list.responsible.agency.coded>
+  </trcd:text.reference>
+</trsd:free.text>
 <!-- SEGMENT FTX+ZZZ++LP:SV2:91+123 -->
-
-  <trsd:free.text>
-      <tred:text.subject.qualifier uncl:code="4451:ZZZ">Mutually defined</tred:text.subject.qualifier>
-    <trcd:text.reference>
-      <tred:free.text.identification>LP</tred:free.text.identification>
-      <tred:code.list.qualifier unknown:code="1131:SV2">SV2</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded uncl:code="3055:91">Assigned by seller or seller's agent</tred:code.list.responsible.agency.coded>
-    </trcd:text.reference>
-    <trcd:text.literal>
-      <tred:free.text>123</tred:free.text>
-    </trcd:text.literal>
-  </trsd:free.text>
-
+<trsd:free.text>
+  <tred:text.subject.qualifier uncl:code="4451:ZZZ">Mutually defined</tred:text.subject.qualifier>
+  <trcd:text.reference>
+    <tred:free.text.identification>LP</tred:free.text.identification>
+    <tred:code.list.qualifier unknown:code="1131:SV2">SV2</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded uncl:code="3055:91">Assigned by seller or seller's agent</tred:code.list.responsible.agency.coded>
+  </trcd:text.reference>
+  <trcd:text.literal>
+    <tred:free.text>123</tred:free.text>
+  </trcd:text.literal>
+</trsd:free.text>
 <!-- SEGMENT MOA+66:123 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:66">Goods item total</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>123</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:66">Goods item total</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>123</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT PRI+YYY:123::RTP -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
-      <tred:price>123</tred:price>
-      <tred:price.type.qualifier uncl:code="5387:RTP">Retail price</tred:price.type.qualifier>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier unknown:code="5125:YYY">YYY</tred:price.qualifier>
+    <tred:price>123</tred:price>
+    <tred:price.type.qualifier uncl:code="5387:RTP">Retail price</tred:price.type.qualifier>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT RFF+AAK:5035:1 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:AAK">Despatch advice number</tred:reference.qualifier>
-      <tred:reference.number>5035</tred:reference.number>
-      <tred:line.number>1</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:AAK">Despatch advice number</tred:reference.qualifier>
+    <tred:reference.number>5035</tred:reference.number>
+    <tred:line.number>1</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19980213:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19980213</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19980213</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+ON:52314 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:ON">Order number (purchase)</tred:reference.qualifier>
-      <tred:reference.number>52314</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:ON">Order number (purchase)</tred:reference.qualifier>
+    <tred:reference.number>52314</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT DTM+171:19980212:102 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19980212</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:171">Reference date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19980212</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:102">CCYYMMDD</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT RFF+VN:79523:1 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:VN">Order number (vendor)</tred:reference.qualifier>
-      <tred:reference.number>79523</tred:reference.number>
-      <tred:line.number>1</tred:line.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:VN">Order number (vendor)</tred:reference.qualifier>
+    <tred:reference.number>79523</tred:reference.number>
+    <tred:line.number>1</tred:line.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT TAX+7+VAT+++:::7 -->
-
-  <trsd:duty.tax.fee.details>
-      <tred:duty.tax.fee.function.qualifier uncl:code="5283:7">Tax</tred:duty.tax.fee.function.qualifier>
-    <trcd:duty.tax.fee.type>
-      <tred:duty.tax.fee.type.coded uncl:code="5153:VAT">Value added tax</tred:duty.tax.fee.type.coded>
-    </trcd:duty.tax.fee.type>
-    <trcd:duty.tax.fee.detail>
-      <tred:duty.tax.fee.rate>7</tred:duty.tax.fee.rate>
-    </trcd:duty.tax.fee.detail>
-  </trsd:duty.tax.fee.details>
-
+<trsd:duty.tax.fee.details>
+  <tred:duty.tax.fee.function.qualifier uncl:code="5283:7">Tax</tred:duty.tax.fee.function.qualifier>
+  <trcd:duty.tax.fee.type>
+    <tred:duty.tax.fee.type.coded uncl:code="5153:VAT">Value added tax</tred:duty.tax.fee.type.coded>
+  </trcd:duty.tax.fee.type>
+  <trcd:duty.tax.fee.detail>
+    <tred:duty.tax.fee.rate>7</tred:duty.tax.fee.rate>
+  </trcd:duty.tax.fee.detail>
+</trsd:duty.tax.fee.details>
 <!-- SEGMENT ALC+A++++DI -->
-
-  <trsd:allowance.or.charge>
-      <tred:allowance.or.charge.qualifier uncl:code="5463:A">Allowance</tred:allowance.or.charge.qualifier>
-    <trcd:special.services.identification>
-      <tred:special.services.coded uncl:code="7161:DI">Discount</tred:special.services.coded>
-    </trcd:special.services.identification>
-  </trsd:allowance.or.charge>
-
+<trsd:allowance.or.charge>
+  <tred:allowance.or.charge.qualifier uncl:code="5463:A">Allowance</tred:allowance.or.charge.qualifier>
+  <trcd:special.services.identification>
+    <tred:special.services.coded uncl:code="7161:DI">Discount</tred:special.services.coded>
+  </trcd:special.services.identification>
+</trsd:allowance.or.charge>
 <!-- SEGMENT PCD+1:40 -->
-
-  <trsd:percentage.details>
-    <trcd:percentage.details>
-      <tred:percentage.qualifier uncl:code="5245:1">Allowance</tred:percentage.qualifier>
-      <tred:percentage>40</tred:percentage>
-    </trcd:percentage.details>
-  </trsd:percentage.details>
-
+<trsd:percentage.details>
+  <trcd:percentage.details>
+    <tred:percentage.qualifier uncl:code="5245:1">Allowance</tred:percentage.qualifier>
+    <tred:percentage>40</tred:percentage>
+  </trcd:percentage.details>
+</trsd:percentage.details>
 <!-- SEGMENT TDT+20++++:::KNO-KV -->
-
-  <trsd:details.of.transport>
-      <tred:transport.stage.qualifier uncl:code="8051:20">Main-carriage transport</tred:transport.stage.qualifier>
-    <trcd:carrier>
-      <tred:carrier.name>KNO-KV</tred:carrier.name>
-    </trcd:carrier>
-  </trsd:details.of.transport>
-
+<trsd:details.of.transport>
+  <tred:transport.stage.qualifier uncl:code="8051:20">Main-carriage transport</tred:transport.stage.qualifier>
+  <trcd:carrier>
+    <tred:carrier.name>KNO-KV</tred:carrier.name>
+  </trcd:carrier>
+</trsd:details.of.transport>
 <!-- SEGMENT UNS+S -->
-
-  <anxs:section.control>
-      <anxe:section.identification unsl:code="0081:S">Detail/summary section separation</anxe:section.identification>
-  </anxs:section.control>
-
+<anxs:section.control>
+  <anxe:section.identification unsl:code="0081:S">Detail/summary section separation</anxe:section.identification>
+</anxs:section.control>
 <!-- SEGMENT MOA+86:73.8 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:86">Message total monetary amount</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>73.8</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:86">Message total monetary amount</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>73.8</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT MOA+125:68.97 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:125">Taxable amount</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>68.97</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:125">Taxable amount</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>68.97</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT MOA+9:73.80 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:9">Amount due/amount payable</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>73.80</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:9">Amount due/amount payable</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>73.80</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT TAX+7+VAT+++:::7 -->
-
-  <trsd:duty.tax.fee.details>
-      <tred:duty.tax.fee.function.qualifier uncl:code="5283:7">Tax</tred:duty.tax.fee.function.qualifier>
-    <trcd:duty.tax.fee.type>
-      <tred:duty.tax.fee.type.coded uncl:code="5153:VAT">Value added tax</tred:duty.tax.fee.type.coded>
-    </trcd:duty.tax.fee.type>
-    <trcd:duty.tax.fee.detail>
-      <tred:duty.tax.fee.rate>7</tred:duty.tax.fee.rate>
-    </trcd:duty.tax.fee.detail>
-  </trsd:duty.tax.fee.details>
-
+<trsd:duty.tax.fee.details>
+  <tred:duty.tax.fee.function.qualifier uncl:code="5283:7">Tax</tred:duty.tax.fee.function.qualifier>
+  <trcd:duty.tax.fee.type>
+    <tred:duty.tax.fee.type.coded uncl:code="5153:VAT">Value added tax</tred:duty.tax.fee.type.coded>
+  </trcd:duty.tax.fee.type>
+  <trcd:duty.tax.fee.detail>
+    <tred:duty.tax.fee.rate>7</tred:duty.tax.fee.rate>
+  </trcd:duty.tax.fee.detail>
+</trsd:duty.tax.fee.details>
 <!-- SEGMENT MOA+176:4.83 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:176">Message total duty/tax/fee amount</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>4.83</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:176">Message total duty/tax/fee amount</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>4.83</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT UNT+33+0000020001 -->
-
-  <anxs:message.trailer>
-      <anxe:number.of.segments.in.the.message>33</anxe:number.of.segments.in.the.message>
-      <anxe:message.reference.number>0000020001</anxe:message.reference.number>
-  </anxs:message.trailer>
-
+<anxs:message.trailer>
+  <anxe:number.of.segments.in.the.message>33</anxe:number.of.segments.in.the.message>
+  <anxe:message.reference.number>0000020001</anxe:message.reference.number>
+</anxs:message.trailer>
 <!-- SEGMENT UNZ+1+4 -->
-
-  <anxs:interchange.trailer>
-      <anxe:interchange.control.count>1</anxe:interchange.control.count>
-      <anxe:interchange.control.reference>4</anxe:interchange.control.reference>
-  </anxs:interchange.trailer>
-
+<anxs:interchange.trailer>
+  <anxe:interchange.control.count>1</anxe:interchange.control.count>
+  <anxe:interchange.control.reference>4</anxe:interchange.control.reference>
+</anxs:interchange.trailer>
 </edifact:message>

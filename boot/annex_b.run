@@ -10,15 +10,15 @@
 
 =head1 NAME
 
-add_annex_b - read Annex B from D422 to patch segment and composite data
+annex_b - read Annex B from D422 to patch segment and composite data
 
 =head1 SYNOPSIS
 
-./bin/add_annex_b.pl
+./boot/annex_b.pl
 
 =head1 DESCRIPTION
 
-This script can run after create_{segment,composite,codes}.pl
+This script has to run after create_{segment,composite,codes}.pl
 but before create_dtd.pl to add segments and composites from Annex B.
 
 You wont normaly find a file called Annex_B in the
@@ -31,9 +31,6 @@ Most of the work wont be neccessary, if they've written XML.
 
 =cut
 
-use SDBM_File;
-use XML::Edifact;
-use Fcntl;
 use strict;
 
 use vars qw($segment_tag $segment_list_of_codes $segment_mand_cond_flags);
@@ -42,12 +39,10 @@ use vars qw($composite_tag $composite_list_of_codes $composite_mand_cond_flags);
 use vars qw($composite_cooked_name $composite_canon_name);
 use vars qw($element_tag $element_cooked_name $element_canon_name);
 
-XML::Edifact::open_dbm( "data", O_RDWR );
-
 open (INFILE, "un_edifact_d96b/annex_b.96b")	|| die "can not open annex_b.96b for reading";
-open (SEGFILE, ">data/segment.add")		|| die "can not open segment.add for writing";
-open (COMFILE, ">data/composite.add")		|| die "can not open composite.add for writing";
-open (ELEFILE, ">data/element.add")		|| die "can not open element.add for writing";
+open (SEGFILE, ">html/segment.add")		|| die "can not open segment.add for writing";
+open (COMFILE, ">html/composite.add")		|| die "can not open composite.add for writing";
+open (ELEFILE, ">html/element.add")		|| die "can not open element.add for writing";
 
 printf STDERR "reading Annex B\n";
 
@@ -114,7 +109,5 @@ close(INFILE);
 close(SEGFILE);
 close(COMFILE);
 
-XML::Edifact::close_dbm();
-
 print STDERR "\n";
-0;
+1;

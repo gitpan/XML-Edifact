@@ -1,10 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE edifact:message SYSTEM "./edifact03.dtd">
-
 <!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
-
 <edifact:message
-	xmlns:edifact='./edifact03.rdf' 
+	xmlns:edifact='./edifact03.rdf'
 	xmlns:trsd='./edifact03_trsd.rdf'
 	xmlns:trcd='./edifact03_trcd.rdf'
 	xmlns:tred='./edifact03_tred.rdf'
@@ -15,24 +13,23 @@
 	xmlns:unsl='./edifact03_unsl.rdf'
 	xmlns:unknown='./edifact03_unknown.rdf'
 	>
+
 <!-- SEGMENT NAD+BY+21448::86++Missing Link:Versandbuchhandlung+Westerstrasse. 114-116+Bremen++28199+DE -->
-
-  <trsd:name.and.address>
-      <tred:party.qualifier uncl:code="3035:BY">Buyer</tred:party.qualifier>
-    <trcd:party.identification.details>
-      <tred:party.id.identification>21448</tred:party.id.identification>
-      <tred:code.list.responsible.agency.coded uncl:code="3055:86">Assigned by party originating the message</tred:code.list.responsible.agency.coded>
-    </trcd:party.identification.details>
-    <trcd:party.name>
-      <tred:party.name>Missing Link</tred:party.name>
-      <tred:party.name>Versandbuchhandlung</tred:party.name>
-    </trcd:party.name>
-    <trcd:street>
-      <tred:street.and.number.p.o.box>Westerstrasse. 114-116</tred:street.and.number.p.o.box>
-    </trcd:street>
-      <tred:city.name>Bremen</tred:city.name>
-      <tred:postcode.identification>28199</tred:postcode.identification>
-      <tred:country.coded>DE</tred:country.coded>
-  </trsd:name.and.address>
-
+<trsd:name.and.address>
+  <tred:party.qualifier uncl:code="3035:BY">Buyer</tred:party.qualifier>
+  <trcd:party.identification.details>
+    <tred:party.id.identification>21448</tred:party.id.identification>
+    <tred:code.list.responsible.agency.coded uncl:code="3055:86">Assigned by party originating the message</tred:code.list.responsible.agency.coded>
+  </trcd:party.identification.details>
+  <trcd:party.name>
+    <tred:party.name>Missing Link</tred:party.name>
+    <tred:party.name>Versandbuchhandlung</tred:party.name>
+  </trcd:party.name>
+  <trcd:street>
+    <tred:street.and.number.p.o.box>Westerstrasse. 114-116</tred:street.and.number.p.o.box>
+  </trcd:street>
+  <tred:city.name>Bremen</tred:city.name>
+  <tred:postcode.identification>28199</tred:postcode.identification>
+  <tred:country.coded>DE</tred:country.coded>
+</trsd:name.and.address>
 </edifact:message>

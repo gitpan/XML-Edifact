@@ -1,10 +1,8 @@
 <?xml version="1.0"?>
 <!DOCTYPE edifact:message SYSTEM "./edifact03.dtd">
-
 <!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
-
 <edifact:message
-	xmlns:edifact='./edifact03.rdf' 
+	xmlns:edifact='./edifact03.rdf'
 	xmlns:trsd='./edifact03_trsd.rdf'
 	xmlns:trcd='./edifact03_trcd.rdf'
 	xmlns:tred='./edifact03_tred.rdf'
@@ -15,737 +13,604 @@
 	xmlns:unsl='./edifact03_unsl.rdf'
 	xmlns:unknown='./edifact03_unknown.rdf'
 	>
+
 <!-- SEGMENT UNB+UNOA:2+D__01RFN011+RFN020+980916:1604+ELFE/0000002 -->
-
-  <anxs:interchange.header>
-    <anxc:syntax.identifier>
-      <anxe:syntax.identifier unsl:code="0001:UNOA">UN/ECE level A</anxe:syntax.identifier>
-      <anxe:syntax.version.number>2</anxe:syntax.version.number>
-    </anxc:syntax.identifier>
-    <anxc:interchange.sender>
-      <anxe:sender.identification>D--01RFN011</anxe:sender.identification>
-    </anxc:interchange.sender>
-    <anxc:interchange.recipient>
-      <anxe:recipient.identification>RFN020</anxe:recipient.identification>
-    </anxc:interchange.recipient>
-    <anxc:date.time.of.preparation>
-      <anxe:date>980916</anxe:date>
-      <anxe:time>1604</anxe:time>
-    </anxc:date.time.of.preparation>
-      <anxe:interchange.control.reference>ELFE/0000002</anxe:interchange.control.reference>
-  </anxs:interchange.header>
-
+<anxs:interchange.header>
+  <anxc:syntax.identifier>
+    <anxe:syntax.identifier unsl:code="0001:UNOA">UN/ECE level A</anxe:syntax.identifier>
+    <anxe:syntax.version.number>2</anxe:syntax.version.number>
+  </anxc:syntax.identifier>
+  <anxc:interchange.sender>
+    <anxe:sender.identification>D--01RFN011</anxe:sender.identification>
+  </anxc:interchange.sender>
+  <anxc:interchange.recipient>
+    <anxe:recipient.identification>RFN020</anxe:recipient.identification>
+  </anxc:interchange.recipient>
+  <anxc:date.time.of.preparation>
+    <anxe:date>980916</anxe:date>
+    <anxe:time>1604</anxe:time>
+  </anxc:date.time.of.preparation>
+  <anxe:interchange.control.reference>ELFE/0000002</anxe:interchange.control.reference>
+</anxs:interchange.header>
 <!-- SEGMENT UNH+ELFE0000001+INVOIC:D:95A:UN:ETEB -->
-
-  <anxs:message.header>
-      <anxe:message.reference.number>ELFE0000001</anxe:message.reference.number>
-    <anxc:message.identifier>
-      <anxe:message.type unsl:code="0065:INVOIC">Invoice message</anxe:message.type>
-      <anxe:message.version.number>D</anxe:message.version.number>
-      <anxe:message.release.number>95A</anxe:message.release.number>
-      <anxe:controlling.agency unsl:code="0051:UN">UN/ECE/TRADE/WP.4</anxe:controlling.agency>
-      <anxe:association.assigned.code unknown:code="0057:ETEB">ETEB</anxe:association.assigned.code>
-    </anxc:message.identifier>
-  </anxs:message.header>
-
+<anxs:message.header>
+  <anxe:message.reference.number>ELFE0000001</anxe:message.reference.number>
+  <anxc:message.identifier>
+    <anxe:message.type unsl:code="0065:INVOIC">Invoice message</anxe:message.type>
+    <anxe:message.version.number>D</anxe:message.version.number>
+    <anxe:message.release.number>95A</anxe:message.release.number>
+    <anxe:controlling.agency unsl:code="0051:UN">UN/ECE/TRADE/WP.4</anxe:controlling.agency>
+    <anxe:association.assigned.code unknown:code="0057:ETEB">ETEB</anxe:association.assigned.code>
+  </anxc:message.identifier>
+</anxs:message.header>
 <!-- SEGMENT BGM+380+D__01/3000900016+9 -->
-
-  <trsd:beginning.of.message>
-    <trcd:document.message.name>
-      <tred:document.message.name.coded uncl:code="1001:380">Commercial invoice</tred:document.message.name.coded>
-    </trcd:document.message.name>
-    <trcd:document.message.identification>
-      <tred:document.message.number>D--01/3000900016</tred:document.message.number>
-    </trcd:document.message.identification>
-      <tred:message.function.coded uncl:code="1225:9">Original</tred:message.function.coded>
-  </trsd:beginning.of.message>
-
+<trsd:beginning.of.message>
+  <trcd:document.message.name>
+    <tred:document.message.name.coded uncl:code="1001:380">Commercial invoice</tred:document.message.name.coded>
+  </trcd:document.message.name>
+  <trcd:document.message.identification>
+    <tred:document.message.number>D--01/3000900016</tred:document.message.number>
+  </trcd:document.message.identification>
+  <tred:message.function.coded uncl:code="1225:9">Original</tred:message.function.coded>
+</trsd:beginning.of.message>
 <!-- SEGMENT DTM+3:19981230 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:3">Invoice date/time</tred:date.time.period.qualifier>
-      <tred:date.time.period>19981230</tred:date.time.period>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:3">Invoice date/time</tred:date.time.period.qualifier>
+    <tred:date.time.period>19981230</tred:date.time.period>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT DTM+263:9812:609 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:263">Invoicing period</tred:date.time.period.qualifier>
-      <tred:date.time.period>9812</tred:date.time.period>
-      <tred:date.time.period.format.qualifier uncl:code="2379:609">YYMM</tred:date.time.period.format.qualifier>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:263">Invoicing period</tred:date.time.period.qualifier>
+    <tred:date.time.period>9812</tred:date.time.period>
+    <tred:date.time.period.format.qualifier uncl:code="2379:609">YYMM</tred:date.time.period.format.qualifier>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT PAI+1::30 -->
-
-  <trsd:payment.instructions>
-    <trcd:payment.instruction.details>
-      <tred:payment.conditions.coded uncl:code="4439:1">Direct payment</tred:payment.conditions.coded>
-      <tred:payment.means.coded uncl:code="4461:30">Credit transfer</tred:payment.means.coded>
-    </trcd:payment.instruction.details>
-  </trsd:payment.instructions>
-
+<trsd:payment.instructions>
+  <trcd:payment.instruction.details>
+    <tred:payment.conditions.coded uncl:code="4439:1">Direct payment</tred:payment.conditions.coded>
+    <tred:payment.means.coded uncl:code="4461:30">Credit transfer</tred:payment.means.coded>
+  </trcd:payment.instruction.details>
+</trsd:payment.instructions>
 <!-- SEGMENT RFF+IV:9000000034 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:IV">Invoice number</tred:reference.qualifier>
-      <tred:reference.number>9000000034</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:IV">Invoice number</tred:reference.qualifier>
+    <tred:reference.number>9000000034</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+IT:3000900016 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:IT">Internal customer number</tred:reference.qualifier>
-      <tred:reference.number>3000900016</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:IT">Internal customer number</tred:reference.qualifier>
+    <tred:reference.number>3000900016</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT NAD+II+++GOEPPINGEN+POSTFACH 30 00+ULM++89070+DE -->
-
-  <trsd:name.and.address>
-      <tred:party.qualifier uncl:code="3035:II">Issuer of invoice</tred:party.qualifier>
-    <trcd:party.name>
-      <tred:party.name>GOEPPINGEN</tred:party.name>
-    </trcd:party.name>
-    <trcd:street>
-      <tred:street.and.number.p.o.box>POSTFACH 30 00</tred:street.and.number.p.o.box>
-    </trcd:street>
-      <tred:city.name>ULM</tred:city.name>
-      <tred:postcode.identification>89070</tred:postcode.identification>
-      <tred:country.coded>DE</tred:country.coded>
-  </trsd:name.and.address>
-
+<trsd:name.and.address>
+  <tred:party.qualifier uncl:code="3035:II">Issuer of invoice</tred:party.qualifier>
+  <trcd:party.name>
+    <tred:party.name>GOEPPINGEN</tred:party.name>
+  </trcd:party.name>
+  <trcd:street>
+    <tred:street.and.number.p.o.box>POSTFACH 30 00</tred:street.and.number.p.o.box>
+  </trcd:street>
+  <tred:city.name>ULM</tred:city.name>
+  <tred:postcode.identification>89070</tred:postcode.identification>
+  <tred:country.coded>DE</tred:country.coded>
+</trsd:name.and.address>
 <!-- SEGMENT FII+RH+3000289304+25010030 -->
-
-  <trsd:financial.institution.information>
-      <tred:party.qualifier uncl:code="3035:RH">Seller's financial institution</tred:party.qualifier>
-    <trcd:account.identification>
-      <tred:account.holder.number>3000289304</tred:account.holder.number>
-    </trcd:account.identification>
-    <trcd:institution.identification>
-      <tred:institution.name.identification>25010030</tred:institution.name.identification>
-    </trcd:institution.identification>
-  </trsd:financial.institution.information>
-
+<trsd:financial.institution.information>
+  <tred:party.qualifier uncl:code="3035:RH">Seller's financial institution</tred:party.qualifier>
+  <trcd:account.identification>
+    <tred:account.holder.number>3000289304</tred:account.holder.number>
+  </trcd:account.identification>
+  <trcd:institution.identification>
+    <tred:institution.name.identification>25010030</tred:institution.name.identification>
+  </trcd:institution.identification>
+</trsd:financial.institution.information>
 <!-- SEGMENT CTA+IC -->
-
-  <trsd:contact.information>
-      <tred:contact.function.coded uncl:code="3139:IC">Information contact</tred:contact.function.coded>
-  </trsd:contact.information>
-
+<trsd:contact.information>
+  <tred:contact.function.coded uncl:code="3139:IC">Information contact</tred:contact.function.coded>
+</trsd:contact.information>
 <!-- SEGMENT COM+0130 121263:TE -->
-
-  <trsd:communication.contact>
-    <trcd:communication.contact>
-      <tred:communication.number>0130 121263</tred:communication.number>
-      <tred:communication.channel.qualifier uncl:code="3155:TE">Telephone</tred:communication.channel.qualifier>
-    </trcd:communication.contact>
-  </trsd:communication.contact>
-
+<trsd:communication.contact>
+  <trcd:communication.contact>
+    <tred:communication.number>0130 121263</tred:communication.number>
+    <tred:communication.channel.qualifier uncl:code="3155:TE">Telephone</tred:communication.channel.qualifier>
+  </trcd:communication.contact>
+</trsd:communication.contact>
 <!-- SEGMENT COM+0130 800917:FX -->
-
-  <trsd:communication.contact>
-    <trcd:communication.contact>
-      <tred:communication.number>0130 800917</tred:communication.number>
-      <tred:communication.channel.qualifier uncl:code="3155:FX">Telefax</tred:communication.channel.qualifier>
-    </trcd:communication.contact>
-  </trsd:communication.contact>
-
-<!-- SEGMENT NAD+IV++VERBUNDABNAHME:::ABNAHMESTR. 11:90016 BERLIN -->
-
-  <trsd:name.and.address>
-      <tred:party.qualifier uncl:code="3035:IV">Invoicee</tred:party.qualifier>
-    <trcd:name.and.address>
-      <tred:name.and.address.line>VERBUNDABNAHME</tred:name.and.address.line>
-      <tred:name.and.address.line>ABNAHMESTR. 11</tred:name.and.address.line>
-      <tred:name.and.address.line>90016 BERLIN</tred:name.and.address.line>
-    </trcd:name.and.address>
-  </trsd:name.and.address>
-
+<trsd:communication.contact>
+  <trcd:communication.contact>
+    <tred:communication.number>0130 800917</tred:communication.number>
+    <tred:communication.channel.qualifier uncl:code="3155:FX">Telefax</tred:communication.channel.qualifier>
+  </trcd:communication.contact>
+</trsd:communication.contact>
+<!-- SEGMENT NAD+IV++VERBUNDABNAHME:ABNAHMESTR. 11:90016 BERLIN -->
+<trsd:name.and.address>
+  <tred:party.qualifier uncl:code="3035:IV">Invoicee</tred:party.qualifier>
+  <trcd:name.and.address>
+    <tred:name.and.address.line>VERBUNDABNAHME</tred:name.and.address.line>
+    <tred:name.and.address.line>ABNAHMESTR. 11</tred:name.and.address.line>
+    <tred:name.and.address.line>90016 BERLIN</tred:name.and.address.line>
+  </trcd:name.and.address>
+</trsd:name.and.address>
 <!-- SEGMENT TAX+1+VAT+++:::16 -->
-
-  <trsd:duty.tax.fee.details>
-      <tred:duty.tax.fee.function.qualifier uncl:code="5283:1">Individual duty, tax or fee (Customs item)</tred:duty.tax.fee.function.qualifier>
-    <trcd:duty.tax.fee.type>
-      <tred:duty.tax.fee.type.coded uncl:code="5153:VAT">Value added tax</tred:duty.tax.fee.type.coded>
-    </trcd:duty.tax.fee.type>
-    <trcd:duty.tax.fee.detail>
-      <tred:duty.tax.fee.rate>16</tred:duty.tax.fee.rate>
-    </trcd:duty.tax.fee.detail>
-  </trsd:duty.tax.fee.details>
-
+<trsd:duty.tax.fee.details>
+  <tred:duty.tax.fee.function.qualifier uncl:code="5283:1">Individual duty, tax or fee (Customs item)</tred:duty.tax.fee.function.qualifier>
+  <trcd:duty.tax.fee.type>
+    <tred:duty.tax.fee.type.coded uncl:code="5153:VAT">Value added tax</tred:duty.tax.fee.type.coded>
+  </trcd:duty.tax.fee.type>
+  <trcd:duty.tax.fee.detail>
+    <tred:duty.tax.fee.rate>16</tred:duty.tax.fee.rate>
+  </trcd:duty.tax.fee.detail>
+</trsd:duty.tax.fee.details>
 <!-- SEGMENT CUX+1:DEM -->
-
-  <trsd:currencies>
-    <trcd:currency.details>
-      <tred:currency.details.qualifier uncl:code="6347:1">Charge payment currency</tred:currency.details.qualifier>
-      <tred:currency.coded>DEM</tred:currency.coded>
-    </trcd:currency.details>
-  </trsd:currencies>
-
+<trsd:currencies>
+  <trcd:currency.details>
+    <tred:currency.details.qualifier uncl:code="6347:1">Charge payment currency</tred:currency.details.qualifier>
+    <tred:currency.coded>DEM</tred:currency.coded>
+  </trcd:currency.details>
+</trsd:currencies>
 <!-- SEGMENT PAT+5++5:1:CD:10 -->
-
-  <trsd:payment.terms.basis>
-      <tred:payment.terms.type.qualifier uncl:code="4279:5">Discount not applicable</tred:payment.terms.type.qualifier>
-    <trcd:terms.time.information>
-      <tred:payment.time.reference.coded uncl:code="2475:5">Date of invoice</tred:payment.time.reference.coded>
-      <tred:time.relation.coded uncl:code="2009:1">Reference date</tred:time.relation.coded>
-      <tred:type.of.period.coded uncl:code="2151:CD">Calendar day (includes weekends and holidays)</tred:type.of.period.coded>
-      <tred:number.of.periods>10</tred:number.of.periods>
-    </trcd:terms.time.information>
-  </trsd:payment.terms.basis>
-
+<trsd:payment.terms.basis>
+  <tred:payment.terms.type.qualifier uncl:code="4279:5">Discount not applicable</tred:payment.terms.type.qualifier>
+  <trcd:terms.time.information>
+    <tred:payment.time.reference.coded uncl:code="2475:5">Date of invoice</tred:payment.time.reference.coded>
+    <tred:time.relation.coded uncl:code="2009:1">Reference date</tred:time.relation.coded>
+    <tred:type.of.period.coded uncl:code="2151:CD">Calendar day (includes weekends and holidays)</tred:type.of.period.coded>
+    <tred:number.of.periods>10</tred:number.of.periods>
+  </trcd:terms.time.information>
+</trsd:payment.terms.basis>
 <!-- SEGMENT DTM+13:19990109 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:13">Terms net due date</tred:date.time.period.qualifier>
-      <tred:date.time.period>19990109</tred:date.time.period>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:13">Terms net due date</tred:date.time.period.qualifier>
+    <tred:date.time.period>19990109</tred:date.time.period>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT LIN+1++:KTO:DT5:DTC++0 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>1</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number.type.coded unknown:code="7143:KTO">KTO</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-      <tred:configuration.level>0</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>1</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number.type.coded unknown:code="7143:KTO">KTO</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <tred:configuration.level>0</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT LIN+2++10:ABS:DT5:DTC+1:1+1 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>2</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>10</tred:item.number>
-      <tred:item.number.type.coded unknown:code="7143:ABS">ABS</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-    <trcd:sub.line.information>
-      <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
-      <tred:line.item.number>1</tred:line.item.number>
-    </trcd:sub.line.information>
-      <tred:configuration.level>1</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>2</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>10</tred:item.number>
+    <tred:item.number.type.coded unknown:code="7143:ABS">ABS</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <trcd:sub.line.information>
+    <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
+    <tred:line.item.number>1</tred:line.item.number>
+  </trcd:sub.line.information>
+  <tred:configuration.level>1</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT LIN+3++00000001:ZNR:DT5:DTC+1:2+2 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>3</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>00000001</tred:item.number>
-      <tred:item.number.type.coded unknown:code="7143:ZNR">ZNR</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-    <trcd:sub.line.information>
-      <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
-      <tred:line.item.number>2</tred:line.item.number>
-    </trcd:sub.line.information>
-      <tred:configuration.level>2</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>3</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>00000001</tred:item.number>
+    <tred:item.number.type.coded unknown:code="7143:ZNR">ZNR</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <trcd:sub.line.information>
+    <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
+    <tred:line.item.number>2</tred:line.item.number>
+  </trcd:sub.line.information>
+  <tred:configuration.level>2</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT IMD+B++62601:DT1:DTC:PCS-ANSCHLUSS -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
-    <trcd:item.description>
-      <tred:item.description.identification>62601</tred:item.description.identification>
-      <tred:code.list.qualifier unknown:code="1131:DT1">DT1</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-      <tred:item.description>PCS-ANSCHLUSS</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
+  <trcd:item.description>
+    <tred:item.description.identification>62601</tred:item.description.identification>
+    <tred:code.list.qualifier unknown:code="1131:DT1">DT1</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+    <tred:item.description>PCS-ANSCHLUSS</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+B++ZA:DT2:DTC -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
-    <trcd:item.description>
-      <tred:item.description.identification>ZA</tred:item.description.identification>
-      <tred:code.list.qualifier unknown:code="1131:DT2">DT2</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
+  <trcd:item.description>
+    <tred:item.description.identification>ZA</tred:item.description.identification>
+    <tred:code.list.qualifier unknown:code="1131:DT2">DT2</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+B++001:DT7:DTC -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
-    <trcd:item.description>
-      <tred:item.description.identification>001</tred:item.description.identification>
-      <tred:code.list.qualifier unknown:code="1131:DT7">DT7</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
+  <trcd:item.description>
+    <tred:item.description.identification>001</tred:item.description.identification>
+    <tred:code.list.qualifier unknown:code="1131:DT7">DT7</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+47:1 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:47">Invoiced quantity</tred:quantity.qualifier>
-      <tred:quantity>1</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:47">Invoiced quantity</tred:quantity.qualifier>
+    <tred:quantity>1</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT DTM+155:19981201 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:155">Accounting period start date</tred:date.time.period.qualifier>
-      <tred:date.time.period>19981201</tred:date.time.period>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:155">Accounting period start date</tred:date.time.period.qualifier>
+    <tred:date.time.period>19981201</tred:date.time.period>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT DTM+156:19981231 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:156">Accounting period end date</tred:date.time.period.qualifier>
-      <tred:date.time.period>19981231</tred:date.time.period>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:156">Accounting period end date</tred:date.time.period.qualifier>
+    <tred:date.time.period>19981231</tred:date.time.period>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT MOA+66:68.1 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:66">Goods item total</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>68.1</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:66">Goods item total</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>68.1</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT PRI+CAL:68.1 -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier uncl:code="5125:CAL">Calculation price</tred:price.qualifier>
-      <tred:price>68.1</tred:price>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier uncl:code="5125:CAL">Calculation price</tred:price.qualifier>
+    <tred:price>68.1</tred:price>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT LIN+4++000022222222/171000160025:KTO:DT5:DTC++0 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>4</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>000022222222/171000160025</tred:item.number>
-      <tred:item.number.type.coded unknown:code="7143:KTO">KTO</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-      <tred:configuration.level>0</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>4</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>000022222222/171000160025</tred:item.number>
+    <tred:item.number.type.coded unknown:code="7143:KTO">KTO</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <tred:configuration.level>0</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT LIN+5++50:ABS:DT5:DTC+1:4+1 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>5</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>50</tred:item.number>
-      <tred:item.number.type.coded unknown:code="7143:ABS">ABS</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-    <trcd:sub.line.information>
-      <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
-      <tred:line.item.number>4</tred:line.item.number>
-    </trcd:sub.line.information>
-      <tred:configuration.level>1</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>5</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>50</tred:item.number>
+    <tred:item.number.type.coded unknown:code="7143:ABS">ABS</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <trcd:sub.line.information>
+    <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
+    <tred:line.item.number>4</tred:line.item.number>
+  </trcd:sub.line.information>
+  <tred:configuration.level>1</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT LIN+6++00000005:ZNR:DT5:DTC+1:5+2 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>6</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>00000005</tred:item.number>
-      <tred:item.number.type.coded unknown:code="7143:ZNR">ZNR</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-    <trcd:sub.line.information>
-      <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
-      <tred:line.item.number>5</tred:line.item.number>
-    </trcd:sub.line.information>
-      <tred:configuration.level>2</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>6</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>00000005</tred:item.number>
+    <tred:item.number.type.coded unknown:code="7143:ZNR">ZNR</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <trcd:sub.line.information>
+    <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
+    <tred:line.item.number>5</tred:line.item.number>
+  </trcd:sub.line.information>
+  <tred:configuration.level>2</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT IMD+B++62802:DT1:DTC:INTERNVERBINDUNG:(T-D1 ZU FESTNETZANSCHLUSS) -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
-    <trcd:item.description>
-      <tred:item.description.identification>62802</tred:item.description.identification>
-      <tred:code.list.qualifier unknown:code="1131:DT1">DT1</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-      <tred:item.description>INTERNVERBINDUNG</tred:item.description>
-      <tred:item.description>(T-D1 ZU FESTNETZANSCHLUSS)</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
+  <trcd:item.description>
+    <tred:item.description.identification>62802</tred:item.description.identification>
+    <tred:code.list.qualifier unknown:code="1131:DT1">DT1</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+    <tred:item.description>INTERNVERBINDUNG</tred:item.description>
+    <tred:item.description>(T-D1 ZU FESTNETZANSCHLUSS)</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+B++ZA:DT2:DTC -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
-    <trcd:item.description>
-      <tred:item.description.identification>ZA</tred:item.description.identification>
-      <tred:code.list.qualifier unknown:code="1131:DT2">DT2</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
+  <trcd:item.description>
+    <tred:item.description.identification>ZA</tred:item.description.identification>
+    <tred:code.list.qualifier unknown:code="1131:DT2">DT2</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+107:600:SEC -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:107">Chargeable number of units</tred:quantity.qualifier>
-      <tred:quantity>600</tred:quantity>
-      <tred:measure.unit.qualifier>SEC</tred:measure.unit.qualifier>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:107">Chargeable number of units</tred:quantity.qualifier>
+    <tred:quantity>600</tred:quantity>
+    <tred:measure.unit.qualifier>SEC</tred:measure.unit.qualifier>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT DTM+51:19981204 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:51">Cumulative quantity start date</tred:date.time.period.qualifier>
-      <tred:date.time.period>19981204</tred:date.time.period>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:51">Cumulative quantity start date</tred:date.time.period.qualifier>
+    <tred:date.time.period>19981204</tred:date.time.period>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT DTM+52:19981226 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:52">Cumulative quantity end date</tred:date.time.period.qualifier>
-      <tred:date.time.period>19981226</tred:date.time.period>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:52">Cumulative quantity end date</tred:date.time.period.qualifier>
+    <tred:date.time.period>19981226</tred:date.time.period>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT MOA+66:14.67 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:66">Goods item total</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>14.67</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:66">Goods item total</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>14.67</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT LIN+7++781100016006/781100016006:KTO:DT5:DTC++0 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>7</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>781100016006/781100016006</tred:item.number>
-      <tred:item.number.type.coded unknown:code="7143:KTO">KTO</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-      <tred:configuration.level>0</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>7</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>781100016006/781100016006</tred:item.number>
+    <tred:item.number.type.coded unknown:code="7143:KTO">KTO</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <tred:configuration.level>0</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT LIN+8++55:ABS:DT5:DTC+1:7+1 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>8</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>55</tred:item.number>
-      <tred:item.number.type.coded unknown:code="7143:ABS">ABS</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-    <trcd:sub.line.information>
-      <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
-      <tred:line.item.number>7</tred:line.item.number>
-    </trcd:sub.line.information>
-      <tred:configuration.level>1</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>8</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>55</tred:item.number>
+    <tred:item.number.type.coded unknown:code="7143:ABS">ABS</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <trcd:sub.line.information>
+    <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
+    <tred:line.item.number>7</tred:line.item.number>
+  </trcd:sub.line.information>
+  <tred:configuration.level>1</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT LIN+9++00000012:ZNR:DT5:DTC+1:8+2 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>9</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>00000012</tred:item.number>
-      <tred:item.number.type.coded unknown:code="7143:ZNR">ZNR</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-    <trcd:sub.line.information>
-      <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
-      <tred:line.item.number>8</tred:line.item.number>
-    </trcd:sub.line.information>
-      <tred:configuration.level>2</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>9</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>00000012</tred:item.number>
+    <tred:item.number.type.coded unknown:code="7143:ZNR">ZNR</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <trcd:sub.line.information>
+    <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
+    <tred:line.item.number>8</tred:line.item.number>
+  </trcd:sub.line.information>
+  <tred:configuration.level>2</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT IMD+B++62801:DT1:DTC:INTERNVERBINDUNG:(FESTNETZANSCHLUSS ZU T-D1) -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
-    <trcd:item.description>
-      <tred:item.description.identification>62801</tred:item.description.identification>
-      <tred:code.list.qualifier unknown:code="1131:DT1">DT1</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-      <tred:item.description>INTERNVERBINDUNG</tred:item.description>
-      <tred:item.description>(FESTNETZANSCHLUSS ZU T-D1)</tred:item.description>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
+  <trcd:item.description>
+    <tred:item.description.identification>62801</tred:item.description.identification>
+    <tred:code.list.qualifier unknown:code="1131:DT1">DT1</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+    <tred:item.description>INTERNVERBINDUNG</tred:item.description>
+    <tred:item.description>(FESTNETZANSCHLUSS ZU T-D1)</tred:item.description>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT IMD+B++CA:DT2:DTC -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
-    <trcd:item.description>
-      <tred:item.description.identification>CA</tred:item.description.identification>
-      <tred:code.list.qualifier unknown:code="1131:DT2">DT2</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
+  <trcd:item.description>
+    <tred:item.description.identification>CA</tred:item.description.identification>
+    <tred:code.list.qualifier unknown:code="1131:DT2">DT2</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT QTY+107:905:PCE -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:107">Chargeable number of units</tred:quantity.qualifier>
-      <tred:quantity>905</tred:quantity>
-      <tred:measure.unit.qualifier>PCE</tred:measure.unit.qualifier>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:107">Chargeable number of units</tred:quantity.qualifier>
+    <tred:quantity>905</tred:quantity>
+    <tred:measure.unit.qualifier>PCE</tred:measure.unit.qualifier>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT QTY+106:4 -->
-
-  <trsd:quantity>
-    <trcd:quantity.details>
-      <tred:quantity.qualifier uncl:code="6063:106">Chargeable number of packages</tred:quantity.qualifier>
-      <tred:quantity>4</tred:quantity>
-    </trcd:quantity.details>
-  </trsd:quantity>
-
+<trsd:quantity>
+  <trcd:quantity.details>
+    <tred:quantity.qualifier uncl:code="6063:106">Chargeable number of packages</tred:quantity.qualifier>
+    <tred:quantity>4</tred:quantity>
+  </trcd:quantity.details>
+</trsd:quantity>
 <!-- SEGMENT DTM+51:19981204 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:51">Cumulative quantity start date</tred:date.time.period.qualifier>
-      <tred:date.time.period>19981204</tred:date.time.period>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:51">Cumulative quantity start date</tred:date.time.period.qualifier>
+    <tred:date.time.period>19981204</tred:date.time.period>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT DTM+52:19981228 -->
-
-  <trsd:date.time.period>
-    <trcd:date.time.period>
-      <tred:date.time.period.qualifier uncl:code="2005:52">Cumulative quantity end date</tred:date.time.period.qualifier>
-      <tred:date.time.period>19981228</tred:date.time.period>
-    </trcd:date.time.period>
-  </trsd:date.time.period>
-
+<trsd:date.time.period>
+  <trcd:date.time.period>
+    <tred:date.time.period.qualifier uncl:code="2005:52">Cumulative quantity end date</tred:date.time.period.qualifier>
+    <tred:date.time.period>19981228</tred:date.time.period>
+  </trcd:date.time.period>
+</trsd:date.time.period>
 <!-- SEGMENT MOA+66:84.89 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:66">Goods item total</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>84.89</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:66">Goods item total</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>84.89</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT PRI+CAL:0.0938 -->
-
-  <trsd:price.details>
-    <trcd:price.information>
-      <tred:price.qualifier uncl:code="5125:CAL">Calculation price</tred:price.qualifier>
-      <tred:price>0.0938</tred:price>
-    </trcd:price.information>
-  </trsd:price.details>
-
+<trsd:price.details>
+  <trcd:price.information>
+    <tred:price.qualifier uncl:code="5125:CAL">Calculation price</tred:price.qualifier>
+    <tred:price>0.0938</tred:price>
+  </trcd:price.information>
+</trsd:price.details>
 <!-- SEGMENT LIN+10++:KTO:DT5:DTC++0 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>10</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number.type.coded unknown:code="7143:KTO">KTO</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-      <tred:configuration.level>0</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>10</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number.type.coded unknown:code="7143:KTO">KTO</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <tred:configuration.level>0</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT LIN+11++95:ABS:DT5:DTC+1:10+1 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>11</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>95</tred:item.number>
-      <tred:item.number.type.coded unknown:code="7143:ABS">ABS</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-    <trcd:sub.line.information>
-      <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
-      <tred:line.item.number>10</tred:line.item.number>
-    </trcd:sub.line.information>
-      <tred:configuration.level>1</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>11</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>95</tred:item.number>
+    <tred:item.number.type.coded unknown:code="7143:ABS">ABS</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <trcd:sub.line.information>
+    <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
+    <tred:line.item.number>10</tred:line.item.number>
+  </trcd:sub.line.information>
+  <tred:configuration.level>1</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT LIN+12++00000010:ZNR:DT5:DTC+1:11+2 -->
-
-  <trsd:line.item>
-      <tred:line.item.number>12</tred:line.item.number>
-    <trcd:item.number.identification>
-      <tred:item.number>00000010</tred:item.number>
-      <tred:item.number.type.coded unknown:code="7143:ZNR">ZNR</tred:item.number.type.coded>
-      <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.number.identification>
-    <trcd:sub.line.information>
-      <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
-      <tred:line.item.number>11</tred:line.item.number>
-    </trcd:sub.line.information>
-      <tred:configuration.level>2</tred:configuration.level>
-  </trsd:line.item>
-
+<trsd:line.item>
+  <tred:line.item.number>12</tred:line.item.number>
+  <trcd:item.number.identification>
+    <tred:item.number>00000010</tred:item.number>
+    <tred:item.number.type.coded unknown:code="7143:ZNR">ZNR</tred:item.number.type.coded>
+    <tred:code.list.qualifier unknown:code="1131:DT5">DT5</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.number.identification>
+  <trcd:sub.line.information>
+    <tred:sub.line.indicator.coded uncl:code="5495:1">Sub-line information</tred:sub.line.indicator.coded>
+    <tred:line.item.number>11</tred:line.item.number>
+  </trcd:sub.line.information>
+  <tred:configuration.level>2</tred:configuration.level>
+</trsd:line.item>
 <!-- SEGMENT IMD+B++001:DT7:DTC -->
-
-  <trsd:item.description>
-      <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
-    <trcd:item.description>
-      <tred:item.description.identification>001</tred:item.description.identification>
-      <tred:code.list.qualifier unknown:code="1131:DT7">DT7</tred:code.list.qualifier>
-      <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
-    </trcd:item.description>
-  </trsd:item.description>
-
+<trsd:item.description>
+  <tred:item.description.type.coded uncl:code="7077:B">Code and text</tred:item.description.type.coded>
+  <trcd:item.description>
+    <tred:item.description.identification>001</tred:item.description.identification>
+    <tred:code.list.qualifier unknown:code="1131:DT7">DT7</tred:code.list.qualifier>
+    <tred:code.list.responsible.agency.coded unknown:code="3055:DTC">DTC</tred:code.list.responsible.agency.coded>
+  </trcd:item.description>
+</trsd:item.description>
 <!-- SEGMENT RFF+AGY:000022222222 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:AGY">Receiving party's member identification</tred:reference.qualifier>
-      <tred:reference.number>000022222222</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:AGY">Receiving party's member identification</tred:reference.qualifier>
+    <tred:reference.number>000022222222</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT RFF+AGY:781100016006 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:AGY">Receiving party's member identification</tred:reference.qualifier>
-      <tred:reference.number>781100016006</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:AGY">Receiving party's member identification</tred:reference.qualifier>
+    <tred:reference.number>781100016006</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT UNS+S -->
-
-  <anxs:section.control>
-      <anxe:section.identification unsl:code="0081:S">Detail/summary section separation</anxe:section.identification>
-  </anxs:section.control>
-
+<anxs:section.control>
+  <anxe:section.identification unsl:code="0081:S">Detail/summary section separation</anxe:section.identification>
+</anxs:section.control>
 <!-- SEGMENT MOA+77:194.49 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:77">Invoice amount</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>194.49</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:77">Invoice amount</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>194.49</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT RFF+LI:00000021 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>00000021</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>00000021</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT MOA+79:167.66 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:79">Total line items amount</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>167.66</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:79">Total line items amount</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>167.66</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT RFF+LI:00000020 -->
-
-  <trsd:reference>
-    <trcd:reference>
-      <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
-      <tred:reference.number>00000020</tred:reference.number>
-    </trcd:reference>
-  </trsd:reference>
-
+<trsd:reference>
+  <trcd:reference>
+    <tred:reference.qualifier uncl:code="1153:LI">Line item reference number</tred:reference.qualifier>
+    <tred:reference.number>00000020</tred:reference.number>
+  </trcd:reference>
+</trsd:reference>
 <!-- SEGMENT MOA+125:167.66 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:125">Taxable amount</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>167.66</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:125">Taxable amount</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>167.66</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT MOA+124:26.83 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:124">Tax amount</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>26.83</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:124">Tax amount</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>26.83</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT TAX+3+VAT+++:::16 -->
-
-  <trsd:duty.tax.fee.details>
-      <tred:duty.tax.fee.function.qualifier uncl:code="5283:3">Total of each duty, tax or fee type (Customs declaration)</tred:duty.tax.fee.function.qualifier>
-    <trcd:duty.tax.fee.type>
-      <tred:duty.tax.fee.type.coded uncl:code="5153:VAT">Value added tax</tred:duty.tax.fee.type.coded>
-    </trcd:duty.tax.fee.type>
-    <trcd:duty.tax.fee.detail>
-      <tred:duty.tax.fee.rate>16</tred:duty.tax.fee.rate>
-    </trcd:duty.tax.fee.detail>
-  </trsd:duty.tax.fee.details>
-
+<trsd:duty.tax.fee.details>
+  <tred:duty.tax.fee.function.qualifier uncl:code="5283:3">Total of each duty, tax or fee type (Customs declaration)</tred:duty.tax.fee.function.qualifier>
+  <trcd:duty.tax.fee.type>
+    <tred:duty.tax.fee.type.coded uncl:code="5153:VAT">Value added tax</tred:duty.tax.fee.type.coded>
+  </trcd:duty.tax.fee.type>
+  <trcd:duty.tax.fee.detail>
+    <tred:duty.tax.fee.rate>16</tred:duty.tax.fee.rate>
+  </trcd:duty.tax.fee.detail>
+</trsd:duty.tax.fee.details>
 <!-- SEGMENT MOA+125:167.66 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:125">Taxable amount</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>167.66</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:125">Taxable amount</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>167.66</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT MOA+124:26.83 -->
-
-  <trsd:monetary.amount>
-    <trcd:monetary.amount>
-      <tred:monetary.amount.type.qualifier uncl:code="5025:124">Tax amount</tred:monetary.amount.type.qualifier>
-      <tred:monetary.amount>26.83</tred:monetary.amount>
-    </trcd:monetary.amount>
-  </trsd:monetary.amount>
-
+<trsd:monetary.amount>
+  <trcd:monetary.amount>
+    <tred:monetary.amount.type.qualifier uncl:code="5025:124">Tax amount</tred:monetary.amount.type.qualifier>
+    <tred:monetary.amount>26.83</tred:monetary.amount>
+  </trcd:monetary.amount>
+</trsd:monetary.amount>
 <!-- SEGMENT UNT+65+ELFE0000001 -->
-
-  <anxs:message.trailer>
-      <anxe:number.of.segments.in.the.message>65</anxe:number.of.segments.in.the.message>
-      <anxe:message.reference.number>ELFE0000001</anxe:message.reference.number>
-  </anxs:message.trailer>
-
+<anxs:message.trailer>
+  <anxe:number.of.segments.in.the.message>65</anxe:number.of.segments.in.the.message>
+  <anxe:message.reference.number>ELFE0000001</anxe:message.reference.number>
+</anxs:message.trailer>
 <!-- SEGMENT UNZ+1+ELFE/0000002 -->
-
-  <anxs:interchange.trailer>
-      <anxe:interchange.control.count>1</anxe:interchange.control.count>
-      <anxe:interchange.control.reference>ELFE/0000002</anxe:interchange.control.reference>
-  </anxs:interchange.trailer>
-
+<anxs:interchange.trailer>
+  <anxe:interchange.control.count>1</anxe:interchange.control.count>
+  <anxe:interchange.control.reference>ELFE/0000002</anxe:interchange.control.reference>
+</anxs:interchange.trailer>
 </edifact:message>

@@ -11,30 +11,55 @@
 
 <P>I've included my modified documents, so others can be able to rebuild
 the DBM files. You may need a Unix like system because of newline
-conventions. This current 0.3x version is not intended to become
-"installed", just run everything from this path.</P>
+conventions.</P>
 <P>
 <BLOCKQUOTE><CODE>
 <PRE>
-        $ ./bin/make_data.sh
+        $ perl Makefile.PL
+
+        I know I should check for those 99 possible places, but I prefer to ask :-)
+
+        URL for public documents [http://localhost/xml-edifact] 
+        Directory on this system [/usr/local/apache/htdocs/xml-edifact] 
+
+        Writing Makefile for XML::Edifact
+
+        $ make
 </PRE>
 </CODE></BLOCKQUOTE>
 </P>
-<P>This will take a while (48 seconds on my Sun 3/60 :-) and you
-hopefully have a working database. Any <CODE>foo.ext changed</CODE>
-messages are a bad thing, and is probately based on a failure
-with packing/unpacking of this distribution.</P>
-<P>You can now test XML::Edifact it with:</P>
+<P><CODE>perl perl Makefile.PL</CODE> will first ask two questions. The reason
+is that XML::Edifact wants to install his document type definition
+on a web server to allow validation XML parser to grep the DTD.</P>
+<P>If you dont have a web server, anwer "." as the URL and
+"/tmp/xml-edifact" as a directoryname. You may change those
+decissions later by reperling the Makefile.PL, or by editing
+the XML::Edifact::Config module in your SITE_PERL.</P>
+<P>Make will take a while and you hopefully have a working database.
+This database covers the 96b version of the UN/EDIFACT batch
+directory and will become installed as XML::Edifact::d96b later.</P>
 <P>
 <BLOCKQUOTE><CODE>
 <PRE>
-        $ perl bin/edi2xml.pl examples/nad_buyer.edi
+        $ make test
 </PRE>
 </CODE></BLOCKQUOTE>
 </P>
-<P>You can try other example files, and if you have own EDI files
-try them: I really want to know how your EDI messages look like,
-if they break anything, what about your code list extension, ...</P>
+<P>The regression test will translate any .edi file found in the
+examples directory to xml and translate the xml back to EDIFACT.
+The result should not change.</P>
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+        $ make install
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>This will install the XML::Edifact module the D96B batch directory,
+various files for the URL and two scripts: <CODE>edi2xml</CODE> and <CODE>xml2edi</CODE></P>
+<P>You can now try own UN/EDIFACT files. I really want to know how your
+EDI messages look like, do they break anything, what about your code
+list extension, ...</P>
 <P>Testing different real examples should show some bugs, I hav'nt
 thought about.  Think about the <CODE>O'Reilly</CODE> invoice or the
 <CODE>Dubbel:Test</CODE> and you should catch the clue. I've tried to implement
@@ -42,20 +67,11 @@ the <CODE>UNA</CODE> right, but this may need some additional debugging.
 Take a look at the difference between the edi.tst files from Frankfurt
 and the Springer message. The last one is using newline as a 9th
 character in UNA, so its nearly human readable.</P>
-<P>To run a complete test, type</P>
-<P>
-<BLOCKQUOTE><CODE>
-<PRE>
-        $ perl bin/make_spool.sh
-</PRE>
-</CODE></BLOCKQUOTE>
-</P>
-<P>This will transform my EDI examples into XML and place them together
-with a DTD in the ./spool directory. You already have those files,
-they are compared with their counterparts in the ./example directory.
-If you dont see any <CODE>foo.bar changed</CODE> message, anything went fine.</P>
-<P>Lets talk about the perl way of installation and regression test in
-the 0.4 version.</P>
+<P>A last word - I hope this complex installlation will work on most
+Unix look likes, but I'm quite sure that it'll break on Windows and
+Mac. If you have such a system, and problems during installation,
+drop me a mail. You are granted my help, as I need your help to
+make the installation portabel across different platforms.</P>
 <HR>
 <A HREF="XML-Edifact-2.html">Previous</A>
 <A HREF="XML-Edifact-4.html">Next</A>

@@ -22,12 +22,10 @@ Read TRED to create element.txt and element.dat for further processing
 
 =cut
 
-use XML::Edifact;
-use SDBM_File;
-use Fcntl;
+use strict;
+use vars qw($cod $des);
 
-tie(%ELEMT, 'SDBM_File', 'data/element.dat', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.dat:".$!;
-open (OUTFILE, ">data/element.txt") || die "can not open element.txt for writing";
+open (OUTFILE, ">html/element.txt") || die "can not open element.txt for writing";
 
 printf STDERR "reading tred.96b\n";
 open (INFILE, "un_edifact_d96b/tred.96b") || die "can not open tred for reading";
@@ -45,12 +43,11 @@ while (<INFILE>) {
 
 	printf OUTFILE "%s\t%s\n", $cod, "tred:".$des;
 
-	$ELEMT{$cod}="tred:".$des;
+	$XML::Edifact::ELEMT{$cod}="tred:".$des;
     }
 }
 close(INFILE);
 close(OUTFILE);
-untie %ELEMT;
 print STDERR "\n";
 
-0;
+1;
