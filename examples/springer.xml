@@ -1,0 +1,241 @@
+<!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
+
+	<?xml version="1.0"?>
+	<!DOCTYPE edicooked SYSTEM "edicooked02.dtd">
+
+<edicooked>
+<!-- *** UNB+UNOC:2+Springer-ILN:91+Missing Link:91+980508:1336+4++++++1 -->
+<interchange.header>
+  <syntax.identifier is="UNOC">
+  UN/ECE level C
+  </syntax.identifier>
+  <syntax.version.number>2</syntax.version.number>
+  <sender.identification>Springer-ILN</sender.identification>
+  <partner.identification.code.qualifier is="91">Assigned by seller or seller's agent</partner.identification.code.qualifier>
+  <recipient.identification>Missing Link</recipient.identification>
+  <partner.identification.code.qualifier is="91">Assigned by seller or seller's agent</partner.identification.code.qualifier>
+  <date>980508</date>
+  <time>1336</time>
+  <interchange.control.reference>4</interchange.control.reference>
+  <test.indicator is="1">Interchange is a test</test.indicator>
+</interchange.header>
+<!-- *** UNH+0000020001+INVOIC:93A:D:UN:EAN007 -->
+<message.header>
+  <message.reference.number>0000020001</message.reference.number>
+  <message.type is="INVOIC">Invoice message</message.type>
+  <message.version.number>93A</message.version.number>
+  <message.release.number>D</message.release.number>
+  <controlling.agency is="UN">
+  UN/ECE/TRADE/WP.4
+  </controlling.agency>
+  <association.assigned.code is="EAN007"/>
+</message.header>
+<!-- *** BGM+380+5035+53 -->
+<beginning.of.message>
+  <document.message.name.coded is="380">Commercial invoice</document.message.name.coded>
+  <document.message.number>5035</document.message.number>
+  <message.function.coded is="53">Test</message.function.coded>
+</beginning.of.message>
+<!-- *** DTM+137:19980213:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="137">
+  Document/message date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19980213</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** NAD+BY+21448::86++Missing Link:Versandbuchhandlung+Westerstrasse. 114-116+Bremen++28199+DE -->
+<name.and.address>
+  <party.qualifier is="BY">Buyer</party.qualifier>
+  <party.id.identification>21448</party.id.identification>
+  <code.list.responsible.agency.coded is="86">Assigned by party originating the message</code.list.responsible.agency.coded>
+  <party.name.literal>Missing Link</party.name.literal>
+  <party.name.literal>Versandbuchhandlung</party.name.literal>
+  <street.and.number.p.o.box>Westerstrasse. 114-116</street.and.number.p.o.box>
+  <city.name>Bremen</city.name>
+  <postcode.identification>28199</postcode.identification>
+  <country.coded>DE</country.coded>
+</name.and.address>
+<!-- *** RFF+API:022913 -->
+<reference>
+  <reference.qualifier is="API"/>
+  <reference.number>022913</reference.number>
+</reference>
+<!-- *** NAD+SU+4399901492936::9++Springer-Verlag+Heidelberger Platz 3+Berlin++14197+DE -->
+<name.and.address>
+  <party.qualifier is="SU">Supplier</party.qualifier>
+  <party.id.identification>4399901492936</party.id.identification>
+  <code.list.responsible.agency.coded is="9">EAN (International Article Numbering association)</code.list.responsible.agency.coded>
+  <party.name.literal>Springer-Verlag</party.name.literal>
+  <street.and.number.p.o.box>Heidelberger Platz 3</street.and.number.p.o.box>
+  <city.name>Berlin</city.name>
+  <postcode.identification>14197</postcode.identification>
+  <country.coded>DE</country.coded>
+</name.and.address>
+<!-- *** RFF+VA:DE136665975 -->
+<reference>
+  <reference.qualifier is="VA">VAT registration number</reference.qualifier>
+  <reference.number>DE136665975</reference.number>
+</reference>
+<!-- *** CUX+2:DEM:4 -->
+<currencies>
+  <currency.details.qualifier is="2">Reference currency</currency.details.qualifier>
+  <currency.coded>DEM</currency.coded>
+  <currency.qualifier is="4">Invoicing currency</currency.qualifier>
+</currencies>
+<!-- *** PAT+1++5:6 -->
+<payment.terms.basis>
+  <payment.terms.type.qualifier is="1">Basic</payment.terms.type.qualifier>
+  <payment.time.reference.coded is="5">Date of invoice</payment.time.reference.coded>
+  <time.relation.coded is="6">End of month containing the reference date</time.relation.coded>
+</payment.terms.basis>
+<!-- *** LIN+1++9783540100447:EN -->
+<line.item>
+  <line.item.number>1</line.item.number>
+  <item.number>9783540100447</item.number>
+  <item.number.type.coded is="EN">International Article Numbering Association (EAN)</item.number.type.coded>
+</line.item>
+<!-- *** PIA+5+354010044X:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>354010044X</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** IMD+F+BST+:::Dubbel?:Test Handbook Engineering -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="BST"/>
+  <item.description.literal>Dubbel:Test Handbook Engineering</item.description.literal>
+</item.description>
+<!-- *** QTY+47:1 -->
+<quantity>
+  <quantity.qualifier is="47">Invoiced quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ZZZ++NF:SV1:91 -->
+<free.text>
+  <text.subject.qualifier is="ZZZ">Mutually defined</text.subject.qualifier>
+  <free.text.identification>NF</free.text.identification>
+  <code.list.qualifier is="SV1"/>
+  <code.list.responsible.agency.coded is="91">Assigned by seller or seller's agent</code.list.responsible.agency.coded>
+</free.text>
+<!-- *** FTX+ZZZ++LP:SV2:91+123 -->
+<free.text>
+  <text.subject.qualifier is="ZZZ">Mutually defined</text.subject.qualifier>
+  <free.text.identification>LP</free.text.identification>
+  <code.list.qualifier is="SV2"/>
+  <code.list.responsible.agency.coded is="91">Assigned by seller or seller's agent</code.list.responsible.agency.coded>
+  <free.text.literal>123</free.text.literal>
+</free.text>
+<!-- *** MOA+66:123 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="66">Goods item total</monetary.amount.type.qualifier>
+  <monetary.amount.literal>123</monetary.amount.literal>
+</monetary.amount>
+<!-- *** PRI+YYY:123::RTP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>123</price>
+  <price.type.qualifier is="RTP">Retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+AAK:5035:1 -->
+<reference>
+  <reference.qualifier is="AAK">Despatch advice number</reference.qualifier>
+  <reference.number>5035</reference.number>
+  <line.number>1</line.number>
+</reference>
+<!-- *** DTM+171:19980213:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19980213</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+ON:52314 -->
+<reference>
+  <reference.qualifier is="ON">Order number (purchase)</reference.qualifier>
+  <reference.number>52314</reference.number>
+</reference>
+<!-- *** DTM+171:19980212:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19980212</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+VN:79523:1 -->
+<reference>
+  <reference.qualifier is="VN">Order number (vendor)</reference.qualifier>
+  <reference.number>79523</reference.number>
+  <line.number>1</line.number>
+</reference>
+<!-- *** TAX+7+VAT+++:::7 -->
+<duty.tax.fee.details>
+  <duty.tax.fee.function.qualifier is="7">Tax</duty.tax.fee.function.qualifier>
+  <duty.tax.fee.type.coded is="VAT">Value added tax</duty.tax.fee.type.coded>
+  <duty.tax.fee.rate>7</duty.tax.fee.rate>
+</duty.tax.fee.details>
+<!-- *** ALC+A++++DI -->
+<allowance.or.charge>
+  <allowance.or.charge.qualifier is="A">Allowance</allowance.or.charge.qualifier>
+  <special.services.coded is="DI">Discount</special.services.coded>
+</allowance.or.charge>
+<!-- *** PCD+1:40 -->
+<percentage.details>
+  <percentage.qualifier is="1">Allowance</percentage.qualifier>
+  <percentage>40</percentage>
+</percentage.details>
+<!-- *** TDT+20++++:::KNO-KV -->
+<details.of.transport>
+  <transport.stage.qualifier is="20">Main-carriage transport</transport.stage.qualifier>
+  <carrier.name>KNO-KV</carrier.name>
+</details.of.transport>
+<!-- *** UNS+S -->
+<section.control>
+  <section.identification is="S">
+  Detail/summary section separation
+  </section.identification>
+</section.control>
+<!-- *** MOA+86:73.8 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="86">Message total monetary amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>73.8</monetary.amount.literal>
+</monetary.amount>
+<!-- *** MOA+125:68.97 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="125">Taxable amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>68.97</monetary.amount.literal>
+</monetary.amount>
+<!-- *** MOA+9:73.80 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="9">
+  Amount due/amount payable
+  </monetary.amount.type.qualifier>
+  <monetary.amount.literal>73.80</monetary.amount.literal>
+</monetary.amount>
+<!-- *** TAX+7+VAT+++:::7 -->
+<duty.tax.fee.details>
+  <duty.tax.fee.function.qualifier is="7">Tax</duty.tax.fee.function.qualifier>
+  <duty.tax.fee.type.coded is="VAT">Value added tax</duty.tax.fee.type.coded>
+  <duty.tax.fee.rate>7</duty.tax.fee.rate>
+</duty.tax.fee.details>
+<!-- *** MOA+176:4.83 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="176">
+  Message total duty/tax/fee amount
+  </monetary.amount.type.qualifier>
+  <monetary.amount.literal>4.83</monetary.amount.literal>
+</monetary.amount>
+<!-- *** UNT+33+0000020001 -->
+<message.trailer>
+  <number.of.segments.in.the.message>33</number.of.segments.in.the.message>
+  <message.reference.number>0000020001</message.reference.number>
+</message.trailer>
+<!-- *** UNZ+1+4 -->
+<interchange.trailer>
+  <interchange.control.count>1</interchange.control.count>
+  <interchange.control.reference>4</interchange.control.reference>
+</interchange.trailer>
+</edicooked>

@@ -1,0 +1,1329 @@
+<!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
+
+	<?xml version="1.0"?>
+	<!DOCTYPE edicooked SYSTEM "edicooked02.dtd">
+
+<edicooked>
+<!-- *** UNB+UNOC:2+STUB+BLA+960209:0843+72 -->
+<interchange.header>
+  <syntax.identifier is="UNOC">
+  UN/ECE level C
+  </syntax.identifier>
+  <syntax.version.number>2</syntax.version.number>
+  <sender.identification>STUB</sender.identification>
+  <recipient.identification>BLA</recipient.identification>
+  <date>960209</date>
+  <time>0843</time>
+  <interchange.control.reference>72</interchange.control.reference>
+</interchange.header>
+<!-- *** UNH+0000090001+ORDERS:D:93A:UN:EAN007 -->
+<message.header>
+  <message.reference.number>0000090001</message.reference.number>
+  <message.type is="ORDERS">Purchase order message</message.type>
+  <message.version.number>D</message.version.number>
+  <message.release.number>93A</message.release.number>
+  <controlling.agency is="UN">
+  UN/ECE/TRADE/WP.4
+  </controlling.agency>
+  <association.assigned.code is="EAN007"/>
+</message.header>
+<!-- *** BGM+220+B00404 -->
+<beginning.of.message>
+  <document.message.name.coded is="220">Order</document.message.name.coded>
+  <document.message.number>B00404</document.message.number>
+</beginning.of.message>
+<!-- *** DTM+137:19960209:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="137">
+  Document/message date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960209</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** NAD+BY+++STADT- UND UNIVERSITAETSBIBLIOTHEK:FRANKFURT+BOCKENHEIMER LANDSTR. 134-138+FRANKFURT+++DE -->
+<name.and.address>
+  <party.qualifier is="BY">Buyer</party.qualifier>
+  <party.name.literal>STADT- UND UNIVERSITAETSBIBLIOTHEK</party.name.literal>
+  <party.name.literal>FRANKFURT</party.name.literal>
+  <street.and.number.p.o.box>BOCKENHEIMER LANDSTR. 134-138</street.and.number.p.o.box>
+  <city.name>FRANKFURT</city.name>
+  <country.coded>DE</country.coded>
+</name.and.address>
+<!-- *** RFF+API:DE114110388 -->
+<reference>
+  <reference.qualifier is="API"/>
+  <reference.number>DE114110388</reference.number>
+</reference>
+<!-- *** RFF+IT:STUB -->
+<reference>
+  <reference.qualifier is="IT">Internal customer number</reference.qualifier>
+  <reference.number>STUB</reference.number>
+</reference>
+<!-- *** NAD+SU+++B.H.BLACKWELL -->
+<name.and.address>
+  <party.qualifier is="SU">Supplier</party.qualifier>
+  <party.name.literal>B.H.BLACKWELL</party.name.literal>
+</name.and.address>
+<!-- *** CUX+2:GBP:9 -->
+<currencies>
+  <currency.details.qualifier is="2">Reference currency</currency.details.qualifier>
+  <currency.coded>GBP</currency.coded>
+  <currency.qualifier is="9">Order currency</currency.qualifier>
+</currencies>
+<!-- *** LIN+1 -->
+<line.item>
+  <line.item.number>1</line.item.number>
+</line.item>
+<!-- *** PIA+5+0471949086:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0471949086</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRQ+YYY:37.5:CA:SRP -->
+<!-- *** PRQ	1	YYY:37.5:CA:SRP -->
+<!-- *** RFF+QNB:00023302:10 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>10</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8216 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8216</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.41 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.41</reference.number>
+</reference>
+<!-- *** LIN+2 -->
+<line.item>
+  <line.item.number>2</line.item.number>
+</line.item>
+<!-- *** PIA+5+0471949000:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0471949000</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** IMD+F+010+:::Cherry -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="010"/>
+  <item.description.literal>Cherry</item.description.literal>
+</item.description>
+<!-- *** IMD+F+011+:::Gordon E -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="011"/>
+  <item.description.literal>Gordon E</item.description.literal>
+</item.description>
+<!-- *** IMD+F+050+:::Birmingham -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="050"/>
+  <item.description.literal>Birmingham</item.description.literal>
+</item.description>
+<!-- *** IMD+F+060+:::a study in geography, hislanning -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="060"/>
+  <item.description.literal>a study in geography, hislanning</item.description.literal>
+</item.description>
+<!-- *** IMD+F+110+:::Chichester -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="110"/>
+  <item.description.literal>Chichester</item.description.literal>
+</item.description>
+<!-- *** IMD+F+120+:::Wiley(John)(W Sussex) -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="120"/>
+  <item.description.literal>Wiley(John)(W Sussex)</item.description.literal>
+</item.description>
+<!-- *** IMD+F+170+:::1994 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="170"/>
+  <item.description.literal>1994</item.description.literal>
+</item.description>
+<!-- *** IMD+F+180+:::254p -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="180"/>
+  <item.description.literal>254p</item.description.literal>
+</item.description>
+<!-- *** IMD+F+181+:::?: ill ; 24cm. - Bibl.?: P.237-244. -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="181"/>
+  <item.description.literal>: ill ; 24cm. - Bibl.: P.237-244.</item.description.literal>
+</item.description>
+<!-- *** IMD+F+270+:::39100200?:Urban studies -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="270"/>
+  <item.description.literal>39100200:Urban studies</item.description.literal>
+</item.description>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:37.5:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>37.5</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:9 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>9</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8217 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8217</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.39 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.39</reference.number>
+</reference>
+<!-- *** LIN+3 -->
+<line.item>
+  <line.item.number>3</line.item.number>
+</line.item>
+<!-- *** PIA+5+0471957542:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0471957542</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:45:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>45</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:11 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>11</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8218 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8218</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.41 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.41</reference.number>
+</reference>
+<!-- *** LIN+4 -->
+<line.item>
+  <line.item.number>4</line.item.number>
+</line.item>
+<!-- *** PIA+5+0521435145:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0521435145</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:65:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>65</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:13 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>13</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8220 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8220</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.07 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.07</reference.number>
+</reference>
+<!-- *** LIN+5 -->
+<line.item>
+  <line.item.number>5</line.item.number>
+</line.item>
+<!-- *** PIA+5+0077090632:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0077090632</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** IMD+F+010+:::Wenlock -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="010"/>
+  <item.description.literal>Wenlock</item.description.literal>
+</item.description>
+<!-- *** IMD+F+011+:::Alison -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="011"/>
+  <item.description.literal>Alison</item.description.literal>
+</item.description>
+<!-- *** IMD+F+050+:::The AS/400 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="050"/>
+  <item.description.literal>
+  The AS/400
+  </item.description.literal>
+</item.description>
+<!-- *** IMD+F+060+:::built for business -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="060"/>
+  <item.description.literal>built for business</item.description.literal>
+</item.description>
+<!-- *** IMD+F+110+:::London -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="110"/>
+  <item.description.literal>London</item.description.literal>
+</item.description>
+<!-- *** IMD+F+120+:::McGraw-Hill Book Co in Europe -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="120"/>
+  <item.description.literal>McGraw-Hill Book Co in Europe</item.description.literal>
+</item.description>
+<!-- *** IMD+F+170+:::1995 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="170"/>
+  <item.description.literal>1995</item.description.literal>
+</item.description>
+<!-- *** IMD+F+180+:::134p -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="180"/>
+  <item.description.literal>134p</item.description.literal>
+</item.description>
+<!-- *** IMD+F+181+:::; 25cm. - Index -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="181"/>
+  <item.description.literal>; 25cm. - Index</item.description.literal>
+</item.description>
+<!-- *** IMD+F+190+:::The IBM McGraw-Hill series -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="190"/>
+  <item.description.literal>The IBM McGraw-Hill series</item.description.literal>
+</item.description>
+<!-- *** IMD+F+270+:::61100200?:Computers -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="270"/>
+  <item.description.literal>61100200:Computers</item.description.literal>
+</item.description>
+<!-- *** IMD+F+300+:::1st Series Id?:E1678043 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="300"/>
+  <item.description.literal>1st Series Id:E1678043</item.description.literal>
+</item.description>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:24.95:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>24.95</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:1 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>1</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8221 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8221</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.41 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.41</reference.number>
+</reference>
+<!-- *** LIN+6 -->
+<line.item>
+  <line.item.number>6</line.item.number>
+</line.item>
+<!-- *** PIA+5+0521474620:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0521474620</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:65:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>65</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:14 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>14</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8222 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8222</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.41 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.41</reference.number>
+</reference>
+<!-- *** LIN+7 -->
+<line.item>
+  <line.item.number>7</line.item.number>
+</line.item>
+<!-- *** PIA+5+0133361993:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0133361993</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** IMD+F+010+:::Shepperd -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="010"/>
+  <item.description.literal>Shepperd</item.description.literal>
+</item.description>
+<!-- *** IMD+F+011+:::Martin -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="011"/>
+  <item.description.literal>Martin</item.description.literal>
+</item.description>
+<!-- *** IMD+F+050+:::Foundations of software measurement -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="050"/>
+  <item.description.literal>Foundations of software measurement</item.description.literal>
+</item.description>
+<!-- *** IMD+F+110+:::Hemel Hempstead -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="110"/>
+  <item.description.literal>Hemel Hempstead</item.description.literal>
+</item.description>
+<!-- *** IMD+F+120+:::Prentice-Hall Interl Inc -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="120"/>
+  <item.description.literal>Prentice-Hall Interl Inc</item.description.literal>
+</item.description>
+<!-- *** IMD+F+170+:::1995 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="170"/>
+  <item.description.literal>1995</item.description.literal>
+</item.description>
+<!-- *** IMD+F+180+:::234p -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="180"/>
+  <item.description.literal>234p</item.description.literal>
+</item.description>
+<!-- *** IMD+F+181+:::; 24cm. - Bibls. - Index -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="181"/>
+  <item.description.literal>; 24cm. - Bibls. - Index</item.description.literal>
+</item.description>
+<!-- *** IMD+F+270+:::61305050?:Software engineering -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="270"/>
+  <item.description.literal>61305050:Software engineering</item.description.literal>
+</item.description>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:19.95:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>19.95</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:3 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>3</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8224 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8224</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.13 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.13</reference.number>
+</reference>
+<!-- *** LIN+8 -->
+<line.item>
+  <line.item.number>8</line.item.number>
+</line.item>
+<!-- *** PIA+5+0198549512:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0198549512</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** IMD+F+010+:::Evans -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="010"/>
+  <item.description.literal>Evans</item.description.literal>
+</item.description>
+<!-- *** IMD+F+011+:::Julian -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="011"/>
+  <item.description.literal>Julian</item.description.literal>
+</item.description>
+<!-- *** IMD+F+050+:::A wood of our own -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="050"/>
+  <item.description.literal>A wood of our own</item.description.literal>
+</item.description>
+<!-- *** IMD+F+110+:::Oxford -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="110"/>
+  <item.description.literal>Oxford</item.description.literal>
+</item.description>
+<!-- *** IMD+F+120+:::Oxford University Press -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="120"/>
+  <item.description.literal>Oxford University Press</item.description.literal>
+</item.description>
+<!-- *** IMD+F+170+:::1995 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="170"/>
+  <item.description.literal>1995</item.description.literal>
+</item.description>
+<!-- *** IMD+F+180+:::158p -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="180"/>
+  <item.description.literal>158p</item.description.literal>
+</item.description>
+<!-- *** IMD+F+181+:::?: ill ; 25cm -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="181"/>
+  <item.description.literal>: ill ; 25cm</item.description.literal>
+</item.description>
+<!-- *** IMD+F+270+:::76020000?:Forestry -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="270"/>
+  <item.description.literal>76020000:Forestry</item.description.literal>
+</item.description>
+<!-- *** IMD+F+300+:::Note?:Julian Evans ; with illustrati:ions by John White and Stephen Evan -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="300"/>
+  <item.description.literal>Note:Julian Evans ; with illustrati</item.description.literal>
+  <item.description.literal>ions by John White and Stephen Evan</item.description.literal>
+</item.description>
+<!-- *** IMD+F+300+:::s -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="300"/>
+  <item.description.literal>s</item.description.literal>
+</item.description>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:17.99:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>17.99</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:4 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>4</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8225 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8225</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.23 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.23</reference.number>
+</reference>
+<!-- *** LIN+9 -->
+<line.item>
+  <line.item.number>9</line.item.number>
+</line.item>
+<!-- *** PIA+5+0333628896:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0333628896</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** IMD+F+010+:::Barraclough -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="010"/>
+  <item.description.literal>Barraclough</item.description.literal>
+</item.description>
+<!-- *** IMD+F+011+:::Solon L -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="011"/>
+  <item.description.literal>Solon L</item.description.literal>
+</item.description>
+<!-- *** IMD+F+050+:::Forests and livelihoods -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="050"/>
+  <item.description.literal>Forests and livelihoods</item.description.literal>
+</item.description>
+<!-- *** IMD+F+060+:::the social dynamics of den in devel:oping countries -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="060"/>
+  <item.description.literal>the social dynamics of den in devel</item.description.literal>
+  <item.description.literal>oping countries</item.description.literal>
+</item.description>
+<!-- *** IMD+F+110+:::London -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="110"/>
+  <item.description.literal>London</item.description.literal>
+</item.description>
+<!-- *** IMD+F+120+:::Macmillan Publishers -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="120"/>
+  <item.description.literal>Macmillan Publishers</item.description.literal>
+</item.description>
+<!-- *** IMD+F+170+:::1995 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="170"/>
+  <item.description.literal>1995</item.description.literal>
+</item.description>
+<!-- *** IMD+F+180+:::259p -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="180"/>
+  <item.description.literal>259p</item.description.literal>
+</item.description>
+<!-- *** IMD+F+181+:::; 23cm. - Bibl.?: p.245-253. - Inde -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="181"/>
+  <item.description.literal>; 23cm. - Bibl.: p.245-253. - Inde</item.description.literal>
+</item.description>
+<!-- *** IMD+F+270+:::76302500?:Tropical forests -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="270"/>
+  <item.description.literal>76302500:Tropical forests</item.description.literal>
+</item.description>
+<!-- *** IMD+F+300+:::Note?:by Solon L. Barraclough and Kr:rishna B. Ghimire -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="300"/>
+  <item.description.literal>Note:by Solon L. Barraclough and Kr</item.description.literal>
+  <item.description.literal>rishna B. Ghimire</item.description.literal>
+</item.description>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:45:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>45</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:6 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>6</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8227 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8227</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.23 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.23</reference.number>
+</reference>
+<!-- *** LIN+10 -->
+<line.item>
+  <line.item.number>10</line.item.number>
+</line.item>
+<!-- *** PIA+5+0333645545:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0333645545</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** IMD+F+010+:::Tyrrell -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="010"/>
+  <item.description.literal>Tyrrell</item.description.literal>
+</item.description>
+<!-- *** IMD+F+011+:::A J -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="011"/>
+  <item.description.literal>A J</item.description.literal>
+</item.description>
+<!-- *** IMD+F+050+:::Eiffel object-oriented programming -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="050"/>
+  <item.description.literal>Eiffel object-oriented programming</item.description.literal>
+</item.description>
+<!-- *** IMD+F+110+:::London -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="110"/>
+  <item.description.literal>London</item.description.literal>
+</item.description>
+<!-- *** IMD+F+120+:::Macmillan Publishers -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="120"/>
+  <item.description.literal>Macmillan Publishers</item.description.literal>
+</item.description>
+<!-- *** IMD+F+170+:::1995 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="170"/>
+  <item.description.literal>1995</item.description.literal>
+</item.description>
+<!-- *** IMD+F+180+:::283p -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="180"/>
+  <item.description.literal>283p</item.description.literal>
+</item.description>
+<!-- *** IMD+F+181+:::; 24cm. - Bibl.?: p.281. - Index -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="181"/>
+  <item.description.literal>; 24cm. - Bibl.: p.281. - Index</item.description.literal>
+</item.description>
+<!-- *** IMD+F+190+:::Macmillan computer science series -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="190"/>
+  <item.description.literal>Macmillan computer science series</item.description.literal>
+</item.description>
+<!-- *** IMD+F+270+:::61305015?:Object-oriented programmin:g -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="270"/>
+  <item.description.literal>61305015:Object-oriented programmin</item.description.literal>
+  <item.description.literal>g</item.description.literal>
+</item.description>
+<!-- *** IMD+F+300+:::1st Series Id?:E1108662 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="300"/>
+  <item.description.literal>1st Series Id:E1108662</item.description.literal>
+</item.description>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:16.99:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>16.99</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:7 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>7</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8228 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8228</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.13 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.13</reference.number>
+</reference>
+<!-- *** UNS+S -->
+<section.control>
+  <section.identification is="S">
+  Detail/summary section separation
+  </section.identification>
+</section.control>
+<!-- *** CNT+2:10 -->
+<control.total>
+  <control.qualifier is="2">Number of line items in message</control.qualifier>
+  <control.value>10</control.value>
+</control.total>
+<!-- *** UNT+165+0000090001 -->
+<message.trailer>
+  <number.of.segments.in.the.message>165</number.of.segments.in.the.message>
+  <message.reference.number>0000090001</message.reference.number>
+</message.trailer>
+<!-- *** UNH+0000170001+ORDERS:D:93A:UN:EAN007 -->
+<message.header>
+  <message.reference.number>0000170001</message.reference.number>
+  <message.type is="ORDERS">Purchase order message</message.type>
+  <message.version.number>D</message.version.number>
+  <message.release.number>93A</message.release.number>
+  <controlling.agency is="UN">
+  UN/ECE/TRADE/WP.4
+  </controlling.agency>
+  <association.assigned.code is="EAN007"/>
+</message.header>
+<!-- *** BGM+224+B00405 -->
+<beginning.of.message>
+  <document.message.name.coded is="224">Rush order</document.message.name.coded>
+  <document.message.number>B00405</document.message.number>
+</beginning.of.message>
+<!-- *** DTM+137:19960209:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="137">
+  Document/message date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960209</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** NAD+BY+++STADT- UND UNIVERSITAETSBIBLIOTHEK:FRANKFURT+BOCKENHEIMER LANDSTR. 134-138+FRANKFURT+++DE -->
+<name.and.address>
+  <party.qualifier is="BY">Buyer</party.qualifier>
+  <party.name.literal>STADT- UND UNIVERSITAETSBIBLIOTHEK</party.name.literal>
+  <party.name.literal>FRANKFURT</party.name.literal>
+  <street.and.number.p.o.box>BOCKENHEIMER LANDSTR. 134-138</street.and.number.p.o.box>
+  <city.name>FRANKFURT</city.name>
+  <country.coded>DE</country.coded>
+</name.and.address>
+<!-- *** RFF+API:DE114110388 -->
+<reference>
+  <reference.qualifier is="API"/>
+  <reference.number>DE114110388</reference.number>
+</reference>
+<!-- *** RFF+IT:STUB -->
+<reference>
+  <reference.qualifier is="IT">Internal customer number</reference.qualifier>
+  <reference.number>STUB</reference.number>
+</reference>
+<!-- *** NAD+SU+++B.H.BLACKWELL -->
+<name.and.address>
+  <party.qualifier is="SU">Supplier</party.qualifier>
+  <party.name.literal>B.H.BLACKWELL</party.name.literal>
+</name.and.address>
+<!-- *** CUX+2:GBP:9 -->
+<currencies>
+  <currency.details.qualifier is="2">Reference currency</currency.details.qualifier>
+  <currency.coded>GBP</currency.coded>
+  <currency.qualifier is="9">Order currency</currency.qualifier>
+</currencies>
+<!-- *** LIN+1 -->
+<line.item>
+  <line.item.number>1</line.item.number>
+</line.item>
+<!-- *** PIA+5+0471960047:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0471960047</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDILIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDILIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:40:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>40</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:12 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>12</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8219 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8219</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.E.631 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.E.631</reference.number>
+</reference>
+<!-- *** LIN+2 -->
+<line.item>
+  <line.item.number>2</line.item.number>
+</line.item>
+<!-- *** PIA+5+0126487200:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0126487200</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** IMD+F+050+:::The Multimedia dictionary -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="050"/>
+  <item.description.literal>The Multimedia dictionary</item.description.literal>
+</item.description>
+<!-- *** IMD+F+110+:::London -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="110"/>
+  <item.description.literal>London</item.description.literal>
+</item.description>
+<!-- *** IMD+F+120+:::Academic Press -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="120"/>
+  <item.description.literal>Academic Press</item.description.literal>
+</item.description>
+<!-- *** IMD+F+170+:::1995 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="170"/>
+  <item.description.literal>1995</item.description.literal>
+</item.description>
+<!-- *** IMD+F+180+:::351p -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="180"/>
+  <item.description.literal>351p</item.description.literal>
+</item.description>
+<!-- *** IMD+F+181+:::; ; 23cm -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="181"/>
+  <item.description.literal>; ; 23cm</item.description.literal>
+</item.description>
+<!-- *** IMD+F+270+:::61756500?:Multi-media applications -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="270"/>
+  <item.description.literal>61756500:Multi-media applications</item.description.literal>
+</item.description>
+<!-- *** IMD+F+300+:::Note?:edited by H. Sleurink -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="300"/>
+  <item.description.literal>Note:edited by H. Sleurink</item.description.literal>
+</item.description>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDLIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDLIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:19.95:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>19.95</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:2 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>2</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8223 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8223</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.13 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.13</reference.number>
+</reference>
+<!-- *** LIN+3 -->
+<line.item>
+  <line.item.number>3</line.item.number>
+</line.item>
+<!-- *** PIA+5+0333556453:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>0333556453</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+<!-- *** IMD+F+010+:::Medema -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="010"/>
+  <item.description.literal>Medema</item.description.literal>
+</item.description>
+<!-- *** IMD+F+011+:::Steven G -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="011"/>
+  <item.description.literal>Steven G</item.description.literal>
+</item.description>
+<!-- *** IMD+F+050+:::Ronald H. Coase -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="050"/>
+  <item.description.literal>Ronald H. Coase</item.description.literal>
+</item.description>
+<!-- *** IMD+F+110+:::London -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="110"/>
+  <item.description.literal>London</item.description.literal>
+</item.description>
+<!-- *** IMD+F+120+:::Macmillan Publishers -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="120"/>
+  <item.description.literal>Macmillan Publishers</item.description.literal>
+</item.description>
+<!-- *** IMD+F+170+:::1994 -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="170"/>
+  <item.description.literal>1994</item.description.literal>
+</item.description>
+<!-- *** IMD+F+180+:::205p -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="180"/>
+  <item.description.literal>205p</item.description.literal>
+</item.description>
+<!-- *** IMD+F+181+:::; 23cm. - Bibl.?: p.192-203. - Inde -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="181"/>
+  <item.description.literal>; 23cm. - Bibl.: p.192-203. - Inde</item.description.literal>
+</item.description>
+<!-- *** IMD+F+270+:::27651202?:Economic analysis/theory -->
+<item.description>
+  <item.description.type.coded is="F">Free-form</item.description.type.coded>
+  <item.characteristic.coded is="270"/>
+  <item.description.literal>
+  27651202:Economic analysis/theory
+  </item.description.literal>
+</item.description>
+<!-- *** QTY+21:1 -->
+<quantity>
+  <quantity.qualifier is="21">Ordered quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** FTX+ACB+3++TEST EDLIBE -->
+<free.text>
+  <text.subject.qualifier is="ACB">Additional information</text.subject.qualifier>
+  <text.function.coded is="3">Text for immediate use</text.function.coded>
+  <free.text.literal>TEST EDLIBE</free.text.literal>
+</free.text>
+<!-- *** PRI+YYY:40:CA:SRP -->
+<price.details>
+  <price.qualifier is="YYY"/>
+  <price>40</price>
+  <price.type.coded is="CA">Catalogue</price.type.coded>
+  <price.type.qualifier is="SRP">Suggested retail price</price.type.qualifier>
+</price.details>
+<!-- *** RFF+QNB:00023302:5 -->
+<reference>
+  <reference.qualifier is="QNB"/>
+  <reference.number>00023302</reference.number>
+  <line.number>5</line.number>
+</reference>
+<!-- *** DTM+171:19960208:102 -->
+<date.time.period>
+  <date.time.period.qualifier is="171">
+  Reference date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19960208</date.time.period.literal>
+  <date.time.period.format.qualifier is="102">CCYYMMDD</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** RFF+LI:8226 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>8226</reference.number>
+</reference>
+<!-- *** RFF+BFN:S.KON.07 -->
+<reference>
+  <reference.qualifier is="BFN"/>
+  <reference.number>S.KON.07</reference.number>
+</reference>
+<!-- *** UNS+S -->
+<section.control>
+  <section.identification is="S">
+  Detail/summary section separation
+  </section.identification>
+</section.control>
+<!-- *** CNT+2:3 -->
+<control.total>
+  <control.qualifier is="2">Number of line items in message</control.qualifier>
+  <control.value>3</control.value>
+</control.total>
+<!-- *** UNT+55+0000170001 -->
+<message.trailer>
+  <number.of.segments.in.the.message>55</number.of.segments.in.the.message>
+  <message.reference.number>0000170001</message.reference.number>
+</message.trailer>
+<!-- *** UNZ+2+72 -->
+<interchange.trailer>
+  <interchange.control.count>2</interchange.control.count>
+  <interchange.control.reference>72</interchange.control.reference>
+</interchange.trailer>
+</edicooked>

@@ -1,0 +1,629 @@
+<!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
+
+	<?xml version="1.0"?>
+	<!DOCTYPE edicooked SYSTEM "edicooked02.dtd">
+
+<edicooked>
+<!-- *** UNB+UNOA:2+D__01RFN011+RFN020+980904:1616+EVA/0000003 -->
+<interchange.header>
+  <syntax.identifier is="UNOA">
+  UN/ECE level A
+  </syntax.identifier>
+  <syntax.version.number>2</syntax.version.number>
+  <sender.identification>D--01RFN011</sender.identification>
+  <recipient.identification>RFN020</recipient.identification>
+  <date>980904</date>
+  <time>1616</time>
+  <interchange.control.reference>
+  EVA/0000003
+  </interchange.control.reference>
+</interchange.header>
+<!-- *** UNH+EVA0000001+INVOIC:D:95A:UN:ETEIB -->
+<message.header>
+  <message.reference.number>EVA0000001</message.reference.number>
+  <message.type is="INVOIC">Invoice message</message.type>
+  <message.version.number>D</message.version.number>
+  <message.release.number>95A</message.release.number>
+  <controlling.agency is="UN">
+  UN/ECE/TRADE/WP.4
+  </controlling.agency>
+  <association.assigned.code is="ETEIB"/>
+</message.header>
+<!-- *** BGM+130+D__01/4300900020+9 -->
+<beginning.of.message>
+  <document.message.name.coded is="130">Invoicing data sheet</document.message.name.coded>
+  <document.message.number>
+  D--01/4300900020
+  </document.message.number>
+  <message.function.coded is="9">Original</message.function.coded>
+</beginning.of.message>
+<!-- *** DTM+3:19981125 -->
+<date.time.period>
+  <date.time.period.qualifier is="3">
+  Invoice date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19981125</date.time.period.literal>
+</date.time.period>
+<!-- *** DTM+263:9811:609 -->
+<date.time.period>
+  <date.time.period.qualifier is="263">Invoicing period</date.time.period.qualifier>
+  <date.time.period.literal>9811</date.time.period.literal>
+  <date.time.period.format.qualifier is="609">YYMM</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** NAD+II+++WUERZBURG+POSTFACH 10 00+WUERZBURG++97067+DE -->
+<name.and.address>
+  <party.qualifier is="II">Issuer of invoice</party.qualifier>
+  <party.name.literal>WUERZBURG</party.name.literal>
+  <street.and.number.p.o.box>POSTFACH 10 00</street.and.number.p.o.box>
+  <city.name>WUERZBURG</city.name>
+  <postcode.identification>97067</postcode.identification>
+  <country.coded>DE</country.coded>
+</name.and.address>
+<!-- *** CTA+IC -->
+<contact.information>
+  <contact.function.coded is="IC">Information contact</contact.function.coded>
+</contact.information>
+<!-- *** COM+0800 33 01094:TE -->
+<communication.contact>
+  <communication.number>0800 33 01094</communication.number>
+  <communication.channel.qualifier is="TE">Telephone</communication.channel.qualifier>
+</communication.contact>
+<!-- *** COM+(0931) 33-2309:FX -->
+<communication.contact>
+  <communication.number>(0931) 33-2309</communication.number>
+  <communication.channel.qualifier is="FX">Telefax</communication.channel.qualifier>
+</communication.contact>
+<!-- *** NAD+IV++381 4. DEB. 4300900020:::ABNAHMESTR. 11:00739 BERLIN -->
+<name.and.address>
+  <party.qualifier is="IV">Invoicee</party.qualifier>
+  <name.and.address.line>381 4. DEB. 4300900020</name.and.address.line>
+  <name.and.address.line>ABNAHMESTR. 11</name.and.address.line>
+  <name.and.address.line>00739 BERLIN</name.and.address.line>
+</name.and.address>
+<!-- *** CUX+1:DEM -->
+<currencies>
+  <currency.details.qualifier is="1">Charge payment currency</currency.details.qualifier>
+  <currency.coded>DEM</currency.coded>
+</currencies>
+<!-- *** LIN+1++781120020007/781120020052:I33:DT6:DTC++0 -->
+<line.item>
+  <line.item.number>1</line.item.number>
+  <item.number>
+  781120020007/781120020052
+  </item.number>
+  <item.number.type.coded is="I33"/>
+  <code.list.qualifier is="DT6"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <configuration.level>0</configuration.level>
+</line.item>
+<!-- *** LIN+2+++1:1+1 -->
+<line.item>
+  <line.item.number>2</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+R999+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>R999</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:2.086 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>2.086</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+030557000:::R999 02050 FKTO 7 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>030557000</place.location.identification.literal>
+  <place.location>R999 02050 FKTO 7</place.location>
+</place.location.identification>
+<!-- *** QTY+107:20:PCE -->
+<quantity>
+  <quantity.qualifier is="107">Chargeable number of units</quantity.qualifier>
+  <quantity.literal>20</quantity.literal>
+  <measure.unit.qualifier>PCE</measure.unit.qualifier>
+</quantity>
+<!-- *** DTM+163:19980617120200:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19980617120200</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+3+++1:1+1 -->
+<line.item>
+  <line.item.number>3</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+W998+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>W998</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:3.129 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>3.129</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+030558000:::W998 02050 FKTO 7 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>030558000</place.location.identification.literal>
+  <place.location>W998 02050 FKTO 7</place.location>
+</place.location.identification>
+<!-- *** QTY+107:30:PCE -->
+<quantity>
+  <quantity.qualifier is="107">Chargeable number of units</quantity.qualifier>
+  <quantity.literal>30</quantity.literal>
+  <measure.unit.qualifier>PCE</measure.unit.qualifier>
+</quantity>
+<!-- *** DTM+163:19980618120300:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19980618120300</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+4+++1:1+1 -->
+<line.item>
+  <line.item.number>4</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+W999+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>W999</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:4.172 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>4.172</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+030559000:::W999 02050 FKTO 7 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>030559000</place.location.identification.literal>
+  <place.location>W999 02050 FKTO 7</place.location>
+</place.location.identification>
+<!-- *** QTY+107:40:PCE -->
+<quantity>
+  <quantity.qualifier is="107">Chargeable number of units</quantity.qualifier>
+  <quantity.literal>40</quantity.literal>
+  <measure.unit.qualifier>PCE</measure.unit.qualifier>
+</quantity>
+<!-- *** DTM+163:19980619120400:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19980619120400</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+5+++1:1+1 -->
+<line.item>
+  <line.item.number>5</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+B024+S -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>B024</item.number>
+  <item.number>S</item.number>
+</additional.product.id>
+<!-- *** MOA+203:5.215 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>5.215</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+030560000:::B024 02050 FKTO 7 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>030560000</place.location.identification.literal>
+  <place.location>B024 02050 FKTO 7</place.location>
+</place.location.identification>
+<!-- *** QTY+107:50:PCE -->
+<quantity>
+  <quantity.qualifier is="107">Chargeable number of units</quantity.qualifier>
+  <quantity.literal>50</quantity.literal>
+  <measure.unit.qualifier>PCE</measure.unit.qualifier>
+</quantity>
+<!-- *** DTM+163:19980620120500:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19980620120500</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+6+++1:1+1 -->
+<line.item>
+  <line.item.number>6</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+N001+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>N001</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:1.043 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>1.043</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+030556000:::N001 02050 FKTO 7 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>030556000</place.location.identification.literal>
+  <place.location>N001 02050 FKTO 7</place.location>
+</place.location.identification>
+<!-- *** QTY+107:10:PCE -->
+<quantity>
+  <quantity.qualifier is="107">Chargeable number of units</quantity.qualifier>
+  <quantity.literal>10</quantity.literal>
+  <measure.unit.qualifier>PCE</measure.unit.qualifier>
+</quantity>
+<!-- *** DTM+163:19981112120100:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19981112120100</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+7+++1:1+1 -->
+<line.item>
+  <line.item.number>7</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+R999+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>R999</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:11.5773 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>11.5773</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+05555038699903024999:::R999 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>05555038699903024999</place.location.identification.literal>
+  <place.location>R999</place.location>
+</place.location.identification>
+<!-- *** QTY+107:111:PCE -->
+<quantity>
+  <quantity.qualifier is="107">Chargeable number of units</quantity.qualifier>
+  <quantity.literal>111</quantity.literal>
+  <measure.unit.qualifier>PCE</measure.unit.qualifier>
+</quantity>
+<!-- *** DTM+163:19981115120600:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19981115120600</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+8+++1:1+1 -->
+<line.item>
+  <line.item.number>8</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+R999+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>R999</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:20.86 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>20.86</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+05555038699903024999:::R999 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>05555038699903024999</place.location.identification.literal>
+  <place.location>R999</place.location>
+</place.location.identification>
+<!-- *** QTY+107:200:PCE -->
+<quantity>
+  <quantity.qualifier is="107">Chargeable number of units</quantity.qualifier>
+  <quantity.literal>200</quantity.literal>
+  <measure.unit.qualifier>PCE</measure.unit.qualifier>
+</quantity>
+<!-- *** DTM+163:19981115120700:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19981115120700</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+9+++1:1+1 -->
+<line.item>
+  <line.item.number>9</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+R999+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>R999</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:34.7319 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>34.7319</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+05555038699903024999:::R999 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>05555038699903024999</place.location.identification.literal>
+  <place.location>R999</place.location>
+</place.location.identification>
+<!-- *** QTY+107:333:PCE -->
+<quantity>
+  <quantity.qualifier is="107">Chargeable number of units</quantity.qualifier>
+  <quantity.literal>333</quantity.literal>
+  <measure.unit.qualifier>PCE</measure.unit.qualifier>
+</quantity>
+<!-- *** DTM+163:19981115120800:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19981115120800</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+10+++1:1+1 -->
+<line.item>
+  <line.item.number>10</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+R999+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>R999</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:0.1517 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>0.1517</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+05555038699967636999:::R999 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>05555038699967636999</place.location.identification.literal>
+  <place.location>R999</place.location>
+</place.location.identification>
+<!-- *** DTM+163:19981117120900:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19981117120900</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+11+++1:1+1 -->
+<line.item>
+  <line.item.number>11</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+R999+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>R999</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:0.0759 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>0.0759</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+05555038699967636999:::R999 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>05555038699967636999</place.location.identification.literal>
+  <place.location>R999</place.location>
+</place.location.identification>
+<!-- *** DTM+163:19981117121000:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19981117121000</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+12+++1:1+1 -->
+<line.item>
+  <line.item.number>12</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+R999+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>R999</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:0.0759 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>0.0759</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+05555038699967636999:::R999 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>05555038699967636999</place.location.identification.literal>
+  <place.location>R999</place.location>
+</place.location.identification>
+<!-- *** DTM+163:19981117121100:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19981117121100</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** LIN+13+++1:1+1 -->
+<line.item>
+  <line.item.number>13</line.item.number>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** PIA+1+R999+N -->
+<additional.product.id>
+  <product.id.function.qualifier is="1">Additional identification</product.id.function.qualifier>
+  <item.number>R999</item.number>
+  <item.number>N</item.number>
+</additional.product.id>
+<!-- *** MOA+203:0.0379 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="203">Line item amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>0.0379</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LOC+1+05555038699967636999:::R999 -->
+<place.location.identification>
+  <place.location.qualifier is="1">Place of terms of delivery</place.location.qualifier>
+  <place.location.identification.literal>05555038699967636999</place.location.identification.literal>
+  <place.location>R999</place.location>
+</place.location.identification>
+<!-- *** DTM+163:19981117121200:204 -->
+<date.time.period>
+  <date.time.period.qualifier is="163">
+  Processing start date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19981117121200</date.time.period.literal>
+  <date.time.period.format.qualifier is="204">CCYYMMDDHHMMSS</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** DTM+48:123:807 -->
+<date.time.period>
+  <date.time.period.qualifier is="48">Duration</date.time.period.qualifier>
+  <date.time.period.literal>123</date.time.period.literal>
+  <date.time.period.format.qualifier is="807">Second</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** UNS+S -->
+<section.control>
+  <section.identification is="S">
+  Detail/summary section separation
+  </section.identification>
+</section.control>
+<!-- *** MOA+79:83.1556 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="79">Total line items amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>83.1556</monetary.amount.literal>
+</monetary.amount>
+<!-- *** UNT+94+EVA0000001 -->
+<message.trailer>
+  <number.of.segments.in.the.message>94</number.of.segments.in.the.message>
+  <message.reference.number>EVA0000001</message.reference.number>
+</message.trailer>
+<!-- *** UNZ+1+EVA/0000003 -->
+<interchange.trailer>
+  <interchange.control.count>1</interchange.control.count>
+  <interchange.control.reference>
+  EVA/0000003
+  </interchange.control.reference>
+</interchange.trailer>
+<!-- *** 
+
+ -->
+</edicooked>

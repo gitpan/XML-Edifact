@@ -1,0 +1,19 @@
+<!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
+
+	<?xml version="1.0"?>
+	<!DOCTYPE edicooked SYSTEM "edicooked02.dtd">
+
+<edicooked>
+<!-- *** NAD+BY+21448::86++Missing Link:Versandbuchhandlung+Westerstrasse. 114-116+Bremen++28199+DE -->
+<name.and.address>
+  <party.qualifier is="BY">Buyer</party.qualifier>
+  <party.id.identification>21448</party.id.identification>
+  <code.list.responsible.agency.coded is="86">Assigned by party originating the message</code.list.responsible.agency.coded>
+  <party.name.literal>Missing Link</party.name.literal>
+  <party.name.literal>Versandbuchhandlung</party.name.literal>
+  <street.and.number.p.o.box>Westerstrasse. 114-116</street.and.number.p.o.box>
+  <city.name>Bremen</city.name>
+  <postcode.identification>28199</postcode.identification>
+  <country.coded>DE</country.coded>
+</name.and.address>
+</edicooked>

@@ -1,0 +1,13 @@
+<!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
+
+	<?xml version="1.0"?>
+	<!DOCTYPE edicooked SYSTEM "edicooked02.dtd">
+
+<edicooked>
+<!-- *** PIA+5+354010044X:IB -->
+<additional.product.id>
+  <product.id.function.qualifier is="5">Product identification</product.id.function.qualifier>
+  <item.number>354010044X</item.number>
+  <item.number.type.coded is="IB">ISBN (International Standard Book Number)</item.number.type.coded>
+</additional.product.id>
+</edicooked>

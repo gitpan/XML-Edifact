@@ -1,0 +1,20 @@
+<!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
+
+	<?xml version="1.0"?>
+	<!DOCTYPE edicooked SYSTEM "edicooked02.dtd">
+
+<edicooked>
+<!-- *** CED+2+:::Linux:1.2:13 -->
+<computer.environment.details>
+  <computer.environment.details.qualifier is="2">Operating system</computer.environment.details.qualifier>
+  <computer.environment>Linux</computer.environment>
+  <version>1.2</version>
+  <release>13</release>
+</computer.environment.details>
+<!-- *** UNZ+1 -->
+<interchange.trailer>
+  <interchange.control.count>1</interchange.control.count>
+</interchange.trailer>
+<!-- *** 
+ -->
+</edicooked>

@@ -1,0 +1,468 @@
+<!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
+
+	<?xml version="1.0"?>
+	<!DOCTYPE edicooked SYSTEM "edicooked02.dtd">
+
+<edicooked>
+<!-- *** UNB+UNOA:2+D__01RFN011+RFN020+980916:1604+ELFE/0000002 -->
+<interchange.header>
+  <syntax.identifier is="UNOA">
+  UN/ECE level A
+  </syntax.identifier>
+  <syntax.version.number>2</syntax.version.number>
+  <sender.identification>D--01RFN011</sender.identification>
+  <recipient.identification>RFN020</recipient.identification>
+  <date>980916</date>
+  <time>1604</time>
+  <interchange.control.reference>
+  ELFE/0000002
+  </interchange.control.reference>
+</interchange.header>
+<!-- *** UNH+ELFE0000001+INVOIC:D:95A:UN:ETEB -->
+<message.header>
+  <message.reference.number>ELFE0000001</message.reference.number>
+  <message.type is="INVOIC">Invoice message</message.type>
+  <message.version.number>D</message.version.number>
+  <message.release.number>95A</message.release.number>
+  <controlling.agency is="UN">
+  UN/ECE/TRADE/WP.4
+  </controlling.agency>
+  <association.assigned.code is="ETEB"/>
+</message.header>
+<!-- *** BGM+380+D__01/3000900016+9 -->
+<beginning.of.message>
+  <document.message.name.coded is="380">Commercial invoice</document.message.name.coded>
+  <document.message.number>
+  D--01/3000900016
+  </document.message.number>
+  <message.function.coded is="9">Original</message.function.coded>
+</beginning.of.message>
+<!-- *** DTM+3:19981230 -->
+<date.time.period>
+  <date.time.period.qualifier is="3">
+  Invoice date/time
+  </date.time.period.qualifier>
+  <date.time.period.literal>19981230</date.time.period.literal>
+</date.time.period>
+<!-- *** DTM+263:9812:609 -->
+<date.time.period>
+  <date.time.period.qualifier is="263">Invoicing period</date.time.period.qualifier>
+  <date.time.period.literal>9812</date.time.period.literal>
+  <date.time.period.format.qualifier is="609">YYMM</date.time.period.format.qualifier>
+</date.time.period>
+<!-- *** PAI+1::30 -->
+<payment.instructions>
+  <payment.conditions.coded is="1">Direct payment</payment.conditions.coded>
+  <payment.means.coded is="30">Credit transfer</payment.means.coded>
+</payment.instructions>
+<!-- *** RFF+IV:9000000034 -->
+<reference>
+  <reference.qualifier is="IV">Invoice number</reference.qualifier>
+  <reference.number>9000000034</reference.number>
+</reference>
+<!-- *** RFF+IT:3000900016 -->
+<reference>
+  <reference.qualifier is="IT">Internal customer number</reference.qualifier>
+  <reference.number>3000900016</reference.number>
+</reference>
+<!-- *** NAD+II+++GOEPPINGEN+POSTFACH 30 00+ULM++89070+DE -->
+<name.and.address>
+  <party.qualifier is="II">Issuer of invoice</party.qualifier>
+  <party.name.literal>GOEPPINGEN</party.name.literal>
+  <street.and.number.p.o.box>POSTFACH 30 00</street.and.number.p.o.box>
+  <city.name>ULM</city.name>
+  <postcode.identification>89070</postcode.identification>
+  <country.coded>DE</country.coded>
+</name.and.address>
+<!-- *** FII+RH+3000289304+25010030 -->
+<financial.institution.information>
+  <party.qualifier is="RH">Seller's financial institution</party.qualifier>
+  <account.holder.number>3000289304</account.holder.number>
+  <institution.name.identification>25010030</institution.name.identification>
+</financial.institution.information>
+<!-- *** CTA+IC -->
+<contact.information>
+  <contact.function.coded is="IC">Information contact</contact.function.coded>
+</contact.information>
+<!-- *** COM+0130 121263:TE -->
+<communication.contact>
+  <communication.number>0130 121263</communication.number>
+  <communication.channel.qualifier is="TE">Telephone</communication.channel.qualifier>
+</communication.contact>
+<!-- *** COM+0130 800917:FX -->
+<communication.contact>
+  <communication.number>0130 800917</communication.number>
+  <communication.channel.qualifier is="FX">Telefax</communication.channel.qualifier>
+</communication.contact>
+<!-- *** NAD+IV++VERBUNDABNAHME:::ABNAHMESTR. 11:90016 BERLIN -->
+<name.and.address>
+  <party.qualifier is="IV">Invoicee</party.qualifier>
+  <name.and.address.line>VERBUNDABNAHME</name.and.address.line>
+  <name.and.address.line>ABNAHMESTR. 11</name.and.address.line>
+  <name.and.address.line>90016 BERLIN</name.and.address.line>
+</name.and.address>
+<!-- *** TAX+1+VAT+++:::16 -->
+<duty.tax.fee.details>
+  <duty.tax.fee.function.qualifier is="1">Individual duty, tax or fee (Customs item)</duty.tax.fee.function.qualifier>
+  <duty.tax.fee.type.coded is="VAT">Value added tax</duty.tax.fee.type.coded>
+  <duty.tax.fee.rate>16</duty.tax.fee.rate>
+</duty.tax.fee.details>
+<!-- *** CUX+1:DEM -->
+<currencies>
+  <currency.details.qualifier is="1">Charge payment currency</currency.details.qualifier>
+  <currency.coded>DEM</currency.coded>
+</currencies>
+<!-- *** PAT+5++5:1:CD:10 -->
+<payment.terms.basis>
+  <payment.terms.type.qualifier is="5">Discount not applicable</payment.terms.type.qualifier>
+  <payment.time.reference.coded is="5">Date of invoice</payment.time.reference.coded>
+  <time.relation.coded is="1">Reference date</time.relation.coded>
+  <type.of.period.coded is="CD">Calendar day (includes weekends and holidays)</type.of.period.coded>
+  <number.of.periods>10</number.of.periods>
+</payment.terms.basis>
+<!-- *** DTM+13:19990109 -->
+<date.time.period>
+  <date.time.period.qualifier is="13">Terms net due date</date.time.period.qualifier>
+  <date.time.period.literal>19990109</date.time.period.literal>
+</date.time.period>
+<!-- *** LIN+1++:KTO:DT5:DTC++0 -->
+<line.item>
+  <line.item.number>1</line.item.number>
+  <item.number.type.coded is="KTO"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <configuration.level>0</configuration.level>
+</line.item>
+<!-- *** LIN+2++10:ABS:DT5:DTC+1:1+1 -->
+<line.item>
+  <line.item.number>2</line.item.number>
+  <item.number>10</item.number>
+  <item.number.type.coded is="ABS"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>1</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** LIN+3++00000001:ZNR:DT5:DTC+1:2+2 -->
+<line.item>
+  <line.item.number>3</line.item.number>
+  <item.number>00000001</item.number>
+  <item.number.type.coded is="ZNR"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>2</line.item.number>
+  <configuration.level>2</configuration.level>
+</line.item>
+<!-- *** IMD+B++62601:DT1:DTC:PCS-ANSCHLUSS -->
+<item.description>
+  <item.description.type.coded is="B">Code and text</item.description.type.coded>
+  <item.description.identification>62601</item.description.identification>
+  <code.list.qualifier is="DT1"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <item.description.literal>PCS-ANSCHLUSS</item.description.literal>
+</item.description>
+<!-- *** IMD+B++ZA:DT2:DTC -->
+<item.description>
+  <item.description.type.coded is="B">Code and text</item.description.type.coded>
+  <item.description.identification>ZA</item.description.identification>
+  <code.list.qualifier is="DT2"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+</item.description>
+<!-- *** IMD+B++001:DT7:DTC -->
+<item.description>
+  <item.description.type.coded is="B">Code and text</item.description.type.coded>
+  <item.description.identification>001</item.description.identification>
+  <code.list.qualifier is="DT7"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+</item.description>
+<!-- *** QTY+47:1 -->
+<quantity>
+  <quantity.qualifier is="47">Invoiced quantity</quantity.qualifier>
+  <quantity.literal>1</quantity.literal>
+</quantity>
+<!-- *** DTM+155:19981201 -->
+<date.time.period>
+  <date.time.period.qualifier is="155">Accounting period start date</date.time.period.qualifier>
+  <date.time.period.literal>19981201</date.time.period.literal>
+</date.time.period>
+<!-- *** DTM+156:19981231 -->
+<date.time.period>
+  <date.time.period.qualifier is="156">Accounting period end date</date.time.period.qualifier>
+  <date.time.period.literal>19981231</date.time.period.literal>
+</date.time.period>
+<!-- *** MOA+66:68.1 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="66">Goods item total</monetary.amount.type.qualifier>
+  <monetary.amount.literal>68.1</monetary.amount.literal>
+</monetary.amount>
+<!-- *** PRI+CAL:68.1 -->
+<price.details>
+  <price.qualifier is="CAL">Calculation price</price.qualifier>
+  <price>68.1</price>
+</price.details>
+<!-- *** LIN+4++000022222222/171000160025:KTO:DT5:DTC++0 -->
+<line.item>
+  <line.item.number>4</line.item.number>
+  <item.number>
+  000022222222/171000160025
+  </item.number>
+  <item.number.type.coded is="KTO"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <configuration.level>0</configuration.level>
+</line.item>
+<!-- *** LIN+5++50:ABS:DT5:DTC+1:4+1 -->
+<line.item>
+  <line.item.number>5</line.item.number>
+  <item.number>50</item.number>
+  <item.number.type.coded is="ABS"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>4</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** LIN+6++00000005:ZNR:DT5:DTC+1:5+2 -->
+<line.item>
+  <line.item.number>6</line.item.number>
+  <item.number>00000005</item.number>
+  <item.number.type.coded is="ZNR"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>5</line.item.number>
+  <configuration.level>2</configuration.level>
+</line.item>
+<!-- *** IMD+B++62802:DT1:DTC:INTERNVERBINDUNG:(T-D1 ZU FESTNETZANSCHLUSS) -->
+<item.description>
+  <item.description.type.coded is="B">Code and text</item.description.type.coded>
+  <item.description.identification>62802</item.description.identification>
+  <code.list.qualifier is="DT1"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <item.description.literal>INTERNVERBINDUNG</item.description.literal>
+  <item.description.literal>(T-D1 ZU FESTNETZANSCHLUSS)</item.description.literal>
+</item.description>
+<!-- *** IMD+B++ZA:DT2:DTC -->
+<item.description>
+  <item.description.type.coded is="B">Code and text</item.description.type.coded>
+  <item.description.identification>ZA</item.description.identification>
+  <code.list.qualifier is="DT2"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+</item.description>
+<!-- *** QTY+107:600:SEC -->
+<quantity>
+  <quantity.qualifier is="107">Chargeable number of units</quantity.qualifier>
+  <quantity.literal>600</quantity.literal>
+  <measure.unit.qualifier>SEC</measure.unit.qualifier>
+</quantity>
+<!-- *** DTM+51:19981204 -->
+<date.time.period>
+  <date.time.period.qualifier is="51">Cumulative quantity start date</date.time.period.qualifier>
+  <date.time.period.literal>19981204</date.time.period.literal>
+</date.time.period>
+<!-- *** DTM+52:19981226 -->
+<date.time.period>
+  <date.time.period.qualifier is="52">Cumulative quantity end date</date.time.period.qualifier>
+  <date.time.period.literal>19981226</date.time.period.literal>
+</date.time.period>
+<!-- *** MOA+66:14.67 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="66">Goods item total</monetary.amount.type.qualifier>
+  <monetary.amount.literal>14.67</monetary.amount.literal>
+</monetary.amount>
+<!-- *** LIN+7++781100016006/781100016006:KTO:DT5:DTC++0 -->
+<line.item>
+  <line.item.number>7</line.item.number>
+  <item.number>
+  781100016006/781100016006
+  </item.number>
+  <item.number.type.coded is="KTO"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <configuration.level>0</configuration.level>
+</line.item>
+<!-- *** LIN+8++55:ABS:DT5:DTC+1:7+1 -->
+<line.item>
+  <line.item.number>8</line.item.number>
+  <item.number>55</item.number>
+  <item.number.type.coded is="ABS"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>7</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** LIN+9++00000012:ZNR:DT5:DTC+1:8+2 -->
+<line.item>
+  <line.item.number>9</line.item.number>
+  <item.number>00000012</item.number>
+  <item.number.type.coded is="ZNR"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>8</line.item.number>
+  <configuration.level>2</configuration.level>
+</line.item>
+<!-- *** IMD+B++62801:DT1:DTC:INTERNVERBINDUNG:(FESTNETZANSCHLUSS ZU T-D1) -->
+<item.description>
+  <item.description.type.coded is="B">Code and text</item.description.type.coded>
+  <item.description.identification>62801</item.description.identification>
+  <code.list.qualifier is="DT1"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <item.description.literal>INTERNVERBINDUNG</item.description.literal>
+  <item.description.literal>(FESTNETZANSCHLUSS ZU T-D1)</item.description.literal>
+</item.description>
+<!-- *** IMD+B++CA:DT2:DTC -->
+<item.description>
+  <item.description.type.coded is="B">Code and text</item.description.type.coded>
+  <item.description.identification>CA</item.description.identification>
+  <code.list.qualifier is="DT2"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+</item.description>
+<!-- *** QTY+107:905:PCE -->
+<quantity>
+  <quantity.qualifier is="107">Chargeable number of units</quantity.qualifier>
+  <quantity.literal>905</quantity.literal>
+  <measure.unit.qualifier>PCE</measure.unit.qualifier>
+</quantity>
+<!-- *** QTY+106:4 -->
+<quantity>
+  <quantity.qualifier is="106">Chargeable number of packages</quantity.qualifier>
+  <quantity.literal>4</quantity.literal>
+</quantity>
+<!-- *** DTM+51:19981204 -->
+<date.time.period>
+  <date.time.period.qualifier is="51">Cumulative quantity start date</date.time.period.qualifier>
+  <date.time.period.literal>19981204</date.time.period.literal>
+</date.time.period>
+<!-- *** DTM+52:19981228 -->
+<date.time.period>
+  <date.time.period.qualifier is="52">Cumulative quantity end date</date.time.period.qualifier>
+  <date.time.period.literal>19981228</date.time.period.literal>
+</date.time.period>
+<!-- *** MOA+66:84.89 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="66">Goods item total</monetary.amount.type.qualifier>
+  <monetary.amount.literal>84.89</monetary.amount.literal>
+</monetary.amount>
+<!-- *** PRI+CAL:0.0938 -->
+<price.details>
+  <price.qualifier is="CAL">Calculation price</price.qualifier>
+  <price>0.0938</price>
+</price.details>
+<!-- *** LIN+10++:KTO:DT5:DTC++0 -->
+<line.item>
+  <line.item.number>10</line.item.number>
+  <item.number.type.coded is="KTO"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <configuration.level>0</configuration.level>
+</line.item>
+<!-- *** LIN+11++95:ABS:DT5:DTC+1:10+1 -->
+<line.item>
+  <line.item.number>11</line.item.number>
+  <item.number>95</item.number>
+  <item.number.type.coded is="ABS"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>10</line.item.number>
+  <configuration.level>1</configuration.level>
+</line.item>
+<!-- *** LIN+12++00000010:ZNR:DT5:DTC+1:11+2 -->
+<line.item>
+  <line.item.number>12</line.item.number>
+  <item.number>00000010</item.number>
+  <item.number.type.coded is="ZNR"/>
+  <code.list.qualifier is="DT5"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+  <sub.line.indicator.coded is="1">Sub-line information</sub.line.indicator.coded>
+  <line.item.number>11</line.item.number>
+  <configuration.level>2</configuration.level>
+</line.item>
+<!-- *** IMD+B++001:DT7:DTC -->
+<item.description>
+  <item.description.type.coded is="B">Code and text</item.description.type.coded>
+  <item.description.identification>001</item.description.identification>
+  <code.list.qualifier is="DT7"/>
+  <code.list.responsible.agency.coded is="DTC"/>
+</item.description>
+<!-- *** RFF+AGY:000022222222 -->
+<reference>
+  <reference.qualifier is="AGY">Receiving party's member identification</reference.qualifier>
+  <reference.number>000022222222</reference.number>
+</reference>
+<!-- *** RFF+AGY:781100016006 -->
+<reference>
+  <reference.qualifier is="AGY">Receiving party's member identification</reference.qualifier>
+  <reference.number>781100016006</reference.number>
+</reference>
+<!-- *** UNS+S -->
+<section.control>
+  <section.identification is="S">
+  Detail/summary section separation
+  </section.identification>
+</section.control>
+<!-- *** MOA+77:194.49 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="77">Invoice amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>194.49</monetary.amount.literal>
+</monetary.amount>
+<!-- *** RFF+LI:00000021 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>00000021</reference.number>
+</reference>
+<!-- *** MOA+79:167.66 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="79">Total line items amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>167.66</monetary.amount.literal>
+</monetary.amount>
+<!-- *** RFF+LI:00000020 -->
+<reference>
+  <reference.qualifier is="LI">Line item reference number</reference.qualifier>
+  <reference.number>00000020</reference.number>
+</reference>
+<!-- *** MOA+125:167.66 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="125">Taxable amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>167.66</monetary.amount.literal>
+</monetary.amount>
+<!-- *** MOA+124:26.83 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="124">Tax amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>26.83</monetary.amount.literal>
+</monetary.amount>
+<!-- *** TAX+3+VAT+++:::16 -->
+<duty.tax.fee.details>
+  <duty.tax.fee.function.qualifier is="3">Total of each duty, tax or fee type (Customs declaration)</duty.tax.fee.function.qualifier>
+  <duty.tax.fee.type.coded is="VAT">Value added tax</duty.tax.fee.type.coded>
+  <duty.tax.fee.rate>16</duty.tax.fee.rate>
+</duty.tax.fee.details>
+<!-- *** MOA+125:167.66 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="125">Taxable amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>167.66</monetary.amount.literal>
+</monetary.amount>
+<!-- *** MOA+124:26.83 -->
+<monetary.amount>
+  <monetary.amount.type.qualifier is="124">Tax amount</monetary.amount.type.qualifier>
+  <monetary.amount.literal>26.83</monetary.amount.literal>
+</monetary.amount>
+<!-- *** UNT+65+ELFE0000001 -->
+<message.trailer>
+  <number.of.segments.in.the.message>65</number.of.segments.in.the.message>
+  <message.reference.number>ELFE0000001</message.reference.number>
+</message.trailer>
+<!-- *** UNZ+1+ELFE/0000002 -->
+<interchange.trailer>
+  <interchange.control.count>1</interchange.control.count>
+  <interchange.control.reference>
+  ELFE/0000002
+  </interchange.control.reference>
+</interchange.trailer>
+<!-- *** 
+ -->
+</edicooked>

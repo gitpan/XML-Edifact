@@ -1,0 +1,185 @@
+  XML-Edifact - an approach towards XML/EDI as a prototype in perl
+  release 0.2 - its a hard work to cook a second version.
+  Michael Koehne, kraehe@bakunin.north.de
+  v0.2, Sun Dec 27 12:49:42  1998
+
+  XML-Edifact is a set of perl scripts, hopefully becoming a module, for
+  translating EDIFACT into XML. This 0.2 version contains a document
+  type definition for the produced XML, but it does'nt yet contain a XML
+  parser to translate its documents back to EDI. Its intended as a work-
+  ing horse, and I hope that some diesel or expat, will be able to
+  translate my EdiCooked to XML/EDI and vice versa, once we have a stan-
+  dard.
+  ______________________________________________________________________
+
+  Table of Contents:
+
+  1.	Introduction
+
+  2.	About the beauty of plain text
+
+  3.	Its a hard work to cook a second version.
+
+  4.	Installation
+
+  5.	Roadmap
+
+  6.	Legal stuff
+
+  7.	Download
+  ______________________________________________________________________
+
+  1.  Introduction
+
+  EDIFACT often called " nightmare of paper less office " once you show
+  a programmer the standard draft. Those 2700 pages of horror full
+  advisory board English has cursed many programmers with headaches.
+
+  EDIFACT is trying the impossible: a single form for the real world.
+
+  Orders, invoices, fright papers, ..., always look different, if they
+  come from different companies. EDIFACT tries to fulfill all needs of
+  commercial messages regardless of branch and origin. Of course those
+  99% real world is neither simple nor complete.  Nevertheless its
+  important for the top companies and their suppliers, you know those
+  who can pay a mainframe and a pack of gurus, and in use since 1995.
+
+  XML/EDI is trying to provide a simpler (KISS) format that can be
+  translated from and into EDI, to allow smaller companies to avoid
+  slaughtering forests and retyping stupid lines into a computer
+  keyboard printed by other computers.
+
+  This is NOT XML/EDI, its certainly not KISS. The edicooked.dtd
+  reflects the original words of the EDIFACT standard as close as
+  possible on a segment and element level. This DTD simplifies EDI in so
+  much as it drops structure information of segment groups and
+  composite. Only segments and elements are left for structure of the
+  document. The benefit is of course that its possible to convert any
+  EDI message into edicooked. The drawback is that the dtd is realy
+  relaxed. Validation of EDIFACT message design can therefore not be
+  done by a validating XML parser. Message designers will still need
+  knowledge about EDI and EDIFACT tools.
+
+  But once the message is designed its simpler to read it with XML.
+
+  2.  About the beauty of plain text
+
+  Standards should be based on standards. EDIFACT is based on ASCII and
+  documentation is available from WWW.Premenos.Com as plain text.  Well
+  the original contains some PCDOS characters. I took the freedom, to
+  replace them with ASCII in this distribution to improve readability.
+  I don't talk about human readability here. A friend at SAP joked that
+  plain paper is the only platform independent format in that case. But
+  I disliked to retype them. And plain text is more flexible, as I'm a
+  programmer.
+
+  Unlike the last distribution, this 0.2 will only contain those
+  documents I've changed by hand, and I need to parse by the scripts.
+  Download the 0.1 for a complete set, or surf at Premenos.
+
+  3.  Its a hard work to cook a second version.
+
+  As usual. Second versions claim to be better documented and tested,
+  but the truth - they contain more features. So talk about features:
+
+  First of all: Its looking like a module. "use strict" and the package
+  concept is a usefull thing. But it'll take a lot of RTFM for me to
+  understand the perl way of doing it. The XML/Edifact.pm doesnt export
+  anything, and its not even neccessary to "perl Makefile.PL; make
+  install".
+
+  A 0.2 version is not intendet to become installed, its a test case.
+
+  So talk about the test case: Run ./bin/make_test.sh from here, and
+  anything should be fine. Still it need some RTFM for me to understand
+  the perl way of regession test. But the ./bin/make_test.sh is the one
+  this version offers ,-)
+
+  I'm now using a tied hash for speeding startup. I've deceided to use
+  SDBM as this DBM comes with any perl, and a small DBM is better in
+  this case.
+
+  I've provided a document type definition. And its now possible to use
+  a validating parser like SP from James Clark. You may also notice the
+  renaming from Edi2SGML to XML-Edifact. This namechange reflects that
+  my script is now producing XML and not SGML, and the name should point
+  where in cpan hirachy this package belongs.
+
+  4.  Installation
+
+  I've included my modified documents, so others can be able to rebuild
+  the DBM files. You may need a Unix like system because of newline
+  conventions. This current 0.2 version is not intended to become
+  "installed", just run everything from this path.
+
+	       $ ./bin/make_test.sh
+
+  This will take a while (2 minutes on my Sun 3/60 :-) and you hopefully
+  have a working database, you can test it with:
+
+	       $ perl bin/edi2xml.pl examples/nad_buyer.edi
+
+  You can try other example files, and I really want to read how your
+  EDI messages look like. Think about the O'Reilly invoice or the
+  Dubbel:Test and you should catch the clue. I've tried to implement the
+  UNA right, but this may need some additional debugging. Take a look at
+  the difference between the edi.tst files from Frankfurt and the
+  Springer message. The last one is using newline as a 9th character in
+  UNA, so its nearly human readable.
+
+  5.  Roadmap
+
+  I'm using even and odd numbering to distinct from stable and
+  experimental version. Well this 0.2 is not as stable as an even number
+  suggests. But the edicooked.dtd was quite important, as was the
+  regression test.
+
+     0.3
+	This version will focus on translation of XML messages back to
+	EDIFACT.
+
+     0.5
+	The next important step will be a reverse engineering of the
+	document type definition of the original EDI standard draft.
+	This version will provide segment groups for defined document
+	types like orders and invoices.
+
+     0.7
+	EdiCooked is far from being KISS. This release will try on a
+	smarter DTD called EdiLean.
+
+     0.9
+	Its important for me that authentication and authorisation will
+	be provided before I call it final 1.0.
+
+  6.  Legal stuff
+
+  Programs provided with this copy called XML-Edifact-0.2.tgz can be
+  used, distributed and modified under terms of the GNU General Public
+  License.
+
+  Files in the ./examples directory are from varios sources and free of
+  claims as far as I know.
+
+  Files inside the ./un_edifact_d96b directory are based on EDI batch
+  directory and are therefore copyrighted by the UN. See
+  un_edifact_d96b/LICENAGR.TXT.
+
+  Files that are produced during the bootstrap process and placed in
+  ./data are based on the original UN/EDIFACT standard and therefore not
+  covered by GPL, but likely be covered by the UN.
+
+  7.  Download
+
+  I just got a message from PAUSE that I can upload it to :
+
+	       $CPAN/authors/id/K/KR/KRAEHE
+
+  You may also get it from my homepage. Try something like:
+
+	       http://human.is-bremen.de/~kraehe/pub/XML-Edifact-?.?.tgz
+
+  Be warned its a about 300 kilobyte, as it includes some of the
+  Premenos files also. The main script is only about 400 lines, so first
+  dont panik.
+
