@@ -51,46 +51,47 @@ edi2xml [B<-i>] [B<-x> extension] filename.edi > filename.xml
 
 =head1 DESCRIPTION
 
-edi2xml is able to translate any UN/EDIFACT message or message
-fragment that is not using code list extensions into XML.
+edi2xml is able to translate into XML any UN/EDIFACT message
+or message fragment that does not use code list extensions.
 
 =over
 
 =item B<-i>
 
-Prior version of edi2xml provided a form that was more human
-readable. But thoses intends caused problems with stupid non
-validating XML parsers, so the default is now without intends.
-If you want to view them, the B<-i> flag provides the old style.
+Prior versions of edi2xml provided a form that was more human
+readable. But the intends caused problems with stupid
+non-validating XML parsers, so the default is now without
+intends. If you want to view them, the B<-i> flag provides
+the old style.
+
 
 =item B<-x>
 
-The 0.34 version provided some first way to use namespace migration
+The 0.34 version provided an initial way to use namespace migration
 for code list extensions. This way is still crude and not XML/RDF.
-For patching an extension B<SDBM> into edi2xml use the B<-x> switch
+For patching an extension B<SDBM> into edi2xml, use the B<-x> switch
 without the trailing B<.dir/.pag>.
 
 =item filename.edi
 
 Message fragments have to be preceded by an UNA Service advice String.
-Messages may have an optional leading UNA, or may start with an
-UNB Interchange Header, if the default Service advice String
-has been used.
+Messages may have an optional leading UNA, or may start with a UNB
+Interchange Header, if the default Service advice String has been used.
 
 =back
 
 =head1 BUGS
 
-Most bugs are better called B<not yet implemented>, e.g. missing
-external RDF files as can be seen in the Roadmap section of the
-README file, but the existing code has certainly many others. 
-Drop me a note, if you found some missbehavior.
+Most bugs might better be called B<not yet implemented>, e.g. missing
+external RDF files, as can be seen in the Roadmap section of the
+README file, but the existing code has certainly many others.
+Drop me a note, if you find some misbehavior.
 
 I call XML::Edifact an aproach towards XML/EDI as a prototype in
-Perl. Nothing is carved in stone, but should be better viewed as
-painted on wood with the coal from fire, intended to become thrown
-into the fire to provide coal for the release. So drop me a note,
-if you think something has to be changed.
+Perl. Nothing is carved in stone, but should be seen as painted
+on wood with the coal from fire, intended to be thrown into the
+fire to provide fuel for the release. So drop me a note, if you
+think something should be changed.
 
 =head1 SEE ALSO
 

@@ -18,7 +18,7 @@ use Carp;
 
 use vars qw($VERSION $debug);
 
-$VERSION='0.42';
+$VERSION='0.43';
 $debug=1;					# debug=1 is fine
 
 # ------------------------------------------------------------------------------
@@ -582,52 +582,52 @@ XML::Edifact - Perl module to handle XML::Edifact messages.
 
 =head1 SYNOPSIS
 
-use	XML::Edifact;
+use XML::Edifact;
 
-	&XML::Edifact::open_dbm();
-	&XML::Edifact::read_edi_message($ARGV[0]);
-print	&XML::Edifact::make_xml_message();
-	&XML::Edifact::close_dbm();
+    &XML::Edifact::open_dbm();
+    &XML::Edifact::read_edi_message($ARGV[0]);
+print   &XML::Edifact::make_xml_message();
+    &XML::Edifact::close_dbm();
 0;
 
 ---------------------------------------------------------------
 
-use	XML::Edifact;
+use XML::Edifact;
 
-	&XML::Edifact::open_dbm();
-	&XML::Edifact::read_xml_message($ARGV[0]);
-print	&XML::Edifact::make_edi_message();
-	&XML::Edifact::close_dbm();
+    &XML::Edifact::open_dbm();
+    &XML::Edifact::read_xml_message($ARGV[0]);
+print   &XML::Edifact::make_edi_message();
+    &XML::Edifact::close_dbm();
 0;
 
 =head1 DESCRIPTION
 
 XML-Edifact started as Onyx-EDI which was a gawk script.
-XML::Edifact-0.3x still shows its bad anchesor called a2p
-in some parts.
+XML::Edifact-0.3x still shows its bad ancestry (a2p)
+in some places.
 
 The current module is able to generate some SDBM files for
-the directory pointed by open_dbm by parsing the original
+the directory pointed to by open_dbm, by parsing the original
 United Nations EDIFACT documents during Bootstrap.PL. Those
 files will be stored during make install.
 
-The first typical usage will read a EDIFACT message into a
-buffer global to the package, and to print this message
-as XML on STDOUT. The second usage will do the vice versa.
+The first typical usage will read an EDIFACT message into a
+buffer global to the package, and will print this message
+as XML on STDOUT. The second usage will do the opposite.
 
 Those two files will be installed as edi2xml and xml2edi
 in your local bin directory.
 
 New to XML::Edifact 0.34 are namespace migration and intend
-handling - take a look at the test.pl of how to use them.
-BUT HALT - A object oriented syntax is planned for the next
-release! And I'm calling this release an interim because, I'm
-just saving a stable state (i hope) before I start to muddle
-all things around while going on object(ive r)aid.
+handling - take a look at the test.pl for how to use them.
+BUT WAIT - An object-oriented syntax is planned for the next
+release! And I'm calling this release an interim, because I'm
+just saving a stable state (I hope) before I start to muddle
+all things around while going on an object(ive) raid.
 
 If you have other EDIFACT files, I would like to include
-them into the next version. I'm also open to any comments,
-as told "anything is still in flux" !
+them in the next version. I'm also open to any comments;
+as they say, "everything is still in flux" !
 
 =head1 AUTHOR
 

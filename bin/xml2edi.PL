@@ -49,9 +49,9 @@ xml2edi [B<-i>] [B<-x> extension] filename.xml > filename.edi
 
 =head1 DESCRIPTION
 
-xml2edi is able to translate those XML messages to XML, which are
-conforming to the semantic translation of UN/EDIFACT to XML. This
-semantic translation is currently static coded. And no external
+xml2edi is able to translate those XML messages to XML, which
+conforms to the semantic translation of UN/EDIFACT to XML. This
+semantic translation is currently static-coded. And no external
 entities are used. Version 0.5 will provide more freedom in XML
 to UN/EDIFACT translation by using RDF for semantic mapping.
 
@@ -59,15 +59,15 @@ to UN/EDIFACT translation by using RDF for semantic mapping.
 
 =item B<-i>
 
-When reading UN/EDIFACT on a screen, I prefer a newline as a
+When reading UN/EDIFACT on a screen, I prefer a newline as an
 B<advice segment seperator>. Some UN/EDIFACT parsers may not
-like this, so its optional.
+like this, so it's optional.
 
 =item B<-x>
 
-The 0.34 version provided some first way to use namespace migration
+The 0.34 version provided an initial way to use namespace migration
 for code list extensions. This way is still crude and not XML/RDF.
-For patching an extension B<SDBM> into edi2xml use the B<-x> switch
+For patching an extension B<SDBM> into edi2xml, use the B<-x> switch
 without the trailing B<.dir/.pag>.
 
 =item filename.xml
@@ -81,16 +81,16 @@ so on. Current translation is flat and ignores the B<TRED/EDMD> documents.
 
 =head1 BUGS
 
-Most bugs are better called B<not yet implemented>, e.g. missing
-external RDF files as can be seen in the Roadmap section of the
-README file, but the existing code has certainly many others. 
-Drop me a note, if you found some missbehavior.
-
+Most bugs might better be called B<not yet implemented>, e.g. missing
+external RDF files, as can be seen in the Roadmap section of the
+README file, but the existing code has certainly many others.
+Drop me a note, if you find some misbehavior.
+  
 I call XML::Edifact an aproach towards XML/EDI as a prototype in
-Perl. Nothing is carved in stone, but should be better viewed as
-painted on wood with the coal from fire, intended to become thrown
-into the fire to provide coal for the release. So drop me a note,
-if you think something has to be changed.
+Perl. Nothing is carved in stone, but should be seen as painted
+on wood with the coal from fire, intended to be thrown into the
+fire to provide fuel for the release. So drop me a note, if you
+think something should be changed.
 
 =head1 SEE ALSO
 
