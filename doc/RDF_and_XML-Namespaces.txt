@@ -1,0 +1,304 @@
+  RDF to describe XML::Edifact Namespaces
+  Michael Koehne, ( kraehe@bakunin.north.de )
+  Tue Jun 22 18:11:01  1999
+
+  XML::Edifact 0.3 is using Namespaces to avoid name clashes between
+  segment, composite and element definitions. Using RDF meta data to
+  describe those namespaces is planed for the 0.5 version. This would
+  allow to use RDF files provided by third parties to describe their
+  UN/EDIFACT code list extension. This paper was written with the inten-
+  sion to offer some time for comments and discussion before I start to
+  code the RReessoouurrccee DDeessccrriippttiioonn FFrraammeewwoorrkk for XML::Edifact.
+  ______________________________________________________________________
+
+  Table of Contents:
+
+  1.      History of XML::Edifact
+
+  2.      Subject - Predicate - Object
+
+  3.      RDF to describe XML::EDIFACT namespaces
+
+  4.      RDF to describe EDITEUR code list extension
+
+  5.      Lean XML/EDI and RDF
+  ______________________________________________________________________
+
+  11..  HHiissttoorryy ooff XXMMLL::::EEddiiffaacctt
+
+  My first contact with UN/EDIFACT was based on a source code exchange
+  with USR-Tuebingen. I've showed them how to use a Linux box to access
+  the Verzeichniss Lieferbarer Buecher CDROM from other Unix sites. They
+  gave me a tool called eeddiivviieeww, an interactive UN/EDIFACT browser
+  written in C and used for the Frankfurt EDITEUR project. The parser
+  was table driven, and to my horror they told me that they've retyped
+  the printed EDITEUR draft for those tables.
+
+  My first attempt to reengineer this C source started with :
+
+               sed -e 's/??/^A/g' \
+                   -e 's/?+/^B/g' \
+                   -e 's/?'"'"'/^C/g' |
+               tr "^A^B^C+'" "?+'\t\n"
+
+  This gave me some tabular view on UN/EDIFACT messages intended to be
+  loaded into a Postgres database, or viewed with less.
+
+  Soon thereafter I found the UN/EDIFACT batch directory at Premenos and
+  wrote a 200 lines GAWK script to translate EDIFACT messages into a
+  human readable form looking like:
+
+          LINE ITEM NUMBER               : 1
+          Product identification         : 0471949000 ISBN
+          Name                           : Cherry
+          Vorname                        : Gordon E
+          Titel                          : Birmingham
+          Untertitel                     : a study in geography, hislanning
+          Ort                            : Chichester
+          Verlag                         : Wiley(John)(W Sussex)
+          Erscheinungsjahr               : 1994
+          Seiten                         : 254p
+          Ausstattung                    : ?  ill ; 24cm. - Bibl.?  P.237-244.
+          Subject (topical)              : 39100200? Urban studies
+          Ordered quantity               : 1
+          Suggested retail price         : YYY 37.5 Catalogue
+          Reference qualifier            : QNB 00023302 9
+          Reference date/time            : 19960208 CCYYMMDD
+          Line item reference number     : 8217
+          Reference qualifier            : BFN S.KON.39
+
+  You may note the mixture of German and English translations, as the
+  EDITEUR codelist extension I had, had been the German ones typed by
+  USR.
+
+  The EDITEUR project stopped. IBU and others continued to use their
+  home grown format, together with horror full MS-DOS applications, for
+  book order routing.
+
+  I've started to think about SGML for a report system, when I found
+  Martin Bryan's homepage about XML/EDI. The first Edi2SGML was written
+  within a night shift, and I was able to process EDIFACT messages using
+  nnssggmmllss or JJaaddee. Edi2SGML was written in Perl and produced:
+
+       <!-- *** LIN+1 -->
+       <line.item>
+         <line.item.number>1</line.item.number>
+       </line.item>
+       <!-- *** PIA+5+0471949000:IB -->
+       <additional.product.id>
+         <product.id.function.qualifier coded="5">Product identification</product.id.function.qualifier>
+         <item.number.identification>
+           <item.number>0471949000</item.number>
+           <item.number.type coded="IB">ISBN (International Standard Book Number)</item.number.type>
+         </item.number.identification>
+       </additional.product.id>
+       <!-- *** IMD+F+010+:::Cherry -->
+       <item.description>
+         <item.description.type coded="F">Free-form</item.description.type>
+         <item.characteristic coded="010">Author Name<item.characteristic>
+       Cherry
+       </item.description>
+
+  This SGML and the later XML from XML::Edifact-0.2 had a real problem
+  with name clashes between segment, composite and element definitions
+  in the original UN/EDIFACT batch directory, causing trouble when it
+  came to validating the SGML/XML. As an example, take a look at the
+  composite definition file ttrrccdd :
+
+             C080  PARTY NAME
+
+             Desc: Identification of a transaction party by name, one to five
+                   lines. Party name may be formatted.
+
+       010   3036   Party name                                    M  an..35
+       020   3036   Party name                                    C  an..35
+       030   3036   Party name                                    C  an..35
+       040   3036   Party name                                    C  an..35
+       050   3036   Party name                                    C  an..35
+       060   3045   Party name format, coded                      C  an..3
+
+  Here we have a composite called PPAARRTTYY NNAAMMEE and elements also called
+  PPaarrttyy nnaammee. The first idea of using case sensitivity of XML to
+  distinct between them, lost its glance when it came to the PNA
+  segment, which is also called PPAARRTTYY NNAAMMEE. But XML offers namespaces
+  for situations like this, so a possible XML::Edifact translation of
+  the above EDITEUR book order line item is :
+
+  <?xml version="1.0"?>
+  <!DOCTYPE editeur:message SYSTEM "./editeur.dtd">
+  <!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
+
+  <editeur:message
+          xmlns:editeur='./editeur.rdf'
+          xmlns:edifact='./edifact.rdf'
+          xmlns:trsd='./edifact_trsd.rdf'
+          xmlns:trcd='./edifact_trcd.rdf'
+          xmlns:tred='./edifact_tred.rdf'
+          xmlns:uncl='./edifact_uncl.rdf'
+          xmlns:anxs='./edifact_anxe.rdf'
+          xmlns:anxc='./edifact_anxc.rdf'
+          xmlns:anxe='./edifact_anxe.rdf'
+          xmlns:unsl='./edifact_unsl.rdf'
+          >
+
+  <!-- SEGMENT UNB+UNOC:2+STUB+BLA+960209:0843+72 -->
+
+    <anxs:interchange.header>
+      <anxc:syntax.identifier>
+        <anxe:syntax.identifier unsl:code="0001:UNOC">UN/ECE level C</anxe:syntax.identifier>
+        <anxe:syntax.version.number>2</anxe:syntax.version.number>
+      </anxc:syntax.identifier>
+      <anxc:interchange.sender>
+        <anxe:sender.identification>STUB</anxe:sender.identification>
+      </anxc:interchange.sender>
+      <anxc:interchange.recipient>
+        <anxe:recipient.identification>BLA</anxe:recipient.identification>
+      </anxc:interchange.recipient>
+      <anxc:date.time.of.preparation>
+        <anxe:date>960209</anxe:date>
+        <anxe:time>0843</anxe:time>
+      </anxc:date.time.of.preparation>
+        <anxe:interchange.control.reference>72</anxe:interchange.control.reference>
+    </anxs:interchange.header>
+
+  <!-- ... lot's of segments deleted ... -->
+
+  <!-- SEGMENT LIN+1 -->
+
+    <trsd:line.item>
+        <tred:line.item.number>1</tred:line.item.number>
+    </trsd:line.item>
+
+  <!-- SEGMENT PIA+5+0471949000:IB -->
+
+    <trsd:additional.product.id>
+        <tred:product.id.function.qualifier uncl:code="4347:5">Product identification</tred:product.id.function.qualifier>
+      <trcd:item.number.identification>
+        <tred:item.number>0471949000</tred:item.number>
+        <tred:item.number.type.coded uncl:code="7143:IB">ISBN (International Standard Book Number)</tred:item.number.type.coded>
+      </trcd:item.number.identification>
+    </trsd:additional.product.id>
+
+  <!-- SEGMENT IMD+F+010+:::Cherry -->
+
+    <editeur:item.description>
+        <tred:item.description.type.coded uncl:code="7077:F">Free-form</tred:item.description.type.coded>
+        <editeur:item.characteristic.coded editeur:code="7081:010">Author Name</editeur:item.characteristic.coded>
+      <trcd:item.description>
+        <tred:item.description>Cherry</tred:item.description>
+      </trcd:item.description>
+    </editeur:item.description>
+
+  Using namespaces not only allows to define a working DTD for plain
+  EDIFACT, it also offers a nice way to translate code list extensions
+  as in the above EDITEUR example.
+
+  In the above example each xmlns is referencing a RDF file as its URI.
+  Those files do not yet exist, but are proposed to the XML::Edifact-0.5
+  version.
+
+  22..  SSuubbjjeecctt -- PPrreeddiiccaattee -- OObbjjeecctt
+
+  The Resource Description Framework is based on the SPO paradigm.  The
+  SPO paradigm is drawn from the knowledge representation community and
+  well suited to express complex coherencies in a formal way. Three
+  typical sentences can be made with SPO.
+
+               [Subject] has [Predicate] [Object]
+       or      [Object] is [Predicate] of [Subject]
+       or      [Predicate] of [Subject] is [Object]
+
+  For further information refer to http://www.w3.org/TR/REC-rdf-syntax.
+
+  33..  RRDDFF ttoo ddeessccrriibbee XXMMLL::::EEDDIIFFAACCTT nnaammeessppaacceess
+
+  XML::Edifact has several default namespaces. Those are called edifact,
+  trsd, trcd, tred, uncl, anxs, anxc, anxe, unsl and unknown.  The
+  edifact namespace is intended to cover the overall message, while the
+  four character namespaces are extracted from their UN/EDIFACT batch
+  directory counterparts.
+
+  But XML document type definitions are badly suited to constrain
+  Edifact messages. While any valid UN/EDIFACT message will produce a
+  valid XML::Edifact message, it would be possible to hack a valid
+  XML::Edifact message, where the conforming UN/EDIFACT is not even well
+  formed!
+
+  Once a UN/EDIFACT message is parsed, translated to XML and stored in a
+  DOM, it may have elements in the unknown namespace, most likely to
+  come from unknown codes. As those elements from the unknown namespace
+  are not defined in the edifact document type definition, a validating
+  parser would trigger further checks. The parser now has to query a
+  resource description framework to find a resolution for the unknown
+  namespace. The Document now has migrated in namespace.  Now it's not
+  an edifact:message, but perhaps an editeur or etis:message or even a
+  kraehe:message, if we agree on private extensions.  Even if a
+  resolution cant be found the document would migrate in namespace
+  becoming an unknown:message as unknown:message's can have unknown
+  elements.
+
+  Further checks using the RDF are now necessary. The current document
+  has a generic type and is just a sequential collection of translated
+  UN/EDIFACT segments. The parser may check those segments using the RDF
+  files provided for each namespace, when designing new messages. Most
+  important are checks in the top level RDF the document type will
+  migrate from the generic edifact:message to edifact:invoic or
+  edifact:orders, the structure of segment groups will be patched into
+  the DOM on that time.
+
+  A last check using trading partner and document type as index on a RDF
+  will round up for trade partner constrains. Now the message can be
+  further processed.
+  44..  RRDDFF ttoo ddeessccrriibbee EEDDIITTEEUURR ccooddee lliisstt eexxtteennssiioonn
+
+  To step back to the SPO paradigm, using EDITEUR as example.
+
+       base of editeur:message is edifact:message
+       extension of editeur:message is editeur:item.characteristic.coded
+       replacement of tred:item.characteristic.coded is editeur:item.characteristic.coded
+       codelist of editeur:item.characteristic.coded is editeur:7081
+       translation of editeur:7081:010 is Author Name
+       similar of editeur:7081:010 is uncl:7081:76
+
+  So RDF would allow translations between UN/EDIFACT and EDITEUR as it
+  would allow a native use of EDITEUR messages. As similar SPO sentences
+  can also be made about the ETIS extension, I hope RDF is well suited
+  to describe UN/EDIFACT and its extension.
+
+  55..  LLeeaann XXMMLL//EEDDII aanndd RRDDFF
+
+  If its possible to agree on PPrreeddiiccaatteess and SScchheemmaa for XML::Edifact and
+  to code it, it should be possible to inherit from this schema to map a
+  lean XML/EDI to XML::Edifact and therefor to UN/EDIFACT.
+
+  Think about following vapor ware message:
+
+               <newbooks:orders>
+                  <party
+                       qualifier="supplier"
+                       id="0123456789"
+                       name="Missing Link"
+                       />
+                  <party
+                       qualifier="customer"
+                       id="9876543210"
+                       name="Michael Koehne"
+                       />
+                  <reference
+                       date="Wed Jun 23 18:47:27  1999"
+                       number="234"
+                       />
+                  <item
+                       number="1"
+                       isbn="0-12-345678-9"
+                       author="anon"
+                       title="the book never written"
+                       publisher="nowhere press"
+                       />
+               </newbooks:bookorder>
+
+  Compared to the lengthly messages XML::Edifact produces, this lean
+  format may be better suited for transfer on the Internet.  If newbooks
+  now provides a RDF for his lean XML/EDI mapping between
+  newbooks:orders and edifact:orders can be done.
+

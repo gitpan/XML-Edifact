@@ -5,7 +5,7 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.30 version: Anything is still in flux.
+# This is a 0.3* version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
 use XML::Edifact;
@@ -40,10 +40,10 @@ foreach $code (@codes) {
 	push @translated, $segmv[2];
 }
 
-printf "<!ELEMENT edicooked:message (\n\t  %s\n\t)* >\n",
+printf "<!ELEMENT edifact:message (\n\t  %s\n\t)* >\n",
 	join("\n\t| ", @translated);
-printf "<!ATTLIST edicooked:message\n", $codes[0];
-printf "\t%s CDATA #IMPLIED\n", "xmlns:edicooked";
+printf "<!ATTLIST edifact:message\n", $codes[0];
+printf "\t%s CDATA #IMPLIED\n", "xmlns:edifact";
 printf "\t%s CDATA #IMPLIED\n", "xmlns:trsd";
 printf "\t%s CDATA #IMPLIED\n", "xmlns:trcd";
 printf "\t%s CDATA #IMPLIED\n", "xmlns:tred";

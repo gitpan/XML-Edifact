@@ -5,10 +5,10 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.30 version: Anything is still in flux.
+# This is a 0.3* version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
-./bin/create_dtd.pl >spool/edicooked03.dtd
+./bin/create_dtd.pl >spool/edifact03.dtd
 
 for x in examples/*.edi
 do

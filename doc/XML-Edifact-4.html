@@ -11,17 +11,26 @@
 
 <H2><A NAME="ss4.1">4.1 Double namespace declarations</A></H2>
 
-<P>Namespace declaration was redefined in January 1999. XML::Edifact
-produces <CODE>both</CODE> the old and the new declarations. You may have
-to edit XML::Edifact search for <CODE>HERE_</CODE> and adopt the headers
-to your browsers preferences. XML::Edifact 0.4 will drop the old
-declartions!</P>
+<P>Namespace declaration was redefined in January 1999. XML::Edifact 0.30
+produced <CODE>both</CODE> the old and the new declarations. XML::Edifact 0.31
+droped the depreciated declartions! If you have an old browser, you may
+have to download XML::Edifact 0.30 and to edit the actual XML::Edifact.
+Search for <CODE>HERE_</CODE> and adopt the headers to your browsers preferences.</P>
 
 <H2><A NAME="ss4.2">4.2 Stating level in Syntax identifier.</A></H2>
 
 <P>This has to be parsed. The stating level in EDIFACT speak is
-called charset encoding normaly, and its of course important
+called charset encoding in XML speak, and its of course important
 if you thing about non US/UK products. See un_edifact/unsl.</P>
+
+<H2><A NAME="ss4.3">4.3 XML::Edifact is slow!</A></H2>
+
+<P>The example real life message teleord.edi needs about 7 minutes
+on a Sun3/60 running NetBSD. Even as newer computers are faster,
+XML::Edifact would <CODE>not</CODE> be able to handle the daily batches
+of large UN/EDIFACT routers like TeleOdering UK. The solution
+of this problem will become delayed till version 1.2, when parts
+of the module will be recoded in C.</P>
 
 <HR>
 <A HREF="XML-Edifact-3.html">Previous</A>

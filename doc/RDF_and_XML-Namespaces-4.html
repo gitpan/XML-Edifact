@@ -1,0 +1,35 @@
+<HTML>
+<HEAD>
+<TITLE>       RDF to describe XML::Edifact Namespaces: RDF to describe EDITEUR code list extension</TITLE>
+</HEAD>
+<BODY>
+<A HREF="RDF_and_XML-Namespaces-3.html">Previous</A>
+<A HREF="RDF_and_XML-Namespaces-5.html">Next</A>
+<A HREF="RDF_and_XML-Namespaces.html#toc4">Table of Contents</A>
+<HR>
+<H2><A NAME="s4">4. RDF to describe EDITEUR code list extension</A></H2>
+
+<P>To step back to the SPO paradigm, using EDITEUR as example.</P>
+<P>
+<BLOCKQUOTE><CODE>
+<PRE>
+base of editeur:message is edifact:message
+extension of editeur:message is editeur:item.characteristic.coded 
+replacement of tred:item.characteristic.coded is editeur:item.characteristic.coded 
+codelist of editeur:item.characteristic.coded is editeur:7081
+translation of editeur:7081:010 is Author Name
+similar of editeur:7081:010 is uncl:7081:76
+</PRE>
+</CODE></BLOCKQUOTE>
+</P>
+<P>So RDF would allow translations between UN/EDIFACT and EDITEUR
+as it would allow a native use of EDITEUR messages. As similar
+SPO sentences can also be made about the ETIS extension, I hope
+RDF is well suited to describe UN/EDIFACT and its extension.</P>
+
+<HR>
+<A HREF="RDF_and_XML-Namespaces-3.html">Previous</A>
+<A HREF="RDF_and_XML-Namespaces-5.html">Next</A>
+<A HREF="RDF_and_XML-Namespaces.html#toc4">Table of Contents</A>
+</BODY>
+</HTML>

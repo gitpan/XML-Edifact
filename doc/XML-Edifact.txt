@@ -1,10 +1,10 @@
   XML::Edifact - an approach towards XXMMLL//EEDDII as a prototype in perl
-  release 0.30 - normalisation and namespaces
+  release 0.32 - normalisation, namespaces, xml2edi
   Michael Koehne, ( kraehe@bakunin.north.de )
-  v0.30 prerelease
+  v0.32 release
 
   XML::Edifact is a set of perl scripts, hopefully becoming a module,
-  for translating EDIFACT into XML. This 0.30 version contains a docu-
+  for translating EDIFACT into XML. This 0.32 version contains a docu-
   ment type definition for the produced XML.  Its intended as a working
   horse, and I hope that some diesel or expat, will be able to translate
   my EdiCooked to XML/EDI and vice versa, once we have a standard.
@@ -20,7 +20,7 @@
 
   2.2.    Its a hard work to cook a second version.
 
-  2.3.    About normalisation and namespaces
+  2.3.    About normalisation, namespaces and xml2edi
 
   3.      Installation
 
@@ -29,6 +29,8 @@
   4.1.    Double namespace declarations
 
   4.2.    Stating level in Syntax identifier.
+
+  4.3.    XML::Edifact is slow!
 
   5.      Roadmap
 
@@ -57,17 +59,17 @@
   slaughtering forests and retyping stupid lines into a computer
   keyboard printed by other computers.
 
-  This is NNOOTT XML/EDI, its certainly not KISS. The eeddiiccooookkeedd..ddttdd
+  This is NNOOTT XML/EDI, its certainly not KISS. The eeddiiffaacctt0033..ddttdd
   reflects the original words of the EDIFACT standard as close as
   possible on a segment, composite and element level.
 
   This DTD simplifies EDI in so much as it doesnt distinct between e.g.
   INVOICE or PRICAT but only defines a generic message type called
-  edicooked:message. The benefit is of course that its possible to
-  convert any EDI message into edicooked. The drawback is that the dtd
-  is realy relaxed. Validation of EDIFACT message design can therefore
-  not be done by a validating XML parser. Message designers will still
-  need knowledge about EDIFACT message design and EDIFACT tools.
+  edifact:message. The benefit is of course that its possible to convert
+  any EDI message into edifact. The drawback is that the dtd is realy
+  relaxed. Validation of EDIFACT message design can therefore not be
+  done by a validating XML parser. Message designers will still need
+  knowledge about EDIFACT message design and EDIFACT tools.
 
   But once the message is designed its simpler to read it with XML.
 
@@ -116,34 +118,50 @@
   my script is now producing XML and not SGML, and the name should point
   where in cpan hirachy this package belongs.
 
-  22..33..  AAbboouutt nnoorrmmaalliissaattiioonn aanndd nnaammeessppaacceess
+  22..33..  AAbboouutt nnoorrmmaalliissaattiioonn,, nnaammeessppaacceess aanndd xxmmll22eeddii
 
   You may notice the major change in the DBM design. While the old DBM
   files had been modeled closely to the batch directory. This version
   has been partly normalised to improve coding. Its also denormalised
-  for some perlish reasons. To unload this DBM into a relational
-  database would be possible with varchars, but the meaning of the 2nd
+  for some perlish reasons. Unloading of this DBM into a relational
+  database would be possible with varchars, but the semantics of the 2nd
   element in segments and composite could only be expressed with some
-  wired object relational ones like Postgres.
+  wired object relational databases like Postgres.
 
   Also the DTD changed for namespace reason. The 0.2 need to add the
   word literal, where element names clashed segment names of the
   standard. And it droped the composite informations.  Now
   trsd:party.name means the segment, while tred:party.name points to the
-  element.  This allows to parse the XML message to produce a EDI
-  message without an backtracking parser.
+  element.
+
+  This allows to parse the XML message to produce a EDI message without
+  an backtracking parser. The event based parser used for xml2edi is
+  quite new, and certainly contain some bugs.  Please dig around your
+  real life messages, translate them with edi2xml, back with xml2edi and
+  compare the original with the double translation. I've tried a robust
+  solution, that doesnt croak with codes from the unknown namespace, I
+  hope.
+
+  Version 0.30 and 0.31 used edicooked:message as namespace, versions
+  0.32 and up will use edifact:message for the main namespace. The
+  technical reason is quite simple. The namespace prefix of a message
+  does not mean anything. Its only a shorthand for the provided URI in
+  the xmlns attribute. So any distinct XML message can claim to be in
+  the edifact: namespace, if the URI is distinct. So if other projects
+  starts becoming implemented, they can claim to be in the edifact:
+  namespace for the same right. Unfortunate other projects seam to be
+  pure vaporware in juli 99.
 
   A last note about change of 0.2 to 0.30. Treat this number as 0.3.0
   translated to perl canon. The 0.3 is not finished, coming versions
-  claiming to be any 0.3? will be step stones to what I think the 30%
-  XML::Edifact solution should contain. This 0.3.0 does nothing more
-  than the 0.2, but with namespaces and a new DBM design.
+  claiming to be any 0.3x will be step stones to what I think the 30%
+  XML::Edifact solution should contain.
 
   33..  IInnssttaallllaattiioonn
 
   I've included my modified documents, so others can be able to rebuild
   the DBM files. You may need a Unix like system because of newline
-  conventions. This current 0.30 version is not intended to become
+  conventions. This current 0.3x version is not intended to become
   "installed", just run everything from this path.
 
                $ ./bin/make_data.sh
@@ -171,35 +189,47 @@
 
   To run a complete test, type
 
-               $ perl bin/make_spool.pl
+               $ perl bin/make_spool.sh
 
   This will transform my EDI examples into XML and place them together
   with a DTD in the ./spool directory. You already have those files,
-  they are compared with them in the example directory and, if you see
-  any ffoooo..bbaarr cchhaannggeedd message, something went wrong.
+  they are compared with their counterparts in the ./example directory.
+  If you dont see any ffoooo..bbaarr cchhaannggeedd message, anything went fine.
 
-  Lets talk about the perl way of regression test in the 0.4 version.
+  Lets talk about the perl way of installation and regression test in
+  the 0.4 version.
 
   44..  KKnnoowwnn BBuuggss
 
   44..11..  DDoouubbllee nnaammeessppaaccee ddeeccllaarraattiioonnss
 
-  Namespace declaration was redefined in January 1999. XML::Edifact
-  produces bbootthh the old and the new declarations. You may have to edit
-  XML::Edifact search for HHEERREE__ and adopt the headers to your browsers
-  preferences. XML::Edifact 0.4 will drop the old declartions!
+  Namespace declaration was redefined in January 1999. XML::Edifact 0.30
+  produced bbootthh the old and the new declarations. XML::Edifact 0.31
+  droped the depreciated declartions! If you have an old browser, you
+  may have to download XML::Edifact 0.30 and to edit the actual
+  XML::Edifact.  Search for HHEERREE__ and adopt the headers to your browsers
+  preferences.
 
   44..22..  SSttaattiinngg lleevveell iinn SSyynnttaaxx iiddeennttiiffiieerr..
 
   This has to be parsed. The stating level in EDIFACT speak is called
-  charset encoding normaly, and its of course important if you thing
-  about non US/UK products. See un_edifact/unsl.
+  charset encoding in XML speak, and its of course important if you
+  thing about non US/UK products. See un_edifact/unsl.
+
+  44..33..  XXMMLL::::EEddiiffaacctt iiss ssllooww!!
+
+  The example real life message teleord.edi needs about 7 minutes on a
+  Sun3/60 running NetBSD. Even as newer computers are faster,
+  XML::Edifact would nnoott be able to handle the daily batches of large
+  UN/EDIFACT routers like TeleOdering UK. The solution of this problem
+  will become delayed till version 1.2, when parts of the module will be
+  recoded in C.
 
   55..  RRooaaddmmaapp
 
   I'm using even and odd numbering to distinct from stable and
   experimental version. Well this 0.2 was not as stable as an even
-  number suggests. And I hope this 0.30 is stable enough as as often a
+  number suggests. And I hope this 0.3x is stable enough as as often a
   third version, will be the first usefull one.
 
   Be warned: Anythink here is pure vaporware. I'm writing XML::Edifact
@@ -208,7 +238,12 @@
      00..33xx
         This version is under development: It should integrate better
         into the XML::Parser environment, and use some XML::Parser to
-        translate XML::Edifact-0.3x messages back into UN/EDIFACT.
+        translate XML::Edifact-0.3x messages back into UN/EDIFACT.  Only
+        even numbers 0.302468 can be cound on CPAN. Odd versions are
+        published by eMail only. As a warning different 0.31 exist.
+        Some eMail's I got, caused imediate code changes and a reply to
+        test them. If you receive a 0.3-913579 file by eMail: Do not
+        distribute it widely, those versions are internal only.
 
      00..44xx
         This version will focus on portability. While Perl ensures
@@ -258,22 +293,26 @@
 
      11..00
         I hope that any consens have been found on that road, so the
-        DTDs wont change in further releases. Those may focus on uussiinngg
-        XML::Edifact in real life applications. I can think about an SQL
-        interface, a Cobol interface, a message designer, a DOM/CORBA
-        wrapper, and much more.
+        DTDs wont change in further releases. Those versions may focus
+        on uussiinngg XML::Edifact in real life applications. I can think
+        about an SQL interface, a Cobol interface, a message designer, a
+        DOM/CORBA wrapper, and much more.
+
+        Once I think to have XML::Edifact complete, I have to think
+        about speed. Perl is a perfect language for prototyping, but
+        profiling and using a low level language like C for hot spots,
+        will be necessary to handle large batches.
 
   66..  LLeeggaall ssttuuffff
 
-  Programs provided with this copy called XML-Edifact-0.30.tgz can be
+  Programs provided with this copy called XML-Edifact-0.32.tgz can be
   used, distributed and modified under terms of the GNU General Public
   License.
 
   Files in the ./examples directory are from varios sources and free of
   claims as far as I know.
-
   Files inside the ./un_edifact_d96b directory are based on EDI batch
-  directory and are therefore copyrighted by the UN. See
+  directory and are therefore copyrighted by the United Nations.  See
   un_edifact_d96b/LICENAGR.TXT.
 
   Files that are produced during the bootstrap process and placed in
@@ -296,9 +335,14 @@
                $ perl -MCPAN -e shell
                cpan> m XML::Edifact
 
+  or directly at:
+
+  ftp.cpan.org:/pub/perl/CPAN/modules/by-module/XML/XML-Parser.*.tar.gz
+  ftp.cpan.org:/pub/perl/CPAN/modules/by-module/XML/XML-Edifact.*.tgz
+
   You may also get it from my homepage. Try something like:
 
-               http://human.is-bremen.de/~kraehe/pub/XML-Edifact-?.?.tgz
+               http://human.isb.net/~kraehe/pub/XML-Edifact-?.??.tgz
 
   Be warned its a about 300 kilobyte, as it includes some of the
   Premenos files also. The main script is only about 400 lines, so ffiirrsstt

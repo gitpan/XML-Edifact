@@ -5,7 +5,7 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.30 version: Anything is still in flux.
+# This is a 0.3* version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
 =head1 NAME
@@ -84,16 +84,13 @@ while (<INFILE>) {
 		$segment_mand_cond_flags   .= substr($_,16,1);
 	}
 	$XML::Edifact::ELEMT{$element_tag}="anxe:".$element_cooked_name;
-	$XML::Edifact::ELEMR{"anxe:".$element_cooked_name}=$element_tag;
 	printf ELEFILE "%s\tanxe:%s\n", $element_tag, $element_cooked_name;
     }
   
-    if (/^[ =_-]+$/) {
-	if ($composite_tag) {
+    if ((/^[ =_-]+$/) && ($composite_tag)) {
     	    chop $composite_list_of_codes unless $composite_list_of_codes eq "";
 
 	    $XML::Edifact::COMPT{$composite_tag}="$composite_list_of_codes\t$composite_mand_cond_flags\tanxc:$composite_cooked_name\t$composite_canon_name";
-	    $XML::Edifact::COMPR{"anxc:$composite_cooked_name"}=$composite_tag;
 	    print COMFILE "$composite_tag\t$composite_list_of_codes\t$composite_mand_cond_flags\tanxc:$composite_cooked_name\t$composite_canon_name\n";
 
 	    $composite_tag="";
@@ -101,8 +98,8 @@ while (<INFILE>) {
 	    $composite_cooked_name="";
 	    $composite_list_of_codes="";
 	    $composite_mand_cond_flags="";
-	}
-	if ($segment_tag) {
+    }
+    if ((/^[ =]+$/) && ($segment_tag)) {
     	    chop $segment_list_of_codes unless $segment_list_of_codes eq "";
 
 	    $XML::Edifact::SEGMT{$segment_tag}="$segment_list_of_codes\t$segment_mand_cond_flags\tanxs:$segment_cooked_name\t$segment_canon_name";
@@ -110,7 +107,6 @@ while (<INFILE>) {
 	    print SEGFILE "$segment_tag\t$segment_list_of_codes\t$segment_mand_cond_flags\tanxs:$segment_cooked_name\t$segment_canon_name\n";
 
     	    $segment_list_of_codes .= " ";
-	}
     }
 }
 

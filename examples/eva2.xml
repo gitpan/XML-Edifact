@@ -1,31 +1,19 @@
 <?xml version="1.0"?>
-
-<?xml:namespace ns='./edicooked03.rdf'		prefix='edicooked' ?>
-<?xml:namespace ns='./edicooked03_trsd.rdf'	prefix='trsd' ?>
-<?xml:namespace ns='./edicooked03_trcd.rdf'	prefix='trcd' ?>
-<?xml:namespace ns='./edicooked03_tred.rdf'	prefix='tred' ?>
-<?xml:namespace ns='./edicooked03_uncl.rdf'	prefix='uncl' ?>
-<?xml:namespace ns='./edicooked03_anxs.rdf'	prefix='anxs' ?>
-<?xml:namespace ns='./edicooked03_anxc.rdf'	prefix='anxc' ?>
-<?xml:namespace ns='./edicooked03_anxe.rdf'	prefix='anxe' ?>
-<?xml:namespace ns='./edicooked03_unsl.rdf'	prefix='unsl' ?>
-<?xml:namespace ns='./edicooked03_unknown.rdf'	prefix='unknown' ?>
-
-<!DOCTYPE edicooked:message SYSTEM "./edicooked03.dtd">
+<!DOCTYPE edifact:message SYSTEM "./edifact03.dtd">
 
 <!-- XML message produced by edi2xml.pl (c) Kraehe@Bakunin.North.De -->
 
-<edicooked:message
-	xmlns:edicooked='./edicooked03.rdf' 
-	xmlns:trsd='./edicooked03_trsd.rdf'
-	xmlns:trcd='./edicooked03_trcd.rdf'
-	xmlns:tred='./edicooked03_tred.rdf'
-	xmlns:uncl='./edicooked03_uncl.rdf'
-	xmlns:anxs='./edicooked03_anxe.rdf'
-	xmlns:anxc='./edicooked03_anxc.rdf'
-	xmlns:anxe='./edicooked03_anxe.rdf'
-	xmlns:unsl='./edicooked03_unsl.rdf'
-	xmlns:unknown='./edicooked03_unknown.rdf'
+<edifact:message
+	xmlns:edifact='./edifact03.rdf' 
+	xmlns:trsd='./edifact03_trsd.rdf'
+	xmlns:trcd='./edifact03_trcd.rdf'
+	xmlns:tred='./edifact03_tred.rdf'
+	xmlns:uncl='./edifact03_uncl.rdf'
+	xmlns:anxs='./edifact03_anxe.rdf'
+	xmlns:anxc='./edifact03_anxc.rdf'
+	xmlns:anxe='./edifact03_anxe.rdf'
+	xmlns:unsl='./edifact03_unsl.rdf'
+	xmlns:unknown='./edifact03_unknown.rdf'
 	>
 <!-- SEGMENT UNB+UNOA:2+D__01RFN011+RFN020+980904:1616+EVA/0000003 -->
 
@@ -1016,4 +1004,4 @@
       <anxe:interchange.control.reference>EVA/0000003</anxe:interchange.control.reference>
   </anxs:interchange.trailer>
 
-</edicooked:message>
+</edifact:message>

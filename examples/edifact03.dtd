@@ -1,12 +1,12 @@
 <!-- XML DTD for cooked EDI to reflect raw UN/EDIFACT -->
-<!-- edicooked03.dtd (c) '98 Kraehe@Bakunin.North.De -->
+<!-- edifact03.dtd (c) '98 Kraehe@Bakunin.North.De -->
 
 <!-- I should warn you that badly written validating XML
      parsers may have problems by running out of memory.
 
      Its quite large, I know, but it's not yet complete!
 
-     My first attempt on an automatic generated edicooked03.dtd
+     My first attempt on an automatic generated edifact03.dtd
      failed with massive "content model is ambiguous" errors.
      So I deceided to use a mixed content model to simplify work
      for XML parsers and also for me.
@@ -24,7 +24,7 @@
      on top of DOM, and you are granted a virtual Beck's beer.
   -->
 
-<!ELEMENT edicooked:message (
+<!ELEMENT edifact:message (
 	  trsd:address
 	| trsd:agreement.identification
 	| trsd:adjustment.details
@@ -170,8 +170,8 @@
 	| anxs:interchange.trailer
 	| trsd:value.list.identification
 	)* >
-<!ATTLIST edicooked:message
-	xmlns:edicooked CDATA #IMPLIED
+<!ATTLIST edifact:message
+	xmlns:edifact CDATA #IMPLIED
 	xmlns:trsd CDATA #IMPLIED
 	xmlns:trcd CDATA #IMPLIED
 	xmlns:tred CDATA #IMPLIED

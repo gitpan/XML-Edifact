@@ -5,7 +5,7 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.30 version: Anything is still in flux.
+# This is a 0.3* version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 #------------------------------------------------------------------------------#
 
@@ -33,9 +33,7 @@ roman number, but related to the codes and has to tell if a
 composite or element is mandantory or conditional.
 
 The name is stored twice, once translated ready to use, and once
-in the orginal form. A revers index is also build as:
-
-  COMPR{"$name_space:$cooked_name"}=$composite_tag;
+in the orginal form. 
 
 This hash is also available as a tab seperated text file, called
 composite.txt. A composite.xml can serve as a xml representation of
@@ -50,13 +48,12 @@ use Fcntl;
 use XML::Edifact;
 use strict;
 
-use vars qw(%COMPT %COMPR);
+use vars qw(%COMPT);
 use vars qw($composite_tag $list_of_codes $mand_cond_flags);
 use vars qw($name_space $cooked_name $canon_name);
 use vars qw($s $f3 $f5 $f7 $f9);
 
 tie(%COMPT, 'SDBM_File', 'data/composite.dat', O_RDWR|O_CREAT, 0644)	|| die "can not tie composite.tie:".$!;
-tie(%COMPR, 'SDBM_File', 'data/composite.rev', O_RDWR|O_CREAT, 0644)	|| die "can not tie composite.num:".$!;
 
 open (INFILE, "un_edifact_d96b/trcd.96b") || die "can not open trcd.96b for reading";
 open (TXTFILE, ">data/composite.txt") || die "can not open composite.txt for writing";
@@ -100,7 +97,6 @@ close(XMLFILE);
 print STDERR "\n";
 
 untie(%COMPT);
-untie(%COMPR);
 
 #------------------------------------------------------------------------------#
 sub flush_composite() {
@@ -108,7 +104,6 @@ sub flush_composite() {
     	chop $list_of_codes			 unless $list_of_codes eq "";
 
 	$COMPT{$composite_tag}="$list_of_codes\t$mand_cond_flags\t$name_space:$cooked_name\t$canon_name";
-	$COMPR{"$name_space:$cooked_name"}=$composite_tag;
 	print TXTFILE "$composite_tag\t$list_of_codes\t$mand_cond_flags\t$name_space:$cooked_name\t$canon_name\n";
 
 	$composite_tag="";

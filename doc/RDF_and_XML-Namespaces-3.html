@@ -1,0 +1,53 @@
+<HTML>
+<HEAD>
+<TITLE>       RDF to describe XML::Edifact Namespaces: RDF to describe XML::EDIFACT namespaces</TITLE>
+</HEAD>
+<BODY>
+<A HREF="RDF_and_XML-Namespaces-2.html">Previous</A>
+<A HREF="RDF_and_XML-Namespaces-4.html">Next</A>
+<A HREF="RDF_and_XML-Namespaces.html#toc3">Table of Contents</A>
+<HR>
+<H2><A NAME="s3">3. RDF to describe XML::EDIFACT namespaces</A></H2>
+
+<P>XML::Edifact has several default namespaces. Those are called
+edifact, trsd, trcd, tred, uncl, anxs, anxc, anxe, unsl and unknown.
+The edifact namespace is intended to cover the overall message,
+while the four character namespaces are extracted from their
+UN/EDIFACT batch directory counterparts.</P>
+<P>But XML document type definitions are badly suited to constrain
+Edifact messages. While any valid UN/EDIFACT message will
+produce a valid XML::Edifact message, it would be possible
+to hack a valid XML::Edifact message, where the conforming
+UN/EDIFACT is not even well formed!</P>
+<P>Once a UN/EDIFACT message is parsed, translated to XML and
+stored in a DOM, it may have elements in the unknown namespace,
+most likely to come from unknown codes. As those elements from
+the unknown namespace are not defined in the edifact document
+type definition, a validating parser would trigger further
+checks. The parser now has to query a resource description
+framework to find a resolution for the unknown namespace. The
+Document now has migrated in namespace.  Now it's not an
+edifact:message, but perhaps an editeur or etis:message or
+even a kraehe:message, if we agree on private extensions.
+Even if a resolution cant be found the document would migrate
+in namespace becoming an unknown:message as unknown:message's
+can have unknown elements.</P>
+<P>Further checks using the RDF are now necessary. The current
+document has a generic type and is just a sequential collection
+of translated UN/EDIFACT segments. The parser may check those
+segments using the RDF files provided for each namespace, when
+designing new messages. Most important are checks in the top
+level RDF the document type will migrate from the generic
+edifact:message to edifact:invoic or edifact:orders, the
+structure of segment groups will be patched into the DOM
+on that time.</P>
+<P>A last check using trading partner and document type as index
+on a RDF will round up for trade partner constrains. Now the
+message can be further processed.</P>
+
+<HR>
+<A HREF="RDF_and_XML-Namespaces-2.html">Previous</A>
+<A HREF="RDF_and_XML-Namespaces-4.html">Next</A>
+<A HREF="RDF_and_XML-Namespaces.html#toc3">Table of Contents</A>
+</BODY>
+</HTML>

@@ -44,27 +44,40 @@ renaming from Edi2SGML to XML::Edifact. This namechange reflects that
 my script is now producing XML and not SGML, and the name should point
 where in cpan hirachy this package belongs.</P>
 
-<H2><A NAME="ss2.3">2.3 About normalisation and namespaces</A></H2>
+<H2><A NAME="ss2.3">2.3 About normalisation, namespaces and xml2edi</A></H2>
 
 <P>You may notice the major change in the DBM design. While the old
 DBM files had been modeled closely to the batch directory. This
 version has been partly normalised to improve coding. Its also
-denormalised for some perlish reasons. To unload this DBM into
+denormalised for some perlish reasons. Unloading of this DBM into
 a relational database would be possible with varchars, but the
-meaning of the 2nd element in segments and composite could only
-be expressed with some wired object relational ones like Postgres.</P>
+semantics of the 2nd element in segments and composite could only
+be expressed with some wired object relational databases like Postgres.</P>
 <P>Also the DTD changed for namespace reason. The 0.2 need to add
 the word literal, where element names clashed segment names of
 the standard. And it droped the composite informations.
 Now trsd:party.name means the segment, while tred:party.name points
-to the element.  This allows to parse the XML message to produce
-a EDI message without an backtracking parser.</P>
+to the element.</P>
+<P>This allows to parse the XML message to produce a EDI message
+without an backtracking parser. The event based parser used
+for xml2edi is quite new, and certainly contain some bugs.
+Please dig around your real life messages, translate them with
+edi2xml, back with xml2edi and compare the original with the
+double translation. I've tried a robust solution, that doesnt
+croak with codes from the unknown namespace, I hope.</P>
+<P>Version 0.30 and 0.31 used edicooked:message as namespace, versions
+0.32 and up will use edifact:message for the main namespace. The
+technical reason is quite simple. The namespace prefix of a message
+does not mean anything. Its only a shorthand for the provided URI
+in the xmlns attribute. So any distinct XML message can claim to
+be in the edifact: namespace, if the URI is distinct. So if other
+projects starts becoming implemented, they can claim to be in the
+edifact: namespace for the same right. Unfortunate other projects
+seam to be pure vaporware in juli 99.</P>
 <P>A last note about change of 0.2 to 0.30. Treat this number as
 0.3.0 translated to perl canon. The 0.3 is not finished, coming
-versions claiming to be any 0.3? will be step stones to what I
-think the 30% XML::Edifact solution should contain. This 0.3.0
-does nothing more than the 0.2, but with namespaces and a new
-DBM design.</P>
+versions claiming to be any 0.3x will be step stones to what I
+think the 30% XML::Edifact solution should contain.</P>
 
 <HR>
 <A HREF="XML-Edifact-1.html">Previous</A>

@@ -5,7 +5,7 @@
 # XML::Edifact is free software. You can redistribute and/or
 # modify this copy under terms of GNU General Public License.
 #
-# This is a 0.30 version: Anything is still in flux.
+# This is a 0.3* version: Anything is still in flux.
 # DO NOT EXPECT FURTHER VERSION TO BE COMPATIBLE!
 
 =head1 NAME
@@ -27,7 +27,6 @@ use SDBM_File;
 use Fcntl;
 
 tie(%ELEMT, 'SDBM_File', 'data/element.dat', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.dat:".$!;
-tie(%ELEMR, 'SDBM_File', 'data/element.rev', O_RDWR|O_CREAT, 0640)	|| die "can not tie composite.rev:".$!;
 open (OUTFILE, ">data/element.txt") || die "can not open element.txt for writing";
 
 printf STDERR "reading tred.96b\n";
@@ -47,7 +46,6 @@ while (<INFILE>) {
 	printf OUTFILE "%s\t%s\n", $cod, "tred:".$des;
 
 	$ELEMT{$cod}="tred:".$des;
-	$ELEMR{"tred:".$des}=$cod;
     }
 }
 close(INFILE);

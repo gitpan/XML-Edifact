@@ -1,0 +1,63 @@
+7081	010	Author name
+7081	011	Author firstname
+7081	020	Coauthor name
+7081	021	Coauthor firstname
+7081	030	Company name
+7081	031	Department
+7081	032	Number
+7081	033	City
+7081	034	Date
+7081	040	Company name
+7081	041	Department
+7081	042	Number
+7081	043	City
+7081	044	Date
+7081	050	Title
+7081	060	Subtitle
+7081	065	Publisher
+7081	075	Frequency
+7081	080	Part
+7081	085	Starts with volume
+7081	090	Single volume
+7081	100	Edition
+7081	101	Release
+7081	110	City
+7081	111	City of production
+7081	120	Publisher
+7081	121	Manufacturer
+7081	130	Publisher address
+7081	131	Manufacturer address
+7081	140	City
+7081	150	Publisher
+7081	160	Publisher address
+7081	170	Publication year
+7081	171	Publication date
+7081	180	Pages
+7081	181	Fitments
+7081	182	Size
+7081	183	Additional material
+7081	190	Series
+7081	191	Serial number
+7081	192	Serial title
+7081	193	Statement of responsibility
+7081	194	Volume number
+7081	200	Series
+7081	201	Serial number
+7081	202	Serial title
+7081	203	Statement of responsibility
+7081	204	Volume number
+7081	210	Serie 3
+7081	211	Seriennummer 3
+7081	212	Serientitel 3
+7081	213	Statement of responsibility 3
+7081	214	Volume number
+7081	220	Binding
+7081	230	Dewey Decimal Classification
+7081	240	LoC Classification
+7081	250	Other Classification
+7081	260	Subject (biographical)
+7081	270	Subject (topical)
+7081	280	Subject (geographical)
+7081	290	Type of publication (e.g.thesis)
+7081	300	Comments
+7081	310	Description

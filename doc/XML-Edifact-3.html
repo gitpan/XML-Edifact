@@ -11,7 +11,7 @@
 
 <P>I've included my modified documents, so others can be able to rebuild
 the DBM files. You may need a Unix like system because of newline
-conventions. This current 0.30 version is not intended to become
+conventions. This current 0.3x version is not intended to become
 "installed", just run everything from this path.</P>
 <P>
 <BLOCKQUOTE><CODE>
@@ -46,15 +46,16 @@ character in UNA, so its nearly human readable.</P>
 <P>
 <BLOCKQUOTE><CODE>
 <PRE>
-        $ perl bin/make_spool.pl
+        $ perl bin/make_spool.sh
 </PRE>
 </CODE></BLOCKQUOTE>
 </P>
 <P>This will transform my EDI examples into XML and place them together
 with a DTD in the ./spool directory. You already have those files,
-they are compared with them in the example directory and, if you
-see any <CODE>foo.bar changed</CODE> message, something went wrong.</P>
-<P>Lets talk about the perl way of regression test in the 0.4 version.</P>
+they are compared with their counterparts in the ./example directory.
+If you dont see any <CODE>foo.bar changed</CODE> message, anything went fine.</P>
+<P>Lets talk about the perl way of installation and regression test in
+the 0.4 version.</P>
 <HR>
 <A HREF="XML-Edifact-2.html">Previous</A>
 <A HREF="XML-Edifact-4.html">Next</A>
