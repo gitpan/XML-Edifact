@@ -1,11 +1,12 @@
   XML::Edifact - an approach towards XXMMLL//EEDDII as a prototype in perl
-  release 0.34 - normalisation, namespaces, xml2edi
+  release 0.35 - normalisation, namespaces, xml2edi
   Michael Koehne, ( kraehe@bakunin.north.de )
-  v0.34 release
+  v0.35 release
 
   XML::Edifact is a set of perl scripts, hopefully becoming a module,
-  for translating EDIFACT into XML. This 0.34 version contains new SDBM
-  tables for code list extension.
+  for translating EDIFACT into XML. This 0.35 version is mainly a bug
+  fix, thanks to Detlef Lammermann from Dr.  Materna GmbH, who found
+  that ??' was missinterpreted.
   ______________________________________________________________________
 
   Table of Contents:
@@ -52,7 +53,7 @@
   commercial messages regardless of branch and origin. Of course those
   99% real world is neither simple nor complete.  Nevertheless its
   important for the top companies and their suppliers, you know those
-  who can pay a mainframe and a pack of gurus, and in use since 1995.
+  who can pay a mainframe and a pack of gurus, and in use for years.
 
   XXMMLL//EEDDII is will provide a simpler (KISS) format that can be translated
   from and into EDIFACT, to allow smaller companies to avoid
@@ -168,6 +169,10 @@
   Version 0.34 introduced coding of UN/EDIFACT code list extensions by
   XML-Edifact namespace migration.
 
+  Version 0.34 fixed a bug concerning the release indicatior. As a minor
+  improvement the edi2xml and xml2edi scripts now have ppoodd
+  documentation.
+
   A last note about change of 0.2 to 0.30. Treat this number as 0.3.0
   translated to perl canon. The 0.3 is not finished, coming versions
   claiming to be any 0.3x will be step stones to what I think the 30%
@@ -179,16 +184,16 @@
   the DBM files. You may need a Unix like system because of newline
   conventions.
 
-               $ perl Makefile.PL
+          $ perl Makefile.PL
 
-               I know I should check for those 99 possible places, but I prefer to ask :-)
+          I know I should check for those 99 possible places, but I prefer to ask :-)
 
-               URL for public documents [http://localhost/xml-edifact]
-               Directory on this system [/usr/local/apache/htdocs/xml-edifact]
+          URL for public documents [http://localhost/xml-edifact]
+          Directory on this system [/usr/local/apache/htdocs/xml-edifact]
 
-               Writing Makefile for XML::Edifact
+          Writing Makefile for XML::Edifact
 
-               $ make
+          $ make
 
   ppeerrll ppeerrll MMaakkeeffiillee..PPLL will first ask two questions. The reason is that
   XML::Edifact wants to install his document type definition on a web
@@ -309,6 +314,7 @@
         smarter DTD called EdiLean. EdiLean will focus on PRICAT,
         ORDERS, ORDRSP, ORDCHG and INVOICE. If a consens about a KISS
         XML/EDI already exist, EdiLean will try to implement it.
+
      00..88xx
         Stabilisation by disscussion and consens about the XML DTDs
         introduced with 0.7.

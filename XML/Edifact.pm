@@ -18,7 +18,7 @@ use Carp;
 
 use vars qw($VERSION $debug);
 
-$VERSION='0.34';
+$VERSION='0.35';
 $debug=1;					# debug=1 is fine
 
 # ------------------------------------------------------------------------------
@@ -171,8 +171,9 @@ sub read_edi_message {
 	$advice_segment_terminator  =substr($advice,8,1);
 }
 
-use vars qw($cooked_element_substitute $cooked_message_substitute);
-use vars qw($cooked_segment_substitute $component_split $element_split);
+use vars qw($cooked_element_substitute $cooked_release_substitute);
+use vars qw($cooked_message_substitute $cooked_segment_substitute);
+use vars qw($component_split $element_split);
 
 sub make_xml_message {
 	@xml_msg = ();
@@ -182,6 +183,7 @@ sub make_xml_message {
 
 	my($cooked_message,@Segments,$segment,$s);
 
+	$cooked_release_substitute = "\\".$advice_release_indicator."\\".$advice_release_indicator;
 	$cooked_message_substitute = "\\".$advice_release_indicator."\\".$advice_segment_terminator;
 	$cooked_segment_substitute = "\\".$advice_release_indicator."\\".$advice_element_seperator;
 	$element_split             = "\\".$advice_element_seperator;
@@ -189,6 +191,7 @@ sub make_xml_message {
 	$component_split           = "\\".$advice_component_seperator;
 
 	$cooked_message = $edi_message;
+	$cooked_message =~ s/$cooked_release_substitute/\002/g;
 	$cooked_message =~ s/$cooked_message_substitute/\001/g;
 
 	@Segments = split /$advice_segment_terminator/, $cooked_message;
@@ -314,6 +317,7 @@ sub resolve_element {
 sub encode_xml {
 	my ($val) = @_;
 
+	$val =~ s/\002/$advice_release_indicator/g;
 	$val =~ s/&/\&amp;/g;
 	$val =~ s/</\&lt;/g;
 
@@ -384,11 +388,11 @@ sub read_xml_message {
 	read(F,$xml_message,$size,0)		|| die "cant read message from ".$filename;
 	close(F);
 
-	$advice_component_seperator = ":";
-	$advice_element_seperator   = "+";
-	$advice_decimal_notation    = ".";
-	$advice_release_indicator   = "?";
-	$advice_segment_terminator  = "'";
+	$advice_component_seperator = ":" unless $advice_component_seperator;
+	$advice_element_seperator   = "+" unless $advice_element_seperator;
+	$advice_decimal_notation    = "." unless $advice_decimal_notation;
+	$advice_release_indicator   = "?" unless $advice_release_indicator;
+	$advice_segment_terminator  = "'" unless $advice_segment_terminator;
 }
 
 use vars qw(@edi_segment @edi_group $edi_valid $edi_level $edi_si $edi_gi);
